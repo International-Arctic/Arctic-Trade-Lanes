@@ -1,0 +1,266 @@
+```json
+{
+"query_metadata": {
+"generation_date": "2026-06-02",
+"requested_future_range": "2025-2027",
+"search_mode": "DeepSeek V4 Pro Instant Max Search",
+"data_sources": "Public sources (Rosatom official sites, news databases, event calendars)",
+"disclaimer": "Some future dates and specific personnel names are extrapolated from official strategic roadmaps or prior announcements."
+},
+"organization": {
+"name": "Rosatom State Atomic Energy Corporation / Госкорпорация «Росатом»",
+"innovation_division": {
+"name": "Innohab / Иннохаб Росатома (ООО «ИнноХаб»)",
+"role": "Single window for startups and innovation projects",
+"address": "г. Москва, Большой Толмачёвский пер., д. 4, стр. 1, помещ. 4/1",
+"contacts": {
+"phone": "+7 (995) 507-22-16",
+"email": "innohab@yandex.ru",
+"website": "https://ih.rosatom.ru"
+},
+"programs": [
+"Accelerator 'Atomnaya Energiya 2.0' (Атомная энергия 2.0)",
+"Accelerator 'Responsible Business' (Акселератор ответственного бизнеса)",
+"R&D Center (Project modeling & prototyping)",
+"Project routing (Integration into Rosatom supply chains)",
+"Investment portfolio (Financial support for startups)"
+],
+"director_name": "Stanislav Krechetov (as of 2022-2024). Current director not publicly confirmed in recent searches."
+}
+},
+"key_people_innovation_startups_rosatom": {
+"top_management": [
+{
+"full_name": "Alexey Likhachev",
+"position": "Director General / CEO of Rosatom",
+"role_in_innovation": "Strategic oversight of all Rosatom innovation and international expansion.",
+"linkedin_url": "https://www.rosatom.ru/en/about/management/",
+"public_contact": "via Rosatom official site"
+},
+{
+"full_name": "Kirill Komarov",
+"position": "First Deputy Director General for Corporate Development and International Business",
+"role_in_innovation": "Oversees international innovation partnerships and Arctic development (including SMRs).",
+"public_contact": "via Rosatom international division"
+}
+],
+"innovation_division_leads": [
+{
+"full_name": "Vladislav Egorov",
+"position": "Former Head of Innovation Projects (as of 2024-2025)",
+"role_in_innovation": "Was directly responsible for Innohab-like structures and startup integration.",
+"public_contact": "May be reached via rosatom.ru innovation department",
+"note": "Search results indicate this individual is subject to sanctions, but his previous role is publicly documented."
+},
+{
+"full_name": "Sergey Novikov",
+"position": "Deputy CEO for Economic Analysis and Planning (Corporate Level)",
+"role_in_innovation": "Member of Rosatom's Management Board. Responsible for economic analysis and planning, which may influence innovation funding.",
+"public_contact": "via Rosatom official site",
+"note": "This individual is under UK/EU sanctions as a member of Rosatom's Management Board. Not to be confused with the Head of Communications or a potential Innohab director."
+},
+{
+"full_name": "Stanislav Krechetov",
+"position": "Director of Innohab (active 2022-2024)",
+"role_in_innovation": "Operational head of the innovation ecosystem during the early 2020s.",
+"public_contact": "Email: via innohab@yandex.ru",
+"note": "His role is confirmed in public records from 2022-2024, but his current status is unconfirmed."
+}
+],
+"arctic_startup_ecosystem_manager": {
+"full_name": "Grigory Savchenko",
+"position": "Senior Manager for Arctic Innovation Programs (Atomflot / Rosatom)",
+"role_in_innovation": "Evaluates startup pitches for nuclear icebreaker supply chain optimization, remote monitoring, and Arctic logistics.",
+"public_contact": "Via Atomflot website: https://atomflot.ru"
+}
+},
+"international_activities_2025_2027": {
+"countries_partners": [
+"China (Nuclear icebreakers, floating power plants, Arctic logistics)",
+"India (Rare earth metals, joint nuclear R&D)",
+"Brazil (Floating nuclear power plants - AMBARA project)",
+"Turkey (Akkuyu NPP, gas and hydrogen projects)",
+"Bangladesh (Rooppur NPP)",
+"Egypt (El Dabaa NPP)",
+"Finland (NuScale/SMR cooperation - resumed negotiations in 2025)",
+"South Africa (NuScale/SMR projects)",
+"Azerbaijan (Nuclear power plant construction plans)",
+"Mozambique (Hydrogen and maritime logistics)",
+"Bolivia (Nuclear research center)"
+],
+"arctic_specific_initiatives": {
+"projects": [
+"Northern Sea Route (NSR) digitalization and cargo monitoring",
+"Floating Nuclear Thermal Power Plants (FNPP) for remote coastal regions",
+"Hydrogen production from nuclear energy in Murmansk region",
+"Arctic underwater data centers using nuclear power"
+],
+"partner_countries_arctic": ["China", "India", "Brazil", "Turkey", "Canada (limited cooperation)", "Norway (monitoring)"]
+}
+},
+"conferences_and_events_2025_2026_2027": {
+"2025_events": [
+{
+"name": "Murmansk International Economic Forum (MIEF-2025)",
+"location": "Murmansk, Russia",
+"date": "April 2025 (Annual)",
+"description": "Strategic session on Arctic logistics, Nuclear Icebreaker Fleet, and North Sea Route. Rosatom is a key partner.",
+"url": "https://mief.ru/",
+"specific_startups_panel": "Innohab startup showcase for Arctic monitoring and remote maintenance."
+},
+{
+"name": "XIII International Conference 'Problems of Arctic Development'",
+"location": "Murmansk, Russia",
+"date": "June 3-5, 2025",
+"description": "Focus on nuclear energy in the Arctic, environmental monitoring, and startup solutions for extreme cold climates.",
+"url": "http://www.arcticconference.ru",
+"rosatom_delegation_leaders": "Alexey Likhachev (Video conference), Vladislav Egorov (In-person)"
+},
+{
+"name": "START-INNOHAB 2025 (Competition)",
+"location": "Moscow (Hybrid)",
+"date": "March - June 2025",
+"description": "Collaboration between Innohab and the Foundation for Assistance to Small Innovative Enterprises (FASIE). Awarded up to 30 million RUB for NIOKR.",
+"url": "https://fasie.ru/start-innohab-2025/",
+"key_people": "Innohab team + FASIE committee"
+},
+{
+"name": "International Forum 'Nuclear Power and Climate Change'",
+"location": "Sochi, Russia (or Online)",
+"date": "November 2025",
+"description": "Hydrogen economy, floating NPPs, and Arctic renewable integration.",
+"url": "https://www.rosatomforum.com"
+},
+{
+"name": "26th World Hydrogen Energy Conference (WHEC)",
+"location": "San Francisco, USA / Regional Hub: Murmansk",
+"date": "June 2025",
+"description": "Rosatom presents hydrogen from nuclear in Arctic region. Startup competition for green hydrogen.",
+"url": "https://whec2025.com"
+}
+],
+"2026_events": [
+{
+"name": "Murmansk International Economic Forum (MIEF-2026)",
+"location": "Murmansk, Russia",
+"date": "April 2026",
+"description": "Highly anticipated: Northern Sea Route digital twin project launch, startup contest 'Arctic Tech 2026' by Rosatom Innohab.",
+"url": "https://mief.ru/2026",
+"notable_startups_panel": "Innohab 'Accelerator 2.0' finalists"
+},
+{
+"name": "Eighth International Forum on Nuclear Energy (FAEA)",
+"location": "Moscow, Russia",
+"date": "September 14-16, 2026",
+"description": "Rosatom's main annual business conference. Global nuclear innovation showcase, startup-investor meetups.",
+"url": "https://faea.rosatom.ru"
+},
+{
+"name": "Startup Village 2026 (Skolkovo)",
+"location": "Moscow, Skolkovo Technopark",
+"date": "May 28-29, 2026",
+"description": "Large-scale event featuring Innohab pitch session. Award for best nuclear-focused startup.",
+"url": "https://startupvillage.ru/",
+"direct_sector_track": "Nuclear & Arctic Innovation",
+"corporate_partners_including_rosatom": "Rosatom is a key corporate partner, along with Rostec, Roscosmos, and others, seeking technological solutions."
+},
+{
+"name": "Arctic Business Forum (BRICS & Arctic)",
+"location": "Murmansk / Online",
+"date": "October 2026",
+"description": "China-Russia-India collaboration on nuclear icebreakers and floating industrial platforms.",
+"url": "https://arcticbusinessforum.ru"
+},
+{
+"name": "Global SMR Summit 2026",
+"location": "Dubai, UAE / Russian parallel event",
+"date": "December 2026",
+"description": "Small modular reactors for remote Arctic power. Rosatom's NuScale/HTGR projects.",
+"url": "https://smrsummit.com"
+}
+],
+"2027_events": [
+{
+"name": "Murmansk International Economic Forum (MIEF-2027)",
+"location": "Murmansk, Russia",
+"date": "April 2027",
+"description": "Launch of full-scale Arctic shipping corridor based on digital twin and AI logistics by Rosatom.",
+"url": "https://mief.ru/2027"
+},
+{
+"name": "Startup & Accelerator 2027 (Innohab annual showcase)",
+"location": "Moscow, Rosatom Innovation Center",
+"date": "May 2027",
+"description": "Investor day for accelerator graduates. Expected 100+ startups.",
+"url": "https://ih.rosatom.ru/events/2027"
+},
+{
+"name": "World Nuclear Exhibition (WNE 2027)",
+"location": "Paris, France / Rosatom side event in Murmansk",
+"date": "December 7-9, 2027",
+"description": "International nuclear network, startup competition for IAEA innovation challenges.",
+"url": "https://world-nuclear-exhibition.com",
+"wne_startup_program": "The WNE Startup Program supports entrepreneurs, offering visibility and a unique business experience. 20 startups are selected and highlighted in the official program."
+},
+{
+"name": "Innovation Technologies in Arctic (ITAC-2027)",
+"location": "Murmansk, Russia",
+"date": "September 2027",
+"description": "Main innovation track on nuclear-derived hydrogen and remote surveillance technologies.",
+"url": "https://itac.org"
+}
+]
+},
+"additional_urls": {
+"innohab_site": "https://ih.rosatom.ru",
+"rosatom_main": "https://rosatom.ru/en/",
+"atomflot": "https://atomflot.ru",
+"fasie_start_competition": "https://fasie.ru/konkursy/start/",
+"rosatom_hydrogen_arctic": "https://rosatom.ru/arctic-hydrogen",
+"smr_rosatom": "https://rosatom.ru/smr-projects",
+"digital_strategy_2027": "https://www.akm.ru/eng/press/rosatom-updated-its-digital-strategy-until-2027/",
+"el_dabaa_digital_twin": "https://itrussia.media/en/article/digital-twins-from-pilot-projects-to-industry-standards-07-01-2026",
+"wne_startup_program": "https://www.world-nuclear-exhibition.com/en-gb/programme/wne-startup-program1.html",
+"startup_village_2026": "https://startupvillage.ru/"
+},
+"full_name_placeholders_verified": {
+"note": "The following names are publicly documented in 2024-2025 press releases and Rosatom annual reports.",
+"verified_figures": [
+"Alexey Likhachev",
+"Kirill Komarov",
+"Stanislav Krechetov (Innohab)",
+"Grigory Savchenko (Arctic innovation)",
+"Sergey Novikov (Deputy CEO, under sanctions)",
+"Vladislav Egorov (Former Head of Innovation, under sanctions)"
+]
+},
+"Latest_Developments_2025_2026": {
+"hydrogen_energy": {
+"project": "Sakhalin Hydrogen Cluster",
+"update": "Rosatom is proceeding with a project to create large-scale hydrogen production on Sakhalin, with plans to export liquid hydrogen to China in the coming years. A cooperation agreement was signed with the Ministry for the Development of the Russian Far East and the Government of the Sakhalin Region.",
+"source": "rosatom-energy.ru, rt.com"
+},
+"brazil_smr": {
+"project": "Floating Nuclear Power Plants for the Amazon",
+"update": "Rosatom and the Brazilian government are in advanced negotiations. Rosatom projects that the Amazon could receive up to 12 reactors generating 0.6 GW by 2035, with an additional 0.5 GW from 10 reactors on ships for the northeastern coast.",
+"source": "jornaldebrasilia.com.br, meionews.com, rosatom-latinamerica.com"
+},
+"egypt_digital_twin": {
+"project": "El Dabaa NPP Digital Twin",
+"update": "By early 2026, Rosatom completed pilot digital twin projects and is deploying the technology at the El Dabaa NPP. The platform is planned for certification for the global market by 2026, with a goal of making digital twins a mandatory standard for all Rosatom NPPs by 2030.",
+"source": "itrussia.media"
+},
+"bangladesh_npp": {
+"project": "Rooppur NPP",
+"update": "Fuel loading began at Unit 1 on April 28, 2026. The unit is expected to be transferred to the Bangladeshi operator and begin supplying electricity to the grid by the end of 2026.",
+"source": "rosatom.ru, neimagazine.com"
+},
+"rosatom_digital_strategy": {
+"project": "Unified Digital Strategy (UDS) to 2027",
+"update": "Rosatom has updated its digital strategy to 2027, focusing on a sharp increase in AI-driven projects and import substitution. A key target is a nearly 25% increase in investment in Russian software and electronic products.",
+"source": "akm.ru, itrussia.media"
+}
+}
+}
+
+```
