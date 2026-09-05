@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: Arctic Trade Lanes
+message: If you use this project, please cite it.
+type: software
+authors:
+  - family-names: Dolgikh
+    given-names: Aleksei
+    alias: alexdolbun
+repository-code: https://github.com/International-Arctic/Arctic-Trade-Lanes
+url: https://arctictradelanes.com
+license: Apache-2.0
+keywords:
+  - arctic
+  - nsr
+  - gis
+  - osint
+  - polar-silk-road
+  - x402
