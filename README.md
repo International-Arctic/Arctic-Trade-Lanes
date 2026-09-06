@@ -53,6 +53,14 @@ Control plane for production data remains **Zo** (`ArcticTradeLanes-Dataset` + `
 
 Russia (AZRF / NSR) · Canada North · Alaska (USA) · Korea / Japan / China (Polar Silk Road) · Nordics / Greenland / Iceland.
 
+
+
+## GIS quality + community
+
+Standing quality bar: [`docs/GIS-QUALITY.md`](docs/GIS-QUALITY.md) · client filter spec: [`docs/CLIENT-GEO-FILTER.md`](docs/CLIENT-GEO-FILTER.md)
+
+**OSS engineers with Arctic / polar GIS interest:** open Issues labeled `help wanted` / `good first issue`, or start from [CONTRIBUTING.md](CONTRIBUTING.md). Companion dataset: [ArcticTradeLanes-Dataset](https://github.com/International-Arctic/ArcticTradeLanes-Dataset). Collaborate page: https://arctictradelanes.com/collaborate
+
 ## License
 
 Apache-2.0 for scaffolding. Dataset packages may use CC-BY-4.0 / ODbL — see `dataset/README.md`.
