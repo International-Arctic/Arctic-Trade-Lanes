@@ -1,0 +1,12 @@
+{
+  "name": "@international-arctic/geo-filter",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Client-side GeoJSON QA + schematic fleet unstack for ArcticTradeLanes / cheap map serving",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "src/filterGeoJson.ts",
+  "exports": {
+    ".": "./src/filterGeoJson.ts"
+  }
+}
