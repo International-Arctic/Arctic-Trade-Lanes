@@ -50,3 +50,8 @@ Manifest `unresolved_lane_waypoints` cleared (8 → 0) via paren-safe waypoint s
 Wrong `start_port_id` on ARC-LANE-026 pointed at Homer AK and drew an Alaska→Norway jump. Fixed port ids (Kristiansand `ARC-PORT-172`, Ningbo `ARC-PORT-173`), Kirkenes Port lat typo, and a 5 000 km start/end↔waypoint haversine guard (`lane_teleport_drops` on manifest). Spec: [LANE-TELEPORT.md](./LANE-TELEPORT.md). CI helper: `node scripts/check-lane-teleport.mjs`.
 
 UM: `filterPeoplePins` / `filterEventPins` already accept `lon`/`longitude`/`latitude` aliases + Arctic-safe swap detect (no SPA redeploy this cycle).
+
+
+## 2026-09-07 — Airport program_id dedupe + properties.id
+
+Dropped duplicate `ARC-AIR-011` Inuvik AIF modernization row (`arctic_airports` 12→11). Builder skips duplicate `program_id` on EXTRA_POINT_LAYERS (`extra_id_drops` in manifest) and mirrors Feature ids into `properties.id`. Live atlas 1345→1344. Spec: [AIRPORT-ID-DEDUPE.md](./AIRPORT-ID-DEDUPE.md). CI helper: `node scripts/check-extra-ids.mjs`.
