@@ -41,3 +41,7 @@ Vertex densify examples:
 - Optional CI: fail if `unresolved_lane_waypoints` is non-empty after `build_atlas.py`.
 
 Stay politically neutral in labels; schematic only — no fake AIS precision.
+
+## Follow-up (same day) — start_port teleport
+
+Even with resolved waypoints, a mismatched `start_port_id` can still prepend a continent jump. See [LANE-TELEPORT.md](./LANE-TELEPORT.md) (Homer AK tip on Kristiansand–Kirkenes; fixed live).

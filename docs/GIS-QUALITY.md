@@ -44,3 +44,9 @@ Atlas point layers now carry ISO 3166-1 alpha-2 `iso2` (UN/LOCODE-first, country
 ## 2026-09-07 — Lane waypoint gazetteer (unresolved → 0)
 
 Manifest `unresolved_lane_waypoints` cleared (8 → 0) via paren-safe waypoint split + schematic sea/port anchors (Bergen, Ningbo, North Sea, Laptev/East Siberian/Chukchi, Hamburg/Felixstowe). Live apex+www densified Kristiansand–Kirkenes (7 verts) and NSR China–Europe (12 verts). Spec: [LANES-WAYPOINTS.md](./LANES-WAYPOINTS.md). CI helper: `node scripts/check-lane-waypoints.mjs`.
+
+## 2026-09-07 — Lane start/end teleport guard
+
+Wrong `start_port_id` on ARC-LANE-026 pointed at Homer AK and drew an Alaska→Norway jump. Fixed port ids (Kristiansand `ARC-PORT-172`, Ningbo `ARC-PORT-173`), Kirkenes Port lat typo, and a 5 000 km start/end↔waypoint haversine guard (`lane_teleport_drops` on manifest). Spec: [LANE-TELEPORT.md](./LANE-TELEPORT.md). CI helper: `node scripts/check-lane-teleport.mjs`.
+
+UM: `filterPeoplePins` / `filterEventPins` already accept `lon`/`longitude`/`latitude` aliases + Arctic-safe swap detect (no SPA redeploy this cycle).
