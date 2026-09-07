@@ -35,3 +35,8 @@ Live `atlas.4326` / `atlas.wgs84` now declare `projection.epsg=4326` (coords wer
 ## 2026-09-07 — Ship fleet densify + country props
 
 Icebreaker schematic pins no longer collapse onto one NSR centroid (max `position_stack_size` 53 → ≤17). Atlas ship features now carry `country` + `year_built` from `ArcticTradeLanes-Dataset`. Spec: [SHIP-FLEET-DENSIFY.md](./SHIP-FLEET-DENSIFY.md). CI helper: `node scripts/check-ship-fleet.mjs`.
+
+## 2026-09-07 — Port/layer `iso2` stamps
+
+Atlas point layers now carry ISO 3166-1 alpha-2 `iso2` (UN/LOCODE-first, country-name fallback; reject `NULL`/short fake codes). Spec: [PORT-ISO2.md](./PORT-ISO2.md). CI helper: `node scripts/check-port-iso2.mjs`.
+
