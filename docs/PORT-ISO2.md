@@ -27,3 +27,7 @@ Expect: every port has non-empty `iso2`; no `NU` from `NULL` unlocodes; counts r
 
 See Issue #3 — still open for UN/LOCODE completeness on planned/greenfield ports and registry cross-checks (IMO/MMSI on vessels).
 Pan-Nordic / EU multi-country program rows may intentionally omit `iso2` (no single code). Core layers (ports, cities, tankers, icebreakers) must always stamp.
+
+## Related: program / industry multi-country iso2 (2026-09-07)
+
+See [PROGRAM-ISO2.md](./PROGRAM-ISO2.md). HQ-city + embedded CC tokens close Nordic/EU/UArctic gaps; Helgeland Aqua CSV country/city swap repaired in Dataset.

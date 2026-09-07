@@ -22,8 +22,10 @@ function lonLat(p: PeoplePinLike): [number, number] | null {
     const [lng, lat] = p.coords;
     if (Number.isFinite(lng) && Number.isFinite(lat)) return [lng, lat];
   }
-  const lng = (p.lng ?? p.lon) as number | undefined;
-  if (Number.isFinite(lng as number) && Number.isFinite(p.lat as number)) return [lng as number, p.lat as number];
+  // Accept common GIS aliases without forcing callers to normalize first.
+  const lng = (p.lng ?? p.lon ?? (p as any).longitude) as number | undefined;
+  const lat = (p.lat ?? (p as any).latitude) as number | undefined;
+  if (Number.isFinite(lng as number) && Number.isFinite(lat as number)) return [lng as number, lat as number];
   return null;
 }
 
