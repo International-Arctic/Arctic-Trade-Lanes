@@ -18,3 +18,7 @@ Attribution: © OpenFreeMap © OpenStreetMap contributors.
 ## Polar atlas CRS bug (2026-09-07)
 
 `loadAtlas` previously `readFeatures` in EPSG:4326 then added clones **without** `projectFeatures` into the active polar CRS. Lon/lat were treated as meters near the EPSG:3996 origin → pin pile at the pole + full-width lane chords. Fixed: keep `MASTER_FEATURES` geographic; project on load/switch; split lane/rail LineStrings on antimeridian lon jumps >170° and drop near-pole vertices.
+
+## OL4 + proj4 boot order (2026-09-07)
+
+`public/ol.js` loads before the React bundle sets `window.proj4`, so `ol.proj.fromLonLat` / `geometry.transform` for `EPSG:3996` were no-ops (lon/lat treated as map coords → pole pile + horizontal latitude “streaks”). Fix: `toCrs()` via proj4, `ensureOlProjections()` registering meter CRS with OL, and `projectFeatures` mapping coordinates explicitly (plus Arctic-only land filter).
