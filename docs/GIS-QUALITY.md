@@ -21,3 +21,8 @@ People pins · event locations · people-layer toggles · dedupe / geo QA.
 ## How to help
 
 See open Issues labeled `help wanted` / `good first issue`. Additive PRs only — see [CONTRIBUTING.md](../CONTRIBUTING.md).
+
+
+## Atlas download aliases (2026-09-07)
+
+Broken schema.org `DataDownload` URLs (`/data/atlas.*.geojson`, missing `atlas.4326.geojson`) returned SPA HTML and bounced agent/crawler clients. Fixed with static aliases — see [ATLAS-DOWNLOAD-ALIASES.md](./ATLAS-DOWNLOAD-ALIASES.md).

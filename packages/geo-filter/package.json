@@ -1,12 +1,13 @@
 {
   "name": "@international-arctic/geo-filter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
-  "description": "Client-side GeoJSON QA + schematic fleet unstack for ArcticTradeLanes / cheap map serving",
+  "description": "Client-side GeoJSON + people/event pin QA for ArcticTradeLanes / UnicornsMap cheap map serving",
   "license": "Apache-2.0",
   "type": "module",
   "main": "src/filterGeoJson.ts",
   "exports": {
-    ".": "./src/filterGeoJson.ts"
+    ".": "./src/filterGeoJson.ts",
+    "./people": "./src/filterPeoplePins.ts"
   }
 }

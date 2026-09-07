@@ -37,3 +37,12 @@ export function filterGeoJson(fc: GeoJSON.FeatureCollection, opts?: { arcticHint
 ```
 
 PRs welcome that ship a tested `filterGeoJson` under `dataset/` or a tiny `packages/geo-filter` later.
+
+
+## People / event pins (`filterPeoplePins`)
+
+Import `@international-arctic/geo-filter/people`.
+
+Reasons: `missing_coords`, `nan_coords`, `null_island`, `swapped_lat_lng` (|lat|>90 while |lng|≤90), `out_of_bounds`, `duplicate_slug`, `duplicate_point`.
+
+Also exported: `filterEventPins` (same rules) for venue pins. Do not use high-latitude heuristics — Nordic / Arctic HQ pins are valid.

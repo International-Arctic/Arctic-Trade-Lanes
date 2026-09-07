@@ -64,3 +64,7 @@ Standing quality bar: [`docs/GIS-QUALITY.md`](docs/GIS-QUALITY.md) · client fil
 ## License
 
 Apache-2.0 for scaffolding. Dataset packages may use CC-BY-4.0 / ODbL — see `dataset/README.md`.
+
+
+## Docs
+- [Atlas download aliases](docs/ATLAS-DOWNLOAD-ALIASES.md)
