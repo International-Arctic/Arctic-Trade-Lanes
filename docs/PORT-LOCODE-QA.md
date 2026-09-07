@@ -34,3 +34,15 @@ Neutral GIS attribute QA for ArcticTradeLanes ports. Codes come from the UNECE U
 `build_atlas._clean_unlocode` rejects `NULL` / 3-letter stubs / non-5-char codes and maps `USNOM`→`USOME`.
 
 Live atlas after rebuild: **171 ports**, **1340** features, generated `2026-09-07T13:02:02Z`.
+
+## 2026-09-07 cycle (~16:12 MSK)
+
+### LOCODE typo
+| id | was | now | note |
+|---|---|---|---|
+| `ARC-PORT-021` | `CAIqaluit` | `CAIQL` | UNECE CA+IQL Iqaluit (was city-name paste; builder rejected as non-5-char) |
+
+### Builder guard
+`build_atlas._clean_unlocode` also maps `CAIQALUIT` / `CAIQAL` / `CAIQA` → `CAIQL`.
+
+Live atlas: **171 ports**, **1337** features, generated `2026-09-07T13:22:52Z`.

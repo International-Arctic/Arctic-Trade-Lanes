@@ -63,3 +63,5 @@ Dropped stacked Davie Defense Texas shipyard (`ARC-SHIP-066`) and duplicate CanN
 
 ## 2026-09-07 ~15:30 MSK
 - Dropped Barrow alias + Kjøllefjord NULL duplicate; filled 12 UNECE LOCODEs; separated Shanghai Waigaoqiao/Jiangnan coords; builder `_clean_unlocode` guard. See `PORT-LOCODE-QA.md`.
+
+- 2026-09-07 ~16:12 MSK: shipyard pin QA — see docs/SHIPYARD-PIN-QA.md + docs/PORT-LOCODE-QA.md (CAIQL).

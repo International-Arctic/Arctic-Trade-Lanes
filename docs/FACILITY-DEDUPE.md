@@ -21,3 +21,7 @@ node scripts/check-facility-dedupe.mjs path/to/atlas.4326.geojson
 ## UM
 
 `filterPeoplePins` / `filterEventPins` healthy; no SPA redeploy this cycle.
+
+## Follow-up 2026-09-07 ~16:12 MSK
+
+See [`SHIPYARD-PIN-QA.md`](./SHIPYARD-PIN-QA.md) for Helsinki/Nuuk duplicate drops, Rosatom TBD quarantine, and Aker Arctic densify.
