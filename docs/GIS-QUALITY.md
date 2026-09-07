@@ -26,3 +26,7 @@ See open Issues labeled `help wanted` / `good first issue`. Additive PRs only �
 ## Atlas download aliases (2026-09-07)
 
 Broken schema.org `DataDownload` URLs (`/data/atlas.*.geojson`, missing `atlas.4326.geojson`) returned SPA HTML and bounced agent/crawler clients. Fixed with static aliases — see [ATLAS-DOWNLOAD-ALIASES.md](./ATLAS-DOWNLOAD-ALIASES.md).
+
+## 2026-09-07 — WGS84 atlas projection stamp
+
+Live `atlas.4326` / `atlas.wgs84` now declare `projection.epsg=4326` (coords were already lon/lat). Builder `build_atlas.py` stamps CRS after inverse so rebuilds do not regress. See [ATLAS-DOWNLOAD-ALIASES.md](./ATLAS-DOWNLOAD-ALIASES.md).
