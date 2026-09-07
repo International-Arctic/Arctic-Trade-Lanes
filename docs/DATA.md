@@ -7,8 +7,8 @@ Mirrored from Zo `ArcticTradeLanes-Dataset`. Full dumps sync into `/dataset` whe
 | ports.csv | Arctic / NSR ports | id, name, lat, lon, country, unlocode |
 | cities.csv | Arctic cities | id, name, lat, lon, country |
 | lanes.csv | Sea lanes / corridors | id, name, waypoints, season |
-| tankers.csv | Tanker registry pins | id, name, lat, lon |
-| icebreakers.csv | Icebreaker fleet | id, name, class, lat, lon |
+| tankers.csv | Tanker registry pins | id, name, country, ice_class, route, year_built (atlas pins schematic) |
+| icebreakers.csv | Icebreaker fleet | id, name, country, ice_class, route, year_built (atlas pins schematic) |
 | shipbuilding_facilities.csv | Shipyards | id, name, lat, lon, country |
 | entrepreneur_programs.csv | Grants / soft-landing | program_id (ARC-PROG-###), lat, lon, benefits, sources |
 | arctic_industrial_facilities.csv | Industry pins | facility_id, lat, lon, sources |

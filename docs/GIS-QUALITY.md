@@ -30,3 +30,8 @@ Broken schema.org `DataDownload` URLs (`/data/atlas.*.geojson`, missing `atlas.4
 ## 2026-09-07 — WGS84 atlas projection stamp
 
 Live `atlas.4326` / `atlas.wgs84` now declare `projection.epsg=4326` (coords were already lon/lat). Builder `build_atlas.py` stamps CRS after inverse so rebuilds do not regress. See [ATLAS-DOWNLOAD-ALIASES.md](./ATLAS-DOWNLOAD-ALIASES.md).
+
+
+## 2026-09-07 — Ship fleet densify + country props
+
+Icebreaker schematic pins no longer collapse onto one NSR centroid (max `position_stack_size` 53 → ≤17). Atlas ship features now carry `country` + `year_built` from `ArcticTradeLanes-Dataset`. Spec: [SHIP-FLEET-DENSIFY.md](./SHIP-FLEET-DENSIFY.md). CI helper: `node scripts/check-ship-fleet.mjs`.
