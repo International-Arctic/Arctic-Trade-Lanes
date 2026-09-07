@@ -55,3 +55,7 @@ UM: `filterPeoplePins` / `filterEventPins` already accept `lon`/`longitude`/`lat
 ## 2026-09-07 — Airport program_id dedupe + properties.id
 
 Dropped duplicate `ARC-AIR-011` Inuvik AIF modernization row (`arctic_airports` 12→11). Builder skips duplicate `program_id` on EXTRA_POINT_LAYERS (`extra_id_drops` in manifest) and mirrors Feature ids into `properties.id`. Live atlas 1345→1344. Spec: [AIRPORT-ID-DEDUPE.md](./AIRPORT-ID-DEDUPE.md). CI helper: `node scripts/check-extra-ids.mjs`.
+
+## 2026-09-07 — facility / program pin dedupe + UN/LOCODE fill
+
+Dropped stacked Davie Defense Texas shipyard (`ARC-SHIP-066`) and duplicate CanNor NIEOP-ERS program (`ARC-PROG-525`); filled six public UN/LOCODEs; builder soft-dedupes program name+coord and shipyard ids. Live atlas **1344 → 1342**. See [FACILITY-DEDUPE.md](./FACILITY-DEDUPE.md).
