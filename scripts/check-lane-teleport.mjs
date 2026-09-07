@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 /**
- * Fail if live atlas has continent-scale lane vertex jumps or non-empty lane_teleport_drops.
+ * Fail if live atlas has mismatched lane teleports:
+ *  - non-empty lane_teleport_drops on manifest
+ *  - non-Americas/Polar-named lanes carrying lon < -100 vertices (AK tip on NO corridor)
+ *  - optional consecutive jump > LANE_TELEPORT_MAX_KM (default 7500)
+ *
  * Usage:
  *   node scripts/check-lane-teleport.mjs
  *   node scripts/check-lane-teleport.mjs ./atlas.4326.geojson ./atlas.manifest.json
- *   ATLAS_4326_URL=... ATLAS_MANIFEST_URL=... node scripts/check-lane-teleport.mjs
  */
 import { readFileSync } from "node:fs";
 
-const MAX_KM = Number(process.env.LANE_TELEPORT_MAX_KM || 7500); // > AK↔NO (~7.1k); allows Ningbo→Bering (~6.1k)
+const MAX_KM = Number(process.env.LANE_TELEPORT_MAX_KM || 7500);
 const geoArg = process.argv[2];
 const manArg = process.argv[3];
 const geoUrl =
@@ -17,6 +20,9 @@ const geoUrl =
 const manUrl =
   process.env.ATLAS_MANIFEST_URL ||
   "https://arctictradelanes.com/data/atlas.manifest.json";
+
+const AMERICAS_OK =
+  /alaska|beaufort|chukchi|bering|northwest passage|arctic bridge|prudhoe|nome|churchill|mackenzie|tuktoyaktuk|transpolar|northern sea route|northeast passage|nsr scheduled|china-europe|yamal/i;
 
 function haversineKm(lon1, lat1, lon2, lat2) {
   const R = 6371;
@@ -51,30 +57,37 @@ if (drops.length) {
   process.exit(1);
 }
 
-const bad = [];
+const badWest = [];
+const badJump = [];
 for (const ft of geo.features || []) {
   if ((ft.properties || {}).layer !== "lanes") continue;
   if (ft.geometry?.type !== "LineString") continue;
+  const name = ft.properties.name || "";
   const coords = ft.geometry.coordinates || [];
-  for (let i = 1; i < coords.length; i++) {
-    const [lon0, lat0] = coords[i - 1];
-    const [lon1, lat1] = coords[i];
-    const km = haversineKm(lon0, lat0, lon1, lat1);
-    if (km > MAX_KM) {
-      bad.push({
-        name: ft.properties.name,
-        i,
-        km: Math.round(km),
-        from: coords[i - 1],
-        to: coords[i],
-      });
+  const americasLane = AMERICAS_OK.test(name);
+  for (let i = 0; i < coords.length; i++) {
+    const [lon, lat] = coords[i];
+    if (!americasLane && lon < -100) {
+      badWest.push({ name, i, lon, lat });
+    }
+    if (i > 0) {
+      const [lon0, lat0] = coords[i - 1];
+      const km = haversineKm(lon0, lat0, lon, lat);
+      if (km > MAX_KM) {
+        badJump.push({ name, i, km: Math.round(km), from: coords[i - 1], to: coords[i] });
+      }
     }
   }
 }
 
-console.log(`teleport_jumps_gt_${MAX_KM}km=${bad.length}`);
-if (bad.length) {
-  console.error("FAIL lane teleport jumps:", bad);
+console.log(`unexpected_west_lon_vertices=${badWest.length}`);
+console.log(`teleport_jumps_gt_${MAX_KM}km=${badJump.length}`);
+if (badWest.length) {
+  console.error("FAIL non-Americas lane has lon < -100 (likely start_port teleport):", badWest);
+  process.exit(1);
+}
+if (badJump.length) {
+  console.error("FAIL lane teleport jumps:", badJump);
   process.exit(1);
 }
 console.log("OK no continent-scale lane teleports");
