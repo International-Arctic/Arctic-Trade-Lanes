@@ -19,7 +19,7 @@ for (const f of data.features || []) {
   if (bannedIds.has(id)) errors.push(`${id} should be dropped (alias/duplicate)`);
   const u = String(p.unlocode || "").trim().toUpperCase();
   if (!u) continue;
-  if (u === "NULL" || u === "USNOM" || u.length === 3) errors.push(`${id} bad unlocode=${u}`);
+  if (u === "NULL" || u === "USNOM" || u === "NOVAW" || u.length === 3) errors.push(`${id} bad unlocode=${u}`);
   if (u.length !== 5 || !/^[A-Z]{2}[A-Z0-9]{3}$/.test(u)) errors.push(`${id} malformed unlocode=${u}`);
 }
 if (errors.length) {
