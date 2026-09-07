@@ -59,3 +59,7 @@ Dropped duplicate `ARC-AIR-011` Inuvik AIF modernization row (`arctic_airports` 
 ## 2026-09-07 — facility / program pin dedupe + UN/LOCODE fill
 
 Dropped stacked Davie Defense Texas shipyard (`ARC-SHIP-066`) and duplicate CanNor NIEOP-ERS program (`ARC-PROG-525`); filled six public UN/LOCODEs; builder soft-dedupes program name+coord and shipyard ids. Live atlas **1344 → 1342**. See [FACILITY-DEDUPE.md](./FACILITY-DEDUPE.md).
+
+
+## 2026-09-07 ~15:30 MSK
+- Dropped Barrow alias + Kjøllefjord NULL duplicate; filled 12 UNECE LOCODEs; separated Shanghai Waigaoqiao/Jiangnan coords; builder `_clean_unlocode` guard. See `PORT-LOCODE-QA.md`.
