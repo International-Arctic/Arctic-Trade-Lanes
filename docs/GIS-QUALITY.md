@@ -18,6 +18,12 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-07 — Port/industry densify (White Mountain, Whittier, Gamneset)
+
+Moved Lumina White Mountain off the Kangerlussuaq pin (cleared false `GLKAN`), densified Whittier Delong Dock vs ARRC tunnel, and moved Norterminal Gamneset + KILA off the Kirkenes centroid. Live ports 148→149. Spec: [PORT-INDUSTRY-DENSIFY.md](./PORT-INDUSTRY-DENSIFY.md). CI: `node scripts/check-port-industry-densify.mjs`.
+
+UM: `filterPeoplePins` / `filterEventPins` healthy (null-island / swap / slug dedupe); no SPA redeploy.
+
 ## How to help
 
 See open Issues labeled `help wanted` / `good first issue`. Additive PRs only — see [CONTRIBUTING.md](../CONTRIBUTING.md).
