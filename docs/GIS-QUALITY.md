@@ -18,6 +18,12 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-07 — Shipyard CSV column-shift realign
+
+Realigned `ARC-SHIP-033` (Sembcorp Singapore) and `ARC-SHIP-052` (Kolskaya Kola Bay) after CSV fields slid left; quarantined multi-site `ARC-SHIP-025` Vard (`Various` coords). Live shipyards 68→70, features 1314→1317. Spec: [SHIPYARD-PIN-QA.md](./SHIPYARD-PIN-QA.md). CI: `node scripts/check-shipyard-column-shift.mjs`.
+
+UM: `filterPeoplePins` / `filterEventPins` still wired on home (null-island / swap / slug dedupe); no SPA redeploy.
+
 ## 2026-09-07 — Port/industry densify (White Mountain, Whittier, Gamneset)
 
 Moved Lumina White Mountain off the Kangerlussuaq pin (cleared false `GLKAN`), densified Whittier Delong Dock vs ARRC tunnel, and moved Norterminal Gamneset + KILA off the Kirkenes centroid. Live ports 148→149. Spec: [PORT-INDUSTRY-DENSIFY.md](./PORT-INDUSTRY-DENSIFY.md). CI: `node scripts/check-port-industry-densify.mjs`.

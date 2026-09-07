@@ -24,3 +24,22 @@ node scripts/check-shipyard-pins.mjs path/to/atlas.4326.geojson
 ```
 
 Live after rebuild: shipyards **71→68**, atlas **1340→1337** features, apex+www verified.
+
+## 2026-09-07 ~18:55 MSK — CSV column-shift realign
+
+Three `shipbuilding_facilities.csv` rows were mis-aligned so the atlas builder (`_f64`) dropped them or would have plotted nonsense:
+
+| id | problem | fix |
+|---|---|---|
+| `ARC-SHIP-033` | Sembcorp Marine — `country` held lat `1.2600`, `latitude` held lon `103.8300`, `longitude` held specialization text | Realign to Singapore HQ pin `1.2600, 103.8300` |
+| `ARC-SHIP-052` | Kolskaya sports/pleasure workshop — same shift pattern (`country=69.06`, `lat=33.2`) | Realign to Kola Bay `69.0600, 33.2000` |
+| `ARC-SHIP-025` | Vard Shipyards (Multiple) — `latitude`/`longitude` = `Various` | Quarantine blank coords (multi-site; prefer per-yard rows) |
+
+Also stripped a UTF-8 BOM from `lanes.csv` (`lane_id` header) for non-`utf-8-sig` consumers (builder already used `utf-8-sig`).
+
+### Live
+
+- https://arctictradelanes.com/atlas.manifest.json — shipyards **68→70**, features **1314→1317**, `generated` `2026-09-07T15:55:37Z`, `crs_primary` 3996
+- CI: `node scripts/check-shipyard-column-shift.mjs [atlas.4326.geojson]`
+
+Politically neutral OSINT hygiene — no editorial layer changes, no SPA redeploy.
