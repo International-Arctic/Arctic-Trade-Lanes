@@ -28,7 +28,7 @@ Manifest generated `2026-09-07T10:49:58Z`.
 
 ## How to help (good first issue)
 
-- CI: fail if any live lane LineString has a vertex-to-next-vertex haversine jump &gt;5 000 km (continent teleport).
+- CI: fail if any live lane LineString has a vertex-to-next-vertex haversine jump &gt;7 500 km (AK↔NO ~7.1k; allows Ningbo→Bering ~6.1k schematic).
 - CI: fail if `lane_teleport_drops` is non-empty after `build_atlas`.
 - Audit remaining `lanes.csv` `start_port_id` / `end_port_id` against first/last waypoint names (neutral, source-cited).
 - Optional: prefer gazetteer-only geometry when start/end port names do not fuzzy-match the first/last waypoint tokens.

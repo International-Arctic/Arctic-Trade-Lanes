@@ -8,7 +8,7 @@
  */
 import { readFileSync } from "node:fs";
 
-const MAX_KM = Number(process.env.LANE_TELEPORT_MAX_KM || 5000);
+const MAX_KM = Number(process.env.LANE_TELEPORT_MAX_KM || 7500); // > AK↔NO (~7.1k); allows Ningbo→Bering (~6.1k)
 const geoArg = process.argv[2];
 const manArg = process.argv[3];
 const geoUrl =
