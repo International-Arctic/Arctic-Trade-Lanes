@@ -40,3 +40,7 @@ Icebreaker schematic pins no longer collapse onto one NSR centroid (max `positio
 
 Atlas point layers now carry ISO 3166-1 alpha-2 `iso2` (UN/LOCODE-first, country-name fallback; reject `NULL`/short fake codes). Spec: [PORT-ISO2.md](./PORT-ISO2.md). CI helper: `node scripts/check-port-iso2.mjs`.
 
+
+## 2026-09-07 — Lane waypoint gazetteer (unresolved → 0)
+
+Manifest `unresolved_lane_waypoints` cleared (8 → 0) via paren-safe waypoint split + schematic sea/port anchors (Bergen, Ningbo, North Sea, Laptev/East Siberian/Chukchi, Hamburg/Felixstowe). Live apex+www densified Kristiansand–Kirkenes (7 verts) and NSR China–Europe (12 verts). Spec: [LANES-WAYPOINTS.md](./LANES-WAYPOINTS.md). CI helper: `node scripts/check-lane-waypoints.mjs`.
