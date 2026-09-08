@@ -26,3 +26,7 @@ Fails non-zero when any `program_id` / Feature.id repeats inside a layer.
 ## Community
 
 Good first issue: wire `check-extra-ids.mjs` into GitHub Actions on Dataset + atlas PRs; extend to `industry` / `rail` / `rescue` / `programs`.
+
+## Follow-up 2026-09-08 ~14:10 MSK
+
+`ARC-AIR-011` later reappeared as a **near-dup** of `ARC-AIR-005` (same AIF first-project announcement, ~3-dp stack). Dropped `011` and densified `005` to OSM CYEV aerodrome — see [CITY-AIRPORT-DEDUPE.md](./CITY-AIRPORT-DEDUPE.md).

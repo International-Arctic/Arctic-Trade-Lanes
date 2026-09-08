@@ -18,6 +18,12 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-08 — City diacritic + Inuvik airport near-dup
+
+Dropped ASCII `ARC-CITY-043` Honningsvag (keep sourced `ARC-CITY-086`) and near-dup `ARC-AIR-011` (same AIF first-project story as `ARC-AIR-005`); densified `ARC-AIR-005` to OSM CYEV aerodrome. Live atlas generated `2026-09-08T11:14:21Z`, features **1322**, cities **104**, airports **10**. Spec: [CITY-AIRPORT-DEDUPE.md](./CITY-AIRPORT-DEDUPE.md). CI: `node scripts/check-city-airport-dedupe.mjs`.
+
+UM: `filterPeoplePins` / `filterEventPins` smoke OK; no SPA redeploy.
+
 ## 2026-09-08 — Port soft-stack densify + industry city offs
 
 Cleared the last four **port 3-dp soft stacks** (Honningsvåg quay, Kirkenes tugboat, Utqiaġvik coastal revetment, Kemi Ajos deepening) and moved three industry pins off city centroids (Luleå Industripark→Svartön, Bodø PostNord→havn, Eimskip Nuuk→RAL harbour HQ). Live atlas generated `2026-09-08T10:41:07Z`, features **1324**, ports **156**, industry **110**, port 3-dp stacks **0**. Spec: [PORT-SOFT-STACK-DENSIFY.md](./PORT-SOFT-STACK-DENSIFY.md). CI: `node scripts/check-port-soft-stack-densify.mjs`.
