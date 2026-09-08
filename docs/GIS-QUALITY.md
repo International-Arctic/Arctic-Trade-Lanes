@@ -18,6 +18,12 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-08 — Industry centroid densify
+
+Unstacked Longyearbyen / Kirkenes / Nome / Narvik industry stacks: AWA→Gruve 3, NGA→Bjerkvik, Hotellneset plant corrected, Kirkenes innovation/cluster pins separated. Spec: [INDUSTRY-CENTROID-DENSIFY.md](./INDUSTRY-CENTROID-DENSIFY.md). CI: `node scripts/check-industry-centroid-densify.mjs`.
+
+UM: `filterPeoplePins` / `filterEventPins` still wired on home (null-island / swap / slug dedupe); live bundle retains null_island quarantine; no SPA redeploy.
+
 ## 2026-09-07 — Shipyard CSV column-shift realign
 
 Realigned `ARC-SHIP-033` (Sembcorp Singapore) and `ARC-SHIP-052` (Kolskaya Kola Bay) after CSV fields slid left; quarantined multi-site `ARC-SHIP-025` Vard (`Various` coords). Live shipyards 68→70, features 1314→1317. Spec: [SHIPYARD-PIN-QA.md](./SHIPYARD-PIN-QA.md). CI: `node scripts/check-shipyard-column-shift.mjs`.
