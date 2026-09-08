@@ -18,6 +18,10 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-08 17:18 MSK — port↔city centroid densify (6 harbours)
+
+See `PORT-CITY-CENTROID-DENSIFY-1718.md`. Live atlas generated `2026-09-08T14:32:36Z`.
+
 ## 2026-09-08 — Port↔city centroid densify (9 harbours)
 
 Moved nine canonical ports off exact city centroids onto OSM harbour/pier/industrial nodes (Tromsø, Bodø, Melkøya LNG, Narvik, Luleå, Oulu, Reykjavík Sundahöfn, Longyearbyen Bykaia, Kirkenes kai). Live atlas generated `2026-09-08T12:18:30Z`, features **1321**, ports **156**. Spec: [PORT-CITY-CENTROID-DENSIFY.md](./PORT-CITY-CENTROID-DENSIFY.md). CI: `node scripts/check-port-city-centroid-densify.mjs`.
