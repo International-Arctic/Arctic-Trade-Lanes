@@ -29,3 +29,33 @@ node scripts/check-industry-centroid-densify.mjs atlas.4326.geojson
 ```
 
 Neutral sourcing only — institutional OSM / Wikipedia / Statkraft / municipal pages. No editorial slant in labels.
+
+---
+
+## Follow-up densify (live atlas generated `2026-09-08T06:46:37Z`)
+
+Unstacked remaining industry town-centroid piles (Murmansk ×4, Bakki/Húsavík ×2, Boden ×2, Arkhangelsk ×2). Neutral OSM / port-registry anchors only.
+
+| id | was | now | rationale / sources |
+|----|-----|-----|---------------------|
+| `ARC-FAC-316` Rosatom Western TLU | Murmansk city `68.9585, 33.0827` | Fishing Port Tralovaya `68.9610, 33.0450` | Reoriented to Murmansk Sea Fishing Port infra (www1.ru + City Murmansk) |
+| `ARC-FAC-336` Kola Farwater | same city centroid | MCSP `68.9841, 33.0610` | Ship agency at commercial port (= `ARC-PORT-001`) |
+| `ARC-FAC-346` NSR year-round / SCF Arc7 | same city centroid | Atomflot campus `69.0135, 33.0936` | OSM Atomflot / Rosta campus — icebreaker co-management base |
+| `ARC-FAC-386` Arctic Invest Shipping | same city centroid | MCSP offset `68.9860, 33.0550` | Murmansk home-port registry near MCSP |
+| `ARC-FAC-332` Bakki Eco-Industrial Park | Húsavík `66.0446, -17.3383` | Bakki industrial `66.0703, -17.3322` | OSM industrial building Bakki / Norðausturvegur; bakki.nordurthing.is |
+| `ARC-FAC-334` E-Valor e-fuel | same Húsavík pin | Bakki pad `66.0680, -17.3360` | MoU host site inside Bakki park (offset from 332) |
+| `ARC-FAC-319` Stegra green steel | Boden town `65.8252, 21.6893` | Stegra stålverk `65.8096, 21.7941` | OSM `landuse=construction` STEGRA stålverk (Södra Svartbyn) |
+| `ARC-FAC-368` Bodenxt / Industrial Park | — | kept Boden municipal `65.8252, 21.6893` | Municipal platform stays at town HQ |
+| `ARC-FAC-342` Severny Proekt fleet | Arkhangelsk city | Sea Port `64.5393, 40.5185` | Fleet base = `ARC-PORT-002` |
+| `ARC-FAC-385` Polar Trans Port rail terminal | same city pin | inland rail `64.5520, 40.5480` | Rear-base railway terminal N/E of seaport (msp29.ru) |
+
+Dataset: `arctic_industrial_facilities.csv`. No App.tsx / SPA redeploy — static atlas aliases only (`/atlas.*` + `/data/atlas.*` on apex+www).
+
+### CI additions
+
+`scripts/check-industry-centroid-densify.mjs` now also asserts:
+
+1. Murmansk industry quartet (`316/336/346/386`) no longer share one exact 4-dp coord.
+2. Bakki pair (`332/334`) not on Húsavík town pin; both in Bakki industrial band.
+3. Stegra (`319`) off Boden municipal centroid, inside Södra Svartbyn plant band.
+4. Arkhangelsk pair (`342/385`) distinct 4-dp coords.
