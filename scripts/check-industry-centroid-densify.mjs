@@ -4,6 +4,7 @@
  * Cycle A (2026-09-08 morning): NGA Bjerkvik, AWA Gruve 3, Hotellneset, Kirkenes unstack
  * Cycle B (2026-09-08 ~09:38 MSK): Murmansk ×4, Bakki/Húsavík, Stegra/Boden, Arkhangelsk rail
  * Cycle C (2026-09-08 ~11:23 MSK): Utqiaġvik ASRC/UIC Agvik Street densify
+ * Cycle D (2026-09-08 ~12:10 MSK): Hammerfest Markoppneset vs Rypefjorden
  * Usage: node scripts/check-industry-centroid-densify.mjs [atlas.4326.geojson]
  */
 import fs from "node:fs";
@@ -144,11 +145,36 @@ if (asrc && uic && key4(asrc) === key4(uic)) {
   errors.push("Utqiagvik FAC-011/013 still share exact coords");
 }
 
+// Cycle D — Hammerfest Barents Blue (Markoppneset) vs GreenH (Rypefjorden)
+const hmfTown = { lat: 70.6633, lon: 23.6822 };
+const fac344 = pt("ARC-FAC-344");
+const fac358 = pt("ARC-FAC-358");
+if (fac344) {
+  if (Math.abs(fac344.lat - hmfTown.lat) < 1e-3 && Math.abs(fac344.lon - hmfTown.lon) < 1e-3) {
+    errors.push("ARC-FAC-344 still on Hammerfest town centroid");
+  }
+  // Markoppneset / Repparfjord-Kvalsund side (~30 km SE of Hammerfest)
+  if (!(fac344.lat > 70.45 && fac344.lat < 70.50 && fac344.lon > 24.22 && fac344.lon < 24.30)) {
+    errors.push(`ARC-FAC-344 unexpected Markoppneset band ${fac344.lat},${fac344.lon}`);
+  }
+}
+if (fac358) {
+  if (Math.abs(fac358.lat - hmfTown.lat) < 1e-3 && Math.abs(fac358.lon - hmfTown.lon) < 1e-3) {
+    errors.push("ARC-FAC-358 still on Hammerfest town centroid");
+  }
+  // Rypefjorden / Indrefjord harbour approach
+  if (!(fac358.lat > 70.62 && fac358.lat < 70.65 && fac358.lon > 23.64 && fac358.lon < 23.70)) {
+    errors.push(`ARC-FAC-358 unexpected Rypefjorden band ${fac358.lat},${fac358.lon}`);
+  }
+}
+if (fac344 && fac358 && key4(fac344) === key4(fac358)) {
+  errors.push("Hammerfest FAC-344/358 still share exact coords");
+}
 
 if (errors.length) {
   console.error("industry centroid densify QA failed:\\n" + errors.join("\\n"));
   process.exit(1);
 }
 console.log(
-  "OK: industry centroid densify checks passed (NGA/AWA/Hotellneset/Kirkenes + Murmansk/Bakki/Stegra/Arkhangelsk + Utqiagvik ASRC/UIC)",
+  "OK: industry centroid densify checks passed (… + Utqiagvik ASRC/UIC + Hammerfest Markoppneset/Rypefjorden)",
 );

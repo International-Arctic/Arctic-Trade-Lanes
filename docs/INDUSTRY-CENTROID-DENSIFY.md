@@ -1,5 +1,20 @@
 # Industry centroid densify (2026-09-08)
 
+## Cycle D — Hammerfest Markoppneset vs Rypefjorden (live `2026-09-08T09:18:30Z`)
+
+Last remaining industry 3-dp stack: Barents Blue (`ARC-FAC-344`) and GreenH (`ARC-FAC-358`) both sat on the Hammerfest town pin (~`70.6633, 23.682`). Densified to distinct OSM sites ~29 km apart.
+
+| id | was | now | rationale / sources |
+|----|-----|-----|---------------------|
+| `ARC-FAC-344` Barents Blue | town `70.6633, 23.6822` | Markoppneset `70.4734, 24.2640` | OSM Nominatim Markoppneset (Markopp / Márgohppi); barentsblue.no Markoppneset / Kvalsund–Repparfjord municipal option |
+| `ARC-FAC-358` GreenH Hammerfest | town `70.6633, 23.6821` | Rypefjorden `70.6370, 23.6757` | OSM Fjordaveien Indrefjord + Rypefjorden bay; EnergyWatch / GreenH Rypefjorden maritime bunkering |
+
+Dataset: `arctic_industrial_facilities.csv`. Builder: Zo `atlas-proj/build_atlas.py`. Static atlas aliases only — no App.tsx / SPA redeploy. Apex + www + Zo origin verified.
+
+---
+
+# Industry centroid densify (earlier cycles)
+
 Map UX: stacked `industry` pins on shared town centroids looked like duplicate facilities and bounced GIS users. This cycle densifies verifiable sites off the worst stacks.
 
 ## Changes (live atlas generated `2026-09-08T06:13:21Z`)
