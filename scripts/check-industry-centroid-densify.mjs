@@ -4,7 +4,7 @@
  * Cycle A (2026-09-08 morning): NGA Bjerkvik, AWA Gruve 3, Hotellneset, Kirkenes unstack
  * Cycle B (2026-09-08 ~09:38 MSK): Murmansk ×4, Bakki/Húsavík, Stegra/Boden, Arkhangelsk rail
  * Cycle C (2026-09-08 ~11:23 MSK): Utqiaġvik ASRC/UIC Agvik Street densify
- * Cycle D (2026-09-08 ~12:10 MSK): Hammerfest Markoppneset vs Rypefjorden
+ * Cycle D (2026-09-08 ~12:10 MSK): Hammerfest Markoppneset vs Rypefjorden\n * Cycle E (2026-09-08 ~13:11 MSK): Tornio/Laanila/Malmbjerg/Olonkinbyen/Helguvík coarse densify
  * Usage: node scripts/check-industry-centroid-densify.mjs [atlas.4326.geojson]
  */
 import fs from "node:fs";
@@ -171,10 +171,63 @@ if (fac344 && fac358 && key4(fac344) === key4(fac358)) {
   errors.push("Hammerfest FAC-344/358 still share exact coords");
 }
 
+// Cycle E — coarse approx densify (Tornio / Laanila / Malmbjerg / Jan Mayen / Helguvík)
+const fac001 = pt("ARC-FAC-001");
+if (fac001) {
+  // must leave old 2-dp approx 65.78/24.15
+  if (Math.abs(fac001.lat - 65.78) < 5e-3 && Math.abs(fac001.lon - 24.15) < 5e-3) {
+    errors.push("ARC-FAC-001 still on coarse Tornio approx 65.78,24.15");
+  }
+  // Tornion satama / Röyttä industrial band
+  if (!(fac001.lat > 65.75 && fac001.lat < 65.78 && fac001.lon > 24.14 && fac001.lon < 24.18)) {
+    errors.push(`ARC-FAC-001 unexpected Röyttä/Tornio satama band ${fac001.lat},${fac001.lon}`);
+  }
+}
+const fac003 = pt("ARC-FAC-003");
+if (fac003) {
+  if (Math.abs(fac003.lat - 65.06) < 5e-3 && Math.abs(fac003.lon - 25.47) < 5e-3) {
+    errors.push("ARC-FAC-003 still on coarse Laanila approx 65.06,25.47");
+  }
+  // Laanilan teollisuuspuisto band
+  if (!(fac003.lat > 65.02 && fac003.lat < 65.05 && fac003.lon > 25.50 && fac003.lon < 25.54)) {
+    errors.push(`ARC-FAC-003 unexpected Laanila industrial band ${fac003.lat},${fac003.lon}`);
+  }
+}
+const fac331 = pt("ARC-FAC-331");
+if (fac331) {
+  if (Math.abs(fac331.lat - 72.0) < 5e-2 && Math.abs(fac331.lon - (-21.5)) < 5e-1) {
+    errors.push("ARC-FAC-331 still on coarse Malmbjerg approx -21.5,72.0");
+  }
+  // OSM historic mine Malmbjerg
+  if (!(fac331.lat > 71.95 && fac331.lat < 71.97 && fac331.lon > -24.30 && fac331.lon < -24.25)) {
+    errors.push(`ARC-FAC-331 unexpected Malmbjerg mine band ${fac331.lat},${fac331.lon}`);
+  }
+}
+const fac339 = pt("ARC-FAC-339");
+if (fac339) {
+  if (Math.abs(fac339.lat - 70.99) < 1e-2 && Math.abs(fac339.lon - (-8.4)) < 5e-2) {
+    errors.push("ARC-FAC-339 still on coarse Jan Mayen approx -8.4,70.99");
+  }
+  // Olonkinbyen hamlet
+  if (!(fac339.lat > 70.91 && fac339.lat < 70.94 && fac339.lon > -8.74 && fac339.lon < -8.69)) {
+    errors.push(`ARC-FAC-339 unexpected Olonkinbyen band ${fac339.lat},${fac339.lon}`);
+  }
+}
+const fac395 = pt("ARC-FAC-395");
+if (fac395) {
+  if (Math.abs(fac395.lat - 64.0) < 1e-2 && Math.abs(fac395.lon - (-22.42)) < 5e-2) {
+    errors.push("ARC-FAC-395 still on coarse Helguvík approx -22.42,64.0");
+  }
+  // Helguvík industrial / oil-depot band
+  if (!(fac395.lat > 64.01 && fac395.lat < 64.03 && fac395.lon > -22.58 && fac395.lon < -22.54)) {
+    errors.push(`ARC-FAC-395 unexpected Helguvík industrial band ${fac395.lat},${fac395.lon}`);
+  }
+}
+
 if (errors.length) {
   console.error("industry centroid densify QA failed:\\n" + errors.join("\\n"));
   process.exit(1);
 }
 console.log(
-  "OK: industry centroid densify checks passed (… + Utqiagvik ASRC/UIC + Hammerfest Markoppneset/Rypefjorden)",
+  "OK: industry centroid densify checks passed (… + Hammerfest + Tornio/Laanila/Malmbjerg/Olonkinbyen/Helguvík)",
 );

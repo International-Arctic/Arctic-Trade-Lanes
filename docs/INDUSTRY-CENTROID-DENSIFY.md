@@ -1,3 +1,25 @@
+# Industry coarse-approx densify — Cycle E (live atlas ~2026-09-08T10:11Z)
+
+Moved five low-precision industry pins (~0–1 decimal degree) onto verifiable OSM Nominatim industrial / mine / settlement points. Neutral OSM sourcing only.
+
+| id | was | now | rationale / sources |
+|----|-----|-----|---------------------|
+| `ARC-FAC-001` Norwegian Hydrogen Tornio | approx `65.78, 24.15` | Tornion satama / Röyttä `65.7598189, 24.1574679` | OSM landuse=industrial Tornion satama, Röyttä |
+| `ARC-FAC-003` Oulun Energia Laanila | approx `65.06, 25.47` | Laanilan teollisuuspuisto `65.0341110, 25.5178198` | OSM Laanilan teollisuuspuisto, Takalaanila |
+| `ARC-FAC-331` Malmbjerg Mo | coarse `-21.5, 72.0` | historic mine `71.9605614, -24.2798494` | OSM historic=mine Malmbjerg (Scoresby Sund) — large lon correction |
+| `ARC-FAC-339` Arctic Way CLS Jan Mayen | approx `-8.4, 70.99` | Olonkinbyen `70.9224474, -8.7159894` | OSM place=hamlet Olonkinbyen |
+| `ARC-FAC-395` IðunnH2 Helguvík e-SAF | approx `-22.42, 64.0` | Helguvík depot zone `64.0179298, -22.5569368` | OSM landuse=construction Ný Olíubirgðastöð í Helguvík |
+
+Skipped `ARC-FAC-330` Sarfartoq this cycle — Nominatim returned a different cape (`Sarfartooq` Avannaata); await verified carbonatite complex coords.
+
+Dataset: `International-Arctic/ArcticTradeLanes-Dataset` `arctic_industrial_facilities.csv` (`bb94955`). Builder: Zo `atlas-proj/build_atlas.py`. Static atlas aliases only — no App.tsx / SPA redeploy. Apex + www + Zo origin verified.
+
+### CI additions
+
+`scripts/check-industry-centroid-densify.mjs` Cycle E asserts each of the five ids left the coarse approx and sits in the OSM site band.
+
+---
+
 # Industry centroid densify (2026-09-08)
 
 ## Cycle D — Hammerfest Markoppneset vs Rypefjorden (live `2026-09-08T09:18:30Z`)

@@ -18,6 +18,12 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-08 — Coarse industry densify (Tornio / Laanila / Malmbjerg / Jan Mayen / Helguvík)
+
+Densified five low-precision `ARC-FAC` pins onto OSM Nominatim industrial/mine/settlement points (largest fix: Malmbjerg lon −21.5 → −24.28). Live atlas features **1324**, industry **110**. Spec: [INDUSTRY-CENTROID-DENSIFY.md](./INDUSTRY-CENTROID-DENSIFY.md). CI: `node scripts/check-industry-centroid-densify.mjs`. Dataset `bb94955`.
+
+UM: `filterPeoplePins` / `filterEventPins` smoke OK (null-island + swap + duplicate quarantine); no SPA redeploy.
+
 ## 2026-09-08 — Hammerfest Markoppneset / Rypefjorden densify
 
 Unstacked Barents Blue (`ARC-FAC-344`) and GreenH (`ARC-FAC-358`) off the Hammerfest town centroid onto OSM Markoppneset and Rypefjorden harbour approach. Live atlas generated `2026-09-08T09:18:30Z`, features **1324**, industry **110**. Spec: [INDUSTRY-CENTROID-DENSIFY.md](./INDUSTRY-CENTROID-DENSIFY.md). CI: `node scripts/check-industry-centroid-densify.mjs`.
