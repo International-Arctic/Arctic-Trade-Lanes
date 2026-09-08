@@ -59,3 +59,25 @@ Dataset: `arctic_industrial_facilities.csv`. No App.tsx / SPA redeploy — stati
 2. Bakki pair (`332/334`) not on Húsavík town pin; both in Bakki industrial band.
 3. Stegra (`319`) off Boden municipal centroid, inside Södra Svartbyn plant band.
 4. Arkhangelsk pair (`342/385`) distinct 4-dp coords.
+
+---
+
+## Cycle C densify (live atlas generated `2026-09-08T08:33:51Z`)
+
+Last exact industry stack on a shared town centroid: Utqiaġvik (Barrow) ASRC + UIC both at `-156.7887, 71.2906`. Densified to OSM Nominatim building addresses on Agvik Street (Browerville) — distinct corps, ~45 m apart, ~220–240 m off town pin.
+
+| id | was | now | rationale / sources |
+|----|-----|-----|---------------------|
+| `ARC-FAC-011` ASRC HQ | town `-156.7887, 71.2906` | `71.2920855, -156.7836743` | OSM Nominatim way `8986804` — 1230 Agvik St; LinkedIn/ASRC list Utqiaġvik HQ at 1230 Agvik |
+| `ARC-FAC-013` UIC HQ | same town pin | `71.2921895, -156.7849046` | OSM Nominatim way `500271960` — 1250 Agvik St; MapQuest/UIC corporate HQ |
+
+Also restored crawler-friendly bare `/data/atlas.geojson` (+ root `/atlas.geojson`) as a **byte alias of** `atlas.4326.geojson` / `atlas.wgs84.geojson` (was SPA HTML). Apex + www verified JSON Content-Type.
+
+Dataset: `arctic_industrial_facilities.csv`. Static atlas aliases only — no App.tsx / SPA redeploy.
+
+### CI additions
+
+`scripts/check-industry-centroid-densify.mjs` also asserts:
+
+1. `ARC-FAC-011` / `ARC-FAC-013` are not on the Utqiaġvik town pin and do not share exact 4-dp coords.
+2. Both sit in the Browerville Agvik St band (~71.291–71.293 N, ~156.786–156.782 W).

@@ -29,7 +29,10 @@ function lonLat(p: PeoplePinLike): [number, number] | null {
   return null;
 }
 
-/** Classic swap: latitude field holds a longitude (|lat| > 90) while lng still looks like a latitude. */
+/**
+ * Classic swap: latitude field holds a longitude (|lat| > 90) while lng still looks like a latitude.
+ * Do NOT use high-latitude heuristics — Arctic / Nordic HQ pins are valid.
+ */
 function looksSwapped(lng: number, lat: number): boolean {
   return Math.abs(lat) > 90 && Math.abs(lng) <= 90;
 }

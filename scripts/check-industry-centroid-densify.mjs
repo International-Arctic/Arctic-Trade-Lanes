@@ -3,6 +3,7 @@
  * CI helper: industry facilities densified off shared town centroids.
  * Cycle A (2026-09-08 morning): NGA Bjerkvik, AWA Gruve 3, Hotellneset, Kirkenes unstack
  * Cycle B (2026-09-08 ~09:38 MSK): Murmansk ×4, Bakki/Húsavík, Stegra/Boden, Arkhangelsk rail
+ * Cycle C (2026-09-08 ~11:23 MSK): Utqiaġvik ASRC/UIC Agvik Street densify
  * Usage: node scripts/check-industry-centroid-densify.mjs [atlas.4326.geojson]
  */
 import fs from "node:fs";
@@ -122,10 +123,32 @@ if (ark342 && ark385 && key4(ark342) === key4(ark385)) {
   errors.push("Arkhangelsk FAC-342/385 still share exact coords");
 }
 
+// Cycle C — Utqiagvik ASRC / UIC off shared town centroid
+const utqTown = { lat: 71.2906, lon: -156.7887 };
+const asrc = pt("ARC-FAC-011");
+const uic = pt("ARC-FAC-013");
+for (const [id, p] of [
+  ["ARC-FAC-011", asrc],
+  ["ARC-FAC-013", uic],
+]) {
+  if (!p) continue;
+  if (Math.abs(p.lat - utqTown.lat) < 1e-3 && Math.abs(p.lon - utqTown.lon) < 1e-3) {
+    errors.push(`${id} still on Utqiagvik town centroid`);
+  }
+  // Browerville Agvik St band (OSM Nominatim 1230 / 1250 Agvik)
+  if (!(p.lat > 71.291 && p.lat < 71.2935 && p.lon > -156.7865 && p.lon < -156.7825)) {
+    errors.push(`${id} unexpected Agvik St band ${p.lat},${p.lon}`);
+  }
+}
+if (asrc && uic && key4(asrc) === key4(uic)) {
+  errors.push("Utqiagvik FAC-011/013 still share exact coords");
+}
+
+
 if (errors.length) {
   console.error("industry centroid densify QA failed:\\n" + errors.join("\\n"));
   process.exit(1);
 }
 console.log(
-  "OK: industry centroid densify checks passed (NGA/AWA/Hotellneset/Kirkenes + Murmansk/Bakki/Stegra/Arkhangelsk)",
+  "OK: industry centroid densify checks passed (NGA/AWA/Hotellneset/Kirkenes + Murmansk/Bakki/Stegra/Arkhangelsk + Utqiagvik ASRC/UIC)",
 );

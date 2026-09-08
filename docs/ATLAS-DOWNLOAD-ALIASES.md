@@ -17,6 +17,8 @@ ArcticTradeLanes.com serves the GIS OSINT atlas as static GeoJSON (edge-cheap). 
 - https://arctictradelanes.com/data/atlas.4326.geojson
 - https://arctictradelanes.com/data/atlas.wgs84.geojson
 - https://arctictradelanes.com/data/atlas.manifest.json
+- https://arctictradelanes.com/data/atlas.geojson (= 4326/wgs84 bytes; restored 2026-09-08 GIS loop — was SPA HTML)
+- https://arctictradelanes.com/atlas.geojson (= same)
 
 `atlas.4326.geojson` is a **byte alias** of `atlas.wgs84.geojson` so EPSG:4326 crawlers and `llms.txt` links resolve without SPA HTML fallback.
 
@@ -40,5 +42,5 @@ When regenerating the atlas on Zo (`ArcticTradeLanes.com/arctic-trade-lanes`), c
 ### Maintainer checklist after rebuild
 
 1. Run `python3 build_atlas.py` in `ArcticTradeLanes.com/atlas-proj`.
-2. Copy `atlas.3996.geojson`, `atlas.wgs84.geojson`, `atlas.4326.geojson`, `atlas.manifest.json` into both `arctic-trade-lanes/public/` and `dist/` (and `data/` subfolders).
+2. Copy `atlas.3996.geojson`, `atlas.wgs84.geojson`, `atlas.4326.geojson`, `atlas.geojson` (4326 alias), `atlas.manifest.json` into both `arctic-trade-lanes/public/` and `dist/` (and `data/` subfolders).
 3. Spot-check: `jq '.projection.epsg' public/atlas.4326.geojson` → `4326`; same for `3996` → `3996`.
