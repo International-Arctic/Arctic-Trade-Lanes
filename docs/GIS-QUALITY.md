@@ -18,6 +18,12 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-08 — Port↔city centroid densify (9 harbours)
+
+Moved nine canonical ports off exact city centroids onto OSM harbour/pier/industrial nodes (Tromsø, Bodø, Melkøya LNG, Narvik, Luleå, Oulu, Reykjavík Sundahöfn, Longyearbyen Bykaia, Kirkenes kai). Live atlas generated `2026-09-08T12:18:30Z`, features **1321**, ports **156**. Spec: [PORT-CITY-CENTROID-DENSIFY.md](./PORT-CITY-CENTROID-DENSIFY.md). CI: `node scripts/check-port-city-centroid-densify.mjs`.
+
+UM: `filterPeoplePins` / `filterEventPins` smoke OK; no SPA redeploy.
+
 ## 2026-09-08 — City diacritic + Inuvik airport near-dup
 
 Dropped ASCII `ARC-CITY-043` Honningsvag (keep sourced `ARC-CITY-086`) and near-dup `ARC-AIR-011` (same AIF first-project story as `ARC-AIR-005`); densified `ARC-AIR-005` to OSM CYEV aerodrome. Live atlas generated `2026-09-08T11:14:21Z`, features **1322**, cities **104**, airports **10**. Spec: [CITY-AIRPORT-DEDUPE.md](./CITY-AIRPORT-DEDUPE.md). CI: `node scripts/check-city-airport-dedupe.mjs`.
