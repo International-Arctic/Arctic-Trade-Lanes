@@ -46,3 +46,7 @@ Import `@international-arctic/geo-filter/people`.
 Reasons: `missing_coords`, `nan_coords`, `null_island`, `swapped_lat_lng` (|lat|>90 while |lng|≤90), `out_of_bounds`, `duplicate_slug`, `duplicate_point`.
 
 Also exported: `filterEventPins` (same rules) for venue pins. Do not use high-latitude heuristics — Nordic / Arctic HQ pins are valid.
+
+## Centroid-clone quarantine (2026-09-14)
+
+Ports stamped `geo_quality: centroid_clone` (exact city pin match) are quarantined client-side by default (`quarantineCentroidClones`). Fallback: proposed/planned ports sharing a city pin at 3 decimal places. See [CENTROID-CLONE-QUARANTINE-2026-09-14.md](./CENTROID-CLONE-QUARANTINE-2026-09-14.md).

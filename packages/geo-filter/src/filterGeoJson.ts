@@ -7,6 +7,8 @@ export type FilterOptions = {
   unstackSchematic?: boolean;
   unstackRadiusDeg?: number;
   arcticLayers?: string[];
+  /** Quarantine ports stamped geo_quality=centroid_clone (or proposed/planned sharing a city 3-dp pin). Default true. */
+  quarantineCentroidClones?: boolean;
 };
 
 const DEFAULT_ARCTIC_LAYERS = ['ports','port','tankers','icebreakers','lanes','shipyards','rescue','airports'];
@@ -60,6 +62,19 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
   const seenPoints = new Set<string>();
   const stackBuckets = new Map<string, any[]>();
   const features = Array.isArray(fc?.features) ? fc.features : [];
+  const quarantineClones = opts.quarantineCentroidClones !== false;
+
+  // City pins at ~3 decimal places — used only for proposed/planned port fallback.
+  const city3 = new Set<string>();
+  if (quarantineClones) {
+    for (const f of features) {
+      if (!f || f.type !== 'Feature') continue;
+      if (layerOf(f) !== 'cities') continue;
+      const cpt = firstLonLat(f.geometry);
+      if (!cpt) continue;
+      city3.add(`${cpt[0].toFixed(3)}|${cpt[1].toFixed(3)}`);
+    }
+  }
 
   for (const raw of features) {
     if (!raw || raw.type !== 'Feature') {
@@ -90,6 +105,31 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
       continue;
     }
     const layer = layerOf(raw);
+    const props0 = raw.properties || {};
+    const gq = String(props0.geo_quality || '').toLowerCase();
+    const stampedClone =
+      gq === 'centroid_clone' ||
+      props0.centroidClone === true ||
+      props0.centroid_clone === true;
+    const nameBlob = `${props0.name || ''} ${props0.status || ''} ${props0.port_name || ''}`.toLowerCase();
+    const proposedish = /\b(proposed|planned)\b/.test(nameBlob);
+    const sharesCity3 = city3.has(`${lon.toFixed(3)}|${lat.toFixed(3)}`);
+    if (
+      quarantineClones &&
+      (layer === 'ports' || layer === 'port') &&
+      (stampedClone || (proposedish && sharesCity3))
+    ) {
+      bump(reasons, 'centroid_clone');
+      quarantine.push({
+        ...raw,
+        properties: {
+          ...props0,
+          reason: 'centroid_clone',
+          geo_quality: props0.geo_quality || 'centroid_clone',
+        },
+      });
+      continue;
+    }
     const id = featureId(raw);
     if (id) {
       const idKey = `${layer}::${id}`;
