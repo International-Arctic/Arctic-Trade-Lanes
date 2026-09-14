@@ -50,3 +50,8 @@ Also exported: `filterEventPins` (same rules) for venue pins. Do not use high-la
 ## Centroid-clone quarantine (2026-09-14)
 
 Ports stamped `geo_quality: centroid_clone` (exact city pin match) are quarantined client-side by default (`quarantineCentroidClones`). Fallback: proposed/planned ports sharing a city pin at 3 decimal places. See [CENTROID-CLONE-QUARANTINE-2026-09-14.md](./CENTROID-CLONE-QUARANTINE-2026-09-14.md).
+
+## People filter quarantine accumulate (2026-09-14 ~17:57 MSK)
+
+`filterPeoplePins` / `filterEventPins` now always return `quarantine: []` and accept optional `accumulateQuarantine: true` to fill dropped pins with `{ pin, reason }` for QA — default callers that only use `.accepted` / `.stats` are unchanged. Live UnicornsMap.com bundle already drops null-island / OOB / swap / dupes (no SPA redeploy this cycle).
+
