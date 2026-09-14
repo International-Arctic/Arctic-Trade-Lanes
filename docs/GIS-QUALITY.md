@@ -120,3 +120,6 @@ Dropped stacked Davie Defense Texas shipyard (`ARC-SHIP-066`) and duplicate CanN
 
 ## 2026-09-08 ~16:09 MSK — port↔city centroid densify (6 harbours)
 See `PORT-CITY-CENTROID-DENSIFY-1609.md`. Live atlas generated `2026-09-08T13:24:12Z`.
+
+## 2026-09-14 10:24 MSK — port↔city densify (4 harbours)
+See `PORT-CITY-CENTROID-DENSIFY-1024.md`. Live atlas `generated` `2026-09-14T07:35:58Z`; stacks 23→19.
