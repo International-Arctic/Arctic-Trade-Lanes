@@ -136,3 +136,7 @@ See `PORT-CITY-CENTROID-DENSIFY-1024.md`. Live atlas `generated` `2026-09-14T07:
 Exact stacks **7→6**. Densified ARC-PORT-061 (OSM harbour node/5355453104) and ARC-PORT-032 (Hurtigruten ferry_terminal node/269242524). Live atlas generated `2026-09-14T10:52:31Z`, 1321 features / 156 ports. Dataset companion NOTES-GIS-QUALITY-2026-09-14-1345.md. Remaining six proposed/planned stay `centroid_clone` + client quarantine.
 
 - 2026-09-14 ~14:16 MSK: industry densify FAC-012/351 + centroid_clone stamp industry/shipyards (see INDUSTRY-CENTROID-DENSIFY-2026-09-14-1416.md).
+
+## 2026-09-14 ~16:00 MSK — industry stacks cleared
+
+Densified ARC-FAC-315/362/363/378; industry↔city exact stacks **4 → 0**. See [INDUSTRY-CENTROID-DENSIFY-2026-09-14-1600.md](INDUSTRY-CENTROID-DENSIFY-2026-09-14-1600.md). Live atlas `generated` `2026-09-14T13:06:45Z`.
