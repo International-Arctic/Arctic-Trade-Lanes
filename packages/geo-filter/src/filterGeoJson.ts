@@ -7,7 +7,7 @@ export type FilterOptions = {
   unstackSchematic?: boolean;
   unstackRadiusDeg?: number;
   arcticLayers?: string[];
-  /** Quarantine ports stamped geo_quality=centroid_clone (or proposed/planned sharing a city 3-dp pin). Default true. */
+  /** Quarantine ports/industry/shipyards stamped geo_quality=centroid_clone (or proposed/planned sharing a city 3-dp pin). Default true. */
   quarantineCentroidClones?: boolean;
 };
 
@@ -116,7 +116,7 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
     const sharesCity3 = city3.has(`${lon.toFixed(3)}|${lat.toFixed(3)}`);
     if (
       quarantineClones &&
-      (layer === 'ports' || layer === 'port') &&
+      (layer === 'ports' || layer === 'port' || layer === 'industry' || layer === 'shipyards' || layer === 'shipyard') &&
       (stampedClone || (proposedish && sharesCity3))
     ) {
       bump(reasons, 'centroid_clone');

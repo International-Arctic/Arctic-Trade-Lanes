@@ -41,3 +41,8 @@ Reason counter: `centroid_clone`. Cities remain visible; stacked port pin is dro
 ## Help wanted
 
 Prefer OSM pier/harbour densify for the six IDs above when geometry appears; until then keep quarantine. See GitHub good-first-issue on Arctic-Trade-Lanes.
+
+
+## 2026-09-14 ~14:16 MSK extension
+
+Stamp + quarantine also cover **industry** and **shipyards** (see `docs/INDUSTRY-CENTROID-DENSIFY-2026-09-14-1416.md`).
