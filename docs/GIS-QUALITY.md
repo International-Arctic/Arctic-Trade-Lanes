@@ -129,3 +129,8 @@ See `PORT-CITY-CENTROID-DENSIFY-1609.md`. Live atlas generated `2026-09-08T13:24
 See `PORT-CITY-CENTROID-DENSIFY-1024.md`. Live atlas `generated` `2026-09-14T07:35:58Z`; stacks 23→19.
 
 - 2026-09-14 ~11:08 MSK: densified ARC-PORT-030/058/151/156 off city centroids (see PORT-CITY-DENSIFY-2026-09-14-1108.md); live stacks 16→12.
+
+
+## 2026-09-14 ~13:45 MSK — Båtsfjord + Vardø densify
+
+Exact stacks **7→6**. Densified ARC-PORT-061 (OSM harbour node/5355453104) and ARC-PORT-032 (Hurtigruten ferry_terminal node/269242524). Live atlas generated `2026-09-14T10:52:31Z`, 1321 features / 156 ports. Dataset companion NOTES-GIS-QUALITY-2026-09-14-1345.md. Remaining six proposed/planned stay `centroid_clone` + client quarantine.
