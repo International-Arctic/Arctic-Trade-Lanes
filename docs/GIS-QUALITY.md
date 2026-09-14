@@ -18,6 +18,10 @@ Ports · ships / tankers · icebreakers · lanes · cities · industrial / shipb
 
 People pins · event locations · people-layer toggles · dedupe / geo QA.
 
+## 2026-09-14 ~11:57 MSK — port pier densify (4 facilities)
+
+See `PORT-CITY-DENSIFY-2026-09-14-1157.md`. Live atlas generated `2026-09-14T08:58:51Z`, features **1321**, ports **156**, exact stacks **12→9**. UM filters smoke OK; no SPA redeploy.
+
 ## 2026-09-08 17:18 MSK — port↔city centroid densify (6 harbours)
 
 See `PORT-CITY-CENTROID-DENSIFY-1718.md`. Live atlas generated `2026-09-08T14:32:36Z`.
