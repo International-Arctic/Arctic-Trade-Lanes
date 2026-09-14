@@ -123,3 +123,5 @@ See `PORT-CITY-CENTROID-DENSIFY-1609.md`. Live atlas generated `2026-09-08T13:24
 
 ## 2026-09-14 10:24 MSK — port↔city densify (4 harbours)
 See `PORT-CITY-CENTROID-DENSIFY-1024.md`. Live atlas `generated` `2026-09-14T07:35:58Z`; stacks 23→19.
+
+- 2026-09-14 ~11:08 MSK: densified ARC-PORT-030/058/151/156 off city centroids (see PORT-CITY-DENSIFY-2026-09-14-1108.md); live stacks 16→12.
