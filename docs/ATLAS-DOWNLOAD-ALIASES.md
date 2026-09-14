@@ -44,3 +44,7 @@ When regenerating the atlas on Zo (`ArcticTradeLanes.com/arctic-trade-lanes`), c
 1. Run `python3 build_atlas.py` in `ArcticTradeLanes.com/atlas-proj`.
 2. Copy `atlas.3996.geojson`, `atlas.wgs84.geojson`, `atlas.4326.geojson`, `atlas.geojson` (4326 alias), `atlas.manifest.json` into both `arctic-trade-lanes/public/` and `dist/` (and `data/` subfolders).
 3. Spot-check: `jq '.projection.epsg' public/atlas.4326.geojson` → `4326`; same for `3996` → `3996`.
+
+## Builder note (2026-09-14 09:36)
+
+`atlas-proj/build_atlas.py` must write **`atlas.geojson`** as a byte alias of the WGS84 collection (same bytes as `atlas.wgs84.geojson` / `atlas.4326.geojson`). Without that file, apex `/atlas.geojson` can stay frozen while CRS-stamped siblings update — caught when densified CSV ports never appeared on the live map until the alias was rebuilt.
