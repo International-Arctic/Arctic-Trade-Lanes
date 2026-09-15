@@ -60,6 +60,7 @@ Ports stamped `geo_quality: centroid_clone` (exact city pin match) are quarantin
 ```bash
 bun scripts/check-people-event-pin-filter.mjs
 node scripts/check-centroid-clone-remaining.mjs dataset/atlas.4326.geojson
+node scripts/check-shipyard-city-stack.mjs dataset/atlas.4326.geojson
 ```
 
 Shipped after Issue #32 hard-port re-check found no verifiable OSM densify for Obskaya/Chevak/Steensby. People/event smoke covers UnicornsMap pin QA without SPA redeploy.

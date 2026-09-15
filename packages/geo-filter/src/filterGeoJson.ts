@@ -66,6 +66,7 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
 
   // City pins at ~3 decimal places — used only for proposed/planned port fallback.
   const city3 = new Set<string>();
+  const cityExact = new Set<string>();
   if (quarantineClones) {
     for (const f of features) {
       if (!f || f.type !== 'Feature') continue;
@@ -73,6 +74,7 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
       const cpt = firstLonLat(f.geometry);
       if (!cpt) continue;
       city3.add(`${cpt[0].toFixed(3)}|${cpt[1].toFixed(3)}`);
+      cityExact.add(`${cpt[0].toFixed(6)}|${cpt[1].toFixed(6)}`);
     }
   }
 
@@ -114,10 +116,13 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
     const nameBlob = `${props0.name || ''} ${props0.status || ''} ${props0.port_name || ''}`.toLowerCase();
     const proposedish = /\b(proposed|planned)\b/.test(nameBlob);
     const sharesCity3 = city3.has(`${lon.toFixed(3)}|${lat.toFixed(3)}`);
+    const sharesCityExact = cityExact.has(`${lon.toFixed(6)}|${lat.toFixed(6)}`);
+    const shipyardExactCity =
+      (layer === 'shipyards' || layer === 'shipyard') && sharesCityExact;
     if (
       quarantineClones &&
       (layer === 'ports' || layer === 'port' || layer === 'industry' || layer === 'shipyards' || layer === 'shipyard') &&
-      (stampedClone || (proposedish && sharesCity3))
+      (stampedClone || (proposedish && sharesCity3) || shipyardExactCity)
     ) {
       bump(reasons, 'centroid_clone');
       quarantine.push({

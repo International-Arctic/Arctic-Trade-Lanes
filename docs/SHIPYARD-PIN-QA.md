@@ -43,3 +43,10 @@ Also stripped a UTF-8 BOM from `lanes.csv` (`lane_id` header) for non-`utf-8-sig
 - CI: `node scripts/check-shipyard-column-shift.mjs [atlas.4326.geojson]`
 
 Politically neutral OSINT hygiene — no editorial layer changes, no SPA redeploy.
+
+## 2026-09-15 — shipyard↔city exact-stack CI
+
+`ARC-SHIP-069` Sevgiprorybflot remains on Murmansk city centroid (`centroid_clone`). Overpass found other Murmansk yards (Мурманская Судоверфь, СРЗ ММФ, 35 СРЗ, ЦСКМС) but **no** named Sevgiprorybflot facility — do not densify onto a wrong yard.
+
+- Spec: [SHIPYARD-CITY-STACK.md](./SHIPYARD-CITY-STACK.md)
+- CI: `node scripts/check-shipyard-city-stack.mjs [atlas.4326.geojson]`
