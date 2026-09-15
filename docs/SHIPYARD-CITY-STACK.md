@@ -36,7 +36,7 @@ Asserts:
 2. Each allowed stack carries `geo_quality=centroid_clone`.
 3. Expected stacks are still present (forces EXPECTED update after a real densify).
 
-Companion lock: `scripts/check-centroid-clone-remaining.mjs` (ports 034/069/153 + SHIP-069).
+Companion lock: `scripts/check-centroid-clone-remaining.mjs` (ports 034/069 + SHIP-069 (PORT-153 densified 2026-09-15)).
 
 ## Policy
 

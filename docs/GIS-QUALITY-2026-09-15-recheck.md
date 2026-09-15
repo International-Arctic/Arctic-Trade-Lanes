@@ -24,3 +24,7 @@ Additive CI smokes (no SPA redeploy, no App.tsx, static/edge-cheap):
 2. `node scripts/check-centroid-clone-remaining.mjs [atlas.4326.geojson]` — locks remaining quarantine set to the four known IDs above.
 
 Politically neutral OSINT hygiene; commercial rails untouched; no orange-cloud DNS.
+
+
+## Update 2026-09-15 ~12:47 MSK
+ARC-PORT-153 densified off CITY-100 onto OSM R13745622; remaining centroid_clone: 034, 069, SHIP-069.
