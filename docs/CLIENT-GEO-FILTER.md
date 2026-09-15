@@ -55,3 +55,11 @@ Ports stamped `geo_quality: centroid_clone` (exact city pin match) are quarantin
 
 `filterPeoplePins` / `filterEventPins` now always return `quarantine: []` and accept optional `accumulateQuarantine: true` to fill dropped pins with `{ pin, reason }` for QA — default callers that only use `.accepted` / `.stats` are unchanged. Live UnicornsMap.com bundle already drops null-island / OOB / swap / dupes (no SPA redeploy this cycle).
 
+## CI (2026-09-15)
+
+```bash
+bun scripts/check-people-event-pin-filter.mjs
+node scripts/check-centroid-clone-remaining.mjs dataset/atlas.4326.geojson
+```
+
+Shipped after Issue #32 hard-port re-check found no verifiable OSM densify for Obskaya/Chevak/Steensby. People/event smoke covers UnicornsMap pin QA without SPA redeploy.
