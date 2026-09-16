@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-09-15T13:48:48.021251+00:00",
+  "generated": "2026-09-16T06:20:47.893986+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -27,7 +27,7 @@
       "country": "Norway",
       "currency": "Norwegian krone",
       "currency_code": "NOK",
-      "official_languages": "Norwegian (Bokmål, Nynorsk)",
+      "official_languages": "Norwegian (Bokm\u00e5l, Nynorsk)",
       "arctic_territory": "Finnmark Troms og Finnmark Nordland Svalbard Jan Mayen",
       "arctic_council_status": "Member (P8)",
       "business_registry_url": "https://brreg.no",
@@ -95,7 +95,7 @@
     "IS": {
       "iso2": "IS",
       "country": "Iceland",
-      "currency": "Icelandic króna",
+      "currency": "Icelandic kr\u00f3na",
       "currency_code": "ISK",
       "official_languages": "Icelandic",
       "arctic_territory": "Whole island (crosses Arctic Circle at Grimsey)",
@@ -112,7 +112,7 @@
       "currency": "Swedish krona",
       "currency_code": "SEK",
       "official_languages": "Swedish",
-      "arctic_territory": "Norrbotten Västerbotten (Lapland) parts of Jämtland",
+      "arctic_territory": "Norrbotten V\u00e4sterbotten (Lapland) parts of J\u00e4mtland",
       "arctic_council_status": "Member (P8) Observer",
       "business_registry_url": "https://bolagsverket.se",
       "trade_agreements": "EU WTO",
