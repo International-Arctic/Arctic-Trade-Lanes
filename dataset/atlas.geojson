@@ -6560,7 +6560,7 @@
     },
     {
       "type": "Feature",
-      "id": "ARC-SSHIP-024",
+      "id": "ARC-SHIP-024",
       "properties": {
         "layer": "shipyards",
         "name": "Ulstein Verft",
@@ -6569,7 +6569,7 @@
         "iso2": "NO",
         "specialization": "Offshore Vessels,Expedition Ships,Arctic Support",
         "arctic_capable": "Arc5",
-        "id": "ARC-SSHIP-024"
+        "id": "ARC-SHIP-024"
       },
       "geometry": {
         "type": "Point",
@@ -6700,8 +6700,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.54,
-          57.44
+          10.5474498,
+          57.4368155
         ]
       }
     },
