@@ -147,3 +147,6 @@ Densified ARC-FAC-315/362/363/378; industry↔city exact stacks **4 → 0**. See
 - Densified off soft 62.4500/6.0900 onto WD Q52502362 P625 62.203405/5.572472 (Nominatim N5778426043). Atlas 2026-09-21T07:52:10Z 1321/70/156 EPSG:3996. UM pin filter smoke accepted 4 dropped 6. Closed Issue #40.
 
 - 2026-09-21 ~12:02 MSK: densified ARC-SHIP-013 Damen Galati onto WD Q4686063 P625 (OSM way/888306100). Softish 24→23. See NOTES-GIS-QUALITY-2026-09-21-1202.md.
+
+## 2026-09-21 ~12:45 MSK — ARC-SHIP-030 Damen Shiprepair Amsterdam
+- Soft `52.3800/4.9000` → OSM way/693058619 Nominatim `52.4069734/4.8837803` (`industrial=shipyard`). Softish 24→23. Atlas 1321 / 70 shipyards / 156 ports EPSG:3996. UM smoke accepted 5 dropped 6.
