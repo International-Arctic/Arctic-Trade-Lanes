@@ -145,3 +145,5 @@ Densified ARC-FAC-315/362/363/378; industry↔city exact stacks **4 → 0**. See
 
 ## 2026-09-21 ~10:47 MSK — ARC-SHIP-074 Larsnes
 - Densified off soft 62.4500/6.0900 onto WD Q52502362 P625 62.203405/5.572472 (Nominatim N5778426043). Atlas 2026-09-21T07:52:10Z 1321/70/156 EPSG:3996. UM pin filter smoke accepted 4 dropped 6. Closed Issue #40.
+
+- 2026-09-21 ~12:02 MSK: densified ARC-SHIP-013 Damen Galati onto WD Q4686063 P625 (OSM way/888306100). Softish 24→23. See NOTES-GIS-QUALITY-2026-09-21-1202.md.
