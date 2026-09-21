@@ -21,6 +21,7 @@ const fixtures = [
   { name: 'soft', lat: 70.1, lng: 30.1 },
   { name: 'soft', lat: 70.1, lng: 30.1 },
   { slug: 'lon-alias', name: 'Lon alias', latitude: 68.9, longitude: 33.0 },
+  { slug: 'string-coords', name: 'String Coords', lat: '69.1', lng: '18.9' },
 ];
 
 const { accepted, stats, quarantine } = filterPeoplePins(fixtures, {
@@ -37,8 +38,8 @@ const expectReasons = {
 };
 
 let failed = 0;
-if (stats.accepted !== 4) {
-  console.error('expected accepted=4 (ok-arctic, first dup slug, soft, lon-alias), got', stats.accepted, accepted.map((p) => p.slug || p.name));
+if (stats.accepted !== 5) {
+  console.error('expected accepted=5 (ok-arctic, first dup slug, soft, lon-alias, string-coords), got', stats.accepted, accepted.map((p) => p.slug || p.name));
   failed++;
 }
 for (const [k, n] of Object.entries(expectReasons)) {

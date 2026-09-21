@@ -30,13 +30,14 @@ function bump(r: Record<string, number>, k: string) { r[k] = (r[k] || 0) + 1; }
 
 function lonLat(p: PeoplePinLike): [number, number] | null {
   if (Array.isArray(p.coords) && p.coords.length >= 2) {
-    const [lng, lat] = p.coords;
+    const lng = Number(p.coords[0]);
+    const lat = Number(p.coords[1]);
     if (Number.isFinite(lng) && Number.isFinite(lat)) return [lng, lat];
   }
-  // Accept common GIS aliases without forcing callers to normalize first.
-  const lng = (p.lng ?? p.lon ?? (p as any).longitude) as number | undefined;
-  const lat = (p.lat ?? (p as any).latitude) as number | undefined;
-  if (Number.isFinite(lng as number) && Number.isFinite(lat as number)) return [lng as number, lat as number];
+  // Accept common GIS aliases + numeric strings ("60.1") without forcing callers to normalize first.
+  const lng = Number(p.lng ?? p.lon ?? (p as any).longitude);
+  const lat = Number(p.lat ?? (p as any).latitude);
+  if (Number.isFinite(lng) && Number.isFinite(lat)) return [lng, lat];
   return null;
 }
 
