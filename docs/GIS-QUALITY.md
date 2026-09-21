@@ -142,3 +142,6 @@ Exact stacks **7→6**. Densified ARC-PORT-061 (OSM harbour node/5355453104) and
 Densified ARC-FAC-315/362/363/378; industry↔city exact stacks **4 → 0**. See [INDUSTRY-CENTROID-DENSIFY-2026-09-14-1600.md](INDUSTRY-CENTROID-DENSIFY-2026-09-14-1600.md). Live atlas `generated` `2026-09-14T13:06:45Z`.
 
 - 2026-09-15 ~11:55 MSK: ARC-RAIL-002 densified onto OSM Narvik station node/5526332038 (off CITY-020). See GIS-QUALITY-2026-09-15-rail002-ofoten-narvik.md
+
+## 2026-09-21 ~10:47 MSK — ARC-SHIP-074 Larsnes
+- Densified off soft 62.4500/6.0900 onto WD Q52502362 P625 62.203405/5.572472 (Nominatim N5778426043). Atlas 2026-09-21T07:52:10Z 1321/70/156 EPSG:3996. UM pin filter smoke accepted 4 dropped 6. Closed Issue #40.
