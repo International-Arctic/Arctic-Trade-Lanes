@@ -1,0 +1,163 @@
+{
+  "atlas": "ArcticTradeLanes GIS OSINT Atlas",
+  "generated": "2026-09-22T09:48:57.447254+00:00",
+  "crs_primary": 3996,
+  "crs_supported": [
+    3996,
+    3995,
+    3411,
+    4326
+  ],
+  "layer_counts": {
+    "ports": 156,
+    "cities": 103,
+    "shipyards": 70,
+    "programs": 713,
+    "airports": 10,
+    "industry": 110,
+    "rail": 14,
+    "lanes": 27,
+    "tankers": 51,
+    "icebreakers": 56,
+    "rescue": 7
+  },
+  "arctic_reference": {
+    "NO": {
+      "iso2": "NO",
+      "country": "Norway",
+      "currency": "Norwegian krone",
+      "currency_code": "NOK",
+      "official_languages": "Norwegian (Bokm\u00e5l, Nynorsk)",
+      "arctic_territory": "Finnmark Troms og Finnmark Nordland Svalbard Jan Mayen",
+      "arctic_council_status": "Member (P8)",
+      "business_registry_url": "https://brreg.no",
+      "trade_agreements": "EEA EFTA WTO",
+      "notes": "Kirkenes border-zone trade with RU suspended since 2022; Svalbard Treaty 1920 commercial rights; Barents collaboration paused",
+      "confidence": "95",
+      "sources": "wikipedia.org brreg.no regjeringen.no"
+    },
+    "RU": {
+      "iso2": "RU",
+      "country": "Russia",
+      "currency": "Russian ruble",
+      "currency_code": "RUB",
+      "official_languages": "Russian",
+      "arctic_territory": "Arctic Zone RF (AZRF): Murmansk Arkhangelsk Nenets AO Yamalo-Nenets AO Krasnoyarsk north Chukotka Yakutia north",
+      "arctic_council_status": "Member (P8) suspended 2022",
+      "business_registry_url": "https://egrul.nalog.ru",
+      "trade_agreements": "EAEU CSTO bilateral",
+      "notes": "AZRF resident regime (2020 FZ-193) offers 0% profit-tax first 5yr + subsidies; NSR state monopoly rules 2025+; Western sanctions limit USD/EUR settlement",
+      "confidence": "95",
+      "sources": "arctic.ru government.ru consultant.ru"
+    },
+    "US": {
+      "iso2": "US",
+      "country": "United States",
+      "currency": "US dollar",
+      "currency_code": "USD",
+      "official_languages": "English (de facto)",
+      "arctic_territory": "Alaska above 66.56N",
+      "arctic_council_status": "Member (P8)",
+      "business_registry_url": "https://sam.gov",
+      "trade_agreements": "USMCA CPTPP signed",
+      "notes": "ANCSA Native corporations own Alaskan Arctic land; Willow project approved 2023; State of Alaska OPPT incentives",
+      "confidence": "95",
+      "sources": "commerce.alaska.gov sam.gov blm.gov"
+    },
+    "CA": {
+      "iso2": "CA",
+      "country": "Canada",
+      "currency": "Canadian dollar",
+      "currency_code": "CAD",
+      "official_languages": "English French",
+      "arctic_territory": "Yukon NWT Nunavut northern Quebec Nunavik northern Labrador Nunatsiavut",
+      "arctic_council_status": "Member (P8)",
+      "business_registry_url": "https://ised-isde.canada.ca/corporations-canada",
+      "trade_agreements": "USMCA CPTPP CETA",
+      "notes": "CanNor funds northern entrepreneurs; Arctic and Northern Policy Framework 2019; NWT diamond + Nunavut iron/gold mining",
+      "confidence": "95",
+      "sources": "cannor.gc.ca ised-isde.canada.ca"
+    },
+    "DK": {
+      "iso2": "DK",
+      "country": "Denmark",
+      "currency": "Danish krone",
+      "currency_code": "DKK",
+      "official_languages": "Danish",
+      "arctic_territory": "Greenland Faroe Islands (autonomous within Kingdom)",
+      "arctic_council_status": "Member (P8)",
+      "business_registry_url": "https://virk.dk/cvr",
+      "trade_agreements": "EU (with Greenland/Faroe opt-outs)",
+      "notes": "Greenland Self-Government Act 2009 controls minerals; Naalakkersuisut banned uranium mining 2021; Faroe open for aquaculture FDI",
+      "confidence": "95",
+      "sources": "naalakkersuisut.gl virk.dk"
+    },
+    "IS": {
+      "iso2": "IS",
+      "country": "Iceland",
+      "currency": "Icelandic kr\u00f3na",
+      "currency_code": "ISK",
+      "official_languages": "Icelandic",
+      "arctic_territory": "Whole island (crosses Arctic Circle at Grimsey)",
+      "arctic_council_status": "Member (P8) observer pre-2018? Member",
+      "business_registry_url": "https://skra.is/fyrirtaekjaskra",
+      "trade_agreements": "EEA Schengen WTO",
+      "notes": "Only Arctic Council member fully inside the Circle; strategic HKIA/Keflavik Arctic air-cargo hub ambitions",
+      "confidence": "90",
+      "sources": "skra.is government.is"
+    },
+    "SE": {
+      "iso2": "SE",
+      "country": "Sweden",
+      "currency": "Swedish krona",
+      "currency_code": "SEK",
+      "official_languages": "Swedish",
+      "arctic_territory": "Norrbotten V\u00e4sterbotten (Lapland) parts of J\u00e4mtland",
+      "arctic_council_status": "Member (P8) Observer",
+      "business_registry_url": "https://bolagsverket.se",
+      "trade_agreements": "EU WTO",
+      "notes": "Kiruna city relocation for LKAB rare-earths (Per Geijer deposit); H2 Green Steel Boden plant",
+      "confidence": "95",
+      "sources": "bolagsverket.se lkab.com regeringen.se"
+    },
+    "FI": {
+      "iso2": "FI",
+      "country": "Finland",
+      "currency": "Euro",
+      "currency_code": "EUR",
+      "official_languages": "Finnish Swedish",
+      "arctic_territory": "Lapland Northern Ostrobothnia (Oulu) Kainuu",
+      "arctic_council_status": "Member (P8) Observer",
+      "business_registry_url": "https://prh.fi",
+      "trade_agreements": "EU eurozone WTO",
+      "notes": "Business Finland Arctic growth programmes; EU Arctic policy hub; Rovaniemi EU Arctic Information Centre",
+      "confidence": "95",
+      "sources": "prh.fi businessfinland.fi europa.eu"
+    }
+  },
+  "unresolved_lane_waypoints": [],
+  "lane_teleport_drops": [],
+  "extra_id_drops": [],
+  "shipyard_coord_drops": [],
+  "port_alias_drops": [],
+  "program_name_coord_drops": [],
+  "distortion_kpis": {
+    "k_at_pole": 0.982967,
+    "k_true_scale_parallel": "75N (k=1.0)",
+    "k_at_80N": 0.9905,
+    "k_band_75_80N_range": [
+      1.0,
+      0.9978,
+      0.9957,
+      0.9938,
+      0.9921,
+      0.9905
+    ],
+    "band_area_distortion_max_pct": 1.89
+  },
+  "files": {
+    "epsg3996": "out/atlas.3996.geojson",
+    "wgs84": "out/atlas.wgs84.geojson",
+    "epsg4326": "out/atlas.4326.geojson"
+  }
+}
