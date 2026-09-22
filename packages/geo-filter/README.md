@@ -22,4 +22,4 @@ bun scripts/check-people-event-pin-filter.mjs
 node scripts/check-centroid-clone-remaining.mjs dataset/atlas.4326.geojson
 ```
 
-People/event filter covers null-island, OOB, swapped lat/lng, missing coords, duplicate slug, soft duplicate point, and `longitude`/`lon` aliases used by UnicornsMap pins.
+People/event filter covers null-island, OOB, swapped lat/lng, sentinel `(1,1)`/`999`, missing coords, duplicate slug, soft duplicate point, GeoJSON Point geometry, nested `location`, and `longitude`/`lon`/`x`/`y` aliases used by UnicornsMap pins.

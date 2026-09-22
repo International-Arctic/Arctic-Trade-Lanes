@@ -43,7 +43,9 @@ PRs welcome that ship a tested `filterGeoJson` under `dataset/` or a tiny `packa
 
 Import `@international-arctic/geo-filter/people`.
 
-Reasons: `missing_coords`, `nan_coords`, `null_island`, `swapped_lat_lng` (|lat|>90 while |lng|≤90), `out_of_bounds`, `duplicate_slug`, `duplicate_point`.
+Reasons: `missing_coords`, `nan_coords`, `null_island`, `sentinel_coords` (999/9999 or exact `(1,1)` / axis-unit junk), `swapped_lat_lng` (|lat|>90 while |lng|≤90), `out_of_bounds`, `duplicate_slug`, `duplicate_point`.
+
+Also accepts GeoJSON `geometry: { type: "Point", coordinates: [lng, lat] }`, nested `location.{lat,lng|lon|longitude}`, and `x`/`y` aliases (2026-09-22 ~11:20 MSK).
 
 Also exported: `filterEventPins` (same rules) for venue pins. Do not use high-latitude heuristics — Nordic / Arctic HQ pins are valid.
 

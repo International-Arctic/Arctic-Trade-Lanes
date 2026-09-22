@@ -22,6 +22,10 @@ const fixtures = [
   { name: 'soft', lat: 70.1, lng: 30.1 },
   { slug: 'lon-alias', name: 'Lon alias', latitude: 68.9, longitude: 33.0 },
   { slug: 'string-coords', name: 'String Coords', lat: '69.1', lng: '18.9' },
+  { slug: 'geojson-point', name: 'GeoJSON Point', geometry: { type: 'Point', coordinates: [24.94, 60.17] } },
+  { slug: 'nested-loc', name: 'Nested Loc', location: { latitude: 59.33, longitude: 18.07 } },
+  { slug: 'sentinel-999', name: 'Sentinel', lat: 999, lng: 999 },
+  { slug: 'sentinel-11', name: 'OneOne', lat: 1, lng: 1 },
 ];
 
 const { accepted, stats, quarantine } = filterPeoplePins(fixtures, {
@@ -35,11 +39,12 @@ const expectReasons = {
   out_of_bounds: 1,
   missing_coords: 1,
   duplicate_point: 1,
+  sentinel_coords: 2,
 };
 
 let failed = 0;
-if (stats.accepted !== 5) {
-  console.error('expected accepted=5 (ok-arctic, first dup slug, soft, lon-alias, string-coords), got', stats.accepted, accepted.map((p) => p.slug || p.name));
+if (stats.accepted !== 7) {
+  console.error('expected accepted=7 (ok-arctic, first dup slug, soft, lon-alias, string-coords, geojson-point, nested-loc), got', stats.accepted, accepted.map((p) => p.slug || p.name));
   failed++;
 }
 for (const [k, n] of Object.entries(expectReasons)) {
@@ -48,8 +53,8 @@ for (const [k, n] of Object.entries(expectReasons)) {
     failed++;
   }
 }
-if (quarantine.length !== 6) {
-  console.error('quarantine length want 6 got', quarantine.length);
+if (quarantine.length !== 8) {
+  console.error('quarantine length want 8 got', quarantine.length);
   failed++;
 }
 
