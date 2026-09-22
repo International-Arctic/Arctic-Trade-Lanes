@@ -15,7 +15,8 @@ PORT-034/069, SHIP-069, ARC-PORT-164 (community review before merge).
 
 ## Atlas
 - Rebuilt via `atlas-proj/build_atlas.py --dataset ArcticTradeLanes-Dataset` (Zo).
-- See live `atlas.manifest.json` `generated` + feature counts after sync.
+- `generated` **2026-09-22T11:22:34Z**, **1321** features / **70** shipyards / **156** ports. CRS primary EPSG:3996.
+- Live verified: https://arctictradelanes.com/data/atlas.geojson ARC-PORT-143 `[23.645664, 70.630937]`, ARC-PORT-161 `[23.215812, 59.878432]`.
 - Synced root/www/public/dist/data + Dataset aliases — **no SPA redeploy / App.tsx**.
 
 ## UM
