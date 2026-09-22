@@ -24,3 +24,8 @@ PORT-034/069, SHIP-069, ARC-PORT-164 (community review before merge).
 
 ## OSS
 - Dataset + Arctic-Trade-Lanes commits + Issue #32 comment (this cycle).
+
+## OSS (final)
+- Dataset `259f650` — https://github.com/International-Arctic/ArcticTradeLanes-Dataset/commit/259f650c622f4e8873396b17a1f9db2705babf0e
+- Arctic-Trade-Lanes `92c55b4` — https://github.com/International-Arctic/Arctic-Trade-Lanes/commit/92c55b45dfc2372daf1089b9c86269dc52bd7de2
+- Issues: #32 + #46 comments.

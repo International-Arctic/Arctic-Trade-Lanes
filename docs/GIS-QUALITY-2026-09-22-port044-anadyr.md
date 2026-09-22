@@ -19,3 +19,7 @@ PORT-034/069, SHIP-069, ARC-PORT-164.
 
 ## UM
 - No package bump (geo-filter already **0.1.4**).
+
+## OSS
+- Dataset `259f650`
+- Arctic-Trade-Lanes `92c55b4` + Issue #32 / #46 comments.
