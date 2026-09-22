@@ -12,11 +12,14 @@ Vigor-021, VT Halter-022, Eastern-023, Ulstein-024 (#37), Greenland-027, Norther
 PORT-034/069, SHIP-069, Zvezda, Wrangell, Ulstein #37, Naval Group #43.
 
 ## Atlas
-- Rebuilt via `atlas-proj/build_atlas.py` — see generated timestamp in manifest.
-- Sync static `/data/atlas.geojson` only — **no SPA redeploy / App.tsx**.
+- Rebuilt via `atlas-proj/build_atlas.py --dataset ArcticTradeLanes-Dataset`.
+- `generated` **2026-09-22T08:53:21Z**, **1321** features / **70** shipyards / **156** ports. CRS primary EPSG:3996.
+- Live verified: https://arctictradelanes.com/data/atlas.geojson ARC-PORT-031 `[33.024459, 69.034121]`.
+- Synced static Dataset + www/public/data/dist aliases — **no SPA redeploy / App.tsx**.
 
 ## UM
 - No new package bump this cycle (geo-filter already **0.1.4** from ~11:20 MSK).
 
 ## OSS
-- Dataset + Arctic-Trade-Lanes: PORT-031 densify + `check-port031-lavna-densify.mjs` + Issue comment.
+- Dataset `92b951c` (densify + sources dedupe).
+- Arctic-Trade-Lanes `1148b59` + Issue #32 comment.
