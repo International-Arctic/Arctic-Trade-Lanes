@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-13T02:05:32Z",
+  "generated": "2026-10-05T15:56:06Z",
   "source": "NOAA NCEI global DEM mosaic (ETOPO 2022 family, 60 arc-second float32 elevation/bathymetry) via ArcGIS ImageServer exportImage",
   "source_endpoint": "https://gis.ngdc.noaa.gov/arcgis/rest/services/DEM_mosaics/DEM_global_mosaic/ImageServer/exportImage",
   "gebco_wms_relief": "https://wms.gebco.net/mapserv?service=WMS&version=1.3.0&request=GetMap&layers=GEBCO_LATEST_3&styles=default&crs=EPSG:4326",
@@ -40,7 +40,7 @@
   },
   "contour_features": 711,
   "contour_bytes": 617249,
-  "lane_depth_bytes": 32276,
+  "lane_depth_bytes": 32274,
   "lanes_scored": 27,
   "shallow_bank_lanes": [
     "ARC-LANE-001",
@@ -71,6 +71,6 @@
     "ARC-LANE-027"
   ],
   "disclaimer": "Scientific bathymetry - NOT for navigation. Gridded models are not official nautical charts; official ENCs (S-57 / S-101) come from IHO RENCs (PRIMAR / IC-ENC) under licence.",
-  "lane_depth_generated": "2026-10-05T15:33:09Z",
-  "lane_depth_sampling": "EPSG:3996 straight segments every 4 km (as drawn), antimeridian-safe, out-of-grid samples excluded (gis-lanedepth-1826)"
+  "lane_depth_sampling": "EPSG:3996 straight segments every 4 km (as drawn), antimeridian-safe, out-of-grid samples excluded (gis-lanedepth-1826)",
+  "lane_depth_generated": "2026-10-05T15:56:06Z"
 }
