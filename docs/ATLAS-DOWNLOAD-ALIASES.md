@@ -48,3 +48,21 @@ When regenerating the atlas on Zo (`ArcticTradeLanes.com/arctic-trade-lanes`), c
 ## Builder note (2026-09-14 09:36)
 
 `atlas-proj/build_atlas.py` must write **`atlas.geojson`** as a byte alias of the WGS84 collection (same bytes as `atlas.wgs84.geojson` / `atlas.4326.geojson`). Without that file, apex `/atlas.geojson` can stay frozen while CRS-stamped siblings update — caught when densified CSV ports never appeared on the live map until the alias was rebuilt.
+
+## Alias drift fix (gis-aliassync-1313, 2026-10-05)
+
+**What was wrong.** The SPA reads the root files, so the map itself was current, but the "same bytes" discovery aliases had drifted apart:
+
+| Path | Generation served before the fix |
+|---|---|
+| `/atlas.*` (root, used by the map) | 2026-10-05T09:49:53Z |
+| `/atlas/*` | 2026-10-05T08:59:34Z (missing the lane water-routing and Korf Bay fixes) |
+| `/data/*` | 2026-09-29T15:42:55Z (missing six days of fixes: program seat fan, reference rings, co-site nudge, ship water fan, lane water routing, Korf Bay) |
+
+Anyone pulling `/data/atlas.geojson` (crawlers, `llms.txt` readers, API users, notebooks) got a different map from the one on screen. Earlier syncs copied into `dist/` and `public/` roots but skipped their `data/` and `atlas/` subfolders.
+
+**Fix.** `scripts/sync_atlas_aliases.sh` (mirror of the Zo control-plane copy in `atlas-proj/`) writes the five atlas files into all ten served folders atomically and refuses to finish unless every copy has the same generation and bytes. All three live prefixes now serve generation 2026-10-05T09:49:53Z with identical bytes. No SPA redeploy, no dataset change.
+
+**Guard.** `node scripts/check-atlas-alias-sync.mjs [https://arctictradelanes.com]` fetches `/`, `/data/` and `/atlas/` live and fails on any generation or byte drift, or on an HTML SPA fallback.
+
+**Checklist update.** After `python3 build_atlas.py`, run `bash sync_atlas_aliases.sh` instead of copying by hand, then the live guard.
