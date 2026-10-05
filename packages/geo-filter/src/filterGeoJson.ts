@@ -9,7 +9,18 @@ export type FilterOptions = {
   arcticLayers?: string[];
   /** Quarantine ports/industry/shipyards stamped geo_quality=centroid_clone (or proposed/planned sharing a city 3-dp pin). Default true. */
   quarantineCentroidClones?: boolean;
+  /**
+   * 0.1.5: fan out co-located admin-seat pins (default layer `programs`) that share one
+   * city/capital coordinate, so every program is clickable instead of 40+ dots hiding under
+   * one. Display-only: the true anchor stays in `position_anchor`; tagged
+   * `position_quality: 'admin_seat_fan'`. Default false (opt-in, back-compatible).
+   */
+  unstackAdminSeats?: boolean;
+  adminSeatLayers?: string[];
+  adminSeatRadiusDeg?: number;
 };
+
+const DEFAULT_ADMIN_SEAT_LAYERS = ['programs', 'program'];
 
 const DEFAULT_ARCTIC_LAYERS = ['ports','port','tankers','icebreakers','lanes','shipyards','rescue','airports'];
 
@@ -63,6 +74,8 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
   const stackBuckets = new Map<string, any[]>();
   const features = Array.isArray(fc?.features) ? fc.features : [];
   const quarantineClones = opts.quarantineCentroidClones !== false;
+  const adminSeatLayers = new Set(opts.adminSeatLayers || DEFAULT_ADMIN_SEAT_LAYERS);
+  const seatBuckets = new Map<string, any[]>();
 
   // City pins at ~3 decimal places — used only for proposed/planned port fallback.
   const city3 = new Set<string>();
@@ -169,7 +182,39 @@ export function filterGeoJson(fc: any, opts: FilterOptions = {}) {
       stackBuckets.set(pointKey, bucket);
       continue;
     }
+    if (opts.unstackAdminSeats && adminSeatLayers.has(layer)) {
+      const bucket = seatBuckets.get(pointKey) || [];
+      bucket.push(tagged);
+      seatBuckets.set(pointKey, bucket);
+      continue;
+    }
     accepted.push(tagged);
+  }
+
+  if (opts.unstackAdminSeats) {
+    const radius = opts.adminSeatRadiusDeg ?? 0.18;
+    for (const [, bucket] of seatBuckets) {
+      const n = bucket.length;
+      // Stable order by id so the fan layout does not shuffle between builds.
+      bucket.sort((a, b) => String(featureId(a) || '').localeCompare(String(featureId(b) || '')));
+      bucket.forEach((f, i) => {
+        if (n === 1) { accepted.push(f); return; }
+        const pt = firstLonLat(f.geometry)!;
+        const [olon, olat] = schematicOffset(pt[0], pt[1], i, n, radius);
+        accepted.push({
+          ...f,
+          geometry: { type: 'Point', coordinates: [Number(olon.toFixed(6)), Number(olat.toFixed(6))] },
+          properties: {
+            ...(f.properties || {}),
+            position_quality: 'admin_seat_fan',
+            position_stack_size: n,
+            position_stack_index: i,
+            position_anchor: [pt[0], pt[1]],
+          },
+        });
+        bump(reasons, 'admin_seat_unstacked');
+      });
+    }
   }
 
   if (opts.unstackSchematic) {
