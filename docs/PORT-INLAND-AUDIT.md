@@ -17,7 +17,9 @@ The terminal site plan is not public yet, so the pin now sits at the bay itself:
 |---|---|---|---|
 | ARC-PORT-035 | Kola Bay Fuel Terminal | 69.0, 33.25 | round numbers, east of Murmansk on land |
 | ARC-PORT-164 | Murmansk coal terminal "Lavna" | 69.0, 32.79 | round numbers; compare with densified ARC-PORT-031 Lavna |
-| ARC-PORT-147 | Naiba (Nayba) deep-water port | 71.9, 128.5 | planned project, settlement-level guess |
 | ARC-PORT-050 | Novaya Zemlya Ports | 73.5, 55.0 | archipelago centroid for several harbours |
 
 Proposed fixes need a public, checkable source (OSM object, Wikidata P625, an operator or government map). If a row is really several harbours, say so and suggest splitting it rather than picking one.
+
+## Fixed since
+- **ARC-PORT-147 Naiba (Nayba) planned deep-water port** (gis-naiba-1524, 2026-10-05): the pin at `71.9, 128.5` was near Tiksi, about 142 km from Naiba. The terminal is planned in Kharaulakh Bay near Naiba village, about 112 km from Tiksi ([morvesti.ru](https://morvesti.ru/news/1679/118608/)). It now sits on the village at `70.8496, 130.7551` from [Wikidata Q4312374](https://www.wikidata.org/wiki/Q4312374) (P625), cross-checked against OSM [way/1308280327](https://www.openstreetmap.org/way/1308280327). Settlement-level precision until a site plan is published. Guard: `scripts/check_port147_naiba.py` (3 km from the Wikidata anchor). Natural Earth 10m generalises the Kharaulakh Bay shore, so `check_port_inland.py` reads the village as ~5 km inland; it is locked at 8 km there.

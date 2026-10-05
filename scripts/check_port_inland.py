@@ -30,7 +30,7 @@ L = unary_union([shape(f["geometry"]) for f in json.load(open(land, encoding="ut
 coast = L.boundary
 
 # Fixed pins that must stay at the coast/bay (id -> max km inland allowed).
-LOCKED = {"ARC-PORT-169": 0.0}
+LOCKED = {"ARC-PORT-169": 0.0, "ARC-PORT-147": 8.0}  # 147 Naiba (gis-naiba-1524): NE10m generalises Kharaulakh Bay, village reads ~5 km inland; real guard is check_port147_naiba.py
 
 def hav_km(a, b):
     (lo1, la1), (lo2, la2) = a, b
