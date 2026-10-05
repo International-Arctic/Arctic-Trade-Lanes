@@ -33,7 +33,7 @@ ARC-PORT-031,Lavna Coal Terminal,ARC-CITY-001,Russia,69.0341207,33.0244586,RULAV
 ARC-PORT-032,Vardo Harbor,ARC-CITY-084,Norway,70.374591,31.104407,NOVAO,9.0,6,1200000,Arc3-Arc4,48000,Yes,12000-32000,165,Vardo Harbor Authority,Municipal,,,
 ARC-PORT-033,Salekhard River Port,ARC-CITY-046,Russia,66.5228621,66.6011381,RUSLY,5.5,4,850000,Arc3,18000,Yes,8000-18000,55,Rosmorport,State,"OSM Overpass node/8611184008 amenity=ferry_terminal (Salekhard river ferry terminal, ~884m off city centroid 66.5308/66.6019); GIS densify 2026-09-14",88,2026-09-14
 ARC-PORT-034,Obskaya LNG Terminal,ARC-CITY-047,Russia,66.0833,76.6333,RUOBS,14.0,2,15000000,Arc7,65000,Yes,120000-250000,145,Novatek,Private,,,
-ARC-PORT-035,Kola Bay Fuel Terminal,ARC-CITY-001,Russia,69.0000,33.2500,RUKOT,15.0,3,8000000,Arc4-Arc5,95000,Yes,35000-75000,280,Rosmorport,State,,,
+ARC-PORT-035,Kola Bay Fuel Terminal,ARC-CITY-001,Russia,69.0089,33.0782,RUKOT,15.0,3,8000000,Arc4-Arc5,95000,Yes,35000-75000,280,Rosmorport,State,,,
 ARC-PORT-036,Tiksi East Port,ARC-CITY-007,Russia,71.6800,128.9500,RUTIE,7.0,3,450000,Arc3-Arc4,12000,Yes,10000-25000,35,Rosatom,State,,,
 ARC-PORT-038,Cambridge Bay Port,ARC-CITY-026,Canada,69.1138158,-105.0597084,CACMB,7.0,3,320000,Arc3-Arc4,22000,Yes,12000-28000,65,Cambridge Bay Hamlet,Municipal,osm:way/146311328 G.N. Dock man_made=pier densify 2026-09-14 (off Cambridge Bay city centroid),92,2026-09-14
 ARC-PORT-039,Rankin Inlet Port,ARC-CITY-022,Canada,62.8094,-92.0853,CARAN,7.5,4,450000,Arc3-Arc4,28000,Yes,15000-35000,72,Kivalliq Inuit Association,Indigenous,,,
