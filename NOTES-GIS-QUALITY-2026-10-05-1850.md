@@ -5,7 +5,7 @@ A land/water audit of the live atlas against Natural Earth 10m land found ARC-PO
 ## Win
 | ID | Name | Before | After | Source | Shift |
 |---|---|---|---|---|---|
-| ARC-PORT-049 | Franz Josef Land Ports | 80.0000 / 55.0000 (open water, soft) | 80.7975 / 47.5568 | OSM way/1549655114 place=village Нагурское (80.7975295 / 47.5567856), Alexandra Land; Wikidata Q1529324 Nagurskoye airfield 80.80232778 / 47.66945 (~2 km) | ~174 km |
+| ARC-PORT-049 | Franz Josef Land Ports | 80.0000 / 55.0000 (open water, soft) | 80.7975 / 47.5568 | OSM way/1549655114 place=village Нагурское (80.7975295 / 47.5567856), Alexandra Land; Wikidata Q1529324 Nagurskoye airfield 80.80232778 / 47.66945 (~2 km) | ~164 km |
 
 This is a settlement-level anchor, the same rule used for ARC-PORT-050 (Belushya Guba). Nagurskoye is the main year-round base on Franz Josef Land and matches the row's operator column ("Russian Navy/Research"). It is not a mapped commercial quay, so identity confidence stays moderate. Name, UNLOCODE and all other columns are unchanged.
 
