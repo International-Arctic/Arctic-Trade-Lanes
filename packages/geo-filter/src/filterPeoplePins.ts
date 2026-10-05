@@ -24,6 +24,14 @@ export type PeopleFilterOptions = {
   eps?: number;
   /** When true, also return dropped pins with reasons (QA / toggle debug). Default false. */
   accumulateQuarantine?: boolean;
+  /**
+   * 0.1.6: GeoJSON feeds that merge one `kind: 'primary'` pin per entity with extra
+   * `kind: 'site'` locations (e.g. UnicornsMap /api/radar/geojson.json) reuse the same slug.
+   * Default (false) keeps the old behaviour: first slug wins, every site is `duplicate_slug`.
+   * When true, slugs dedupe per kind so real multi-site locations survive, and only a site
+   * sitting on the same point as its own primary is dropped as `site_coincident_with_primary`.
+   */
+  siteAware?: boolean;
 };
 
 function bump(r: Record<string, number>, k: string) { r[k] = (r[k] || 0) + 1; }
@@ -53,6 +61,11 @@ function lonLat(p: PeoplePinLike): [number, number] | null {
   const lat = Number(p.lat ?? (p as any).latitude ?? (p as any).y);
   if (Number.isFinite(lng) && Number.isFinite(lat)) return [lng, lat];
   return null;
+}
+
+function pinKind(p: PeoplePinLike): string {
+  const props = (p as any).properties;
+  return String((p as any).kind ?? (props && props.kind) ?? 'primary');
 }
 
 /** Scraper / CMS placeholders that survive naive Number() but are not real pins. */
@@ -86,6 +99,8 @@ export function filterPeoplePins<T extends PeoplePinLike>(
   const quarantine: PeoplePinQuarantine<T>[] = [];
   const seenSlug = new Set<string>();
   const seenPoint = new Set<string>();
+  const siteAware = opts?.siteAware === true;
+  const slugPoint = new Map<string, string>();
 
   const drop = (pin: T, reason: string) => {
     bump(reasons, reason);
@@ -102,15 +117,23 @@ export function filterPeoplePins<T extends PeoplePinLike>(
     if (looksSwapped(lng, lat)) { drop(pin, 'swapped_lat_lng'); continue; }
     if (Math.abs(lat) > 90 || Math.abs(lng) > 180) { drop(pin, 'out_of_bounds'); continue; }
 
-    const slug = String(pin.slug || '').toLowerCase();
-    if (slug) {
-      if (seenSlug.has(slug)) { drop(pin, 'duplicate_slug'); continue; }
-      seenSlug.add(slug);
-    }
-    const name = String(pin.name || '').toLowerCase();
+    const props = (pin as any).properties || {};
+    const slug = String(pin.slug || props.slug || '').toLowerCase();
+    const name = String(pin.name || props.name || '').toLowerCase();
     const qLng = Math.round(lng / eps) * eps;
     const qLat = Math.round(lat / eps) * eps;
-    const key = `${name}|${qLng}|${qLat}`;
+    const ptKey = `${qLng}|${qLat}`;
+    const kind = siteAware ? String(pinKind(pin)) : '';
+    if (slug) {
+      if (siteAware && kind === 'site' && slugPoint.get(slug) === ptKey) {
+        drop(pin, 'site_coincident_with_primary'); continue;
+      }
+      const slugKey = siteAware && kind === 'site' ? `${slug}|site|${ptKey}` : slug;
+      if (seenSlug.has(slugKey)) { drop(pin, 'duplicate_slug'); continue; }
+      seenSlug.add(slugKey);
+      if (!slugPoint.has(slug)) slugPoint.set(slug, ptKey);
+    }
+    const key = siteAware ? `${name}|${kind}|${ptKey}` : `${name}|${qLng}|${qLat}`;
     if (seenPoint.has(key)) { drop(pin, 'duplicate_point'); continue; }
     seenPoint.add(key);
     accepted.push(pin);
@@ -126,4 +149,68 @@ export function filterPeoplePins<T extends PeoplePinLike>(
 /** Same QA for event venue pins. */
 export function filterEventPins<T extends PeoplePinLike>(pins: T[], opts?: PeopleFilterOptions) {
   return filterPeoplePins(pins, opts);
+}
+
+export type SharedPointFanOptions = {
+  /** Max fan radius in degrees of latitude (default 0.04 ≈ 4.4 km — stays inside the city). */
+  radiusDeg?: number;
+  eps?: number;
+};
+
+/**
+ * 0.1.6: display-only fan for people/org/event pins that share one exact coordinate
+ * (city centroid, HQ approximation, venue fallback). Without it, MapLibre/supercluster keeps
+ * 60+ people under one cluster that never splits at max zoom, so most profiles are unclickable.
+ * The true point is kept in `position_anchor` (and `lat`/`lng` are NOT rewritten unless the pin
+ * has no geometry); tagged `position_quality: 'shared_point_fan'`. Singletons pass through untouched.
+ * Order inside a stack is stable (by slug) so the layout does not shuffle between refreshes.
+ */
+export function unstackSharedPoints<T extends PeoplePinLike>(pins: T[], opts?: SharedPointFanOptions): T[] {
+  const radius = opts?.radiusDeg ?? 0.04;
+  const eps = opts?.eps ?? 1e-5;
+  const buckets = new Map<string, number[]>();
+  const pts: ([number, number] | null)[] = (pins || []).map((p) => lonLat(p));
+  pts.forEach((pt, i) => {
+    if (!pt) return;
+    const k = `${Math.round(pt[0] / eps)}|${Math.round(pt[1] / eps)}`;
+    const b = buckets.get(k) || [];
+    b.push(i);
+    buckets.set(k, b);
+  });
+  const out: T[] = (pins || []).slice();
+  const golden = 2.399963229728653;
+  for (const [, idx] of buckets) {
+    const n = idx.length;
+    if (n < 2) continue;
+    idx.sort((a, b) => {
+      const sa = String((pins[a] as any).slug ?? (pins[a] as any).properties?.slug ?? a);
+      const sb = String((pins[b] as any).slug ?? (pins[b] as any).properties?.slug ?? b);
+      return sa.localeCompare(sb);
+    });
+    idx.forEach((pi, i) => {
+      const [lng, lat] = pts[pi]!;
+      const r = radius * Math.sqrt((i + 1) / n);
+      const ang = i * golden;
+      const cosLat = Math.max(Math.cos((lat * Math.PI) / 180), 0.2);
+      const dLng = Number((lng + (r * Math.sin(ang)) / cosLat).toFixed(6));
+      const dLat = Number((lat + r * Math.cos(ang)).toFixed(6));
+      const src: any = pins[pi];
+      const meta = {
+        position_quality: 'shared_point_fan',
+        position_stack_size: n,
+        position_stack_index: i,
+        position_anchor: [lng, lat],
+      };
+      if (src.geometry && src.geometry.type === 'Point') {
+        out[pi] = {
+          ...src,
+          geometry: { type: 'Point', coordinates: [dLng, dLat] },
+          properties: { ...(src.properties || {}), ...meta },
+        } as T;
+      } else {
+        out[pi] = { ...src, ...meta, display_lat: dLat, display_lng: dLng } as T;
+      }
+    });
+  }
+  return out;
 }

@@ -44,3 +44,12 @@ filterGeoJson(fc, { unstackSchematic: true, unstackAdminSeats: true });
   people/event pins that fall back to a city centroid.
 
 CI smoke: `bun scripts/check-program-seat-stack.mjs atlas.4326.geojson`.
+
+
+## 0.1.6 — people/org/event pins (UnicornsMap)
+
+- `filterPeoplePins(pins, { siteAware: true })`: primary+site GeoJSON feeds keep real multi-site
+  locations; a site on its own primary point is dropped as `site_coincident_with_primary`.
+- `unstackSharedPoints(pins, { radiusDeg })`: display-only fan for pins sharing one exact point
+  (city centroid / HQ approx / venue fallback); true point kept in `position_anchor`.
+- Smoke: `bun scripts/check-um-geo-quality.mjs [--live]`. Notes: `docs/UM-GEO-QUALITY-2026-10-05.md`.
