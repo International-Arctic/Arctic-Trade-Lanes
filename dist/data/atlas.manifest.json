@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-05T12:28:20.641823+00:00",
+  "generated": "2026-10-05T12:54:09.256478+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -9,7 +9,7 @@
     4326
   ],
   "layer_counts": {
-    "ports": 156,
+    "ports": 155,
     "cities": 103,
     "shipyards": 70,
     "programs": 713,
@@ -266,7 +266,15 @@
   "lane_teleport_drops": [],
   "extra_id_drops": [],
   "shipyard_coord_drops": [],
-  "port_alias_drops": [],
+  "port_alias_drops": [
+    {
+      "id": "ARC-PORT-164",
+      "name": "Murmansk coal terminal 'Lavna' (anchor project of Murmansk Transport Hub, western Kola Bay shore)",
+      "unlocode": "RULAV",
+      "kept": "ARC-PORT-031",
+      "reason": "duplicate_unlocode_coord"
+    }
+  ],
   "program_name_coord_drops": [],
   "distortion_kpis": {
     "k_at_pole": 0.982967,
