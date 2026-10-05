@@ -8,9 +8,12 @@
  * 2) Optional live audit (`--live`): fetches https://unicornsmap.com/api/radar/geo.json and
  *    /api/radar/geojson.json and prints stack / dup / country-field metrics. Never fails CI on live drift.
  *
+ * 0.1.7: fixture 4 + live audit for normalizePinCountries (countryIso2 / country_quality).
+ *
  * Usage: bun scripts/check-um-geo-quality.mjs [--live]
  */
 import { filterPeoplePins, unstackSharedPoints } from '../packages/geo-filter/src/filterPeoplePins.ts';
+import { normalizePinCountries, resolveCountry } from '../packages/geo-filter/src/normalizeCountry.ts';
 
 let failed = 0;
 const fail = (...a) => { console.error('FAIL', ...a); failed++; };
@@ -67,6 +70,24 @@ const gj = unstackSharedPoints([F('a', 'primary', 2.3522, 48.8566), F('b', 'prim
 if (!gj.every((f) => f.properties.position_quality === 'shared_point_fan' && f.properties.position_anchor[0] === 2.3522)) fail('geojson fan meta');
 if (key(...gj[0].geometry.coordinates) === key(...gj[1].geometry.coordinates)) fail('geojson fan still stacked');
 
+// --- fixture 4 (0.1.7): country normalisation --------------------------------------------------
+const C = (city, country, locality) => resolveCountry({ city, country, locality });
+const cases = [
+  [C('Seoul', 'Seoul', 'Seoul'), 'KR', 'city_gazetteer'],
+  [C('Singapore, Singapore', 'Singapore', 'Singapore'), 'SG', 'iso_or_name'],
+  [C('San Francisco, CA', 'CA', 'San Francisco'), 'US', 'us_state_tail'],        // California, not Canada
+  [C('Toronto, Canada', 'Canada', 'Toronto'), 'CA', 'iso_or_name'],
+  [C('New York, NY / Geneva', 'NY / Geneva', 'New York'), 'US', 'us_state_tail'],
+  [C('New York / Riyadh (Impact46)', 'New York / Riyadh (Impact46)', 'New York / Riyadh (Impact46)'), 'US', 'multi_city_first'],
+  [C('Paris, France', 'France — Hugging Face HQ (individual location not publicly verified)', 'Paris'), 'FR', 'iso_or_name'],
+  [C('Wyoming, USA (public HQ) · Dubai, UAE', 'UAE', 'Wyoming'), 'US', 'multi_city_first'],
+  [C('Chicago, Illinois', 'Illinois', 'Chicago'), 'US', 'us_state_tail'],
+  [C('Atlantis', 'Atlantis', 'Atlantis'), null, 'unresolved'],
+];
+cases.forEach(([r, iso, q], i) => { if (r.iso2 !== iso || r.quality !== q) fail('country case', i, r, 'want', iso, q); });
+const cfc = normalizePinCountries([F('x', 'primary', 126.98, 37.57, { city: 'Seoul', country: 'Seoul', locality: 'Seoul' })]);
+if (cfc.pins[0].properties.countryIso2 !== 'KR' || cfc.pins[0].properties.country !== 'Seoul') fail('feature annotate must add countryIso2 and keep raw country');
+
 console.log(failed ? `check-um-geo-quality: ${failed} FAIL` : `check-um-geo-quality: fixtures OK (fan max ${maxKm.toFixed(2)} km)`);
 
 // --- optional live audit ------------------------------------------------------------------------
@@ -95,6 +116,11 @@ if (process.argv.includes('--live')) {
       '| legacy filter keeps', legacyLive.stats.accepted, legacyLive.stats.reasons,
       '| siteAware keeps', awareLive.stats.accepted, awareLive.stats.reasons,
       '| primary rows with country === locality', countryIsCity);
+    const norm = normalizePinCountries(pts);
+    const distinctRaw = new Set(pts.map((f) => f.properties.country)).size;
+    const distinctIso = new Set(norm.pins.map((f) => f.properties.countryIso2).filter(Boolean)).size;
+    console.log('live countries: raw distinct', distinctRaw, '-> ISO2 distinct', distinctIso,
+      '| resolved', norm.stats.resolved + '/' + norm.stats.total, norm.stats.byQuality, 'unresolved', norm.stats.unresolvedRaw);
   } catch (e) { console.log('live geojson.json skipped:', String(e)); }
 }
 process.exit(failed ? 1 : 0);

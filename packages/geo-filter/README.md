@@ -53,3 +53,29 @@ CI smoke: `bun scripts/check-program-seat-stack.mjs atlas.4326.geojson`.
 - `unstackSharedPoints(pins, { radiusDeg })`: display-only fan for pins sharing one exact point
   (city centroid / HQ approx / venue fallback); true point kept in `position_anchor`.
 - Smoke: `bun scripts/check-um-geo-quality.mjs [--live]`. Notes: `docs/UM-GEO-QUALITY-2026-10-05.md`.
+
+
+## 0.1.7 — country normalisation for people/org/event pins (UnicornsMap)
+
+The live `/api/radar/geojson.json` feed derives `country` from the last comma part of `city`, so
+`Seoul` becomes country `Seoul`, `San Francisco, CA` becomes `CA` (California, which a naive reader
+takes as Canada), and free-text notes leak in (`USA — Hugging Face HQ (...)`). On 2026-10-05 that was
+92 distinct country strings for 49 real countries, and 198 of 600 primaries had `country === locality`,
+so any country toggle / filter / legend was broken.
+
+```ts
+import { normalizePinCountries } from '@international-arctic/geo-filter/country';
+const { pins, stats } = normalizePinCountries(fc.features);
+// each pin gains properties.countryIso2 ('KR', 'US', ...) + properties.country_quality
+const label = new Intl.DisplayNames([locale], { type: 'region' }).of(pin.properties.countryIso2);
+```
+
+- Additive: raw `country` is never overwritten; output is shallow copies.
+- `country_quality`: `iso_or_name`, `us_state_tail` (`City, ST` / full state name), `city_gazetteer`
+  (city or city-state tail), `multi_city_first` (`A / B` or `A · B` multi-seat strings resolve from the first
+  seat, which is where the pin sits), `unresolved`.
+- Neutral by construction: output is an ISO 3166-1 alpha-2 code only; display names come from the
+  viewer's own locale via `Intl.DisplayNames`, so no editorial country label is baked into data.
+- Extend the small city table with `{ extraCities: { 'Busan': 'KR' } }`.
+- Live result: 827/827 Point features resolved, 92 raw strings to 49 ISO codes.
+- Smoke: `bun scripts/check-um-geo-quality.mjs [--live]`. Notes: `docs/UM-COUNTRY-NORMALIZE-2026-10-05.md`.
