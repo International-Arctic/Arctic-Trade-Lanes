@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-05T08:59:34.526815+00:00",
+  "generated": "2026-10-05T09:18:55.708501+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -136,6 +136,133 @@
     }
   },
   "unresolved_lane_waypoints": [],
+  "lane_water_route": {
+    "ARC-LANE-001": {
+      "legs_routed": 7,
+      "land_km_before": 979,
+      "land_km_after": 139
+    },
+    "ARC-LANE-002": {
+      "legs_routed": 4,
+      "land_km_before": 294,
+      "land_km_after": 34
+    },
+    "ARC-LANE-003": {
+      "legs_routed": 7,
+      "land_km_before": 2909,
+      "land_km_after": 100
+    },
+    "ARC-LANE-004": {
+      "legs_routed": 8,
+      "land_km_before": 2679,
+      "land_km_after": 256
+    },
+    "ARC-LANE-005": {
+      "legs_routed": 5,
+      "land_km_before": 804,
+      "land_km_after": 88
+    },
+    "ARC-LANE-006": {
+      "legs_routed": 7,
+      "land_km_before": 725,
+      "land_km_after": 189
+    },
+    "ARC-LANE-007": {
+      "legs_routed": 4,
+      "land_km_before": 1527,
+      "land_km_after": 126
+    },
+    "ARC-LANE-008": {
+      "legs_routed": 5,
+      "land_km_before": 355,
+      "land_km_after": 84
+    },
+    "ARC-LANE-009": {
+      "legs_routed": 5,
+      "land_km_before": 595,
+      "land_km_after": 112
+    },
+    "ARC-LANE-010": {
+      "legs_routed": 5,
+      "land_km_before": 1019,
+      "land_km_after": 169
+    },
+    "ARC-LANE-011": {
+      "legs_routed": 6,
+      "land_km_before": 1827,
+      "land_km_after": 215
+    },
+    "ARC-LANE-012": {
+      "legs_routed": 5,
+      "land_km_before": 643,
+      "land_km_after": 100
+    },
+    "ARC-LANE-013": {
+      "legs_routed": 5,
+      "land_km_before": 1490,
+      "land_km_after": 318
+    },
+    "ARC-LANE-016": {
+      "legs_routed": 5,
+      "land_km_before": 774,
+      "land_km_after": 90
+    },
+    "ARC-LANE-017": {
+      "legs_routed": 5,
+      "land_km_before": 1044,
+      "land_km_after": 158
+    },
+    "ARC-LANE-018": {
+      "legs_routed": 3,
+      "land_km_before": 388,
+      "land_km_after": 77
+    },
+    "ARC-LANE-019": {
+      "legs_routed": 3,
+      "land_km_before": 593,
+      "land_km_after": 57
+    },
+    "ARC-LANE-020": {
+      "legs_routed": 5,
+      "land_km_before": 1583,
+      "land_km_after": 317
+    },
+    "ARC-LANE-021": {
+      "legs_routed": 8,
+      "land_km_before": 1479,
+      "land_km_after": 233
+    },
+    "ARC-LANE-022": {
+      "legs_routed": 6,
+      "land_km_before": 1340,
+      "land_km_after": 143
+    },
+    "ARC-LANE-023": {
+      "legs_routed": 4,
+      "land_km_before": 282,
+      "land_km_after": 228
+    },
+    "ARC-LANE-024": {
+      "legs_routed": 5,
+      "land_km_before": 283,
+      "land_km_after": 132
+    },
+    "ARC-LANE-025": {
+      "legs_routed": 3,
+      "land_km_before": 367,
+      "land_km_after": 333
+    },
+    "ARC-LANE-026": {
+      "legs_routed": 5,
+      "land_km_before": 1201,
+      "land_km_after": 159
+    },
+    "ARC-LANE-027": {
+      "legs_routed": 6,
+      "land_km_before": 8350,
+      "land_km_after": 731
+    }
+  },
   "lane_teleport_drops": [],
   "extra_id_drops": [],
   "shipyard_coord_drops": [],
@@ -156,8 +283,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl-shipwater-out/atlas.3996.geojson",
-    "wgs84": "/tmp/atl-shipwater-out/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl-shipwater-out/atlas.4326.geojson"
+    "epsg3996": "out/atlas.3996.geojson",
+    "wgs84": "out/atlas.wgs84.geojson",
+    "epsg4326": "out/atlas.4326.geojson"
   }
 }
