@@ -1,0 +1,14 @@
+{
+  "name": "atl-workers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "migrate:local": "cd atl-id && wrangler d1 migrations apply atl-accounts --local"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261006.1",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.147.0"
+  }
+}

@@ -1,0 +1,51 @@
+# atl-api — api.arctictradelanes.com (ATL MVP spec §9, §14 Phase 0). SCAFFOLD ONLY: not deployed.
+# Every id below is a placeholder. The owner creates the resources (spec §13) and fills them in; no secrets in this file.
+# Secrets (wrangler secret put, never committed): TURNSTILE_SECRET, KEK_B64, EMAIL_PEPPER, SESSION_SECRET
+name = "atl-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+# routes = [{ pattern = "api.arctictradelanes.com", custom_domain = true }]   # enable only after the owner's DNS step
+
+[vars]
+ATL_ENV = "staging"
+ATL_ORIGIN = "https://arctictradelanes.com"
+ATL_ID_ORIGIN = "https://id.arctictradelanes.com"
+MAIL_FROM = "no-reply@arctictradelanes.com"
+TURNSTILE_SITEKEY = "REPLACE_WITH_TURNSTILE_SITEKEY"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "atl-accounts"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+migrations_dir = "../migrations"
+
+[[queues.producers]]
+binding = "EVENTS"
+queue = "atl-events"
+
+[[r2_buckets]]
+binding = "EVENTS_R2"
+bucket_name = "atl-events"
+jurisdiction = "eu"
+
+[[r2_buckets]]
+binding = "BACKUPS_R2"
+bucket_name = "atl-backups"
+jurisdiction = "eu"
+
+[[kv_namespaces]]
+binding = "OAUTH_KV"
+id = "REPLACE_WITH_OAUTH_KV_NAMESPACE_ID"
+
+[[send_email]]
+name = "EMAIL"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "REPLACE_WITH_RATELIMIT_NAMESPACE_ID"
+simple = { limit = 10, period = 60 }
+
+[triggers]
+crons = []
