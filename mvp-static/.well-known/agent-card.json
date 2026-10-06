@@ -1,0 +1,122 @@
+{
+  "name": "ArcticTradeLanes Atlas Agent",
+  "description": "Arctic GIS OSINT for the Northern Sea Route and the Polar Silk Road: ports, lanes, vessels, programmes, shipyards and industry sites on an EPSG:3996 polar map. Live today: free atlas lookups (GeoJSON downloads and static fact pages in 22 languages) and the paid NSR route-optimize HTTP endpoint (legacy x402 v1, 5 USDC on Base, or a free tier of 10 runs per day per IP). Planned and not live yet (ATL MVP spec, Phase 3): an A2A JSON-RPC endpoint at https://api.arctictradelanes.com/a2a, a remote MCP server at https://mcp.arctictradelanes.com/mcp, x402 v2 paid lane comparison and agent registration.",
+  "supportedInterfaces": [
+    {
+      "url": "https://arctictradelanes.com/api",
+      "protocolBinding": "https://arctictradelanes.com/.well-known/x402.json",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "provider": {
+    "organization": "ArcticTradeLanes.com",
+    "url": "https://arctictradelanes.com"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://arctictradelanes.com/llms.txt",
+  "iconUrl": "https://arctictradelanes.com/favicon.svg",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false,
+    "extensions": [
+      {
+        "uri": "https://x402.org",
+        "description": "Legacy x402 v1 (custom x402-payment request header) on POST /api/alpha/route-optimize and /api/x402/*: 5 USDC on Base. Discovery document: https://arctictradelanes.com/.well-known/x402.json. x402 v2 is planned, not live.",
+        "required": false,
+        "params": {
+          "x402Version": 1,
+          "discovery": "https://arctictradelanes.com/.well-known/x402.json",
+          "network": "base",
+          "asset": "USDC",
+          "payTo": "0x211D91beD006f7bB3Eaf97496260a8F905298Cea"
+        }
+      }
+    ]
+  },
+  "securitySchemes": {
+    "apiKey": {
+      "apiKeySecurityScheme": {
+        "description": "Optional API key for /api/alpha/route-optimize (existing x-api-key convention).",
+        "location": "header",
+        "name": "x-api-key"
+      }
+    },
+    "x402Payment": {
+      "apiKeySecurityScheme": {
+        "description": "Legacy x402 v1 payment proof header for paid calls (format x402:<payer>:<amount>, see /.well-known/x402.json).",
+        "location": "header",
+        "name": "x402-payment"
+      }
+    }
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "application/geo+json",
+    "text/html"
+  ],
+  "skills": [
+    {
+      "id": "atlas_lookup",
+      "name": "Atlas object lookup",
+      "description": "Free facts for 1,316 Arctic atlas objects (ports, programmes, cities, shipyards, industry, airports, rail, lanes, tankers, icebreakers, rescue centres). Live: static fact pages /port/{slug}, /program/{slug}, /shipyard/{slug}, /industry/{slug}, /lane/{slug}, /vessel/{slug} and more, in 22 languages; /object/{atlas_id} redirects to the typed page; layer indexes such as /ports; bulk GeoJSON at /atlas.4326.geojson and /atlas.3996.geojson.",
+      "tags": [
+        "arctic",
+        "ports",
+        "gis",
+        "nsr",
+        "osint"
+      ],
+      "examples": [
+        "Facts for ARC-PORT-001 (Murmansk Commercial Sea Port)",
+        "List the Arctic ports in Norway",
+        "Download the atlas in EPSG:3996"
+      ],
+      "outputModes": [
+        "text/html",
+        "application/geo+json"
+      ]
+    },
+    {
+      "id": "lane_compare",
+      "name": "NSR vs Suez lane comparison",
+      "description": "Live today: free lane records (typical distance, transit days, ice conditions, icebreaker escort, transit fee) for 27 Arctic shipping lanes in the lanes layer (/lanes and /lane/{slug}). Planned, not live: computed NSR vs Suez/Cape comparison at POST https://api.arctictradelanes.com/v1/lanes/compare (x402 v2, 0.05 USD).",
+      "tags": [
+        "nsr",
+        "routing",
+        "suez",
+        "lanes"
+      ],
+      "examples": [
+        "Compare typical distance and transit days of the Northern Sea Route sections"
+      ],
+      "outputModes": [
+        "text/html",
+        "application/json"
+      ]
+    },
+    {
+      "id": "route_optimize",
+      "name": "NSR route optimisation",
+      "description": "Live: POST https://arctictradelanes.com/api/alpha/route-optimize. Paid via legacy x402 v1 (5 USDC on Base, payTo 0x211D91beD006f7bB3Eaf97496260a8F905298Cea) or the free tier (10 runs per day per IP). Status: GET https://arctictradelanes.com/api/alpha/status.",
+      "tags": [
+        "nsr",
+        "routing",
+        "x402"
+      ],
+      "examples": [
+        "Optimise a Murmansk to Busan voyage via the Northern Sea Route in August"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    }
+  ]
+}

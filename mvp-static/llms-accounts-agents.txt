@@ -1,0 +1,9 @@
+
+## Accounts & agents (new)
+- A2A agent card: https://arctictradelanes.com/.well-known/agent-card.json (alias: /.well-known/agent.json, byte-identical)
+- Fact pages (live, static HTML, 22 languages): https://arctictradelanes.com/port/{slug}, /program/{slug}, /city/{slug}, /shipyard/{slug}, /industry/{slug}, /airport/{slug}, /rail/{slug}, /lane/{slug}, /vessel/{slug}, /rescue/{slug}; other languages at /{lang}/... (ru zh ja ko el de nl fr es it pt tr ar hi vi id da fi sv nb is)
+- Layer indexes: https://arctictradelanes.com/ports, /programs, /cities, /shipyards, /industry, /airports, /rail, /lanes, /tankers, /icebreakers, /rescue
+- Stable object links: https://arctictradelanes.com/object/{atlas_id} (301 to the typed fact page; slug map at /data/slugs.json)
+- Sitemaps: https://arctictradelanes.com/sitemaps/index.xml (one shard per layer per language, with hreflang alternates)
+- Payments today: legacy x402 v1 discovery at /.well-known/x402.json (unchanged)
+- Planned, not live yet: agent registration POST https://api.arctictradelanes.com/v1/agents/register (operator business email + DNS TXT or /.well-known/atl-agent.json proof); MCP https://mcp.arctictradelanes.com/mcp (OAuth 2.1; paid tools via x402 v2, USDC on Base); x402 v2 discovery /.well-known/x402-v2.json

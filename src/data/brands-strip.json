@@ -1,0 +1,281 @@
+{
+ "flag": "VITE_ATL_BRANDS_STRIP",
+ "order": "alphabetical",
+ "brands": [
+  {
+   "slug": "aker-arctic",
+   "brand": "Aker Arctic",
+   "atlas_id": "ARC-SHIP-014",
+   "file": "/assets/brands/aker-arctic.svg"
+  },
+  {
+   "slug": "conocophillips",
+   "brand": "ConocoPhillips",
+   "atlas_id": "ARC-PORT-024",
+   "file": "/assets/brands/conocophillips.svg"
+  },
+  {
+   "slug": "cosco-shipping",
+   "brand": "COSCO Shipping",
+   "atlas_id": "ARC-LANE-003",
+   "file": "/assets/brands/cosco-shipping.svg"
+  },
+  {
+   "slug": "crowley",
+   "brand": "Crowley",
+   "atlas_id": "ARC-LANE-016",
+   "file": "/assets/brands/crowley.svg"
+  },
+  {
+   "slug": "dnv",
+   "brand": "DNV",
+   "atlas_id": "ARC-PROG-727",
+   "file": "/assets/brands/dnv.svg"
+  },
+  {
+   "slug": "dp-world",
+   "brand": "DP World",
+   "atlas_id": "ARC-PROG-396",
+   "file": "/assets/brands/dp-world.svg"
+  },
+  {
+   "slug": "equinor",
+   "brand": "Equinor",
+   "atlas_id": "ARC-PORT-016",
+   "file": "/assets/brands/equinor.svg"
+  },
+  {
+   "slug": "gazprom-neft",
+   "brand": "Gazprom Neft",
+   "atlas_id": "ARC-LANE-013",
+   "file": "/assets/brands/gazprom-neft.png"
+  },
+  {
+   "slug": "hanwha-ocean",
+   "brand": "Hanwha Ocean",
+   "atlas_id": "ARC-SHIP-035",
+   "file": "/assets/brands/hanwha-ocean.svg"
+  },
+  {
+   "slug": "helsinki-shipyard",
+   "brand": "Helsinki Shipyard",
+   "atlas_id": "ARC-SHIP-010",
+   "file": "/assets/brands/helsinki-shipyard.png"
+  },
+  {
+   "slug": "hurtigruten",
+   "brand": "Hurtigruten",
+   "atlas_id": "ARC-LANE-008",
+   "file": "/assets/brands/hurtigruten.png"
+  },
+  {
+   "slug": "kongsberg-gruppen",
+   "brand": "Kongsberg Gruppen",
+   "atlas_id": "ARC-FAC-376",
+   "file": "/assets/brands/kongsberg-gruppen.svg"
+  },
+  {
+   "slug": "lkab",
+   "brand": "LKAB",
+   "atlas_id": "ARC-PORT-104",
+   "file": "/assets/brands/lkab.svg"
+  },
+  {
+   "slug": "lloyds-register",
+   "brand": "Lloyd's Register",
+   "atlas_id": "ARC-PROG-728",
+   "file": "/assets/brands/lloyds-register.svg"
+  },
+  {
+   "slug": "maersk",
+   "brand": "Maersk",
+   "atlas_id": "ARC-LANE-017",
+   "file": "/assets/brands/maersk.svg"
+  },
+  {
+   "slug": "mitsui-o-s-k-lines",
+   "brand": "Mitsui O.S.K. Lines",
+   "atlas_id": "ARC-TNK-015",
+   "file": "/assets/brands/mitsui-o-s-k-lines.svg"
+  },
+  {
+   "slug": "nornickel",
+   "brand": "Nornickel",
+   "atlas_id": "ARC-PORT-003",
+   "file": "/assets/brands/nornickel.svg"
+  },
+  {
+   "slug": "novatek",
+   "brand": "Novatek",
+   "atlas_id": "ARC-PORT-004",
+   "file": "/assets/brands/novatek.svg"
+  },
+  {
+   "slug": "seaspan-ulc",
+   "brand": "Seaspan ULC",
+   "atlas_id": "ARC-SHIP-019",
+   "file": "/assets/brands/seaspan-ulc.png"
+  },
+  {
+   "slug": "sovcomflot",
+   "brand": "Sovcomflot",
+   "atlas_id": "ARC-TNK-001",
+   "file": "/assets/brands/sovcomflot.png"
+  },
+  {
+   "slug": "totalenergies",
+   "brand": "TotalEnergies",
+   "atlas_id": "ARC-LANE-012",
+   "file": "/assets/brands/totalenergies.png"
+  },
+  {
+   "slug": "tschudi-shipping-company",
+   "brand": "Tschudi Shipping Company",
+   "atlas_id": "ARC-FAC-314",
+   "file": "/assets/brands/tschudi-shipping-company.png"
+  }
+ ],
+ "credits": [
+  {
+   "brand": "Tschudi Shipping Company",
+   "author": "St0265",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source": "https://commons.wikimedia.org/wiki/File:Tschudi_logo_n.jpg"
+  }
+ ],
+ "strings": {
+  "ar": {
+   "brands_heading": "منظومة القطب الشمالي: شركات يغطيها الأطلس",
+   "brands_disclaimer": "الشعارات والأسماء علامات تجارية لأصحابها، وتُعرض فقط لتعريف الشركات الواردة في أطلس ArcticTradeLanes، ولا تعني أي انتماء أو تأييد أو علاقة تجارية.",
+   "brand_alt": "{brand} على أطلس ArcticTradeLanes",
+   "logo_credits": "حقوق الشعارات"
+  },
+  "da": {
+   "brands_heading": "Arktisk økosystem: virksomheder i atlasset",
+   "brands_disclaimer": "Logoer og navne er varemærker tilhørende deres ejere og vises kun for at identificere virksomheder beskrevet i ArcticTradeLanes-atlasset. Der antydes ingen tilknytning, anbefaling eller forretningsforbindelse.",
+   "brand_alt": "{brand} i ArcticTradeLanes-atlasset",
+   "logo_credits": "Logokreditering"
+  },
+  "de": {
+   "brands_heading": "Arktis-Ökosystem: im Atlas erfasste Unternehmen",
+   "brands_disclaimer": "Logos und Namen sind Marken ihrer Inhaber und dienen nur zur Kennzeichnung der im ArcticTradeLanes-Atlas beschriebenen Unternehmen. Eine Verbindung, Empfehlung oder Geschäftsbeziehung ist damit nicht verbunden.",
+   "brand_alt": "{brand} im ArcticTradeLanes-Atlas",
+   "logo_credits": "Logo-Nachweise"
+  },
+  "el": {
+   "brands_heading": "Αρκτικό οικοσύστημα: εταιρείες που καλύπτει ο άτλαντας",
+   "brands_disclaimer": "Τα λογότυπα και οι ονομασίες είναι εμπορικά σήματα των κατόχων τους και εμφανίζονται μόνο για την αναγνώριση εταιρειών του άτλαντα ArcticTradeLanes. Δεν υπονοείται καμία σύνδεση, έγκριση ή επιχειρηματική σχέση.",
+   "brand_alt": "{brand} στον άτλαντα ArcticTradeLanes",
+   "logo_credits": "Πιστώσεις λογοτύπων"
+  },
+  "en": {
+   "brands_heading": "Arctic ecosystem: companies covered on the atlas",
+   "brands_disclaimer": "Logos and names are trademarks of their owners and are shown only to identify companies profiled in the ArcticTradeLanes atlas. No affiliation, endorsement or business relationship is implied.",
+   "brand_alt": "{brand} on the ArcticTradeLanes atlas",
+   "logo_credits": "Logo credits"
+  },
+  "es": {
+   "brands_heading": "Ecosistema ártico: empresas incluidas en el atlas",
+   "brands_disclaimer": "Los logotipos y nombres son marcas de sus propietarios y se muestran solo para identificar a las empresas descritas en el atlas ArcticTradeLanes. No implican afiliación, respaldo ni relación comercial.",
+   "brand_alt": "{brand} en el atlas ArcticTradeLanes",
+   "logo_credits": "Créditos de logotipos"
+  },
+  "fi": {
+   "brands_heading": "Arktinen ekosysteemi: kartastossa esitellyt yritykset",
+   "brands_disclaimer": "Logot ja nimet ovat omistajiensa tavaramerkkejä, ja ne näytetään vain ArcticTradeLanes-kartastossa esiteltyjen yritysten tunnistamiseksi. Ne eivät viittaa sidokseen, suositukseen tai liikesuhteeseen.",
+   "brand_alt": "{brand} ArcticTradeLanes-kartastossa",
+   "logo_credits": "Logojen tekijät"
+  },
+  "fr": {
+   "brands_heading": "Écosystème arctique : entreprises présentes dans l’atlas",
+   "brands_disclaimer": "Les logos et noms sont des marques de leurs propriétaires et servent uniquement à identifier les entreprises décrites dans l’atlas ArcticTradeLanes. Aucune affiliation, approbation ou relation commerciale n’est sous-entendue.",
+   "brand_alt": "{brand} sur l’atlas ArcticTradeLanes",
+   "logo_credits": "Crédits des logos"
+  },
+  "hi": {
+   "brands_heading": "आर्कटिक पारिस्थितिकी तंत्र: एटलस में शामिल कंपनियाँ",
+   "brands_disclaimer": "लोगो और नाम उनके स्वामियों के ट्रेडमार्क हैं और केवल ArcticTradeLanes एटलस में वर्णित कंपनियों की पहचान के लिए दिखाए गए हैं। इससे कोई संबद्धता, समर्थन या व्यावसायिक संबंध नहीं दर्शाया जाता।",
+   "brand_alt": "ArcticTradeLanes एटलस पर {brand}",
+   "logo_credits": "लोगो श्रेय"
+  },
+  "id": {
+   "brands_heading": "Ekosistem Arktik: perusahaan yang tercakup di atlas",
+   "brands_disclaimer": "Logo dan nama adalah merek dagang pemiliknya dan ditampilkan hanya untuk mengidentifikasi perusahaan yang diprofilkan di atlas ArcticTradeLanes. Tidak ada afiliasi, dukungan, atau hubungan bisnis yang tersirat.",
+   "brand_alt": "{brand} di atlas ArcticTradeLanes",
+   "logo_credits": "Kredit logo"
+  },
+  "is": {
+   "brands_heading": "Vistkerfi norðurslóða: fyrirtæki í kortabókinni",
+   "brands_disclaimer": "Merki og heiti eru vörumerki eigenda sinna og eru aðeins sýnd til að auðkenna fyrirtæki sem fjallað er um í kortabók ArcticTradeLanes. Engin tengsl, meðmæli eða viðskiptasamband er gefið í skyn.",
+   "brand_alt": "{brand} í kortabók ArcticTradeLanes",
+   "logo_credits": "Höfundar merkja"
+  },
+  "it": {
+   "brands_heading": "Ecosistema artico: aziende presenti nell’atlante",
+   "brands_disclaimer": "Loghi e nomi sono marchi dei rispettivi titolari e sono mostrati solo per identificare le aziende descritte nell’atlante ArcticTradeLanes. Non implicano affiliazione, approvazione o rapporti commerciali.",
+   "brand_alt": "{brand} sull’atlante ArcticTradeLanes",
+   "logo_credits": "Crediti dei loghi"
+  },
+  "ja": {
+   "brands_heading": "北極エコシステム：アトラスに掲載の企業",
+   "brands_disclaimer": "ロゴと名称は各所有者の商標であり、ArcticTradeLanes アトラスに掲載された企業を識別する目的でのみ表示しています。提携、推奨、取引関係を示すものではありません。",
+   "brand_alt": "ArcticTradeLanes アトラスの{brand}",
+   "logo_credits": "ロゴのクレジット"
+  },
+  "ko": {
+   "brands_heading": "북극 생태계: 아틀라스에 수록된 기업",
+   "brands_disclaimer": "로고와 명칭은 각 소유자의 상표이며 ArcticTradeLanes 아틀라스에 소개된 기업을 식별하기 위해서만 표시됩니다. 제휴, 보증 또는 사업 관계를 의미하지 않습니다.",
+   "brand_alt": "ArcticTradeLanes 아틀라스의 {brand}",
+   "logo_credits": "로고 출처"
+  },
+  "nb": {
+   "brands_heading": "Arktisk økosystem: selskaper i atlaset",
+   "brands_disclaimer": "Logoer og navn er varemerker som tilhører eierne og vises bare for å identifisere selskaper omtalt i ArcticTradeLanes-atlaset. Ingen tilknytning, anbefaling eller forretningsforbindelse er antydet.",
+   "brand_alt": "{brand} i ArcticTradeLanes-atlaset",
+   "logo_credits": "Logokreditering"
+  },
+  "nl": {
+   "brands_heading": "Arctisch ecosysteem: bedrijven in de atlas",
+   "brands_disclaimer": "Logo’s en namen zijn handelsmerken van hun eigenaars en worden alleen getoond om bedrijven uit de ArcticTradeLanes-atlas aan te duiden. Er wordt geen band, aanbeveling of zakelijke relatie gesuggereerd.",
+   "brand_alt": "{brand} op de ArcticTradeLanes-atlas",
+   "logo_credits": "Logo-bronvermelding"
+  },
+  "pt": {
+   "brands_heading": "Ecossistema ártico: empresas abrangidas pelo atlas",
+   "brands_disclaimer": "Os logotipos e nomes são marcas dos seus titulares e são mostrados apenas para identificar empresas descritas no atlas ArcticTradeLanes. Não implicam afiliação, endosso ou relação comercial.",
+   "brand_alt": "{brand} no atlas ArcticTradeLanes",
+   "logo_credits": "Créditos dos logotipos"
+  },
+  "ru": {
+   "brands_heading": "Арктическая экосистема: компании, представленные в атласе",
+   "brands_disclaimer": "Логотипы и названия являются товарными знаками их владельцев и показаны только для обозначения компаний, описанных в атласе ArcticTradeLanes. Это не означает аффилированности, одобрения или деловых отношений.",
+   "brand_alt": "{brand} в атласе ArcticTradeLanes",
+   "logo_credits": "Авторство логотипов"
+  },
+  "sv": {
+   "brands_heading": "Arktiskt ekosystem: företag som finns i atlasen",
+   "brands_disclaimer": "Logotyper och namn är varumärken som tillhör respektive ägare och visas endast för att identifiera företag som beskrivs i ArcticTradeLanes-atlasen. Ingen anknytning, rekommendation eller affärsrelation antyds.",
+   "brand_alt": "{brand} i ArcticTradeLanes-atlasen",
+   "logo_credits": "Logotypkrediter"
+  },
+  "tr": {
+   "brands_heading": "Arktik ekosistemi: atlasta yer alan şirketler",
+   "brands_disclaimer": "Logolar ve adlar sahiplerinin ticari markalarıdır ve yalnızca ArcticTradeLanes atlasında yer alan şirketleri tanımlamak için gösterilir. Herhangi bir bağlılık, onay veya ticari ilişki ima edilmez.",
+   "brand_alt": "ArcticTradeLanes atlasında {brand}",
+   "logo_credits": "Logo kaynakları"
+  },
+  "vi": {
+   "brands_heading": "Hệ sinh thái Bắc Cực: các công ty có trên bản đồ",
+   "brands_disclaimer": "Logo và tên là nhãn hiệu của chủ sở hữu, chỉ được hiển thị để nhận diện các công ty có trong bản đồ ArcticTradeLanes. Không hàm ý liên kết, xác nhận hay quan hệ kinh doanh.",
+   "brand_alt": "{brand} trên bản đồ ArcticTradeLanes",
+   "logo_credits": "Ghi công logo"
+  },
+  "zh": {
+   "brands_heading": "北极生态系统：地图集收录的公司",
+   "brands_disclaimer": "标志和名称是其所有者的商标，仅用于标识 ArcticTradeLanes 地图集中介绍的公司，并不表示任何隶属、认可或业务关系。",
+   "brand_alt": "ArcticTradeLanes 地图集中的{brand}",
+   "logo_credits": "标志署名"
+  }
+ }
+}

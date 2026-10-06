@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2211"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   width="546.94214"
+   height="167"
+   version="1.0"
+   sodipodi:docbase="C:\Users\Emil\Pictures"
+   sodipodi:docname="lkab logotyp.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <metadata
+     id="metadata2216">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2214" />
+  <sodipodi:namedview
+     inkscape:window-height="718"
+     inkscape:window-width="957"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="50"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="489.26166"
+     inkscape:cy="400.27299"
+     inkscape:window-x="149"
+     inkscape:window-y="51"
+     inkscape:current-layer="svg2211"
+     showgrid="false"
+     inkscape:grid-points="false" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-0.2196398,-0.1615445)" />
+  <g
+     id="g5150"
+     transform="translate(-0.2196398,-0.1615445)">
+    <path
+       sodipodi:nodetypes="ccccccc"
+       id="path2221"
+       d="M 0.21963981,167.16154 L 26.405154,0.16154454 L 70.405154,0.16154454 L 51.405154,127.16154 L 100.40515,127.16154 L 93.405154,167.16154 L 0.21963981,167.16154 z "
+       style="fill:#0098cb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccccccccccccccccccccc"
+       id="path2223"
+       d="M 285.40515,0.16154454 L 226.40515,0.16154454 L 167.40515,59.161545 L 175.40515,0.16154454 L 129.40515,0.16154454 L 103.40515,167.16154 L 147.40515,167.16154 L 159.40515,98.161545 L 206.40515,167.16154 L 281.40515,167.16154 L 297.40515,134.16154 L 355.40515,134.16154 L 363.40515,167.16154 L 408.40515,167.16154 L 372.40515,0.16154454 L 317.40515,0.16154454 L 243.40515,141.16154 L 200.40515,83.161545 L 285.40515,0.16154454 z M 338.40515,49.161545 L 350.40515,97.161545 L 315.40515,97.161545 L 338.40515,49.161545 z "
+       style="fill:#0098cb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <path
+       id="path4170"
+       d="M 492.40515,0.16154454 L 436.40515,0.16154454 L 410.65515,167.15491 L 499.40515,167.16154 C 548.8527,159.63081 565.98759,95.39158 521.40515,79.161545 C 556.30053,50.917135 552.90307,2.3977734 492.40515,0.16154454 z M 481.22472,33.767248 C 510.84657,33.99163 501.97508,71.654056 470.40515,64.161545 L 474.40515,34.161545 C 476.72462,33.822587 479.24993,33.752289 481.22472,33.767248 z M 470.44347,95.955292 C 520.34484,95.925311 502.13198,142.0594 459.40515,132.16154 L 465.38097,96.111858 C 467.13293,96.012972 468.83375,95.956259 470.44347,95.955292 z "
+       style="fill:#0098cb;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       sodipodi:nodetypes="cccccccccccccc" />
+  </g>
+</svg>
