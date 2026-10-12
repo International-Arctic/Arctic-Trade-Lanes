@@ -227,6 +227,26 @@ def _on_land(lat, lon):
     return any(polys[i].contains(pt) for i in tree.query(pt))
 
 
+# --- 2026-10-12 gis-shipland-1318: single-ship route anchors on land ---------------
+# The water fan above only ran for anchors shared by >1 ship, so a lone tanker/icebreaker
+# kept its raw route anchor even when that anchor is a town on land (Cambridge Bay for
+# CCGS John A. Macdonald, Kirkenes for MS Stark, Dudinka for Taymyr, Cheboygan for USCGC
+# Mackinaw). Lone ships whose anchor is on Natural Earth 10m land now get the nearest
+# open-water slot (>=~1 km offshore) the same way; anchor kept in position_anchor.
+# Lone ships only move if open water is within SINGLE_SHIP_WATER_MAX_R (~13 km), so river
+# and narrow-fjord harbours (Dudinka on the Yenisei, Kirkenes) keep their raw port anchor
+# instead of jumping 20-150 km to the nearest open sea.
+# Disable with ATL_SHIP_SINGLE_WATER=0 (or ATL_SHIP_WATER_FAN=0 for all ship fans).
+SINGLE_SHIP_WATER_MAX_R = 0.12
+
+
+def _single_on_land(coord):
+    import os as _os
+    if _os.environ.get("ATL_SHIP_SINGLE_WATER", "1") == "0":
+        return False
+    return bool(_on_land(coord[0], coord[1]))
+
+
 def _land_seat_slots(alat, alon, n, base_r=0.18, max_r_deg=0.45):
     import math, os as _os
     if _os.environ.get("ATL_PROGRAMS_SEAT_LAND", "1") == "0" or not _land_index():
@@ -854,7 +874,7 @@ def build_atlas(dataset_dir, out_dir):
         coord = _route_anchor(t.get("typical_arctic_route"), t.get("country"))
         tanker_groups.setdefault(coord, []).append(t)
     for coord, group in tanker_groups.items():
-        _wf = _water_fan(coord[0], coord[1], len(group)) if (len(group) > 1 and os.environ.get("ATL_SHIP_WATER_FAN", "1") != "0") else None
+        _wf = _water_fan(coord[0], coord[1], len(group), **({} if len(group) > 1 else {"max_r_deg": SINGLE_SHIP_WATER_MAX_R})) if ((len(group) > 1 or _single_on_land(coord)) and os.environ.get("ATL_SHIP_WATER_FAN", "1") != "0") else None
         for i, t in enumerate(group):
             lat, lon = _wf[i] if _wf else (_schematic_offset(coord[0], coord[1], i, len(group)) if len(group) > 1 else coord)
             if _wf:
@@ -878,7 +898,7 @@ def build_atlas(dataset_dir, out_dir):
         coord = _route_anchor(ib.get("primary_service_route"), ib.get("country"))
         ib_groups.setdefault(coord, []).append(ib)
     for coord, group in ib_groups.items():
-        _wf = _water_fan(coord[0], coord[1], len(group)) if (len(group) > 1 and os.environ.get("ATL_SHIP_WATER_FAN", "1") != "0") else None
+        _wf = _water_fan(coord[0], coord[1], len(group), **({} if len(group) > 1 else {"max_r_deg": SINGLE_SHIP_WATER_MAX_R})) if ((len(group) > 1 or _single_on_land(coord)) and os.environ.get("ATL_SHIP_WATER_FAN", "1") != "0") else None
         for i, ib in enumerate(group):
             lat, lon = _wf[i] if _wf else (_schematic_offset(coord[0], coord[1], i, len(group)) if len(group) > 1 else coord)
             if _wf:

@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-12T07:29:41.415501+00:00",
+  "generated": "2026-10-12T10:23:47.260313+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -14,7 +14,7 @@
     "shipyards": 69,
     "programs": 713,
     "airports": 10,
-    "industry": 110,
+    "industry": 109,
     "rail": 14,
     "lanes": 27,
     "tankers": 51,
@@ -291,8 +291,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl_new/atlas.3996.geojson",
-    "wgs84": "/tmp/atl_new/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl_new/atlas.4326.geojson"
+    "epsg3996": "/tmp/b1/atlas.3996.geojson",
+    "wgs84": "/tmp/b1/atlas.wgs84.geojson",
+    "epsg4326": "/tmp/b1/atlas.4326.geojson"
   }
 }
