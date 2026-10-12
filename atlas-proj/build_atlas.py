@@ -242,6 +242,70 @@ def _on_land(lat, lon):
 SINGLE_SHIP_WATER_MAX_R = 0.12
 
 
+# --- 2026-10-12 gis-lanewp-1418: region/landmass lane waypoints on land ------------------
+# Lane waypoints come from the GAZETTEER. A few tokens name a landmass or bay and resolve to a
+# point ON Natural Earth 10m land with no water within ~15 km: "Alaska" (68N 152W, Brooks Range;
+# LANE-025 Transpolar ended ~270 km inland), "Yamal Peninsula" (LANE-023 spur onto Yamal),
+# "Kolguev Island" (LANE-006), "Disko Bay" (on Disko Island), "Mackenzie Delta". The water router
+# keeps every waypoint as a vertex, so those legs were forced onto land. Such a waypoint now moves
+# to open water (>= ~1 km offshore) chosen by 2*offset + d(prev) + d(next) among candidates within
+# 60 km of the nearest water (max LANE_WP_WATER_MAX_KM). Ports, towns, dataset/seed anchors and
+# "<X> River" tokens are never moved; River lanes untouched. Display-only; CSV untouched.
+# Disable with ATL_LANE_WAYPOINT_WATER=0.
+LANE_WP_KEEP_KM = 15.0
+LANE_WP_WATER_MAX_KM = 350.0
+
+
+def _dest_pt(lat, lon, km, brg):
+    import math
+    R = 6371.0
+    d = km / R
+    b = math.radians(brg)
+    p1, l1 = math.radians(lat), math.radians(lon)
+    p2 = math.asin(math.sin(p1) * math.cos(d) + math.cos(p1) * math.sin(d) * math.cos(b))
+    l2 = l1 + math.atan2(math.sin(b) * math.sin(d) * math.cos(p1), math.cos(d) - math.sin(p1) * math.sin(p2))
+    return math.degrees(p2), ((math.degrees(l2) + 540.0) % 360.0) - 180.0
+
+
+def _water_within_km(lat, lon, km, step=2.0):
+    r = step
+    while r <= km:
+        for b in range(0, 360, 10):
+            if not _on_land(*_dest_pt(lat, lon, r, b)):
+                return r
+        r += step
+    return None
+
+
+def _lane_wp_water(lat, lon, prev_ll, next_ll, step=3.0):
+    """(lat, lon, offset_km) for an open-water slot near a landlocked waypoint, or None."""
+    def _hk(a, b):
+        return _haversine_km(a[1], a[0], b[1], b[0])
+    cands, first, r = [], None, step
+    while r <= LANE_WP_WATER_MAX_KM:
+        for b in range(0, 360, 5):
+            la, lo = _dest_pt(lat, lon, r, b)
+            if -89.9 < la < 89.9 and not _near_land(la, lo):
+                cands.append((r, la, lo))
+                if first is None:
+                    first = r
+        if first is not None and r > first + 60.0:
+            break
+        r += step
+    if not cands:
+        return None
+
+    def _score(c):
+        sc = 2.0 * c[0]
+        if prev_ll:
+            sc += _hk(prev_ll, (c[1], c[2]))
+        if next_ll:
+            sc += _hk((c[1], c[2]), next_ll)
+        return sc
+    best = min(cands, key=_score)
+    return round(best[1], 6), round(best[2], 6), round(best[0], 1)
+
+
 def _single_on_land(coord):
     import os as _os
     if _os.environ.get("ATL_SHIP_SINGLE_WATER", "1") == "0":
@@ -676,6 +740,38 @@ def build_atlas(dataset_dir, out_dir):
                       (start["port_name"][:8].lower() if start else "",)):
                 unresolved.add(wp)
 
+        # 2026-10-12 gis-lanewp-1418: move landlocked region/landmass waypoints to open water
+        _wp_snaps = []
+        if (os.environ.get("ATL_LANE_WAYPOINT_WATER", "1") != "0" and wp_pts
+                and "river" not in (lane.get("lane_name") or "").lower() and _land_index()):
+            _region = {}
+            for _gk, _gv in GAZETTEER.items():
+                if _gv and not _gk.strip().lower().endswith(" river") and EXTRA_ANCHORS.get(_gk) == _gv:
+                    _region.setdefault((round(_gv[1], 6), round(_gv[0], 6)), _gk)
+            _port_ll = set()
+            for _pr in ports.values():
+                _la, _lo = _f64(_pr, "latitude"), _f64(_pr, "longitude")
+                if _la is not None and _lo is not None:
+                    _port_ll.add((round(_lo, 4), round(_la, 4)))
+
+            def _ll(pr):
+                if not pr:
+                    return None
+                _la, _lo = _f64(pr, "latitude"), _f64(pr, "longitude")
+                return (_la, _lo) if _la is not None and _lo is not None else None
+            for _i, (_lo, _la) in enumerate(list(wp_pts)):
+                _tok = _region.get((round(_lo, 6), round(_la, 6)))
+                if not _tok or (round(_lo, 4), round(_la, 4)) in _port_ll:
+                    continue
+                if not _on_land(_la, _lo) or _water_within_km(_la, _lo, LANE_WP_KEEP_KM) is not None:
+                    continue
+                _prev = (wp_pts[_i - 1][1], wp_pts[_i - 1][0]) if _i > 0 else _ll(start)
+                _next = (wp_pts[_i + 1][1], wp_pts[_i + 1][0]) if _i + 1 < len(wp_pts) else _ll(end)
+                _res = _lane_wp_water(_la, _lo, _prev, _next)
+                if _res:
+                    wp_pts[_i] = (_res[1], _res[0])
+                    _wp_snaps.append(f"{_tok} {_la:.4f},{_lo:.4f}->{_res[0]:.6f},{_res[1]:.6f} ({_res[2]:.0f} km)")
+
         def _near_ref(lon, lat, ref):
             if ref is None:
                 return True
@@ -767,6 +863,9 @@ def build_atlas(dataset_dir, out_dir):
                 fid=lane["lane_id"]))
             if _river_props:
                 features[-1]["properties"].update(_river_props)
+            if _wp_snaps:
+                features[-1]["properties"]["waypoint_water_snap"] = "; ".join(_wp_snaps)
+                print(f"  lane waypoint water snap {lane['lane_id']}: {'; '.join(_wp_snaps)}")
     counts["lanes"] = sum(1 for f in features if f["properties"]["layer"] == "lanes")
     # 2026-10-05 gis-lanewater-1214: reroute only the lane legs that cross land onto water
     # (A* on a 10 km EPSG:3996 ocean raster from Natural Earth 10m, string-pulled).

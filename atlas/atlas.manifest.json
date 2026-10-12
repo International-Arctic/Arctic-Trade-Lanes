@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-12T10:52:56.252210+00:00",
+  "generated": "2026-10-12T11:25:25.918845+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -163,9 +163,9 @@
       "land_km_after": 88
     },
     "ARC-LANE-006": {
-      "legs_routed": 7,
-      "land_km_before": 725,
-      "land_km_after": 189
+      "legs_routed": 6,
+      "land_km_before": 566,
+      "land_km_after": 138
     },
     "ARC-LANE-007": {
       "legs_routed": 4,
@@ -184,8 +184,8 @@
     },
     "ARC-LANE-010": {
       "legs_routed": 5,
-      "land_km_before": 1019,
-      "land_km_after": 169
+      "land_km_before": 1044,
+      "land_km_after": 140
     },
     "ARC-LANE-011": {
       "legs_routed": 6,
@@ -209,8 +209,8 @@
     },
     "ARC-LANE-017": {
       "legs_routed": 5,
-      "land_km_before": 1044,
-      "land_km_after": 158
+      "land_km_before": 891,
+      "land_km_after": 110
     },
     "ARC-LANE-018": {
       "legs_routed": 3,
@@ -239,8 +239,8 @@
     },
     "ARC-LANE-023": {
       "legs_routed": 4,
-      "land_km_before": 282,
-      "land_km_after": 228
+      "land_km_before": 264,
+      "land_km_after": 39
     },
     "ARC-LANE-024": {
       "legs_routed": 5,
@@ -248,9 +248,9 @@
       "land_km_after": 133
     },
     "ARC-LANE-025": {
-      "legs_routed": 3,
-      "land_km_before": 367,
-      "land_km_after": 333
+      "legs_routed": 2,
+      "land_km_before": 83,
+      "land_km_after": 35
     },
     "ARC-LANE-026": {
       "legs_routed": 5,
@@ -291,8 +291,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/rl_out/atlas.3996.geojson",
-    "wgs84": "/tmp/rl_out/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/rl_out/atlas.4326.geojson"
+    "epsg3996": "/tmp/atl-new-1418/atlas.3996.geojson",
+    "wgs84": "/tmp/atl-new-1418/atlas.wgs84.geojson",
+    "epsg4326": "/tmp/atl-new-1418/atlas.4326.geojson"
   }
 }
