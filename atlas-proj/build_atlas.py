@@ -1043,8 +1043,25 @@ def build_atlas(dataset_dir, out_dir):
                 fid=t["tanker_id"]))
     counts["tankers"] = len(tankers)
 
-    ib_groups = {}
+    # gis-ice043-1535: drop icebreaker rows whose vessel_name declares "same as ARC-ICE-XXX"
+    # (CSV provenance kept; ARC-ICE-043 Oden alias of ARC-ICE-033). Toggle ATL_ICE_SAME_AS_DROP=0.
+    icebreaker_id_drops = []
+    _ICE_SAME_RE = _re_iso2.compile(r"same as\s+(ARC-ICE-\d+)", _re_iso2.I)
+    _ib_emit = []
     for ib in icebreakers:
+        _m = _ICE_SAME_RE.search(ib.get("vessel_name") or "")
+        if _m and os.environ.get("ATL_ICE_SAME_AS_DROP", "1") != "0":
+            icebreaker_id_drops.append({
+                "id": ib.get("icebreaker_id"), "name": ib.get("vessel_name", ""),
+                "kept": _m.group(1), "reason": "duplicate_same_as_name",
+            })
+            continue
+        _ib_emit.append(ib)
+    if icebreaker_id_drops:
+        print(f"  icebreaker same-as drops: {icebreaker_id_drops}")
+
+    ib_groups = {}
+    for ib in _ib_emit:
         coord = _route_anchor(ib.get("primary_service_route"), ib.get("country"))
         ib_groups.setdefault(coord, []).append(ib)
     for coord, group in ib_groups.items():
@@ -1065,7 +1082,7 @@ def build_atlas(dataset_dir, out_dir):
                  "position_quality": "schematic_route_anchor" if len(group) > 1 else "route_anchor",
                  "position_stack_size": len(group), "position_stack_index": i},
                 fid=ib["icebreaker_id"]))
-    counts["icebreakers"] = len(icebreakers)
+    counts["icebreakers"] = len(_ib_emit)
     for _f in features:
         _p = _f.get("properties") or {}
         _sid = _f.get("id") or _p.get("id")
@@ -1179,6 +1196,7 @@ def build_atlas(dataset_dir, out_dir):
         "shipyard_coord_drops": shipyard_coord_drops,
         "port_alias_drops": port_alias_drops,
         "program_name_coord_drops": program_name_coord_drops,
+        "icebreaker_id_drops": icebreaker_id_drops,
         "distortion_kpis": {
             "k_at_pole": round(proj.k0, 6),
             "k_true_scale_parallel": "75N (k=1.0)",

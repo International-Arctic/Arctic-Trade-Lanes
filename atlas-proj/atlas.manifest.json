@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-12T11:25:25.918845+00:00",
+  "generated": "2026-10-12T12:42:24.893999+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -18,7 +18,7 @@
     "rail": 14,
     "lanes": 27,
     "tankers": 51,
-    "icebreakers": 56,
+    "icebreakers": 55,
     "rescue": 7
   },
   "arctic_reference": {
@@ -158,9 +158,9 @@
       "land_km_after": 256
     },
     "ARC-LANE-005": {
-      "legs_routed": 5,
-      "land_km_before": 804,
-      "land_km_after": 88
+      "legs_routed": 6,
+      "land_km_before": 814,
+      "land_km_after": 98
     },
     "ARC-LANE-006": {
       "legs_routed": 6,
@@ -203,9 +203,9 @@
       "land_km_after": 318
     },
     "ARC-LANE-016": {
-      "legs_routed": 5,
+      "legs_routed": 6,
       "land_km_before": 774,
-      "land_km_after": 90
+      "land_km_after": 91
     },
     "ARC-LANE-017": {
       "legs_routed": 5,
@@ -213,14 +213,14 @@
       "land_km_after": 110
     },
     "ARC-LANE-018": {
-      "legs_routed": 3,
-      "land_km_before": 388,
-      "land_km_after": 77
+      "legs_routed": 4,
+      "land_km_before": 390,
+      "land_km_after": 79
     },
     "ARC-LANE-019": {
-      "legs_routed": 3,
-      "land_km_before": 593,
-      "land_km_after": 57
+      "legs_routed": 4,
+      "land_km_before": 595,
+      "land_km_after": 59
     },
     "ARC-LANE-020": {
       "legs_routed": 5,
@@ -248,9 +248,9 @@
       "land_km_after": 133
     },
     "ARC-LANE-025": {
-      "legs_routed": 2,
-      "land_km_before": 83,
-      "land_km_after": 35
+      "legs_routed": 3,
+      "land_km_before": 146,
+      "land_km_after": 45
     },
     "ARC-LANE-026": {
       "legs_routed": 5,
@@ -276,6 +276,14 @@
     }
   ],
   "program_name_coord_drops": [],
+  "icebreaker_id_drops": [
+    {
+      "id": "ARC-ICE-043",
+      "name": "I/B Oden (same as ARC-ICE-033)",
+      "kept": "ARC-ICE-033",
+      "reason": "duplicate_same_as_name"
+    }
+  ],
   "distortion_kpis": {
     "k_at_pole": 0.982967,
     "k_true_scale_parallel": "75N (k=1.0)",
@@ -291,8 +299,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl-new-1418/atlas.3996.geojson",
-    "wgs84": "/tmp/atl-new-1418/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl-new-1418/atlas.4326.geojson"
+    "epsg3996": "/home/workspace/ArcticTradeLanes.com/atlas-proj/atlas.3996.geojson",
+    "wgs84": "/home/workspace/ArcticTradeLanes.com/atlas-proj/atlas.wgs84.geojson",
+    "epsg4326": "/home/workspace/ArcticTradeLanes.com/atlas-proj/atlas.4326.geojson"
   }
 }
