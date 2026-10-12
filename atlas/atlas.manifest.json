@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-05T15:55:28.599353+00:00",
+  "generated": "2026-10-12T06:29:16.332380+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -11,7 +11,7 @@
   "layer_counts": {
     "ports": 155,
     "cities": 103,
-    "shipyards": 70,
+    "shipyards": 69,
     "programs": 713,
     "airports": 10,
     "industry": 110,
@@ -46,7 +46,7 @@
       "arctic_council_status": "Member (P8) suspended 2022",
       "business_registry_url": "https://egrul.nalog.ru",
       "trade_agreements": "EAEU CSTO bilateral",
-      "notes": "AZRF resident regime (2020 FZ-193) offers 0% profit-tax first 5yr + subsidies; NSR state monopoly rules 2025+",
+      "notes": "AZRF resident regime (2020 FZ-193) offers 0% profit-tax first 5yr + subsidies; NSR state monopoly rules 2025+; Western sanctions limit USD/EUR settlement",
       "confidence": "95",
       "sources": "arctic.ru government.ru consultant.ru"
     },
