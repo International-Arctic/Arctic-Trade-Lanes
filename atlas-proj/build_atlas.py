@@ -253,6 +253,17 @@ SINGLE_SHIP_WATER_MAX_R = 0.12
 # "<X> River" tokens are never moved; River lanes untouched. Display-only; CSV untouched.
 # Disable with ATL_LANE_WAYPOINT_WATER=0.
 LANE_WP_KEEP_KM = 15.0
+
+# --- 2026-10-12 gis-wpport-1636: redundant endpoint-town waypoints on land ------------------
+# Several lanes repeat their own start/end port as a town GAZETTEER waypoint ("Prudhoe Bay",
+# "Sabetta", "Barrow", "Murmansk" ...). The token resolves to a settlement centroid ON Natural
+# Earth 10m land a few km from the OSM-densified harbour pin, and the router keeps every waypoint
+# as a vertex, so the lane made a short inland spur (ARC-LANE-016/017: Prudhoe Bay port -> town
+# centroid 9 km inland -> back out to sea). An on-land waypoint within LANE_WP_PORT_SNAP_KM of the
+# lane's OWN start/end port now takes that port's pin; the consecutive-duplicate pass then removes
+# the spur. Other ports are never substituted (that re-routes legs). River lanes untouched.
+# Display-only; CSV untouched. Disable with ATL_LANE_WP_PORT_SNAP=0.
+LANE_WP_PORT_SNAP_KM = 12.0
 LANE_WP_WATER_MAX_KM = 350.0
 
 
@@ -771,6 +782,31 @@ def build_atlas(dataset_dir, out_dir):
                 if _res:
                     wp_pts[_i] = (_res[1], _res[0])
                     _wp_snaps.append(f"{_tok} {_la:.4f},{_lo:.4f}->{_res[0]:.6f},{_res[1]:.6f} ({_res[2]:.0f} km)")
+
+        # 2026-10-12 gis-wpport-1636: on-land town waypoint -> nearby dataset harbour pin
+        if (os.environ.get("ATL_LANE_WP_PORT_SNAP", "1") != "0" and wp_pts
+                and "river" not in (lane.get("lane_name") or "").lower() and _land_index()):
+            _pp = []
+            for _pr in ports.values():
+                _pla, _plo = _f64(_pr, "latitude"), _f64(_pr, "longitude")
+                if _pla is not None and _plo is not None:
+                    _pp.append((_plo, _pla, _pr.get("port_id", ""), _pr.get("port_name", "")))
+            _wp_toks = [w for w in _split_waypoints(lane.get("waypoints", "")) if anchor(w)]
+            _geo_words = ("cape", "kapp", "island", "peninsula", "strait", "gate", "sea", "bay",
+                          "delta", "ice edge", "passage", "sound", "fjord", "alaska", "greenland")
+            for _i, (_lo, _la) in enumerate(list(wp_pts)):
+                _tk = (_wp_toks[_i] if len(_wp_toks) == len(wp_pts) else "").lower()
+                if not _tk or not _on_land(_la, _lo):
+                    continue
+                _own = [_x for _x in _pp if _x[2] in (lane.get("start_port_id"), lane.get("end_port_id"))]
+                _best = None
+                for _plo, _pla, _pid, _pn in _own:
+                    _dk = _haversine_km(_lo, _la, _plo, _pla)
+                    if _best is None or _dk < _best[0]:
+                        _best = (_dk, _plo, _pla, _pid, _pn)
+                if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM:
+                    wp_pts[_i] = (_best[1], _best[2])
+                    _wp_snaps.append(f"port {_wp_toks[_i]}->{_best[3]} {_la:.4f},{_lo:.4f}->{_best[2]:.6f},{_best[1]:.6f} ({_best[0]:.1f} km)")
 
         def _near_ref(lon, lat, ref):
             if ref is None:
