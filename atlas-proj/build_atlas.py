@@ -130,6 +130,7 @@ def _haversine_km(lon1, lat1, lon2, lat2):
 
 RIVER_LANE_ENDPOINT_MAX_KM = 1500.0  # gis-riverlane-1346: river lane endpoint farther than this from every other vertex is quarantined
 RIVER_MOUTH_PORT_KM = 150.0  # gis-riverlane-1346: vertices this close to a "<X> River" mouth anchor sort after the mouth
+LANE_ENDPOINT_REVISIT_KM = 5.0  # gis-endrevisit-1743: endpoint port already an interior waypoint
 LANE_TELEPORT_MAX_KM = 5000.0  # drop only continent-scale mismatches (e.g. AK↔NO); keep long NSR ends
 
 
@@ -815,9 +816,32 @@ def build_atlas(dataset_dir, out_dir):
 
         first_wp = wp_pts[0] if wp_pts else None
         last_wp = wp_pts[-1] if wp_pts else None
+        # 2026-10-12 gis-endrevisit-1743: some lanes list their end (or start) port as an INTERIOR
+        # waypoint and then continue (LANE-027 Ningbo..Kara Gates-Murmansk-Hamburg-Felixstowe, end
+        # PORT-001 Murmansk; LANE-010 Nuuk..Ilulissat-Upernavik-Melville Bay, end PORT-011 Ilulissat).
+        # Appending the endpoint again after the last waypoint drew a full retrace back along the
+        # coast (LANE-027 ~6,500 km Felixstowe->Norway->Murmansk). The CSV waypoint order is the
+        # sailing order, so an endpoint already visited as an interior vertex (<= 5 km) is not
+        # re-appended. Display-only; lanes.csv untouched. ATL_LANE_ENDPOINT_REVISIT=0 disables.
+        _endpoint_skips = []
+        _revisit_on = os.environ.get("ATL_LANE_ENDPOINT_REVISIT", "1") != "0"
+
+        def _revisited(lon, lat, interior, terminal):
+            if not _revisit_on or not interior or terminal is None:
+                return None
+            if _haversine_km(lon, lat, terminal[0], terminal[1]) <= LANE_ENDPOINT_REVISIT_KM:
+                return None
+            for _k, _q in interior:
+                if _haversine_km(lon, lat, _q[0], _q[1]) <= LANE_ENDPOINT_REVISIT_KM:
+                    return _k
+            return None
         if start:
             s_lat, s_lon = _f64(start, "latitude"), _f64(start, "longitude")
-            if s_lat is not None and s_lon is not None:
+            _sk = (_revisited(s_lon, s_lat, list(enumerate(wp_pts))[1:], first_wp)
+                   if s_lat is not None and s_lon is not None else None)
+            if _sk is not None:
+                _endpoint_skips.append(f"start {lane.get('start_port_id')} already waypoint #{_sk + 1}")
+            elif s_lat is not None and s_lon is not None:
                 if _near_ref(s_lon, s_lat, first_wp):
                     pts.append((s_lon, s_lat))
                 else:
@@ -825,7 +849,11 @@ def build_atlas(dataset_dir, out_dir):
         pts.extend(wp_pts)
         if end:
             e_lat, e_lon = _f64(end, "latitude"), _f64(end, "longitude")
-            if e_lat is not None and e_lon is not None:
+            _ek = (_revisited(e_lon, e_lat, list(enumerate(wp_pts))[:-1], last_wp)
+                   if e_lat is not None and e_lon is not None else None)
+            if _ek is not None:
+                _endpoint_skips.append(f"end {lane.get('end_port_id')} already waypoint #{_ek + 1}")
+            elif e_lat is not None and e_lon is not None:
                 if _near_ref(e_lon, e_lat, last_wp):
                     pts.append((e_lon, e_lat))
                 else:
@@ -899,6 +927,9 @@ def build_atlas(dataset_dir, out_dir):
                 fid=lane["lane_id"]))
             if _river_props:
                 features[-1]["properties"].update(_river_props)
+            if _endpoint_skips:
+                features[-1]["properties"]["endpoint_revisit_skipped"] = "; ".join(_endpoint_skips)
+                print(f"  lane endpoint revisit skipped {lane['lane_id']}: {'; '.join(_endpoint_skips)}")
             if _wp_snaps:
                 features[-1]["properties"]["waypoint_water_snap"] = "; ".join(_wp_snaps)
                 print(f"  lane waypoint water snap {lane['lane_id']}: {'; '.join(_wp_snaps)}")
