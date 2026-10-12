@@ -128,6 +128,8 @@ def _haversine_km(lon1, lat1, lon2, lat2):
     return 2 * r * math.asin(min(1.0, math.sqrt(a)))
 
 
+RIVER_LANE_ENDPOINT_MAX_KM = 1500.0  # gis-riverlane-1346: river lane endpoint farther than this from every other vertex is quarantined
+RIVER_MOUTH_PORT_KM = 150.0  # gis-riverlane-1346: vertices this close to a "<X> River" mouth anchor sort after the mouth
 LANE_TELEPORT_MAX_KM = 5000.0  # drop only continent-scale mismatches (e.g. AK↔NO); keep long NSR ends
 
 
@@ -702,6 +704,53 @@ def build_atlas(dataset_dir, out_dir):
             if not deduped or (abs(deduped[-1][0]-p[0]) > 1e-6 or abs(deduped[-1][1]-p[1]) > 1e-6):
                 deduped.append(p)
         pts = deduped
+        # 2026-10-12 gis-riverlane-1346: river lanes were drawn in CSV waypoint order, zig-zagging
+        # up and down the river (Yenisei: Dudinka->Gulf->Igarka->Dikson; Lena: Tiksi->delta->Yakutsk->
+        # Zhigansk) and LANE-015 Lena ended at ARC-PORT-049 Franz Josef Land, ~2,000 km off the river.
+        # For "River" lanes: quarantine an endpoint port farther than RIVER_LANE_ENDPOINT_MAX_KM from
+        # every other vertex, then order vertices upstream -> mouth (Arctic-draining rivers flow north,
+        # so ascending latitude); vertices within RIVER_MOUTH_PORT_KM of the "<X> River" mouth anchor
+        # (e.g. Tiksi) sort just after the mouth. Display-only; CSV untouched. ATL_RIVER_LANE_ORDER=0 disables.
+        _river_props = None
+        if (os.environ.get("ATL_RIVER_LANE_ORDER", "1") != "0"
+                and "river" in (lane.get("lane_name") or "").lower() and len(pts) >= 3):
+            _end_ports = {}
+            for _pid in (lane.get("start_port_id"), lane.get("end_port_id")):
+                _pr = ports.get(_pid)
+                if _pr:
+                    _la, _lo = _f64(_pr, "latitude"), _f64(_pr, "longitude")
+                    if _la is not None and _lo is not None:
+                        _end_ports[(round(_lo, 6), round(_la, 6))] = _pid
+            _mouths = []
+            for _wp in _split_waypoints(lane.get("waypoints", "")):
+                if _wp.strip().lower().endswith(" river"):
+                    _c = anchor(_wp)
+                    if _c:
+                        _mouths.append((_c[1], _c[0]))
+            _kept = list(pts)
+            _quar = []
+            for _i in range(len(_kept) - 1, -1, -1):
+                _p = _kept[_i]
+                _pid = _end_ports.get((round(_p[0], 6), round(_p[1], 6)))
+                if not _pid:
+                    continue
+                _others = [q for _j, q in enumerate(_kept) if _j != _i]
+                if _others and min(_haversine_km(_p[0], _p[1], q[0], q[1]) for q in _others) > RIVER_LANE_ENDPOINT_MAX_KM:
+                    _quar.append(_pid)
+                    del _kept[_i]
+
+            def _river_key(_p):
+                for _m in _mouths:
+                    if _p != _m and _haversine_km(_p[0], _p[1], _m[0], _m[1]) <= RIVER_MOUTH_PORT_KM:
+                        return (1, _m[1], _p[1])
+                return (0, _p[1], 0.0)
+            _ordered = sorted(_kept, key=_river_key)
+            if len(_ordered) >= 2 and (_ordered != pts or _quar):
+                _river_props = {"geometry_quality": "river_ordered", "route_order": "upstream_to_mouth",
+                                "route_vertices_before": len(pts)}
+                if _quar:
+                    _river_props["endpoint_quarantined"] = ",".join(sorted(_quar))
+                pts = _ordered
         if len(pts) >= 2:
             _lane_pts_for_route.append((lane["lane_id"], lane["lane_name"], list(pts)))
             features.append(_feat(
@@ -716,6 +765,8 @@ def build_atlas(dataset_dir, out_dir):
                  "volume_teu_per_year": lane["volume_estimate_teu_per_year"],
                  "operators": lane["primary_operators"]},
                 fid=lane["lane_id"]))
+            if _river_props:
+                features[-1]["properties"].update(_river_props)
     counts["lanes"] = sum(1 for f in features if f["properties"]["layer"] == "lanes")
     # 2026-10-05 gis-lanewater-1214: reroute only the lane legs that cross land onto water
     # (A* on a 10 km EPSG:3996 ocean raster from Natural Earth 10m, string-pulled).
