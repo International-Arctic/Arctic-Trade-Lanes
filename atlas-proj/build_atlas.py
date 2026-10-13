@@ -1018,6 +1018,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Planned Finnafjord Port (FFPD) harbour basin: Wikidata Q106075430 P625 66.1062/-15.1502 (= enwiki Finnafjord Port) inside Finnafjordur (OSM relation/8413765) between Gunnolfsvik industrial site (OSM node/1822239443, N shore) and Saurbaer (S shore); was soft 66.27/-15.25 in open sea (~18.8 km); planning stage, quay line TBD",
             },
+            "ARC-PORT-110": {
+                "position_quality": "facility_site",
+                "position_note": "Planned Galtarhofn (GH Harbour) site in the land of Galtarlaekur, Hvalfjordur west of Grundartangi: Galtarlaekur farmstead OSM way/560639791 64.3470050/-21.8087513 (Hvalfjardarsveit notice: ~102 ha planning area below Route 1 in landi Galtarlaekjar; ghharbour.com); was soft 64.32/-21.85 (~3.6 km SW); planning/EIA stage, quay line TBD",
+            },
             "ARC-PORT-157": {
                 "position_quality": "settlement_site",
                 "position_note": "Mishukovo hamlet OSM way/129872684 Nominatim 69.0451678/33.0406397; Arctic Gate Marine Terminal planned Kola Bay west shore near Mishukovo (pre-investment; no dedicated pier OSM yet)",
