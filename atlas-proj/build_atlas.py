@@ -1080,6 +1080,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Baimskaya GOK marine terminal of Pevek seaport at Cape Nagleynyn, Chaunskaya Guba (RF govt order government.ru/news/48261 extended Pevek port borders there; Glavgosexpertiza gge.ru: 275 m berth, approach channel from Chaun Bay); anchor OSM way/1514011213 Naglyoygnyn Port landuse=industrial (Sentinel-2-mapped) centroid 69.0382643/169.3878168; cape OSM node/9513605008 = Wikidata Q37885662 ~5 km NNW; pier way/1514011280 ~1.0 km E; was soft 69.7200/170.2000 in Pevek Strait (~82 km NE); under construction - facility_site not a surveyed berth",
             },
+            "ARC-PORT-025": {
+                "position_quality": "facility_site",
+                "position_note": "Port of Anchorage / Port of Alaska (Knik Arm, Cook Inlet; UN/LOCODE USANC): OSM way/28577877 man_made=pier area=yes centroid 61.2408396/-149.8872591 = main cargo dock inside Port of Alaska OSM relation/10511522 (landuse=industrial, operator Municipality of Anchorage, wikidata Q3398440); Wikidata Q3398440 P625 61.2403/-149.886 ~0.09 km; Terminal Road way/28577529 and Alaska Railroad City Dock Track way/319205158 behind the dock; relation centroid 61.2446867/-149.8816953 kept for ARC-PORT-113 Terminal 1 replacement (~0.52 km NE); was soft 61.2387/-149.9076 (~1.11 km); facility_site cargo pier, not a surveyed berth",
+            },
             "ARC-PORT-150": {
                 "position_quality": "facility_site",
                 "position_note": "Pyramiden Port quay (Billefjorden, Spitsbergen): OSM node/857534564 man_made=crane 78.654916/16.3553162 at the seaward end of concrete embankment quay road way/72761799; Kystverket leading beacons Pyramiden Ovre ref 991900 (OSM node/5323958065 ~0.16 km N) and Pyramiden Nedre ref 991800 (OSM node/5323958066 ~0.31 km E); settlement WD Q845396 P625 78.656111/16.325 ~0.67 km W; was soft 78.6567/16.3250 settlement centre (~0.69 km); local OSM coastline coarse (gadm); facility_site quay crane, not a surveyed berth",
