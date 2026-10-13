@@ -1010,6 +1010,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Planned AMHS Cascade Point Ferry Terminal (Alaska DOT&PF, Mile 42 Glacier Highway, Goldbelt land): OSM node/2835378419 north terminus of Glacier Highway 58.7001371/-134.9378631 (way/217384152 + turnaround way/1033357934; DOT&PF 35% planset HSHWY00015 site map; KTOO 2013 Echo Cove-Cascade Point extension); was soft 58.8500/-135.0200 in upper Berners Bay water (~17.3 km); terminal not yet built - facility_site not a surveyed berth",
             },
+            "ARC-PORT-136": {
+                "position_quality": "facility_site",
+                "position_note": "Planned Narvik Terminal Nord (Narvik Havn KF + Bane NOR; area plan Narvikterminalen med Terminal Nord PlanID 2021001 adopted 18.04.2024): between the RO-RO quay at Lillekleiva and Kleivhammaren with sea fill along Fagernesveien; anchor OSM node/6372382875 Kleivhammarn bus stop 68.4241270/17.4309920 (Lillekleiva stop node/6372384369 ~0.33 km S; Fagmobler node/7590047622 = access-north-of-furniture-store reference); was soft 68.4400/17.4200 in Narvik city/harbour (~1.8 km N); not built - facility_site not a surveyed berth",
+            },
             "ARC-PORT-046": {
                 "position_quality": "facility_site",
                 "position_note": "Cape Zhelaniya (Mys Zhelaniya) / Rosmorport RUZHE area: OSM node/429774624 Nominatim 76.9542826/68.5639747 (WD Q2464613 cape; WD Q86004798 former polar station nearby); was soft 76.9500/68.5500 (~0.59 km); no OSM harbour/pier mapped - facility_site not a surveyed berth",
