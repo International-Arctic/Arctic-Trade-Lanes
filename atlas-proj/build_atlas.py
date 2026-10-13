@@ -1010,6 +1010,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "settlement_site",
                 "position_note": "Ushakovskoye abandoned rural locality OSM node/1554927593; WP approx 70.98083N 178.49083W corroborates; historical Wrangel SE-coast settlement/port (not a modern commercial terminal)",
             },
+            "ARC-PORT-074": {
+                "position_quality": "facility_site",
+                "position_note": "Planned Cape Blossom Regional Port site: Cape Blossom GNIS 1412717 / Wikidata Q5034592 / OSM node/5908987347 66.7341667/-162.495 (~11.7 mi S of Kotzebue, DOT&PF Cape Blossom Road terminus); was soft 66.85/-162.21 in Hotham Inlet (~17.9 km); planning stage, exact berth TBD (site re-study NCA1/ECA1)",
+            },
             "ARC-PORT-157": {
                 "position_quality": "settlement_site",
                 "position_note": "Mishukovo hamlet OSM way/129872684 Nominatim 69.0451678/33.0406397; Arctic Gate Marine Terminal planned Kola Bay west shore near Mishukovo (pre-investment; no dedicated pier OSM yet)",
