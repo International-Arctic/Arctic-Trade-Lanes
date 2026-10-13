@@ -1014,6 +1014,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Baimskaya GOK marine terminal of Pevek seaport at Cape Nagleynyn, Chaunskaya Guba (RF govt order government.ru/news/48261 extended Pevek port borders there; Glavgosexpertiza gge.ru: 275 m berth, approach channel from Chaun Bay); anchor OSM way/1514011213 Naglyoygnyn Port landuse=industrial (Sentinel-2-mapped) centroid 69.0382643/169.3878168; cape OSM node/9513605008 = Wikidata Q37885662 ~5 km NNW; pier way/1514011280 ~1.0 km E; was soft 69.7200/170.2000 in Pevek Strait (~82 km NE); under construction - facility_site not a surveyed berth",
             },
+            "ARC-PORT-022": {
+                "position_quality": "facility_site",
+                "position_note": "Tuktoyaktuk port land on the Tuktoyaktuk Harbour shore S of Cache Point: OSM way/513281075 landuse=industrial industrial=port (tank farm ~21 storage_tank ways) shoelace centroid 69.4281426/-132.9885229; Tuktoyaktuk Harbour WD Q116456484 (CGNDB LAYQW) ~1.0 km NE; DFO/CHS tide station 6485 ~1.2 km NNW; hamlet node/107350410 = WD Q719547 ~2.4 km NW; GNWT INF MTS Tuktoyaktuk freight terminal; UN/LOCODE CATUK; was soft 69.4457/-133.0360 in the hamlet (~2.69 km); facility_site not a surveyed berth",
+            },
             "ARC-PORT-042": {
                 "position_quality": "facility_site",
                 "position_note": "Egvekinot seaport (RUEGV) main harbour pier on Kresta Bay: OSM way/721745076 man_made=pier shoelace centroid 66.3192251/-179.1095237; secondary pier way/721745075 ~0.6 km SSW; settlement node/2891542781 = WD Q1240765 ~0.62 km NW; Rosmorrechflot AD-378-r 24.12.2010 registry 66deg19N 179deg07W / ul. Portovaya 1; was soft 66.3167/-179.1167 (~0.43 km); facility_site",
