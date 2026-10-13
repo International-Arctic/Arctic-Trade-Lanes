@@ -1054,7 +1054,7 @@ def build_atlas(dataset_dir, out_dir):
 
     _ship_anchor = {}  # gis-shipwater-1152: id -> route anchor (lat, lon) for water-fanned ships        print(f"  co-site nudge: {_cosite_nudged} pins in {_cosite_groups_n} cross-layer groups")
 
-    # --- 2026-10-12 gis-npra-1123: intentional schematic / area-centroid position_quality ---
+    # --- 2026-10-12 gis-npra-1123 + 2026-10-13 gis-port048-wrangel: position_quality stamps ---
     # Soft-pin audits must not treat these as broken densify targets. Coords stay as CSV
     # (FAC-354 NSR corridor centre, FAC-370 North Pole drift-ice schematic; PROG-717 densified
     # onto NPR-A OSM area centroid). Disable with ATL_SCHEMATIC_POSITION=0.
@@ -1072,6 +1072,10 @@ def build_atlas(dataset_dir, out_dir):
             "ARC-PROG-717": {
                 "position_quality": "area_centroid",
                 "position_note": "NPR-A protected_area OSM relation/8870643 Nominatim centroid; WD Q6974897 P625 70/-157 corroborates; DISTINCT from ARC-PROG-626 Anchorage admin seat and ARC-PROG-734 Deadhorse",
+            },
+            "ARC-PORT-048": {
+                "position_quality": "settlement_site",
+                "position_note": "Ushakovskoye abandoned rural locality OSM node/1554927593; WP approx 70.98083N 178.49083W corroborates; historical Wrangel SE-coast settlement/port (not a modern commercial terminal)",
             },
         }
         for _f in features:
