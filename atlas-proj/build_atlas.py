@@ -1010,6 +1010,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "settlement_site",
                 "position_note": "Ambarchik rural locality / historic Kolyma-mouth port: OSM way/655223046 place=hamlet Nominatim 69.6252019/162.3024493 (WD Q2629730; enwiki Ambarchik 69.62611/162.30389); was soft 69.6500/162.3500 (~3.3 km); shipping later transferred to Chersky — settlement_site not a modern commercial terminal",
             },
+            "ARC-PORT-041": {
+                "position_quality": "settlement_site",
+                "position_note": "Mys Shmidta urban-type settlement / Chukchi Sea coast port: OSM way/93613726 Nominatim 68.8928813/-179.4130958 (WD Q1020259); was soft 68.8700/-179.4000 on a road near the airport (~2.6 km); no OSM harbour/pier mapped - settlement_site not a surveyed berth",
+            },
             "ARC-PORT-048": {
                 "position_quality": "settlement_site",
                 "position_note": "Ushakovskoye abandoned rural locality OSM node/1554927593; WP approx 70.98083N 178.49083W corroborates; historical Wrangel SE-coast settlement/port (not a modern commercial terminal)",
