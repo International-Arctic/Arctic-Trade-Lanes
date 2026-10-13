@@ -1006,6 +1006,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "area_centroid",
                 "position_note": "NPR-A protected_area OSM relation/8870643 Nominatim centroid; WD Q6974897 P625 70/-157 corroborates; DISTINCT from ARC-PROG-626 Anchorage admin seat and ARC-PROG-734 Deadhorse",
             },
+            "ARC-PORT-045": {
+                "position_quality": "settlement_site",
+                "position_note": "Ambarchik rural locality / historic Kolyma-mouth port: OSM way/655223046 place=hamlet Nominatim 69.6252019/162.3024493 (WD Q2629730; enwiki Ambarchik 69.62611/162.30389); was soft 69.6500/162.3500 (~3.3 km); shipping later transferred to Chersky — settlement_site not a modern commercial terminal",
+            },
             "ARC-PORT-048": {
                 "position_quality": "settlement_site",
                 "position_note": "Ushakovskoye abandoned rural locality OSM node/1554927593; WP approx 70.98083N 178.49083W corroborates; historical Wrangel SE-coast settlement/port (not a modern commercial terminal)",
