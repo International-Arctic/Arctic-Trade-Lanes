@@ -1014,6 +1014,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Baimskaya GOK marine terminal of Pevek seaport at Cape Nagleynyn, Chaunskaya Guba (RF govt order government.ru/news/48261 extended Pevek port borders there; Glavgosexpertiza gge.ru: 275 m berth, approach channel from Chaun Bay); anchor OSM way/1514011213 Naglyoygnyn Port landuse=industrial (Sentinel-2-mapped) centroid 69.0382643/169.3878168; cape OSM node/9513605008 = Wikidata Q37885662 ~5 km NNW; pier way/1514011280 ~1.0 km E; was soft 69.7200/170.2000 in Pevek Strait (~82 km NE); under construction - facility_site not a surveyed berth",
             },
+            "ARC-PORT-036": {
+                "position_quality": "facility_site",
+                "position_note": "Tiksi East Port read as the East piers of Tiksi seaport (west shore of Tiksi Bay): anchor OSM way/1081390287 man_made=pier Vostochny pirs I (East Pier No.1) vertex centroid 71.6448592/128.8963706 with seamark berths 11 + 12; Mintrans order No.50 of 14.02.2017 Annex 3: berths 11-12 on East Pier No.1 operating (157.5 m, 5.8 m), East Pier No.2 decommissioned; was soft 71.6800/128.9500 in Tiksi Bay anchorage water (~4.3 km NNE); no public source for a separate East Port entity - facility_site, identity inferred",
+            },
             "ARC-PORT-136": {
                 "position_quality": "facility_site",
                 "position_note": "Planned Narvik Terminal Nord (Narvik Havn KF + Bane NOR; area plan Narvikterminalen med Terminal Nord PlanID 2021001 adopted 18.04.2024): between the RO-RO quay at Lillekleiva and Kleivhammaren with sea fill along Fagernesveien; anchor OSM node/6372382875 Kleivhammarn bus stop 68.4241270/17.4309920 (Lillekleiva stop node/6372384369 ~0.33 km S; Fagmobler node/7590047622 = access-north-of-furniture-store reference); was soft 68.4400/17.4200 in Narvik city/harbour (~1.8 km N); not built - facility_site not a surveyed berth",
