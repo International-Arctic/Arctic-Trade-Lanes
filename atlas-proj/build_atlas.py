@@ -1010,6 +1010,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Planned AMHS Cascade Point Ferry Terminal (Alaska DOT&PF, Mile 42 Glacier Highway, Goldbelt land): OSM node/2835378419 north terminus of Glacier Highway 58.7001371/-134.9378631 (way/217384152 + turnaround way/1033357934; DOT&PF 35% planset HSHWY00015 site map; KTOO 2013 Echo Cove-Cascade Point extension); was soft 58.8500/-135.0200 in upper Berners Bay water (~17.3 km); terminal not yet built - facility_site not a surveyed berth",
             },
+            "ARC-PORT-099": {
+                "position_quality": "facility_site",
+                "position_note": "Baimskaya GOK marine terminal of Pevek seaport at Cape Nagleynyn, Chaunskaya Guba (RF govt order government.ru/news/48261 extended Pevek port borders there; Glavgosexpertiza gge.ru: 275 m berth, approach channel from Chaun Bay); anchor OSM way/1514011213 Naglyoygnyn Port landuse=industrial (Sentinel-2-mapped) centroid 69.0382643/169.3878168; cape OSM node/9513605008 = Wikidata Q37885662 ~5 km NNW; pier way/1514011280 ~1.0 km E; was soft 69.7200/170.2000 in Pevek Strait (~82 km NE); under construction - facility_site not a surveyed berth",
+            },
             "ARC-PORT-136": {
                 "position_quality": "facility_site",
                 "position_note": "Planned Narvik Terminal Nord (Narvik Havn KF + Bane NOR; area plan Narvikterminalen med Terminal Nord PlanID 2021001 adopted 18.04.2024): between the RO-RO quay at Lillekleiva and Kleivhammaren with sea fill along Fagernesveien; anchor OSM node/6372382875 Kleivhammarn bus stop 68.4241270/17.4309920 (Lillekleiva stop node/6372384369 ~0.33 km S; Fagmobler node/7590047622 = access-north-of-furniture-store reference); was soft 68.4400/17.4200 in Narvik city/harbour (~1.8 km N); not built - facility_site not a surveyed berth",
