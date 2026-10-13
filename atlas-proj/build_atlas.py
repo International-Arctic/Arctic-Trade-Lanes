@@ -1006,6 +1006,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "area_centroid",
                 "position_note": "NPR-A protected_area OSM relation/8870643 Nominatim centroid; WD Q6974897 P625 70/-157 corroborates; DISTINCT from ARC-PROG-626 Anchorage admin seat and ARC-PROG-734 Deadhorse",
             },
+            "ARC-PORT-105": {
+                "position_quality": "facility_site",
+                "position_note": "Planned AMHS Cascade Point Ferry Terminal (Alaska DOT&PF, Mile 42 Glacier Highway, Goldbelt land): OSM node/2835378419 north terminus of Glacier Highway 58.7001371/-134.9378631 (way/217384152 + turnaround way/1033357934; DOT&PF 35% planset HSHWY00015 site map; KTOO 2013 Echo Cove-Cascade Point extension); was soft 58.8500/-135.0200 in upper Berners Bay water (~17.3 km); terminal not yet built - facility_site not a surveyed berth",
+            },
             "ARC-PORT-046": {
                 "position_quality": "facility_site",
                 "position_note": "Cape Zhelaniya (Mys Zhelaniya) / Rosmorport RUZHE area: OSM node/429774624 Nominatim 76.9542826/68.5639747 (WD Q2464613 cape; WD Q86004798 former polar station nearby); was soft 76.9500/68.5500 (~0.59 km); no OSM harbour/pier mapped - facility_site not a surveyed berth",
