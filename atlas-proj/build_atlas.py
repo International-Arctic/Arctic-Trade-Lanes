@@ -130,6 +130,7 @@ def _haversine_km(lon1, lat1, lon2, lat2):
 
 RIVER_LANE_ENDPOINT_MAX_KM = 1500.0  # gis-riverlane-1346: river lane endpoint farther than this from every other vertex is quarantined
 RIVER_MOUTH_PORT_KM = 150.0  # gis-riverlane-1346: vertices this close to a "<X> River" mouth anchor sort after the mouth
+LANE_ENDPOINT_REVISIT_KM = 5.0  # gis-endrevisit-1743: endpoint port already an interior waypoint
 LANE_TELEPORT_MAX_KM = 5000.0  # drop only continent-scale mismatches (e.g. AK↔NO); keep long NSR ends
 
 
@@ -253,6 +254,17 @@ SINGLE_SHIP_WATER_MAX_R = 0.12
 # "<X> River" tokens are never moved; River lanes untouched. Display-only; CSV untouched.
 # Disable with ATL_LANE_WAYPOINT_WATER=0.
 LANE_WP_KEEP_KM = 15.0
+
+# --- 2026-10-12 gis-wpport-1636: redundant endpoint-town waypoints on land ------------------
+# Several lanes repeat their own start/end port as a town GAZETTEER waypoint ("Prudhoe Bay",
+# "Sabetta", "Barrow", "Murmansk" ...). The token resolves to a settlement centroid ON Natural
+# Earth 10m land a few km from the OSM-densified harbour pin, and the router keeps every waypoint
+# as a vertex, so the lane made a short inland spur (ARC-LANE-016/017: Prudhoe Bay port -> town
+# centroid 9 km inland -> back out to sea). An on-land waypoint within LANE_WP_PORT_SNAP_KM of the
+# lane's OWN start/end port now takes that port's pin; the consecutive-duplicate pass then removes
+# the spur. Other ports are never substituted (that re-routes legs). River lanes untouched.
+# Display-only; CSV untouched. Disable with ATL_LANE_WP_PORT_SNAP=0.
+LANE_WP_PORT_SNAP_KM = 12.0
 LANE_WP_WATER_MAX_KM = 350.0
 
 
@@ -772,6 +784,31 @@ def build_atlas(dataset_dir, out_dir):
                     wp_pts[_i] = (_res[1], _res[0])
                     _wp_snaps.append(f"{_tok} {_la:.4f},{_lo:.4f}->{_res[0]:.6f},{_res[1]:.6f} ({_res[2]:.0f} km)")
 
+        # 2026-10-12 gis-wpport-1636: on-land town waypoint -> nearby dataset harbour pin
+        if (os.environ.get("ATL_LANE_WP_PORT_SNAP", "1") != "0" and wp_pts
+                and "river" not in (lane.get("lane_name") or "").lower() and _land_index()):
+            _pp = []
+            for _pr in ports.values():
+                _pla, _plo = _f64(_pr, "latitude"), _f64(_pr, "longitude")
+                if _pla is not None and _plo is not None:
+                    _pp.append((_plo, _pla, _pr.get("port_id", ""), _pr.get("port_name", "")))
+            _wp_toks = [w for w in _split_waypoints(lane.get("waypoints", "")) if anchor(w)]
+            _geo_words = ("cape", "kapp", "island", "peninsula", "strait", "gate", "sea", "bay",
+                          "delta", "ice edge", "passage", "sound", "fjord", "alaska", "greenland")
+            for _i, (_lo, _la) in enumerate(list(wp_pts)):
+                _tk = (_wp_toks[_i] if len(_wp_toks) == len(wp_pts) else "").lower()
+                if not _tk or not _on_land(_la, _lo):
+                    continue
+                _own = [_x for _x in _pp if _x[2] in (lane.get("start_port_id"), lane.get("end_port_id"))]
+                _best = None
+                for _plo, _pla, _pid, _pn in _own:
+                    _dk = _haversine_km(_lo, _la, _plo, _pla)
+                    if _best is None or _dk < _best[0]:
+                        _best = (_dk, _plo, _pla, _pid, _pn)
+                if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM:
+                    wp_pts[_i] = (_best[1], _best[2])
+                    _wp_snaps.append(f"port {_wp_toks[_i]}->{_best[3]} {_la:.4f},{_lo:.4f}->{_best[2]:.6f},{_best[1]:.6f} ({_best[0]:.1f} km)")
+
         def _near_ref(lon, lat, ref):
             if ref is None:
                 return True
@@ -779,9 +816,32 @@ def build_atlas(dataset_dir, out_dir):
 
         first_wp = wp_pts[0] if wp_pts else None
         last_wp = wp_pts[-1] if wp_pts else None
+        # 2026-10-12 gis-endrevisit-1743: some lanes list their end (or start) port as an INTERIOR
+        # waypoint and then continue (LANE-027 Ningbo..Kara Gates-Murmansk-Hamburg-Felixstowe, end
+        # PORT-001 Murmansk; LANE-010 Nuuk..Ilulissat-Upernavik-Melville Bay, end PORT-011 Ilulissat).
+        # Appending the endpoint again after the last waypoint drew a full retrace back along the
+        # coast (LANE-027 ~6,500 km Felixstowe->Norway->Murmansk). The CSV waypoint order is the
+        # sailing order, so an endpoint already visited as an interior vertex (<= 5 km) is not
+        # re-appended. Display-only; lanes.csv untouched. ATL_LANE_ENDPOINT_REVISIT=0 disables.
+        _endpoint_skips = []
+        _revisit_on = os.environ.get("ATL_LANE_ENDPOINT_REVISIT", "1") != "0"
+
+        def _revisited(lon, lat, interior, terminal):
+            if not _revisit_on or not interior or terminal is None:
+                return None
+            if _haversine_km(lon, lat, terminal[0], terminal[1]) <= LANE_ENDPOINT_REVISIT_KM:
+                return None
+            for _k, _q in interior:
+                if _haversine_km(lon, lat, _q[0], _q[1]) <= LANE_ENDPOINT_REVISIT_KM:
+                    return _k
+            return None
         if start:
             s_lat, s_lon = _f64(start, "latitude"), _f64(start, "longitude")
-            if s_lat is not None and s_lon is not None:
+            _sk = (_revisited(s_lon, s_lat, list(enumerate(wp_pts))[1:], first_wp)
+                   if s_lat is not None and s_lon is not None else None)
+            if _sk is not None:
+                _endpoint_skips.append(f"start {lane.get('start_port_id')} already waypoint #{_sk + 1}")
+            elif s_lat is not None and s_lon is not None:
                 if _near_ref(s_lon, s_lat, first_wp):
                     pts.append((s_lon, s_lat))
                 else:
@@ -789,7 +849,11 @@ def build_atlas(dataset_dir, out_dir):
         pts.extend(wp_pts)
         if end:
             e_lat, e_lon = _f64(end, "latitude"), _f64(end, "longitude")
-            if e_lat is not None and e_lon is not None:
+            _ek = (_revisited(e_lon, e_lat, list(enumerate(wp_pts))[:-1], last_wp)
+                   if e_lat is not None and e_lon is not None else None)
+            if _ek is not None:
+                _endpoint_skips.append(f"end {lane.get('end_port_id')} already waypoint #{_ek + 1}")
+            elif e_lat is not None and e_lon is not None:
                 if _near_ref(e_lon, e_lat, last_wp):
                     pts.append((e_lon, e_lat))
                 else:
@@ -863,6 +927,9 @@ def build_atlas(dataset_dir, out_dir):
                 fid=lane["lane_id"]))
             if _river_props:
                 features[-1]["properties"].update(_river_props)
+            if _endpoint_skips:
+                features[-1]["properties"]["endpoint_revisit_skipped"] = "; ".join(_endpoint_skips)
+                print(f"  lane endpoint revisit skipped {lane['lane_id']}: {'; '.join(_endpoint_skips)}")
             if _wp_snaps:
                 features[-1]["properties"]["waypoint_water_snap"] = "; ".join(_wp_snaps)
                 print(f"  lane waypoint water snap {lane['lane_id']}: {'; '.join(_wp_snaps)}")
@@ -987,7 +1054,7 @@ def build_atlas(dataset_dir, out_dir):
 
     _ship_anchor = {}  # gis-shipwater-1152: id -> route anchor (lat, lon) for water-fanned ships        print(f"  co-site nudge: {_cosite_nudged} pins in {_cosite_groups_n} cross-layer groups")
 
-    # --- 2026-10-12 gis-npra-1123: intentional schematic / area-centroid position_quality ---
+    # --- 2026-10-12 gis-npra-1123 + 2026-10-13 gis-port048-wrangel: position_quality stamps ---
     # Soft-pin audits must not treat these as broken densify targets. Coords stay as CSV
     # (FAC-354 NSR corridor centre, FAC-370 North Pole drift-ice schematic; PROG-717 densified
     # onto NPR-A OSM area centroid). Disable with ATL_SCHEMATIC_POSITION=0.
@@ -1005,14 +1072,17 @@ def build_atlas(dataset_dir, out_dir):
             "ARC-PROG-717": {
                 "position_quality": "area_centroid",
                 "position_note": "NPR-A protected_area OSM relation/8870643 Nominatim centroid; WD Q6974897 P625 70/-157 corroborates; DISTINCT from ARC-PROG-626 Anchorage admin seat and ARC-PROG-734 Deadhorse",
-            },
-            "ARC-PORT-105": {
+            },            "ARC-PORT-105": {
                 "position_quality": "facility_site",
                 "position_note": "Planned AMHS Cascade Point Ferry Terminal (Alaska DOT&PF, Mile 42 Glacier Highway, Goldbelt land): OSM node/2835378419 north terminus of Glacier Highway 58.7001371/-134.9378631 (way/217384152 + turnaround way/1033357934; DOT&PF 35% planset HSHWY00015 site map; KTOO 2013 Echo Cove-Cascade Point extension); was soft 58.8500/-135.0200 in upper Berners Bay water (~17.3 km); terminal not yet built - facility_site not a surveyed berth",
             },
             "ARC-PORT-099": {
                 "position_quality": "facility_site",
                 "position_note": "Baimskaya GOK marine terminal of Pevek seaport at Cape Nagleynyn, Chaunskaya Guba (RF govt order government.ru/news/48261 extended Pevek port borders there; Glavgosexpertiza gge.ru: 275 m berth, approach channel from Chaun Bay); anchor OSM way/1514011213 Naglyoygnyn Port landuse=industrial (Sentinel-2-mapped) centroid 69.0382643/169.3878168; cape OSM node/9513605008 = Wikidata Q37885662 ~5 km NNW; pier way/1514011280 ~1.0 km E; was soft 69.7200/170.2000 in Pevek Strait (~82 km NE); under construction - facility_site not a surveyed berth",
+            },
+            "ARC-PORT-051": {
+                "position_quality": "facility_site",
+                "position_note": "Planned Nome Snake River Moorage Facility / Snake River Floats (City of Nome; MARAD FONSI Aug 2026; RAISE $13.2M): west shore of Snake River south of Satellite Drive and north of the RO/RO facility; anchor OSM way/1268826085 leisure=slipway 64.5014256/-165.4286323 (west-bank slipway in project corridor; Satellite Drive way/8983909 ~0.29 km N; Snake River WD Q7547059 P625 64.5044/-165.4242 ~0.39 km NE); ARC-PORT-026 Nome Harbor piers ~0.74 km SW; floats not yet built (35% design, dredge bid early 2027) - facility_site not a surveyed berth; was soft 64.4980/-165.4200 (~0.56 km)",
             },
             "ARC-PORT-022": {
                 "position_quality": "facility_site",
@@ -1024,7 +1094,7 @@ def build_atlas(dataset_dir, out_dir):
             },
             "ARC-PORT-075": {
                 "position_quality": "facility_site",
-                "position_note": "Nuuk Harbour Expansion Qeqertat quay (Sikuki / KJ Greenland; 200 m trawler + 150 m dual-use naval; groundbreaking 2026-07-07; completion Nov 2028): on west side of Qeqertaq Avalleq (Fyrø) immediately south of the 2017 container terminal; anchor OSM way/627906959 landuse=industrial industrial=port shoelace centroid 64.1678488/-51.7140694 (west face ~310 m N-S); Naalakkersuisut VVM A246375-VVM-001 2024 + Sikuki 2026-07-08 + KNR; was soft 64.1700/-51.7100 (~0.31 km); ARC-PORT-009 on harbour node/995384594 ~0.69 km NW; no pier way yet - facility_site under construction",
+                "position_note": "Nuuk Harbour Expansion Qeqertat quay (Sikuki / KJ Greenland; 200 m trawler + 150 m dual-use naval; groundbreaking 2026-07-07; completion Nov 2028): on west side of Qeqertaq Avalleq (Fyroe) immediately south of the 2017 container terminal; anchor OSM way/627906959 landuse=industrial industrial=port shoelace centroid 64.1678488/-51.7140694 (west face ~310 m N-S); Naalakkersuisut VVM A246375-VVM-001 2024 + Sikuki 2026-07-08 + KNR; was soft 64.1700/-51.7100 (~0.31 km); ARC-PORT-009 on harbour node/995384594 ~0.69 km NW; no pier way yet - facility_site under construction",
             },
             "ARC-PORT-036": {
                 "position_quality": "facility_site",

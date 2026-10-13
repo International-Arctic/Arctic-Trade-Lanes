@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arctic Trade Lanes — GIS OSINT Atlas</title>
+  <meta name="description" content="ArcticTradeLanes.com — Arctic GIS OSINT atlas of ports, lanes, cities, and programs. Live GeoJSON atlas." />
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(160deg, #071018 0%, #0f2740 45%, #071018 100%);
+      color: #e8eef4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid rgba(100, 181, 246, 0.25);
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.25rem; font-weight: 650;
+      background: linear-gradient(90deg, #64b5f6, #81c784);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    nav a {
+      color: #90caf9; text-decoration: none; margin-left: 1rem; font-size: 0.95rem;
+    }
+    nav a:hover { text-decoration: underline; }
+    main { flex: 1; max-width: 960px; width: 100%; margin: 0 auto; padding: 2.5rem 1.5rem; }
+    .card {
+      background: rgba(15, 39, 64, 0.65);
+      border: 1px solid rgba(100, 181, 246, 0.28);
+      border-radius: 16px;
+      padding: 1.75rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .card h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .card p { color: #b0bec5; line-height: 1.55; margin-bottom: 1.25rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      display: inline-block; padding: 0.7rem 1.1rem; border-radius: 10px;
+      background: #1976d2; color: #fff; text-decoration: none; font-weight: 600;
+    }
+    .btn.secondary { background: transparent; border: 1px solid rgba(144,202,249,0.5); color: #90caf9; }
+    .meta { margin-top: 1.5rem; font-size: 0.85rem; color: #78909c; }
+    footer { padding: 1rem 1.5rem; font-size: 0.8rem; color: #78909c; border-top: 1px solid rgba(100,181,246,0.15); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Arctic Trade Lanes</h1>
+    <nav>
+      <a href="/atlas/atlas.geojson">Atlas GeoJSON</a>
+      <a href="/atlas/atlas.manifest.json">Manifest</a>
+      <a href="https://github.com/International-Arctic/Arctic-Trade-Lanes">GitHub</a>
+    </nav>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Arctic GIS OSINT Atlas</h2>
+      <p>Live atlas of Arctic ports, trade lanes, cities, facilities, and programs. Static GeoJSON endpoints remain the source of truth while the interactive map shell is restored.</p>
+      <div class="actions">
+        <a class="btn" href="/atlas/atlas.geojson">Open live atlas.geojson</a>
+        <a class="btn secondary" href="/atlas/atlas.manifest.json">Atlas manifest</a>
+        <a class="btn secondary" href="/data/ports.csv">Ports CSV</a>
+      </div>
+      <p class="meta">arctictradelanes.com · additive GIS quality loop · International-Arctic</p>
+    </div>
+  </main>
+  <footer>© Arctic Trade Lanes · Aleksei Dolgikh (@alexdolbun)</footer>
+</body>
+</html>
