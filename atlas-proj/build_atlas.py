@@ -1006,6 +1006,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "area_centroid",
                 "position_note": "NPR-A protected_area OSM relation/8870643 Nominatim centroid; WD Q6974897 P625 70/-157 corroborates; DISTINCT from ARC-PROG-626 Anchorage admin seat and ARC-PROG-734 Deadhorse",
             },
+            "ARC-PORT-046": {
+                "position_quality": "facility_site",
+                "position_note": "Cape Zhelaniya (Mys Zhelaniya) / Rosmorport RUZHE area: OSM node/429774624 Nominatim 76.9542826/68.5639747 (WD Q2464613 cape; WD Q86004798 former polar station nearby); was soft 76.9500/68.5500 (~0.59 km); no OSM harbour/pier mapped - facility_site not a surveyed berth",
+            },
             "ARC-PORT-045": {
                 "position_quality": "settlement_site",
                 "position_note": "Ambarchik rural locality / historic Kolyma-mouth port: OSM way/655223046 place=hamlet Nominatim 69.6252019/162.3024493 (WD Q2629730; enwiki Ambarchik 69.62611/162.30389); was soft 69.6500/162.3500 (~3.3 km); shipping later transferred to Chersky — settlement_site not a modern commercial terminal",
