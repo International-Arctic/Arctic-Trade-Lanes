@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-12T12:42:24.893999+00:00",
+  "generated": "2026-10-13T13:03:22.899995+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -138,19 +138,19 @@
   "unresolved_lane_waypoints": [],
   "lane_water_route": {
     "ARC-LANE-001": {
-      "legs_routed": 7,
-      "land_km_before": 979,
-      "land_km_after": 139
+      "legs_routed": 6,
+      "land_km_before": 977,
+      "land_km_after": 135
     },
     "ARC-LANE-002": {
       "legs_routed": 4,
-      "land_km_before": 294,
-      "land_km_after": 34
+      "land_km_before": 303,
+      "land_km_after": 29
     },
     "ARC-LANE-003": {
-      "legs_routed": 7,
-      "land_km_before": 2909,
-      "land_km_after": 100
+      "legs_routed": 5,
+      "land_km_before": 2696,
+      "land_km_after": 88
     },
     "ARC-LANE-004": {
       "legs_routed": 8,
@@ -163,19 +163,19 @@
       "land_km_after": 98
     },
     "ARC-LANE-006": {
-      "legs_routed": 6,
-      "land_km_before": 566,
-      "land_km_after": 138
+      "legs_routed": 4,
+      "land_km_before": 564,
+      "land_km_after": 145
     },
     "ARC-LANE-007": {
       "legs_routed": 4,
       "land_km_before": 1527,
-      "land_km_after": 126
+      "land_km_after": 121
     },
     "ARC-LANE-008": {
-      "legs_routed": 5,
-      "land_km_before": 355,
-      "land_km_after": 84
+      "legs_routed": 4,
+      "land_km_before": 245,
+      "land_km_after": 72
     },
     "ARC-LANE-009": {
       "legs_routed": 5,
@@ -183,9 +183,9 @@
       "land_km_after": 112
     },
     "ARC-LANE-010": {
-      "legs_routed": 5,
-      "land_km_before": 1044,
-      "land_km_after": 140
+      "legs_routed": 4,
+      "land_km_before": 829,
+      "land_km_after": 127
     },
     "ARC-LANE-011": {
       "legs_routed": 6,
@@ -193,54 +193,54 @@
       "land_km_after": 215
     },
     "ARC-LANE-012": {
-      "legs_routed": 5,
-      "land_km_before": 643,
-      "land_km_after": 100
+      "legs_routed": 3,
+      "land_km_before": 637,
+      "land_km_after": 91
     },
     "ARC-LANE-013": {
-      "legs_routed": 5,
-      "land_km_before": 1490,
-      "land_km_after": 318
+      "legs_routed": 4,
+      "land_km_before": 1489,
+      "land_km_after": 316
     },
     "ARC-LANE-016": {
-      "legs_routed": 6,
-      "land_km_before": 774,
+      "legs_routed": 5,
+      "land_km_before": 704,
       "land_km_after": 91
     },
     "ARC-LANE-017": {
-      "legs_routed": 5,
-      "land_km_before": 891,
-      "land_km_after": 110
+      "legs_routed": 4,
+      "land_km_before": 871,
+      "land_km_after": 96
     },
     "ARC-LANE-018": {
-      "legs_routed": 4,
-      "land_km_before": 390,
-      "land_km_after": 79
+      "legs_routed": 3,
+      "land_km_before": 388,
+      "land_km_after": 77
     },
     "ARC-LANE-019": {
-      "legs_routed": 4,
-      "land_km_before": 595,
-      "land_km_after": 59
+      "legs_routed": 3,
+      "land_km_before": 604,
+      "land_km_after": 47
     },
     "ARC-LANE-020": {
-      "legs_routed": 5,
-      "land_km_before": 1583,
-      "land_km_after": 317
+      "legs_routed": 4,
+      "land_km_before": 1600,
+      "land_km_after": 314
     },
     "ARC-LANE-021": {
-      "legs_routed": 8,
-      "land_km_before": 1479,
-      "land_km_after": 233
+      "legs_routed": 6,
+      "land_km_before": 1474,
+      "land_km_after": 223
     },
     "ARC-LANE-022": {
-      "legs_routed": 6,
-      "land_km_before": 1340,
-      "land_km_after": 143
+      "legs_routed": 5,
+      "land_km_before": 1338,
+      "land_km_after": 142
     },
     "ARC-LANE-023": {
-      "legs_routed": 4,
-      "land_km_before": 264,
-      "land_km_after": 39
+      "legs_routed": 3,
+      "land_km_before": 260,
+      "land_km_after": 35
     },
     "ARC-LANE-024": {
       "legs_routed": 5,
@@ -248,19 +248,19 @@
       "land_km_after": 133
     },
     "ARC-LANE-025": {
-      "legs_routed": 3,
-      "land_km_before": 146,
-      "land_km_after": 45
+      "legs_routed": 2,
+      "land_km_before": 148,
+      "land_km_after": 38
     },
     "ARC-LANE-026": {
-      "legs_routed": 5,
-      "land_km_before": 1201,
-      "land_km_after": 159
+      "legs_routed": 4,
+      "land_km_before": 1215,
+      "land_km_after": 178
     },
     "ARC-LANE-027": {
-      "legs_routed": 6,
-      "land_km_before": 8350,
-      "land_km_after": 731
+      "legs_routed": 5,
+      "land_km_before": 6505,
+      "land_km_after": 595
     }
   },
   "lane_teleport_drops": [],
@@ -299,8 +299,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/home/workspace/ArcticTradeLanes.com/atlas-proj/atlas.3996.geojson",
-    "wgs84": "/home/workspace/ArcticTradeLanes.com/atlas-proj/atlas.wgs84.geojson",
-    "epsg4326": "/home/workspace/ArcticTradeLanes.com/atlas-proj/atlas.4326.geojson"
+    "epsg3996": "out/atlas.3996.geojson",
+    "wgs84": "out/atlas.wgs84.geojson",
+    "epsg4326": "out/atlas.4326.geojson"
   }
 }
