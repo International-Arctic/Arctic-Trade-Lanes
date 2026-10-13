@@ -1014,6 +1014,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Planned Cape Blossom Regional Port site: Cape Blossom GNIS 1412717 / Wikidata Q5034592 / OSM node/5908987347 66.7341667/-162.495 (~11.7 mi S of Kotzebue, DOT&PF Cape Blossom Road terminus); was soft 66.85/-162.21 in Hotham Inlet (~17.9 km); planning stage, exact berth TBD (site re-study NCA1/ECA1)",
             },
+            "ARC-PORT-078": {
+                "position_quality": "facility_site",
+                "position_note": "Planned Finnafjord Port (FFPD) harbour basin: Wikidata Q106075430 P625 66.1062/-15.1502 (= enwiki Finnafjord Port) inside Finnafjordur (OSM relation/8413765) between Gunnolfsvik industrial site (OSM node/1822239443, N shore) and Saurbaer (S shore); was soft 66.27/-15.25 in open sea (~18.8 km); planning stage, quay line TBD",
+            },
             "ARC-PORT-157": {
                 "position_quality": "settlement_site",
                 "position_note": "Mishukovo hamlet OSM way/129872684 Nominatim 69.0451678/33.0406397; Arctic Gate Marine Terminal planned Kola Bay west shore near Mishukovo (pre-investment; no dedicated pier OSM yet)",
