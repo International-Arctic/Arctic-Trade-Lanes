@@ -1080,6 +1080,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Baimskaya GOK marine terminal of Pevek seaport at Cape Nagleynyn, Chaunskaya Guba (RF govt order government.ru/news/48261 extended Pevek port borders there; Glavgosexpertiza gge.ru: 275 m berth, approach channel from Chaun Bay); anchor OSM way/1514011213 Naglyoygnyn Port landuse=industrial (Sentinel-2-mapped) centroid 69.0382643/169.3878168; cape OSM node/9513605008 = Wikidata Q37885662 ~5 km NNW; pier way/1514011280 ~1.0 km E; was soft 69.7200/170.2000 in Pevek Strait (~82 km NE); under construction - facility_site not a surveyed berth",
             },
+            "ARC-PORT-047": {
+                "position_quality": "facility_site",
+                "position_note": "Nordvik Port (historic) / former USSR port-settlement on Khatanga Gulf (Laptev Sea): Wikidata Q2364258 Nordvik P625 73.9975/111.463333 (founded ~1930, abolished 1956); OSM place=locality node/3290343023 Нордвик 73.9980/111.4693 ~0.19 km E; UN/LOCODE RUNVK; no OSM pier/harbour mapped; was soft 73.9980/111.4693 (and stale 74.5000/111.5000) - facility_site historic, not a surveyed berth",
+            },
             "ARC-PORT-051": {
                 "position_quality": "facility_site",
                 "position_note": "Planned Nome Snake River Moorage Facility / Snake River Floats (City of Nome; MARAD FONSI Aug 2026; RAISE $13.2M): west shore of Snake River south of Satellite Drive and north of the RO/RO facility; anchor OSM way/1268826085 leisure=slipway 64.5014256/-165.4286323 (west-bank slipway in project corridor; Satellite Drive way/8983909 ~0.29 km N; Snake River WD Q7547059 P625 64.5044/-165.4242 ~0.39 km NE); ARC-PORT-026 Nome Harbor piers ~0.74 km SW; floats not yet built (35% design, dredge bid early 2027) - facility_site not a surveyed berth; was soft 64.4980/-165.4200 (~0.56 km)",
