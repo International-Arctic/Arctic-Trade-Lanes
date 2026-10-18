@@ -32,3 +32,9 @@ Wording changes vs Oct: the "Home providers / partner strip" row is now "Home lo
 2. Paste `serve-pages.snippet.ts` into `server.ts` before the catch-all/404 handler; back up server.ts first.
 3. Restart the service only after confirming the backend source files exist (see the Oct 18 handoff note).
 4. Verify: `curl -sI https://arctictradelanes.com/funding` → 200, `X-ATL-Page: funding`; homepage md5 unchanged.
+
+## Deployed 2026-10-18 ~19:30 MSK
+Live on Zo: `pages/` (44 files) + the route in `server.ts.route-20261018.patch` (inserted after the Arctic-panel SSR
+middleware, before the vault/render/404 hot path; served through the render cache, header `X-ATL-Page`).
+Zo git commit `ac4350c1f` (local, not pushed: the Zo checkout is behind origin and has uncommitted atlas changes).
+Note: Zo `src/api/`, `src/services/` and `cluster.ts` are still untracked in Zo git — back them up.
