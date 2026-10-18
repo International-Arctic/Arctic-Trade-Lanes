@@ -1,0 +1,42 @@
+[
+ {
+  "file": "/atl-hero/atlas.webp",
+  "theme": "atlas",
+  "title": "Mercator Septentrionalium Terrarum descriptio.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Mercator_Septentrionalium_Terrarum_descriptio.jpg",
+  "author": "Gerardus Mercator, with addition of data from Willem Barentsz voyages",
+  "license": "Public domain",
+  "license_url": "",
+  "modifications": "cropped to 1280x500, slightly blurred and darkened, converted to WebP"
+ },
+ {
+  "file": "/atl-hero/shipping.webp",
+  "theme": "shipping",
+  "title": "Icebreakers Louis S. St-Laurent and Healy in the Arctic Ocean.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Icebreakers_Louis_S._St-Laurent_and_Healy_in_the_Arctic_Ocean.jpg",
+  "author": "Petty Officer 3rd Class Patrick Kelley",
+  "license": "Public domain",
+  "license_url": "",
+  "modifications": "cropped to 1280x500, converted to WebP"
+ },
+ {
+  "file": "/atl-hero/aurora.webp",
+  "theme": "aurora",
+  "title": "Aurora borealis above Lyngenfjorden, 2012 March.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Aurora_borealis_above_Lyngenfjorden,_2012_March.jpg",
+  "author": "Ximonic (Simo Räsänen)",
+  "license": "CC BY-SA 3.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "modifications": "cropped to 1280x500, converted to WebP"
+ },
+ {
+  "file": "/atl-hero/business.webp",
+  "theme": "business",
+  "title": "Tromsø harbour 2022-09-06 01.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Troms%C3%B8_harbour_2022-09-06_01.jpg",
+  "author": "Leonhard Lenz",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "modifications": "cropped to 1280x500, converted to WebP"
+ }
+]
