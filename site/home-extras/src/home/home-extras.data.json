@@ -1,0 +1,53 @@
+{
+  "generated": "2026-10-18",
+  "um_banner": {
+    "href": "https://unicornsmap.com/?utm_source=arctictradelanes&utm_medium=crossbanner",
+    "copy": "UnicornsMap.com $UM-Radar: GIS OSINT map of unicorns, investors, founders and events"
+  },
+  "fact_indexes": ["ports", "lanes", "programs", "shipyards", "icebreakers"],
+  "events": [
+    {"start": "2026-10-31", "kind": "deadline", "name": "UArctic Entrepreneurship Fund: application deadline", "place": "Circumpolar (online)", "href": "/funding"},
+    {"start": "2026-11-02", "kind": "deadline", "name": "Arctic Business Incubator: next intake deadline", "place": "Luleå, Sweden", "href": "/funding"},
+    {"start": "2026-12-01", "kind": "deadline", "name": "Arctic Accelerator (Northern Norway): application deadline", "place": "Northern Norway", "href": "/funding"},
+    {"start": "2027-02-01", "end": "2027-02-04", "kind": "conference", "name": "Arctic Frontiers 2027: Information/Disinformation", "place": "Tromsø, Norway", "venue": "Clarion Hotel The Edge", "href": "https://arcticfrontiers.com/"},
+    {"start": "2027-02-17", "end": "2027-02-18", "kind": "conference", "name": "Arctic Circle Polar Dialogue (with Eurac Research)", "place": "Bolzano, Italy", "href": "https://www.arcticcircle.org/arctic-circle-polar-dialogue"},
+    {"start": "2027-05-26", "end": "2027-05-27", "kind": "conference", "name": "Kirkenes Conference 2027", "place": "Kirkenes, Norway", "href": "https://www.kirkeneskonferansen.no/"},
+    {"start": "2027-10-14", "end": "2027-10-16", "kind": "conference", "name": "Arctic Circle Assembly 2027", "place": "Reykjavík, Iceland", "venue": "Harpa Concert Hall and Conference Centre", "href": "https://www.arcticcircle.org/assemblies"},
+    {"start": "2026-10-08", "end": "2026-10-10", "kind": "conference", "name": "Arctic Circle Assembly 2026", "place": "Reykjavík, Iceland", "venue": "Harpa Concert Hall and Conference Centre", "href": "https://www.arcticcircle.org/assemblies"},
+    {"start": "2026-09-09", "kind": "conference", "name": "AIM Congress 2026: Arctic Development, Unlocking the Potential of the Northern Sea Route (mega panel)", "place": "Dubai, UAE", "venue": "Dubai World Trade Centre", "href": "https://aimcongress.com/"},
+    {"start": "2026-05-20", "end": "2026-05-21", "kind": "conference", "name": "Kirkenes Conference 2026", "place": "Kirkenes, Norway", "href": "https://www.kirkeneskonferansen.no/"},
+    {"start": "2026-04-15", "end": "2026-04-17", "kind": "conference", "name": "Arctic Encounter Summit 2026", "place": "Anchorage, Alaska, USA", "venue": "Dena’ina Civic and Convention Center", "href": "https://www.arcticencounter.com/arctic-encounter-2026"}
+  ],
+  "people": [
+    {"slug": "alexey-chekunkov", "panel": true,
+     "name": {"en": "Alexey Chekunkov", "ru": "Алексей Чекунков", "zh": "阿列克谢·切库尼科夫"},
+     "role": {"en": "Minister for the Development of the Russian Far East and Arctic", "ru": "Министр по развитию Дальнего Востока и Арктики", "zh": "俄罗斯远东和北极发展部部长"},
+     "rel": {"en": "Federal ministry responsible for the Russian Far East and the Arctic zone, including Northern Sea Route infrastructure and Arctic ports.", "ru": "Федеральное министерство, отвечающее за Дальний Восток и Арктическую зону, включая инфраструктуру Северного морского пути и арктические порты.", "zh": "负责俄罗斯远东和北极地区的联邦部委，包括北方海航道基础设施和北极港口。"},
+     "related": [["/program/arctic-zone-rf-resident-regime", "Arctic zone resident regime"], ["/lane/northern-sea-route-full-transit", "Northern Sea Route, full transit"], ["/program/dkp-arktika-long-term-complex-development-plans-of-15-arctic", "Long-term development plans of Arctic cities"]]},
+    {"slug": "andrey-chibis", "panel": true,
+     "name": {"en": "Andrey Chibis", "ru": "Андрей Чибис", "zh": "安德烈·奇比斯"},
+     "role": {"en": "Governor of the Murmansk Region", "ru": "Губернатор Мурманской области", "zh": "摩尔曼斯克州州长"},
+     "rel": {"en": "The Murmansk Region hosts the ice-free port of Murmansk, the western gateway of the Northern Sea Route.", "ru": "В Мурманской области находится незамерзающий порт Мурманск — западные ворота Северного морского пути.", "zh": "摩尔曼斯克州拥有不冻港摩尔曼斯克，是北方海航道的西部门户。"},
+     "related": [["/city/murmansk", "Murmansk"], ["/port/murmansk-commercial-sea-port", "Murmansk Commercial Sea Port"], ["/lane/northern-sea-route-western-section", "Northern Sea Route, western section"]]},
+    {"slug": "aisen-nikolaev", "panel": true,
+     "name": {"en": "Aisen Nikolaev", "ru": "Айсен Николаев", "zh": "埃森·尼可拉耶夫"},
+     "role": {"en": "Head of the Republic of Sakha (Yakutia)", "ru": "Глава Республики Саха (Якутия)", "zh": "萨哈（雅库特）共和国元首"},
+     "rel": {"en": "Sakha (Yakutia) fronts the Laptev and East Siberian seas and hosts the Northern Sea Route port of Tiksi.", "ru": "Якутия выходит к морю Лаптевых и Восточно-Сибирскому морю; здесь находится порт Тикси на Северном морском пути.", "zh": "萨哈（雅库特）濒临拉普捷夫海和东西伯利亚海，境内有北方海航道港口季克西。"},
+     "related": [["/city/tiksi", "Tiksi"], ["/port/tiksi-sea-port", "Tiksi Sea Port"], ["/lane/northern-sea-route-eastern-section", "Northern Sea Route, eastern section"]]},
+    {"slug": "artyom-dovlatov", "panel": true,
+     "name": {"en": "Artyom Dovlatov", "ru": "Артём Довлатов", "zh": "阿尔乔姆·多夫拉托夫"},
+     "role": {"en": "Deputy Chairman, VEB.RF", "ru": "Заместитель председателя ВЭБ.РФ", "zh": "VEB.RF 副董事长"},
+     "rel": {"en": "VEB.RF is a state development corporation that finances infrastructure projects, including in the Arctic zone.", "ru": "ВЭБ.РФ — государственная корпорация развития, финансирующая инфраструктурные проекты, в том числе в Арктической зоне.", "zh": "VEB.RF 是国家开发公司，为包括北极地区在内的基础设施项目提供融资。"},
+     "related": [["/program/arctic-zone-rf-resident-regime", "Arctic zone resident regime"], ["/programs", null]]},
+    {"slug": "vladimir-panov", "panel": true,
+     "name": {"en": "Vladimir Panov", "ru": "Владимир Панов", "zh": "弗拉基米尔·帕诺夫"},
+     "role": {"en": "Special Representative of Rosatom for the Development of the Arctic", "ru": "Специальный представитель госкорпорации «Росатом» по вопросам развития Арктики", "zh": "俄罗斯国家原子能公司北极发展特别代表"},
+     "rel": {"en": "Rosatom is the infrastructure operator of the Northern Sea Route and runs the nuclear icebreaker fleet.", "ru": "Росатом — оператор инфраструктуры Северного морского пути, в его ведении атомный ледокольный флот.", "zh": "俄罗斯国家原子能公司是北方海航道基础设施运营方，管理核动力破冰船队。"},
+     "related": [["/program/rosatom-atomflot-northern-sea-route-icebreaker-and-rescue", "Atomflot icebreaker and rescue program"], ["/program/big-northern-sea-route-federal-project-rosatom", "Northern Sea Route federal project"], ["/icebreakers", null]]},
+    {"slug": "kirill-dmitriev", "panel": false,
+     "name": {"en": "Kirill Dmitriev", "ru": "Кирилл Дмитриев", "zh": "基里尔·德米特里耶夫"},
+     "role": {"en": "Chief Executive, Russian Direct Investment Fund (RDIF)", "ru": "Генеральный директор Российского фонда прямых инвестиций (РФПИ)", "zh": "俄罗斯直接投资基金（RDIF）首席执行官"},
+     "rel": {"en": "Heads a sovereign co-investment fund; mentioned in the post announcing the AIM Congress 2026 Northern Sea Route panel (not a listed panelist).", "ru": "Возглавляет суверенный фонд соинвестиций; упомянут в публикации о панели AIM Congress 2026 по Северному морскому пути (не в числе спикеров).", "zh": "领导一家主权联合投资基金；在宣布 AIM Congress 2026 北方海航道论坛的帖子中被提及（非列名发言人）。"},
+     "related": [["/lane/northern-sea-route-full-transit", "Northern Sea Route, full transit"], ["/programs", null]]}
+  ]
+}
