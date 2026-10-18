@@ -1,0 +1,106 @@
+hero_alt_atlas|Historisk polarkart over de nordlige land (Mercator, 1595)
+hero_alt_shipping|To isbrytere i arbeid i havisen i Polhavet
+hero_alt_aurora|Nordlys over en arktisk fjord
+hero_alt_business|Havnen i en arktisk havneby
+hero_caption|Arktisk handel, havner og næringsliv: 23 landhuber
+credits|Bildekreditering
+flags_title|Landhuber
+flags_council|Medlemsstater i Arktisk råd
+flags_observers|Observatørstater og andre partnere
+logos_title|Arktiske selskaper i registeret
+logos_note|Fra ATLs åpne merkeregister, bygget på Wikidata. Oppføring er ingen anbefaling.
+logos_all|Se alle selskaper
+sp_title|Sprint 2026–2036: ti år med arktisk økonomi
+sp_intro|En rulleguide til den økonomiske siden av Arktis. Hvert tall nedenfor har kilde og dato; det som ikke kan dokumenteres, er utelatt.
+sp_cur|Valuta
+sp_fx_note|Omregnet etter referansekursen fra {source} per {date}
+sp_fx_loading|Laster referansekurser…
+sp_fx_na|Referansekurs ikke tilgjengelig
+sp_s1_t|Valuta og stablecoins
+sp_s1_b|Arktisk handel prises i mange valutaer. Velg en ovenfor for å se publiserte programbeløp omregnet etter offisielle referansekurser. Stablecoins som USDC er ett oppgjørsalternativ for digitale tjenester; her vises bare fiat-referansekurser.
+sp_s2_t|Avkastning og lån
+sp_s2_b|Hovedkategorier: eksportkreditt, grønne og blå obligasjoner, prosjektfinansiering av havner og energi, handelsfinansiering og leasing av isklassede flåter. Bare kategorier; ingen renter eller avkastning oppgis.
+sp_s3_t|Offentlig og institusjonell støtte
+sp_s3_b|Publiserte beløp fra åpne programmer på ATL:
+sp_s3_link|Alle finansieringsprogrammer
+sp_s4_t|Indeksfond og kollektive investeringer
+sp_s4_b|Konsept: en åpen kurv som følger selskapene i det åpne registeret etter region og sektor. Ingenting tilbys eller forvaltes i dag.
+sp_s5_t|$ATL-tokenkonsept
+sp_s5_b|Designnotater om et mulig nyttetoken for datatilgang og bidrag.
+sp_s5_link|Les konseptnotatet
+sp_concept|Et konsept, ikke et tilbud.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Åpen kildeetterretning på et polart GIS-kart: havner, ruter, programmer og selskaper, kryssjekket av en åpen kildekode-agentsverm, Agentic Swarm Orchestra Conductor.
+sp_src|Kilde
+sp_asof|ifølge
+hub_title|{country}: arktisk handelshub
+hub_desc|Havner, atlasobjekter, registrerte selskaper og finansieringsprogrammer for {country} på Arctic Trade Lanes.
+hub_currency|Lokal valuta
+hub_ports|Havner
+hub_entities|Atlasobjekter
+hub_brands|Selskaper i registeret
+hub_programs|Finansierings- og støtteprogrammer
+hub_funding_all|Alle finansieringsprogrammer
+hub_none|Ingen oppføringer ennå.
+hub_all|Alle landhuber
+hub_member|Medlemsstat i Arktisk råd
+hub_observer|Observatørstat i Arktisk råd
+hub_partner|Handelspartner
+hub_more|+{n} flere
+hub_map|Åpne kartet
+ly_ports|Havner
+ly_shipyards|Verft
+ly_icebreakers|Isbrytere
+ly_tankers|Tankskip
+ly_industry|Industri
+ly_cities|Byer
+ly_airports|Flyplasser
+ly_rail|Jernbane
+ly_rescue|Søk og redning
+ly_lanes|Seilingsruter
+ly_programs|Programmer
+co_index_title|Register over arktiske selskaper
+co_index_desc|Åpent register over {n} selskaper med hovedkontor i Arktis og Subarktis, med kildebelagte fakta, land og valuta.
+co_count|{n} selskaper
+co_title|{name}: selskapsprofil
+co_desc|{name} ({country}) i det åpne registeret over arktiske selskaper: sektor, hovedkontor, kildebelagte fakta og lokal valuta.
+co_sector|Sektor
+co_hq|Hovedkontor
+co_founded|Grunnlagt
+co_industry|Bransje
+co_exchange|Børsnotert på
+co_operates|Operatør i ATL-atlaset
+co_website|Nettsted
+co_country|Land
+co_currency|Valuta
+co_facts|Kildebelagte fakta
+co_source|Kilde
+co_retrieved|hentet
+co_logo|Logo
+co_correct|Foreslå en rettelse
+co_note|Åpne data fra ATL-registeret arctic-brands. Data fra Wikidata er CC0; logoer beholder sine egne lisenser. Oppføring er ingen anbefaling.
+co_hub|Landhub
+co_back|Alle selskaper
+co_geo|Plassering
+co_contrib|Legg til et selskap: via bidragsskjemaet eller en pull request på GitHub.
+se_shipping|Skipsfart og maritim
+se_energy|Energi
+se_mining|Gruvedrift og metaller
+se_seafood|Sjømat og havbruk
+se_transport|Transport
+se_construction|Bygg og eiendom
+se_tech|Teknologi og telekom
+se_finance|Finans og forsikring
+se_forestry|Skogbruk og papir
+se_food|Mat og drikke
+se_retail|Handel og forbruk
+se_tourism|Turisme
+se_media|Medier og kultur
+se_industry|Produksjon
+se_other|Annet
+adv_title|Merkevarekampanjer på tvers av plattformer
+adv_b|Én brief, mange flater: displayplasser på forsiden og faktasider i 22 språkutgaver, landhuber, sponsede registeroppslag og omtale i nyhetsbrevet. Kampanjer kjøres per språk og region; i dag leverer Yandex-nettverket, og flere nettverk kommer når kontoene er godkjent.
+adv_list|Planlagte nettverk: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Be om mediekit
+nav_home|Arctic Trade Lanes-kart
+site_name|Arctic Trade Lanes

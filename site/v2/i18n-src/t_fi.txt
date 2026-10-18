@@ -1,0 +1,106 @@
+hero_alt_atlas|Historiallinen pohjoisten maiden napakartta (Mercator, 1595)
+hero_alt_shipping|Kaksi jäänmurtajaa työssä Pohjoisen jäämeren merijäässä
+hero_alt_aurora|Revontulet arktisen vuonon yllä
+hero_alt_business|Arktisen satamakaupungin satama
+hero_caption|Arktinen kauppa, satamat ja liiketoiminta: 23 maakeskusta
+credits|Kuvien tekijät
+flags_title|Maakeskukset
+flags_council|Arktisen neuvoston jäsenvaltiot
+flags_observers|Tarkkailijavaltiot ja muut kumppanit
+logos_title|Arktiset yritykset rekisterissä
+logos_note|ATL:n avoimesta Wikidataan perustuvasta brändirekisteristä. Mukanaolo ei ole suositus.
+logos_all|Selaa kaikkia yrityksiä
+sp_title|Sprintti 2026–2036: kymmenen vuotta arktista taloutta
+sp_intro|Vieritysopas arktisen alueen rahapuoleen. Jokaisella alla olevalla luvulla on lähde ja päivämäärä; mitä ei voi todentaa, on jätetty pois.
+sp_cur|Valuutta
+sp_fx_note|Muunnettu {source}:n viitekurssilla {date}
+sp_fx_loading|Ladataan viitekursseja…
+sp_fx_na|Viitekurssi ei saatavilla
+sp_s1_t|Valuutat ja vakaakolikot
+sp_s1_b|Arktista kauppaa hinnoitellaan monissa valuutoissa. Valitse valuutta yllä nähdäksesi julkaistut ohjelmasummat virallisilla viitekursseilla muunnettuina. Vakaakolikot kuten USDC ovat yksi digitaalisten palveluiden maksutapa; tässä näytetään vain fiat-viitekurssit.
+sp_s2_t|Tuotto ja lainanotto
+sp_s2_b|Pääluokat: vientiluotot, vihreät ja siniset joukkovelkakirjat, satamien ja energian projektirahoitus, jääluokan laivastojen kauppa- ja leasingrahoitus. Vain luokat; korkoja tai tuottoja ei esitetä.
+sp_s3_t|Julkinen ja institutionaalinen tuki
+sp_s3_b|ATL:ssä listattujen avoimien ohjelmien julkaistut summat:
+sp_s3_link|Kaikki rahoitusohjelmat
+sp_s4_t|Indeksirahastot ja yhteissijoittaminen
+sp_s4_b|Konsepti: läpinäkyvä kori, joka seuraa avoimen rekisterin yrityksiä alueittain ja toimialoittain. Mitään ei tarjota eikä hallinnoida tänään.
+sp_s5_t|$ATL-tokenin konsepti
+sp_s5_b|Suunnittelumuistiinpanot mahdollisesta hyötytokenista datan käyttöön ja kontribuutioihin.
+sp_s5_link|Lue konseptipaperi
+sp_concept|Konsepti, ei tarjous.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Avoimien lähteiden tiedustelua polaarisella GIS-kartalla: satamat, reitit, ohjelmat ja yritykset, ristiintarkistettuna avoimen lähdekoodin agenttiparvella, Agentic Swarm Orchestra Conductor.
+sp_src|Lähde
+sp_asof|lähteenä
+hub_title|{country}: arktinen kauppakeskus
+hub_desc|Satamat, atlaksen kohteet, rekisterin yritykset ja rahoitusohjelmat maalle {country} Arctic Trade Lanesissa.
+hub_currency|Paikallinen valuutta
+hub_ports|Satamat
+hub_entities|Atlaksen kohteet
+hub_brands|Yritykset rekisterissä
+hub_programs|Rahoitus- ja tukiohjelmat
+hub_funding_all|Kaikki rahoitusohjelmat
+hub_none|Ei vielä merkintöjä.
+hub_all|Kaikki maakeskukset
+hub_member|Arktisen neuvoston jäsenvaltio
+hub_observer|Arktisen neuvoston tarkkailijavaltio
+hub_partner|Kauppakumppani
+hub_more|+{n} lisää
+hub_map|Avaa kartta
+ly_ports|Satamat
+ly_shipyards|Telakat
+ly_icebreakers|Jäänmurtajat
+ly_tankers|Säiliöalukset
+ly_industry|Teollisuus
+ly_cities|Kaupungit
+ly_airports|Lentoasemat
+ly_rail|Rautatiet
+ly_rescue|Etsintä ja pelastus
+ly_lanes|Meriväylät
+ly_programs|Ohjelmat
+co_index_title|Arktisten yritysten rekisteri
+co_index_desc|Avoin rekisteri {n} yrityksestä, joiden pääkonttori on arktisella tai subarktisella alueella, lähteistettyine tietoineen, maineen ja valuuttoineen.
+co_count|{n} yritystä
+co_title|{name}: yritysprofiili
+co_desc|{name} ({country}) avoimessa arktisten yritysten rekisterissä: toimiala, pääkonttori, lähteistetyt tiedot ja paikallinen valuutta.
+co_sector|Toimiala
+co_hq|Pääkonttori
+co_founded|Perustettu
+co_industry|Liiketoiminta-ala
+co_exchange|Listattu
+co_operates|Operaattori ATL-atlaksessa
+co_website|Verkkosivusto
+co_country|Maa
+co_currency|Valuutta
+co_facts|Lähteistetyt tiedot
+co_source|Lähde
+co_retrieved|haettu
+co_logo|Logo
+co_correct|Ehdota korjausta
+co_note|Avointa dataa ATL arctic-brands -rekisteristä. Wikidatasta johdettu data on CC0; logoilla on omat lisenssinsä. Mukanaolo ei ole suositus.
+co_hub|Maakeskus
+co_back|Kaikki yritykset
+co_geo|Sijainti
+co_contrib|Lisää yritys: kontribuutiolomakkeella tai GitHub-pull requestilla.
+se_shipping|Merenkulku
+se_energy|Energia
+se_mining|Kaivostoiminta ja metallit
+se_seafood|Kala ja vesiviljely
+se_transport|Liikenne
+se_construction|Rakentaminen ja kiinteistöt
+se_tech|Teknologia ja tietoliikenne
+se_finance|Rahoitus ja vakuutus
+se_forestry|Metsä ja paperi
+se_food|Elintarvikkeet ja juomat
+se_retail|Kauppa ja kulutus
+se_tourism|Matkailu
+se_media|Media ja kulttuuri
+se_industry|Valmistus
+se_other|Muut
+adv_title|Monikanavaiset brändikampanjat
+adv_b|Yksi brief, monta pintaa: display-paikat etusivulla ja tietosivuilla 22 kieliversiossa, maakeskukset, sponsoroidut rekisterinostot ja maininnat uutiskirjeessä. Kampanjat ajetaan kielittäin ja alueittain; tänään toimittaa Yandex-verkosto, ja muita verkostoja lisätään tilien hyväksynnän jälkeen.
+adv_list|Suunnitellut verkostot: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Pyydä mediakortti
+nav_home|Arctic Trade Lanes -kartta
+site_name|Arctic Trade Lanes

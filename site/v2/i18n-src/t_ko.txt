@@ -1,0 +1,106 @@
+hero_alt_atlas|북방 지역의 역사적 극지 지도(메르카토르, 1595년)
+hero_alt_shipping|북극해 해빙 속에서 작업하는 쇄빙선 두 척
+hero_alt_aurora|북극 피오르 위의 오로라
+hero_alt_business|북극 항구 도시의 항만
+hero_caption|북극 무역·항만·비즈니스: 23개 국가 허브
+credits|이미지 출처
+flags_title|국가 허브
+flags_council|북극이사회 회원국
+flags_observers|옵서버 국가 및 기타 파트너
+logos_title|등록부에 수록된 북극 기업
+logos_note|위키데이터 기반 ATL 오픈 브랜드 등록부에서 가져왔습니다. 수록이 보증을 의미하지는 않습니다.
+logos_all|전체 기업 보기
+sp_title|2026–2036 스프린트: 북극 경제 10년
+sp_intro|북극의 자금 흐름을 스크롤로 안내합니다. 아래 모든 수치에는 출처와 날짜가 있으며, 확인할 수 없는 내용은 제외했습니다.
+sp_cur|통화
+sp_fx_note|{source} {date} 기준환율로 환산
+sp_fx_loading|기준환율을 불러오는 중…
+sp_fx_na|기준환율을 사용할 수 없음
+sp_s1_t|환율과 스테이블코인
+sp_s1_b|북극 무역은 여러 통화로 거래됩니다. 위에서 통화를 선택하면 공개된 프로그램 금액을 공식 기준환율로 환산해 보여 줍니다. USDC 같은 스테이블코인은 디지털 서비스 결제 수단 중 하나이며, 여기에는 법정화폐 기준환율만 표시합니다.
+sp_s2_t|수익과 차입
+sp_s2_b|주요 범주: 수출신용, 그린·블루 본드, 항만·에너지 프로젝트 파이낸싱, 내빙 선대의 무역금융과 리스. 범주만 제시하며 금리나 수익률은 제시하지 않습니다.
+sp_s3_t|정부 및 기관 지원
+sp_s3_b|ATL에 등재된 공개 프로그램의 공표 금액:
+sp_s3_link|전체 자금 지원 프로그램
+sp_s4_t|인덱스 펀드와 집합투자
+sp_s4_b|개념: 오픈 등록부의 기업을 지역·업종별로 추종하는 투명한 바스켓. 현재 제공하거나 운용하는 상품은 없습니다.
+sp_s5_t|$ATL 토큰 구상
+sp_s5_b|데이터 접근과 기여를 위한 유틸리티 토큰 가능성에 관한 설계 노트.
+sp_s5_link|구상 문서 읽기
+sp_concept|구상일 뿐 청약 권유가 아닙니다.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|극지 GIS 지도 위의 공개출처정보: 항만, 항로, 프로그램, 기업을 오픈소스 에이전트 군집 Agentic Swarm Orchestra Conductor가 교차 검증합니다.
+sp_src|출처
+sp_asof|게재처
+hub_title|{country}: 북극 무역 허브
+hub_desc|Arctic Trade Lanes의 {country} 항만, 아틀라스 항목, 등록 기업, 자금 지원 프로그램.
+hub_currency|현지 통화
+hub_ports|항만
+hub_entities|아틀라스 항목
+hub_brands|등록부의 기업
+hub_programs|자금 및 지원 프로그램
+hub_funding_all|전체 자금 지원 프로그램
+hub_none|아직 항목이 없습니다.
+hub_all|전체 국가 허브
+hub_member|북극이사회 회원국
+hub_observer|북극이사회 옵서버 국가
+hub_partner|무역 파트너
+hub_more|외 {n}건
+hub_map|지도 열기
+ly_ports|항만
+ly_shipyards|조선소
+ly_icebreakers|쇄빙선
+ly_tankers|유조선
+ly_industry|산업
+ly_cities|도시
+ly_airports|공항
+ly_rail|철도
+ly_rescue|수색 구조
+ly_lanes|항로
+ly_programs|프로그램
+co_index_title|북극 기업 등록부
+co_index_desc|북극 및 아북극에 본사를 둔 {n}개 기업의 오픈 등록부. 출처가 있는 사실, 국가, 통화를 제공합니다.
+co_count|기업 {n}곳
+co_title|{name}: 기업 프로필
+co_desc|오픈 북극 기업 등록부의 {name}({country}): 업종, 본사, 출처가 있는 사실, 현지 통화.
+co_sector|업종
+co_hq|본사
+co_founded|설립
+co_industry|산업 분야
+co_exchange|상장 거래소
+co_operates|ATL 아틀라스상 운영사
+co_website|웹사이트
+co_country|국가
+co_currency|통화
+co_facts|출처가 있는 사실
+co_source|출처
+co_retrieved|조회일
+co_logo|로고
+co_correct|수정 제안
+co_note|ATL arctic-brands 등록부의 오픈 데이터. 위키데이터 기반 데이터는 CC0이며 로고는 각자의 라이선스를 따릅니다. 수록이 보증을 의미하지는 않습니다.
+co_hub|국가 허브
+co_back|전체 기업
+co_geo|위치
+co_contrib|기업 추가: 기여 양식을 사용하거나 GitHub 풀 리퀘스트를 여세요.
+se_shipping|해운·해양
+se_energy|에너지
+se_mining|광업·금속
+se_seafood|수산·양식
+se_transport|운송
+se_construction|건설·부동산
+se_tech|기술·통신
+se_finance|금융·보험
+se_forestry|임업·제지
+se_food|식품·음료
+se_retail|소매·소비재
+se_tourism|관광
+se_media|미디어·문화
+se_industry|제조업
+se_other|기타
+adv_title|크로스 플랫폼 브랜드 캠페인
+adv_b|하나의 브리프로 여러 접점에: 22개 언어판 홈페이지와 팩트 페이지의 디스플레이 지면, 국가 허브, 등록부 스폰서 소개, 뉴스레터 언급. 캠페인은 언어·지역별로 운영되며, 현재는 Yandex 네트워크가 송출하고 다른 네트워크는 계정 승인 후 추가됩니다.
+adv_list|예정 네트워크: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|미디어 키트 요청
+nav_home|Arctic Trade Lanes 지도
+site_name|Arctic Trade Lanes

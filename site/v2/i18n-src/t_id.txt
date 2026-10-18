@@ -1,0 +1,106 @@
+hero_alt_atlas|Peta kutub bersejarah negeri-negeri utara (Mercator, 1595)
+hero_alt_shipping|Dua kapal pemecah es bekerja di es laut Samudra Arktik
+hero_alt_aurora|Aurora borealis di atas fjord Arktik
+hero_alt_business|Pelabuhan sebuah kota pelabuhan Arktik
+hero_caption|Perdagangan, pelabuhan, dan bisnis Arktik: 23 hub negara
+credits|Kredit gambar
+flags_title|Hub negara
+flags_council|Negara anggota Dewan Arktik
+flags_observers|Negara pengamat dan mitra lainnya
+logos_title|Perusahaan Arktik dalam registri
+logos_note|Dari registri merek terbuka ATL yang dibangun dari Wikidata. Pencantuman bukan dukungan.
+logos_all|Lihat semua perusahaan
+sp_title|Sprint 2026–2036: sepuluh tahun ekonomi Arktik
+sp_intro|Panduan gulir tentang sisi keuangan Arktik. Setiap angka di bawah memiliki sumber dan tanggal; yang tidak dapat dibuktikan dihilangkan.
+sp_cur|Mata uang
+sp_fx_note|Dikonversi dengan kurs referensi {source} tanggal {date}
+sp_fx_loading|Memuat kurs referensi…
+sp_fx_na|Kurs referensi tidak tersedia
+sp_s1_t|Valas dan stablecoin
+sp_s1_b|Perdagangan Arktik dihargai dalam banyak mata uang. Pilih satu di atas untuk melihat jumlah program yang dipublikasikan, dikonversi dengan kurs referensi resmi. Stablecoin seperti USDC adalah salah satu opsi penyelesaian untuk layanan digital; di sini hanya ditampilkan kurs referensi fiat.
+sp_s2_t|Imbal hasil dan pinjaman
+sp_s2_b|Kategori utama: kredit ekspor, obligasi hijau dan biru, pembiayaan proyek pelabuhan dan energi, pembiayaan perdagangan dan sewa guna armada kelas es. Hanya kategori; tidak ada suku bunga atau imbal hasil yang dikutip.
+sp_s3_t|Dukungan pemerintah dan lembaga
+sp_s3_b|Jumlah yang dipublikasikan dari program terbuka di ATL:
+sp_s3_link|Semua program pendanaan
+sp_s4_t|Reksa dana indeks dan investasi kolektif
+sp_s4_b|Konsep: keranjang transparan yang melacak perusahaan registri terbuka menurut wilayah dan sektor. Saat ini tidak ada yang ditawarkan atau dikelola.
+sp_s5_t|Konsep token $ATL
+sp_s5_b|Catatan desain untuk kemungkinan token utilitas bagi akses data dan kontribusi.
+sp_s5_link|Baca makalah konsep
+sp_concept|Konsep, bukan penawaran.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Intelijen sumber terbuka pada peta GIS kutub: pelabuhan, jalur, program, dan perusahaan, diperiksa silang oleh kawanan agen sumber terbuka, Agentic Swarm Orchestra Conductor.
+sp_src|Sumber
+sp_asof|menurut
+hub_title|{country}: hub perdagangan Arktik
+hub_desc|Pelabuhan, entitas atlas, perusahaan registri, dan program pendanaan untuk {country} di Arctic Trade Lanes.
+hub_currency|Mata uang lokal
+hub_ports|Pelabuhan
+hub_entities|Entitas atlas
+hub_brands|Perusahaan dalam registri
+hub_programs|Program pendanaan dan dukungan
+hub_funding_all|Semua program pendanaan
+hub_none|Belum ada entri.
+hub_all|Semua hub negara
+hub_member|Negara anggota Dewan Arktik
+hub_observer|Negara pengamat Dewan Arktik
+hub_partner|Mitra dagang
+hub_more|+{n} lainnya
+hub_map|Buka peta
+ly_ports|Pelabuhan
+ly_shipyards|Galangan kapal
+ly_icebreakers|Kapal pemecah es
+ly_tankers|Kapal tanker
+ly_industry|Industri
+ly_cities|Kota
+ly_airports|Bandara
+ly_rail|Kereta api
+ly_rescue|Pencarian dan penyelamatan
+ly_lanes|Jalur pelayaran
+ly_programs|Program
+co_index_title|Registri perusahaan Arktik
+co_index_desc|Registri terbuka {n} perusahaan berkantor pusat di Arktik dan subarktik, dengan fakta bersumber, negara, dan mata uang.
+co_count|{n} perusahaan
+co_title|{name}: profil perusahaan
+co_desc|{name} ({country}) dalam registri terbuka perusahaan Arktik: sektor, kantor pusat, fakta bersumber, dan mata uang lokal.
+co_sector|Sektor
+co_hq|Kantor pusat
+co_founded|Didirikan
+co_industry|Bidang usaha
+co_exchange|Tercatat di
+co_operates|Operator dalam atlas ATL
+co_website|Situs web
+co_country|Negara
+co_currency|Mata uang
+co_facts|Fakta bersumber
+co_source|Sumber
+co_retrieved|diakses
+co_logo|Logo
+co_correct|Usulkan koreksi
+co_note|Data terbuka dari registri ATL arctic-brands. Data turunan Wikidata berlisensi CC0; logo mempertahankan lisensinya sendiri. Pencantuman bukan dukungan.
+co_hub|Hub negara
+co_back|Semua perusahaan
+co_geo|Lokasi
+co_contrib|Tambahkan perusahaan: melalui formulir kontribusi atau pull request GitHub.
+se_shipping|Pelayaran dan maritim
+se_energy|Energi
+se_mining|Pertambangan dan logam
+se_seafood|Hasil laut dan akuakultur
+se_transport|Transportasi
+se_construction|Konstruksi dan properti
+se_tech|Teknologi dan telekomunikasi
+se_finance|Keuangan dan asuransi
+se_forestry|Kehutanan dan kertas
+se_food|Makanan dan minuman
+se_retail|Ritel dan konsumen
+se_tourism|Pariwisata
+se_media|Media dan budaya
+se_industry|Manufaktur
+se_other|Lainnya
+adv_title|Kampanye merek lintas platform
+adv_b|Satu brief, banyak permukaan: slot display di beranda dan halaman fakta dalam 22 edisi bahasa, hub negara, sorotan registri bersponsor, dan sebutan di buletin. Kampanye berjalan per bahasa dan wilayah; saat ini jaringan Yandex yang menayangkan, jaringan lain ditambahkan setelah akun disetujui.
+adv_list|Jaringan yang direncanakan: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Minta media kit
+nav_home|Peta Arctic Trade Lanes
+site_name|Arctic Trade Lanes

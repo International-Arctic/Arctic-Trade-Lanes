@@ -1,0 +1,106 @@
+hero_alt_atlas|Kuzey topraklarının tarihi kutup haritası (Mercator, 1595)
+hero_alt_shipping|Arktik Okyanusu deniz buzunda çalışan iki buzkıran
+hero_alt_aurora|Arktik bir fiyortun üzerinde kuzey ışıkları
+hero_alt_business|Arktik bir liman kentinin limanı
+hero_caption|Arktik ticaret, limanlar ve iş dünyası: 23 ülke merkezi
+credits|Görsel kaynakları
+flags_title|Ülke merkezleri
+flags_council|Arktik Konseyi üyesi devletler
+flags_observers|Gözlemci devletler ve diğer ortaklar
+logos_title|Kayıttaki Arktik şirketleri
+logos_note|Wikidata’dan oluşturulan açık ATL marka kaydından. Listede yer almak bir onay anlamına gelmez.
+logos_all|Tüm şirketlere göz atın
+sp_title|2026–2036 sprinti: Arktik ekonomisinin on yılı
+sp_intro|Arktik’in parasal yüzüne kaydırmalı bir rehber. Aşağıdaki her rakamın kaynağı ve tarihi vardır; kaynaklanamayan her şey çıkarılmıştır.
+sp_cur|Para birimi
+sp_fx_note|{source} {date} referans kuruyla çevrildi
+sp_fx_loading|Referans kurları yükleniyor…
+sp_fx_na|Referans kuru kullanılamıyor
+sp_s1_t|Döviz ve stablecoinler
+sp_s1_b|Arktik ticaret birçok para biriminde fiyatlanır. Yayımlanmış program tutarlarını resmî referans kurlarla çevrilmiş görmek için yukarıdan bir para birimi seçin. USDC gibi stablecoinler dijital hizmetler için bir ödeme seçeneğidir; burada yalnızca itibari para referans kurları gösterilir.
+sp_s2_t|Getiri ve borçlanma
+sp_s2_b|Ana kategoriler: ihracat kredisi, yeşil ve mavi tahviller, liman ve enerji proje finansmanı, buz sınıfı filolar için ticaret finansmanı ve kiralama. Yalnızca kategoriler; faiz veya getiri belirtilmez.
+sp_s3_t|Devlet ve kurumsal destek
+sp_s3_b|ATL’de listelenen açık programların yayımlanmış tutarları:
+sp_s3_link|Tüm fon programları
+sp_s4_t|Endeks fonları ve kolektif yatırım
+sp_s4_b|Konsept: açık kayıttaki şirketleri bölge ve sektöre göre izleyen şeffaf bir sepet. Bugün hiçbir şey sunulmuyor veya yönetilmiyor.
+sp_s5_t|$ATL token konsepti
+sp_s5_b|Veri erişimi ve katkılar için olası bir fayda tokenına ilişkin tasarım notları.
+sp_s5_link|Konsept belgesini okuyun
+sp_concept|Bir konsepttir, teklif değildir.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Kutup CBS haritasında açık kaynak istihbaratı: limanlar, rotalar, programlar ve şirketler; açık kaynaklı ajan sürüsü Agentic Swarm Orchestra Conductor tarafından çapraz doğrulanır.
+sp_src|Kaynak
+sp_asof|kaynak sayfası
+hub_title|{country}: Arktik ticaret merkezi
+hub_desc|Arctic Trade Lanes’te {country} için limanlar, atlas varlıkları, kayıtlı şirketler ve fon programları.
+hub_currency|Yerel para birimi
+hub_ports|Limanlar
+hub_entities|Atlas varlıkları
+hub_brands|Kayıttaki şirketler
+hub_programs|Fon ve destek programları
+hub_funding_all|Tüm fon programları
+hub_none|Henüz kayıt yok.
+hub_all|Tüm ülke merkezleri
+hub_member|Arktik Konseyi üyesi devlet
+hub_observer|Arktik Konseyi gözlemci devleti
+hub_partner|Ticaret ortağı
+hub_more|+{n} daha
+hub_map|Haritayı aç
+ly_ports|Limanlar
+ly_shipyards|Tersaneler
+ly_icebreakers|Buzkıranlar
+ly_tankers|Tankerler
+ly_industry|Sanayi
+ly_cities|Şehirler
+ly_airports|Havalimanları
+ly_rail|Demiryolu
+ly_rescue|Arama ve kurtarma
+ly_lanes|Deniz rotaları
+ly_programs|Programlar
+co_index_title|Arktik şirketleri kaydı
+co_index_desc|Merkezi Arktik ve Subarktik’te bulunan {n} şirketin açık kaydı; kaynaklı bilgiler, ülke ve para birimiyle.
+co_count|{n} şirket
+co_title|{name}: şirket profili
+co_desc|Açık Arktik şirketleri kaydında {name} ({country}): sektör, merkez, kaynaklı bilgiler ve yerel para birimi.
+co_sector|Sektör
+co_hq|Merkez
+co_founded|Kuruluş
+co_industry|Faaliyet alanı
+co_exchange|İşlem gördüğü borsa
+co_operates|ATL atlasında işletmeci
+co_website|Web sitesi
+co_country|Ülke
+co_currency|Para birimi
+co_facts|Kaynaklı bilgiler
+co_source|Kaynak
+co_retrieved|erişim
+co_logo|Logo
+co_correct|Düzeltme öner
+co_note|ATL arctic-brands kaydından açık veri. Wikidata kaynaklı veriler CC0’dır; logolar kendi lisanslarını korur. Listede yer almak onay anlamına gelmez.
+co_hub|Ülke merkezi
+co_back|Tüm şirketler
+co_geo|Konum
+co_contrib|Şirket ekleyin: katkı formunu kullanın veya GitHub’da pull request açın.
+se_shipping|Denizcilik
+se_energy|Enerji
+se_mining|Madencilik ve metaller
+se_seafood|Su ürünleri ve yetiştiricilik
+se_transport|Ulaştırma
+se_construction|İnşaat ve gayrimenkul
+se_tech|Teknoloji ve telekom
+se_finance|Finans ve sigorta
+se_forestry|Ormancılık ve kâğıt
+se_food|Gıda ve içecek
+se_retail|Perakende ve tüketici
+se_tourism|Turizm
+se_media|Medya ve kültür
+se_industry|İmalat
+se_other|Diğer
+adv_title|Platformlar arası marka kampanyaları
+adv_b|Tek brif, birçok yüzey: 22 dil sürümünde ana sayfa ve bilgi sayfalarında görüntülü alanlar, ülke merkezleri, sponsorlu kayıt öne çıkarmaları ve bülten anılmaları. Kampanyalar dil ve bölgeye göre yayınlanır; bugün Yandex ağı yayın yapıyor, diğer ağlar hesaplar onaylandıktan sonra eklenecek.
+adv_list|Planlanan ağlar: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Medya kiti isteyin
+nav_home|Arctic Trade Lanes haritası
+site_name|Arctic Trade Lanes

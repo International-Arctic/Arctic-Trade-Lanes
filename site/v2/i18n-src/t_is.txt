@@ -1,0 +1,106 @@
+hero_alt_atlas|Sögulegt heimskautakort af norðlægum löndum (Mercator, 1595)
+hero_alt_shipping|Tveir ísbrjótar að störfum í hafís Norður-Íshafsins
+hero_alt_aurora|Norðurljós yfir norðurslóðafirði
+hero_alt_business|Höfn í hafnarborg á norðurslóðum
+hero_caption|Viðskipti, hafnir og atvinnulíf á norðurslóðum: 23 landamiðstöðvar
+credits|Myndheimildir
+flags_title|Landamiðstöðvar
+flags_council|Aðildarríki Norðurskautsráðsins
+flags_observers|Áheyrnarríki og aðrir samstarfsaðilar
+logos_title|Norðurslóðafyrirtæki í skránni
+logos_note|Úr opinni vörumerkjaskrá ATL, byggðri á Wikidata. Skráning er ekki meðmæli.
+logos_all|Skoða öll fyrirtæki
+sp_title|Sprettur 2026–2036: tíu ár norðurslóðahagkerfis
+sp_intro|Skrunleiðarvísir um fjármálahlið norðurslóða. Hver tala hér að neðan hefur heimild og dagsetningu; það sem ekki er hægt að staðfesta er sleppt.
+sp_cur|Gjaldmiðill
+sp_fx_note|Umreiknað á viðmiðunargengi {source} frá {date}
+sp_fx_loading|Hleð viðmiðunargengi…
+sp_fx_na|Viðmiðunargengi ekki tiltækt
+sp_s1_t|Gjaldeyrir og stöðugleikamyntir
+sp_s1_b|Viðskipti á norðurslóðum eru verðlögð í mörgum gjaldmiðlum. Veldu einn hér að ofan til að sjá birtar fjárhæðir verkefna umreiknaðar á opinberu viðmiðunargengi. Stöðugleikamyntir eins og USDC eru einn greiðslukostur fyrir stafræna þjónustu; hér er aðeins sýnt viðmiðunargengi lögeyris.
+sp_s2_t|Ávöxtun og lántökur
+sp_s2_b|Helstu flokkar: útflutningslán, græn og blá skuldabréf, verkefnafjármögnun hafna og orku, viðskiptafjármögnun og kaupleiga flota í ísflokki. Aðeins flokkar; hvorki vextir né ávöxtun tilgreind.
+sp_s3_t|Stuðningur hins opinbera og stofnana
+sp_s3_b|Birtar fjárhæðir opinna verkefna á ATL:
+sp_s3_link|Öll fjármögnunarverkefni
+sp_s4_t|Vísitölusjóðir og sameiginlegar fjárfestingar
+sp_s4_b|Hugmynd: gagnsæ karfa sem fylgir fyrirtækjum opnu skrárinnar eftir svæðum og geirum. Ekkert er boðið eða rekið í dag.
+sp_s5_t|Hugmynd að $ATL-tóka
+sp_s5_b|Hönnunarnótur um mögulegan nytjatóka fyrir gagnaaðgang og framlög.
+sp_s5_link|Lesa hugmyndaskjalið
+sp_concept|Hugmynd, ekki tilboð.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Upplýsingaöflun úr opnum heimildum á heimskauta-GIS-korti: hafnir, siglingaleiðir, verkefni og fyrirtæki, krosskönnuð af opnum hugbúnaðarsveimi gervigreindarfulltrúa, Agentic Swarm Orchestra Conductor.
+sp_src|Heimild
+sp_asof|samkvæmt
+hub_title|{country}: viðskiptamiðstöð á norðurslóðum
+hub_desc|Hafnir, atlasfyrirbæri, skráð fyrirtæki og fjármögnunarverkefni fyrir {country} á Arctic Trade Lanes.
+hub_currency|Gjaldmiðill landsins
+hub_ports|Hafnir
+hub_entities|Atlasfyrirbæri
+hub_brands|Fyrirtæki í skránni
+hub_programs|Fjármögnunar- og stuðningsverkefni
+hub_funding_all|Öll fjármögnunarverkefni
+hub_none|Engar færslur enn.
+hub_all|Allar landamiðstöðvar
+hub_member|Aðildarríki Norðurskautsráðsins
+hub_observer|Áheyrnarríki Norðurskautsráðsins
+hub_partner|Viðskiptaland
+hub_more|+{n} til viðbótar
+hub_map|Opna kortið
+ly_ports|Hafnir
+ly_shipyards|Skipasmíðastöðvar
+ly_icebreakers|Ísbrjótar
+ly_tankers|Tankskip
+ly_industry|Iðnaður
+ly_cities|Borgir
+ly_airports|Flugvellir
+ly_rail|Járnbrautir
+ly_rescue|Leit og björgun
+ly_lanes|Siglingaleiðir
+ly_programs|Verkefni
+co_index_title|Skrá yfir norðurslóðafyrirtæki
+co_index_desc|Opin skrá yfir {n} fyrirtæki með höfuðstöðvar á norðurslóðum og nærliggjandi svæðum, með staðreyndum með heimildum, landi og gjaldmiðli.
+co_count|{n} fyrirtæki
+co_title|{name}: fyrirtækjasnið
+co_desc|{name} ({country}) í opinni skrá yfir norðurslóðafyrirtæki: geiri, höfuðstöðvar, staðreyndir með heimildum og gjaldmiðill.
+co_sector|Geiri
+co_hq|Höfuðstöðvar
+co_founded|Stofnað
+co_industry|Starfsgrein
+co_exchange|Skráð í kauphöll
+co_operates|Rekstraraðili í ATL-atlasinum
+co_website|Vefsíða
+co_country|Land
+co_currency|Gjaldmiðill
+co_facts|Staðreyndir með heimildum
+co_source|Heimild
+co_retrieved|sótt
+co_logo|Merki
+co_correct|Leggja til leiðréttingu
+co_note|Opin gögn úr ATL-skránni arctic-brands. Gögn úr Wikidata eru CC0; merki halda eigin leyfum. Skráning er ekki meðmæli.
+co_hub|Landamiðstöð
+co_back|Öll fyrirtæki
+co_geo|Staðsetning
+co_contrib|Bæta við fyrirtæki: með framlagseyðublaðinu eða pull request á GitHub.
+se_shipping|Siglingar og sjávarútvegsþjónusta
+se_energy|Orka
+se_mining|Námuvinnsla og málmar
+se_seafood|Sjávarafurðir og fiskeldi
+se_transport|Samgöngur
+se_construction|Byggingar og fasteignir
+se_tech|Tækni og fjarskipti
+se_finance|Fjármál og tryggingar
+se_forestry|Skógrækt og pappír
+se_food|Matvæli og drykkir
+se_retail|Verslun og neysluvörur
+se_tourism|Ferðaþjónusta
+se_media|Fjölmiðlar og menning
+se_industry|Framleiðsla
+se_other|Annað
+adv_title|Vörumerkjaherferðir þvert á miðla
+adv_b|Ein lýsing, margir fletir: auglýsingapláss á forsíðu og staðreyndasíðum í 22 tungumálaútgáfum, landamiðstöðvar, kostaðar kynningar í skránni og umfjöllun í fréttabréfi. Herferðir eru keyrðar eftir tungumáli og svæði; í dag birtir Yandex-netið, og fleiri net bætast við þegar reikningar hafa verið samþykktir.
+adv_list|Fyrirhuguð net: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Biðja um kynningarefni
+nav_home|Arctic Trade Lanes-kort
+site_name|Arctic Trade Lanes

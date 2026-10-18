@@ -1,0 +1,106 @@
+hero_alt_atlas|Historische poolkaart van de noordelijke landen (Mercator, 1595)
+hero_alt_shipping|Twee ijsbrekers aan het werk in het zee-ijs van de Noordelijke IJszee
+hero_alt_aurora|Noorderlicht boven een arctische fjord
+hero_alt_business|Haven van een arctische havenstad
+hero_caption|Arctische handel, havens en bedrijven: 23 landenhubs
+credits|Beeldverantwoording
+flags_title|Landenhubs
+flags_council|Lidstaten van de Arctische Raad
+flags_observers|Waarnemende staten en andere partners
+logos_title|Arctische bedrijven in het register
+logos_note|Uit het open ATL-merkenregister, gebouwd op Wikidata. Een vermelding is geen aanbeveling.
+logos_all|Alle bedrijven bekijken
+sp_title|Sprint 2026–2036: tien jaar arctische economie
+sp_intro|Een scrollgids langs de financiële kant van het Noordpoolgebied. Elk cijfer hieronder heeft een bron en een datum; wat niet te onderbouwen is, laten we weg.
+sp_cur|Valuta
+sp_fx_note|Omgerekend tegen de referentiekoers van {source} van {date}
+sp_fx_loading|Referentiekoersen laden…
+sp_fx_na|Referentiekoers niet beschikbaar
+sp_s1_t|Valuta en stablecoins
+sp_s1_b|Arctische handel wordt in veel valuta geprijsd. Kies hierboven een valuta om gepubliceerde programmabedragen omgerekend tegen officiële referentiekoersen te zien. Stablecoins zoals USDC zijn een afrekenoptie voor digitale diensten; hier staan alleen fiat-referentiekoersen.
+sp_s2_t|Rendement en financiering
+sp_s2_b|Hoofdcategorieën: exportkrediet, groene en blauwe obligaties, projectfinanciering voor havens en energie, handelsfinanciering en leasing voor vloten van ijsklasse. Alleen categorieën; er worden geen rentes of rendementen genoemd.
+sp_s3_t|Overheids- en institutionele steun
+sp_s3_b|Gepubliceerde bedragen van open programma’s op ATL:
+sp_s3_link|Alle financieringsprogramma’s
+sp_s4_t|Indexfondsen en collectief beleggen
+sp_s4_b|Concept: een transparante mand die bedrijven uit het open register volgt per regio en sector. Er wordt vandaag niets aangeboden of beheerd.
+sp_s5_t|$ATL-tokenconcept
+sp_s5_b|Ontwerpnotities voor een mogelijke utility-token voor datatoegang en bijdragen.
+sp_s5_link|Lees het conceptdocument
+sp_concept|Concept, geen aanbod.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Open-source-inlichtingen op een polaire GIS-kaart: havens, routes, programma’s en bedrijven, gecontroleerd door een open-source agentenzwerm, de Agentic Swarm Orchestra Conductor.
+sp_src|Bron
+sp_asof|volgens
+hub_title|{country}: arctische handelshub
+hub_desc|Havens, atlasobjecten, registerbedrijven en financieringsprogramma’s voor {country} op Arctic Trade Lanes.
+hub_currency|Lokale valuta
+hub_ports|Havens
+hub_entities|Atlasobjecten
+hub_brands|Bedrijven in het register
+hub_programs|Financierings- en steunprogramma’s
+hub_funding_all|Alle financieringsprogramma’s
+hub_none|Nog geen vermeldingen.
+hub_all|Alle landenhubs
+hub_member|Lidstaat van de Arctische Raad
+hub_observer|Waarnemende staat in de Arctische Raad
+hub_partner|Handelspartner
+hub_more|+{n} meer
+hub_map|Kaart openen
+ly_ports|Havens
+ly_shipyards|Scheepswerven
+ly_icebreakers|IJsbrekers
+ly_tankers|Tankers
+ly_industry|Industrie
+ly_cities|Steden
+ly_airports|Luchthavens
+ly_rail|Spoor
+ly_rescue|Opsporing en redding
+ly_lanes|Scheepvaartroutes
+ly_programs|Programma’s
+co_index_title|Register van arctische bedrijven
+co_index_desc|Open register van {n} bedrijven met hoofdkantoor in het Arctisch en subarctisch gebied, met onderbouwde feiten, land en valuta.
+co_count|{n} bedrijven
+co_title|{name}: bedrijfsprofiel
+co_desc|{name} ({country}) in het open register van arctische bedrijven: sector, hoofdkantoor, onderbouwde feiten en lokale valuta.
+co_sector|Sector
+co_hq|Hoofdkantoor
+co_founded|Opgericht
+co_industry|Bedrijfstak
+co_exchange|Genoteerd aan
+co_operates|Exploitant in de ATL-atlas
+co_website|Website
+co_country|Land
+co_currency|Valuta
+co_facts|Onderbouwde feiten
+co_source|Bron
+co_retrieved|opgehaald
+co_logo|Logo
+co_correct|Correctie voorstellen
+co_note|Open data uit het ATL-register arctic-brands. Van Wikidata afgeleide gegevens zijn CC0; logo’s behouden hun eigen licenties. Een vermelding is geen aanbeveling.
+co_hub|Landenhub
+co_back|Alle bedrijven
+co_geo|Locatie
+co_contrib|Bedrijf toevoegen: via het bijdrageformulier of een GitHub-pull request.
+se_shipping|Scheepvaart en maritiem
+se_energy|Energie
+se_mining|Mijnbouw en metalen
+se_seafood|Vis en aquacultuur
+se_transport|Vervoer
+se_construction|Bouw en vastgoed
+se_tech|Technologie en telecom
+se_finance|Financiën en verzekeringen
+se_forestry|Bosbouw en papier
+se_food|Voeding en dranken
+se_retail|Detailhandel en consument
+se_tourism|Toerisme
+se_media|Media en cultuur
+se_industry|Maakindustrie
+se_other|Overig
+adv_title|Crossplatform merkcampagnes
+adv_b|Eén briefing, veel plekken: displayposities op de homepage en feitenpagina’s in 22 taaledities, landenhubs, gesponsorde registerspotlights en vermeldingen in de nieuwsbrief. Campagnes lopen per taal en regio; vandaag levert het Yandex-netwerk uit, andere netwerken volgen na goedkeuring van de accounts.
+adv_list|Geplande netwerken: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Mediakit aanvragen
+nav_home|Arctic Trade Lanes-kaart
+site_name|Arctic Trade Lanes

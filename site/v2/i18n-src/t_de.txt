@@ -1,0 +1,106 @@
+hero_alt_atlas|Historische Polarkarte der Nordländer (Mercator, 1595)
+hero_alt_shipping|Zwei Eisbrecher im Meereis des Arktischen Ozeans
+hero_alt_aurora|Polarlicht über einem arktischen Fjord
+hero_alt_business|Hafen einer arktischen Hafenstadt
+hero_caption|Arktischer Handel, Häfen und Wirtschaft: 23 Länder-Hubs
+credits|Bildnachweise
+flags_title|Länder-Hubs
+flags_council|Mitgliedstaaten des Arktischen Rates
+flags_observers|Beobachterstaaten und weitere Partner
+logos_title|Arktische Unternehmen im Register
+logos_note|Aus dem offenen ATL-Markenregister auf Basis von Wikidata. Eine Aufnahme ist keine Empfehlung.
+logos_all|Alle Unternehmen ansehen
+sp_title|Sprint 2026–2036: zehn Jahre Arktiswirtschaft
+sp_intro|Ein Scroll-Leitfaden zur Finanzseite der Arktis. Jede Zahl unten hat Quelle und Datum; was sich nicht belegen lässt, fehlt.
+sp_cur|Währung
+sp_fx_note|Umgerechnet zum Referenzkurs von {source} vom {date}
+sp_fx_loading|Referenzkurse werden geladen…
+sp_fx_na|Referenzkurs nicht verfügbar
+sp_s1_t|Devisen und Stablecoins
+sp_s1_b|Arktischer Handel wird in vielen Währungen abgerechnet. Wählen Sie oben eine Währung, um veröffentlichte Programmbeträge zu offiziellen Referenzkursen umgerechnet zu sehen. Stablecoins wie USDC sind eine Abrechnungsoption für digitale Dienste; hier werden nur Fiat-Referenzkurse gezeigt.
+sp_s2_t|Rendite und Finanzierung
+sp_s2_b|Hauptkategorien: Exportkredite, grüne und blaue Anleihen, Projektfinanzierung für Häfen und Energie, Handelsfinanzierung und Leasing für eisgängige Flotten. Nur Kategorien; keine Zinsen oder Renditen.
+sp_s3_t|Staatliche und institutionelle Förderung
+sp_s3_b|Veröffentlichte Beträge offener Programme auf ATL:
+sp_s3_link|Alle Förderprogramme
+sp_s4_t|Indexfonds und kollektive Anlagen
+sp_s4_b|Konzept: ein transparenter Korb, der Unternehmen des offenen Registers nach Region und Branche abbildet. Derzeit wird nichts angeboten oder verwaltet.
+sp_s5_t|$ATL-Token-Konzept
+sp_s5_b|Entwurfsnotizen zu einem möglichen Utility-Token für Datenzugang und Beiträge.
+sp_s5_link|Konzeptpapier lesen
+sp_concept|Konzept, kein Angebot.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Open-Source-Aufklärung auf einer polaren GIS-Karte: Häfen, Routen, Programme und Unternehmen, gegengeprüft von einem quelloffenen Agentenschwarm, dem Agentic Swarm Orchestra Conductor.
+sp_src|Quelle
+sp_asof|laut
+hub_title|{country}: arktischer Handels-Hub
+hub_desc|Häfen, Atlas-Objekte, Registerunternehmen und Förderprogramme für {country} auf Arctic Trade Lanes.
+hub_currency|Landeswährung
+hub_ports|Häfen
+hub_entities|Atlas-Objekte
+hub_brands|Unternehmen im Register
+hub_programs|Förder- und Unterstützungsprogramme
+hub_funding_all|Alle Förderprogramme
+hub_none|Noch keine Einträge.
+hub_all|Alle Länder-Hubs
+hub_member|Mitgliedstaat des Arktischen Rates
+hub_observer|Beobachterstaat im Arktischen Rat
+hub_partner|Handelspartner
+hub_more|+{n} weitere
+hub_map|Karte öffnen
+ly_ports|Häfen
+ly_shipyards|Werften
+ly_icebreakers|Eisbrecher
+ly_tankers|Tanker
+ly_industry|Industrie
+ly_cities|Städte
+ly_airports|Flughäfen
+ly_rail|Bahn
+ly_rescue|Seenotrettung
+ly_lanes|Schifffahrtsrouten
+ly_programs|Programme
+co_index_title|Register arktischer Unternehmen
+co_index_desc|Offenes Register von {n} Unternehmen mit Sitz in Arktis und Subarktis, mit belegten Fakten, Land und Währung.
+co_count|{n} Unternehmen
+co_title|{name}: Unternehmensprofil
+co_desc|{name} ({country}) im offenen Register arktischer Unternehmen: Branche, Sitz, belegte Fakten und Landeswährung.
+co_sector|Branche
+co_hq|Hauptsitz
+co_founded|Gegründet
+co_industry|Wirtschaftszweig
+co_exchange|Börsennotiert an
+co_operates|Betreiber im ATL-Atlas
+co_website|Website
+co_country|Land
+co_currency|Währung
+co_facts|Belegte Fakten
+co_source|Quelle
+co_retrieved|abgerufen
+co_logo|Logo
+co_correct|Korrektur vorschlagen
+co_note|Offene Daten aus dem ATL-Register arctic-brands. Aus Wikidata abgeleitete Daten sind CC0; Logos behalten ihre eigenen Lizenzen. Eine Aufnahme ist keine Empfehlung.
+co_hub|Länder-Hub
+co_back|Alle Unternehmen
+co_geo|Standort
+co_contrib|Unternehmen hinzufügen: über das Beitragsformular oder einen GitHub-Pull-Request.
+se_shipping|Schifffahrt und Maritimes
+se_energy|Energie
+se_mining|Bergbau und Metalle
+se_seafood|Meeresfrüchte und Aquakultur
+se_transport|Verkehr
+se_construction|Bau und Immobilien
+se_tech|Technologie und Telekommunikation
+se_finance|Finanzen und Versicherungen
+se_forestry|Forst und Papier
+se_food|Lebensmittel und Getränke
+se_retail|Handel und Konsum
+se_tourism|Tourismus
+se_media|Medien und Kultur
+se_industry|Fertigung
+se_other|Sonstiges
+adv_title|Plattformübergreifende Markenkampagnen
+adv_b|Ein Briefing, viele Flächen: Display-Plätze auf Start- und Faktenseiten in 22 Sprachausgaben, Länder-Hubs, gesponserte Register-Spotlights und Newsletter-Erwähnungen. Kampagnen laufen nach Sprache und Region; heute liefert das Yandex-Netzwerk aus, weitere Netzwerke folgen nach Freigabe der Konten.
+adv_list|Geplante Netzwerke: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Mediadaten anfragen
+nav_home|Arctic-Trade-Lanes-Karte
+site_name|Arctic Trade Lanes
