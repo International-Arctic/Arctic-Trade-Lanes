@@ -91,7 +91,7 @@ header.v2h{border-bottom:1px solid #1f2d44;background:#0d1626}header.v2h .w{disp
 header.v2h b{font-size:16px}nav.bc{font-size:13px;color:#9fb0c6;margin:14px 0}h1{font-size:clamp(24px,4vw,34px);line-height:1.2;margin:8px 0 6px}
 h2{font-size:19px;margin:28px 0 10px;border-bottom:1px solid #1f2d44;padding-bottom:6px}.mute{color:#9fb0c6}.card{background:#111a2b;border:1px solid #1f2d44;border-radius:12px;padding:14px 16px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px 18px;padding:0;margin:0;list-style:none}.grid li{overflow-wrap:anywhere}
-dl.kv{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:0}dl.kv dt{color:#9fb0c6}dl.kv dd{margin:0;overflow-wrap:anywhere}
+dl.kv{display:grid;grid-template-columns:minmax(110px,38%) minmax(0,1fr);gap:6px 16px;margin:0}dl.kv dt{color:#9fb0c6}dl.kv dd{margin:0;overflow-wrap:anywhere}
 .pill{display:inline-block;border:1px solid #1f2d44;border-radius:999px;padding:2px 10px;font-size:13px;margin:2px 4px 2px 0}
 .v2flags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}.v2flags a{display:inline-flex;gap:6px;align-items:center;border:1px solid #1f2d44;border-radius:999px;padding:4px 10px;font-size:13px;color:#e5edf7;white-space:nowrap}
 .v2flags a[aria-current]{border-color:#22d3ee}.fl{font-size:18px;line-height:1}.wm{display:inline-flex;align-items:center;justify-content:center;min-width:120px;height:48px;padding:0 12px;border:1px solid #1f2d44;border-radius:8px;font-weight:700;letter-spacing:.02em;color:#e5edf7;background:#0f1a2c}
@@ -222,7 +222,7 @@ function renderCompany(lang: string, slug: string): string | null {
 ${geo ? `<dt>${esc(t.co_geo)}</dt><dd><bdi dir="ltr">${geo}</bdi></dd>` : ""}
 ${b.website ? `<dt>${esc(t.co_website)}</dt><dd><a href="${esc(b.website)}" rel="nofollow noopener" target="_blank"><bdi dir="ltr">${esc(b.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</bdi></a></dd>` : ""}
 </dl></div>
-<h2>${esc(t.co_facts)}</h2><ul class="facts">${b.facts.map((f) => `<li><b>${esc(kindLabel[f.kind] || f.kind)}:</b> ${f.href ? `<a href="${p}${esc(f.href)}">${esc(fv(f))}</a>` : esc(fv(f))} <span class="src">— ${esc(t.co_source)}: <a href="${esc(f.source_url)}" rel="noopener">${esc(f.source_url.replace(/^https?:\/\//, ""))}</a>, ${esc(t.co_retrieved)} ${esc(f.date)}</span></li>`).join("")}</ul>
+<h2>${esc(t.co_facts)}</h2><ul class="facts">${b.facts.map((f) => `<li><b>${esc(kindLabel[f.kind] || f.kind)}:</b> ${f.href ? `<a href="${p}${esc(f.href)}">${esc(fv(f))}</a>` : esc(fv(f))} <span class="src">— ${esc(t.co_source)}: <a href="${esc(f.source_url)}" rel="noopener">${esc(f.source_url.replace(/^https?:\/\//, ""))}</a>, ${esc(t.co_retrieved)} <bdi dir="ltr">${esc(f.date)}</bdi></span></li>`).join("")}</ul>
 <p><a href="${p}/#atlx-contribute">${esc(t.co_correct)}</a> · <a href="${p}/companies">${esc(t.co_back)}</a>${HUBDATA.hubs[hub] ? ` · <a href="${p}/country/${hub}">${esc(t.co_hub)}</a>` : ""}</p>`;
   const org: Record<string, unknown> = { "@context": "https://schema.org", "@type": "Organization", name: b.name, url: `${SITE}${p}/company/${b.slug}`, address: { "@type": "PostalAddress", addressCountry: b.country } };
   if (b.website) org.sameAs = [b.website];
@@ -318,17 +318,20 @@ function heroBlock(lang: string): string {
 function logoWall(lang: string): string {
   const t = tr(lang);
   const p = pre(lang);
-  const pick = brands().filter((b) => b.country !== "RU" && b.source === "wikidata").slice(0, 160);
-  const withLogo = pick.filter((b) => b.logo_url).slice(0, 30);
-  const wordmarks = pick.filter((b) => !b.logo_url).slice(0, 10);
-  const items = [...withLogo, ...wordmarks];
+  const pick = brands().filter((b) => b.country !== "RU" && b.source === "wikidata").slice(0, 120);
+  const items = [...pick.filter((b) => b.logo_url).slice(0, 20), ...pick.filter((b) => !b.logo_url).slice(0, 4)];
   if (!items.length) return "";
-  const cell = (b: Brand, dup: boolean) => b.logo_url
-    ? `<a class="v2-lg" href="${p}/company/${b.slug}"${dup ? ' tabindex="-1" aria-hidden="true"' : ""} title="${esc(brandName(b, lang))} · ${esc(t.co_logo)}: ${esc(b.logo_license)}, Wikimedia Commons"><img src="${esc(b.logo_url)}" alt="${dup ? "" : esc(brandName(b, lang))}" width="128" height="46" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"><span>${esc(brandName(b, lang))}</span></a>`
-    : `<a class="v2-lg wmo" href="${p}/company/${b.slug}"${dup ? ' tabindex="-1" aria-hidden="true"' : ""}><span>${esc(brandName(b, lang))}</span></a>`;
+  const cell = (b: Brand) => {
+    const n = esc(brandName(b, lang));
+    return b.logo_url
+      ? `<a class="v2-lg" href="${p}/company/${b.slug}" title="${esc(b.logo_license)}"><img src="${esc(b.logo_url)}" alt="${n}" width="128" height="46" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()"><span>${n}</span></a>`
+      : `<a class="v2-lg wmo" href="${p}/company/${b.slug}"><span>${n}</span></a>`;
+  };
+  // The second copy needed for a seamless loop is cloned client-side (keeps the HTML small).
   return `<section id="atlx-logos"><div class="x-wrap"><h2>${esc(t.logos_title)}</h2><p class="x-lede" style="margin:0">${esc(t.logos_note)}</p></div>
-<div class="v2-logos" dir="ltr"><div class="v2-track">${items.map((b) => cell(b, false)).join("")}${items.map((b) => cell(b, true)).join("")}</div></div>
-<div class="x-wrap"><p><a href="${p}/companies">${esc(t.logos_all)} (${brands().length}) →</a></p></div></section>`;
+<div class="v2-logos" dir="ltr"><div class="v2-track">${items.map(cell).join("")}</div></div>
+<div class="x-wrap"><p><a href="${p}/companies">${esc(t.logos_all)} (${brands().length}) →</a></p></div></section>
+<script>(function(){var t=document.querySelector("#atlx-logos .v2-track");if(!t||matchMedia("(prefers-reduced-motion: reduce)").matches)return;[].slice.call(t.children).forEach(function(a){var c=a.cloneNode(true);c.setAttribute("aria-hidden","true");c.tabIndex=-1;t.appendChild(c)})})();</script>`;
 }
 function sprintBlock(lang: string): string {
   const t = tr(lang);
