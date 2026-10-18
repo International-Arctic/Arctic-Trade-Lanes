@@ -25,7 +25,7 @@ Oct 4–6 content (EN/RU/ZH texts; other locales use EN): audience, placements t
 direct-buy contact, crypto payment via the existing x402 rail (USDC on Base, `/.well-known/x402.json`).
 Ad slots `atl-ad-top`, `atl-ad-inc-1`, `atl-ad-inc-2`, `atl-ad-side`, `atl-ad-mstick`; loads `/ads-config.js?v=20261005b`,
 `/atl-ads.js?v=20261005b`, Yandex `context.js` and Autoplacement `ap-loader.js` (data-page-id 20141282).
-One wording change vs Oct: the "Home providers / partner strip" row is now "Home logo strip".
+Wording changes vs Oct: the "Home providers / partner strip" row is now "Home logo strip"; contact is collaborate@arctictradelanes.com (was partners@).
 
 ## Deploy on Zo (ArcticTradeLanes.com/arctic-trade-lanes)
 1. Copy `pages/` to `<app>/pages/` (new directory; nothing replaced).

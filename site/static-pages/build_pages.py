@@ -20,7 +20,7 @@ HREF = {"en":"en-US","ru":"ru-RU","zh":"zh-CN","ja":"ja-JP","ko":"ko-KR","el":"e
         "fi":"fi-FI","sv":"sv-SE","nb":"nb-NO","is":"is-IS"}
 CSV_URL = "/arctic-funding-programs-2026.csv"
 FUND_CONTACT = "cto@arctictradelanes.com"
-ADS_CONTACT = "partners@arctictradelanes.com"   # contact address used on the Oct 2026 /advertise page
+ADS_CONTACT = "collaborate@arctictradelanes.com"   # neutral contact already used on the live site
 NEAR_DAYS = 21
 e = html.escape
 
