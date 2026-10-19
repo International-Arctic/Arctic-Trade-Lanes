@@ -1,0 +1,106 @@
+hero_alt_atlas|Bản đồ vùng cực lịch sử của các vùng đất phương Bắc (Mercator, 1595)
+hero_alt_shipping|Hai tàu phá băng hoạt động trong băng biển Bắc Băng Dương
+hero_alt_aurora|Cực quang trên một vịnh hẹp Bắc Cực
+hero_alt_business|Bến cảng của một thành phố cảng Bắc Cực
+hero_caption|Thương mại, cảng biển và doanh nghiệp Bắc Cực: 23 trung tâm quốc gia
+credits|Nguồn hình ảnh
+flags_title|Trung tâm quốc gia
+flags_council|Các quốc gia thành viên Hội đồng Bắc Cực
+flags_observers|Các quốc gia quan sát viên và đối tác khác
+logos_title|Doanh nghiệp Bắc Cực trong danh bạ
+logos_note|Từ danh bạ thương hiệu mở của ATL, xây dựng từ Wikidata. Việc có tên không phải là sự xác nhận.
+logos_all|Xem tất cả doanh nghiệp
+sp_title|Chặng nước rút 2026–2036: mười năm kinh tế Bắc Cực
+sp_intro|Hướng dẫn cuộn về khía cạnh tài chính của Bắc Cực. Mỗi con số dưới đây đều có nguồn và ngày; điều gì không xác minh được thì bị lược bỏ.
+sp_cur|Tiền tệ
+sp_fx_note|Quy đổi theo tỷ giá tham chiếu của {source} ngày {date}
+sp_fx_loading|Đang tải tỷ giá tham chiếu…
+sp_fx_na|Không có tỷ giá tham chiếu
+sp_s1_t|Ngoại hối và stablecoin
+sp_s1_b|Thương mại Bắc Cực được định giá bằng nhiều loại tiền. Chọn một loại ở trên để xem số tiền công bố của các chương trình quy đổi theo tỷ giá tham chiếu chính thức. Stablecoin như USDC là một lựa chọn thanh toán cho dịch vụ số; ở đây chỉ hiển thị tỷ giá tham chiếu tiền pháp định.
+sp_s2_t|Lợi suất và vay vốn
+sp_s2_b|Các nhóm chính: tín dụng xuất khẩu, trái phiếu xanh và xanh lam, tài trợ dự án cảng và năng lượng, tài trợ thương mại và cho thuê đội tàu cấp băng. Chỉ nêu nhóm; không đưa ra lãi suất hay lợi nhuận.
+sp_s3_t|Hỗ trợ của chính phủ và tổ chức
+sp_s3_b|Số tiền công bố của các chương trình mở được liệt kê trên ATL:
+sp_s3_link|Tất cả chương trình tài trợ
+sp_s4_t|Quỹ chỉ số và đầu tư tập thể
+sp_s4_b|Ý tưởng: một rổ minh bạch theo dõi các doanh nghiệp trong danh bạ mở theo khu vực và ngành. Hiện không chào bán hay quản lý gì.
+sp_s5_t|Ý tưởng token $ATL
+sp_s5_b|Ghi chú thiết kế cho một token tiện ích khả dĩ dùng để truy cập dữ liệu và đóng góp.
+sp_s5_link|Đọc tài liệu ý tưởng
+sp_concept|Là ý tưởng, không phải lời chào bán.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Tình báo nguồn mở trên bản đồ GIS vùng cực: cảng, tuyến, chương trình và doanh nghiệp, được một bầy tác tử mã nguồn mở, Agentic Swarm Orchestra Conductor, đối chiếu.
+sp_src|Nguồn
+sp_asof|theo
+hub_title|{country}: trung tâm thương mại Bắc Cực
+hub_desc|Cảng, thực thể bản đồ, doanh nghiệp trong danh bạ và chương trình tài trợ của {country} trên Arctic Trade Lanes.
+hub_currency|Tiền tệ địa phương
+hub_ports|Cảng
+hub_entities|Thực thể bản đồ
+hub_brands|Doanh nghiệp trong danh bạ
+hub_programs|Chương trình tài trợ và hỗ trợ
+hub_funding_all|Tất cả chương trình tài trợ
+hub_none|Chưa có mục nào.
+hub_all|Tất cả trung tâm quốc gia
+hub_member|Quốc gia thành viên Hội đồng Bắc Cực
+hub_observer|Quốc gia quan sát viên Hội đồng Bắc Cực
+hub_partner|Đối tác thương mại
+hub_more|+{n} mục khác
+hub_map|Mở bản đồ
+ly_ports|Cảng
+ly_shipyards|Xưởng đóng tàu
+ly_icebreakers|Tàu phá băng
+ly_tankers|Tàu chở dầu
+ly_industry|Công nghiệp
+ly_cities|Thành phố
+ly_airports|Sân bay
+ly_rail|Đường sắt
+ly_rescue|Tìm kiếm cứu nạn
+ly_lanes|Tuyến hàng hải
+ly_programs|Chương trình
+co_index_title|Danh bạ doanh nghiệp Bắc Cực
+co_index_desc|Danh bạ mở gồm {n} doanh nghiệp có trụ sở tại Bắc Cực và cận Bắc Cực, với dữ kiện có nguồn, quốc gia và tiền tệ.
+co_count|{n} doanh nghiệp
+co_title|{name}: hồ sơ doanh nghiệp
+co_desc|{name} ({country}) trong danh bạ mở doanh nghiệp Bắc Cực: ngành, trụ sở, dữ kiện có nguồn và tiền tệ địa phương.
+co_sector|Ngành
+co_hq|Trụ sở
+co_founded|Thành lập
+co_industry|Lĩnh vực
+co_exchange|Niêm yết tại
+co_operates|Đơn vị vận hành trong bản đồ ATL
+co_website|Trang web
+co_country|Quốc gia
+co_currency|Tiền tệ
+co_facts|Dữ kiện có nguồn
+co_source|Nguồn
+co_retrieved|truy xuất
+co_logo|Logo
+co_correct|Đề xuất chỉnh sửa
+co_note|Dữ liệu mở từ danh bạ ATL arctic-brands. Dữ liệu lấy từ Wikidata theo CC0; logo giữ giấy phép riêng. Việc có tên không phải là sự xác nhận.
+co_hub|Trung tâm quốc gia
+co_back|Tất cả doanh nghiệp
+co_geo|Vị trí
+co_contrib|Thêm doanh nghiệp: dùng biểu mẫu đóng góp hoặc mở pull request trên GitHub.
+se_shipping|Vận tải biển
+se_energy|Năng lượng
+se_mining|Khai khoáng và kim loại
+se_seafood|Thủy sản và nuôi trồng
+se_transport|Giao thông vận tải
+se_construction|Xây dựng và bất động sản
+se_tech|Công nghệ và viễn thông
+se_finance|Tài chính và bảo hiểm
+se_forestry|Lâm nghiệp và giấy
+se_food|Thực phẩm và đồ uống
+se_retail|Bán lẻ và tiêu dùng
+se_tourism|Du lịch
+se_media|Truyền thông và văn hóa
+se_industry|Sản xuất
+se_other|Khác
+adv_title|Chiến dịch thương hiệu đa nền tảng
+adv_b|Một bản brief, nhiều bề mặt: vị trí hiển thị trên trang chủ và trang dữ kiện ở 22 phiên bản ngôn ngữ, trung tâm quốc gia, nội dung nổi bật được tài trợ trong danh bạ và nhắc tên trong bản tin. Chiến dịch chạy theo ngôn ngữ và khu vực; hiện mạng Yandex đang phân phối, các mạng khác sẽ được thêm sau khi tài khoản được duyệt.
+adv_list|Mạng dự kiến: Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Yêu cầu bộ tài liệu truyền thông
+nav_home|Bản đồ Arctic Trade Lanes
+site_name|Arctic Trade Lanes

@@ -1,0 +1,19 @@
+# Added 2026-10-18: keep secrets and keys out of git (additive; tracked files are unaffected)
+.env
+.env.*
+*.env
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+secrets/
+secrets.*
+*secret*.json
+*.keystore
+keys/
+wallet*.json
+mnemonic*
+node_modules/

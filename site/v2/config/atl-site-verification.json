@@ -1,0 +1,8 @@
+{
+  "_comment": "Search-engine site verification codes. Leave a value empty and no tag is emitted. Fill in the code from each webmaster console, then restart the service.",
+  "google": "",
+  "yandex": "",
+  "bing": "",
+  "baidu": "",
+  "naver": ""
+}

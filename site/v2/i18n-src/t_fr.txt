@@ -1,0 +1,106 @@
+hero_alt_atlas|Carte polaire historique des terres du Nord (Mercator, 1595)
+hero_alt_shipping|Deux brise-glaces dans la banquise de l’océan Arctique
+hero_alt_aurora|Aurore boréale au-dessus d’un fjord arctique
+hero_alt_business|Port d’une ville portuaire arctique
+hero_caption|Commerce, ports et entreprises de l’Arctique : 23 pôles pays
+credits|Crédits des images
+flags_title|Pôles pays
+flags_council|États membres du Conseil de l’Arctique
+flags_observers|États observateurs et autres partenaires
+logos_title|Entreprises arctiques du registre
+logos_note|Issu du registre ouvert des marques ATL, construit à partir de Wikidata. Une inscription ne vaut pas recommandation.
+logos_all|Voir toutes les entreprises
+sp_title|Sprint 2026–2036 : dix ans d’économie arctique
+sp_intro|Un guide à faire défiler sur le volet financier de l’Arctique. Chaque chiffre ci-dessous a une source et une date ; ce qui ne peut être sourcé est omis.
+sp_cur|Devise
+sp_fx_note|Converti au taux de référence {source} du {date}
+sp_fx_loading|Chargement des taux de référence…
+sp_fx_na|Taux de référence indisponible
+sp_s1_t|Change et stablecoins
+sp_s1_b|Le commerce arctique se règle dans de nombreuses devises. Choisissez-en une ci-dessus pour voir les montants publiés des programmes convertis aux taux de référence officiels. Les stablecoins comme l’USDC sont une option de règlement pour les services numériques ; seuls des taux de référence fiat sont affichés ici.
+sp_s2_t|Rendement et emprunt
+sp_s2_b|Principales catégories : crédit à l’exportation, obligations vertes et bleues, financement de projets portuaires et énergétiques, financement du commerce et crédit-bail de flottes de classe glace. Catégories uniquement ; aucun taux ni rendement n’est cité.
+sp_s3_t|Soutien public et institutionnel
+sp_s3_b|Montants publiés de programmes ouverts recensés sur ATL :
+sp_s3_link|Tous les programmes de financement
+sp_s4_t|Fonds indiciels et placements collectifs
+sp_s4_b|Concept : un panier transparent qui suit les entreprises du registre ouvert par région et secteur. Rien n’est proposé ni géré aujourd’hui.
+sp_s5_t|Concept du jeton $ATL
+sp_s5_b|Notes de conception pour un éventuel jeton utilitaire d’accès aux données et de contribution.
+sp_s5_link|Lire le document de concept
+sp_concept|Concept, pas une offre.
+sp_s6_t|GIS OSINT alpha
+sp_s6_b|Renseignement en sources ouvertes sur une carte SIG polaire : ports, routes, programmes et entreprises, vérifiés par un essaim d’agents open source, l’Agentic Swarm Orchestra Conductor.
+sp_src|Source
+sp_asof|selon
+hub_title|{country} : pôle commercial arctique
+hub_desc|Ports, entités de l’atlas, entreprises du registre et programmes de financement pour {country} sur Arctic Trade Lanes.
+hub_currency|Monnaie locale
+hub_ports|Ports
+hub_entities|Entités de l’atlas
+hub_brands|Entreprises du registre
+hub_programs|Programmes de financement et de soutien
+hub_funding_all|Tous les programmes de financement
+hub_none|Aucune entrée pour l’instant.
+hub_all|Tous les pôles pays
+hub_member|État membre du Conseil de l’Arctique
+hub_observer|État observateur du Conseil de l’Arctique
+hub_partner|Partenaire commercial
+hub_more|+{n} autres
+hub_map|Ouvrir la carte
+ly_ports|Ports
+ly_shipyards|Chantiers navals
+ly_icebreakers|Brise-glaces
+ly_tankers|Pétroliers
+ly_industry|Industrie
+ly_cities|Villes
+ly_airports|Aéroports
+ly_rail|Rail
+ly_rescue|Recherche et sauvetage
+ly_lanes|Routes maritimes
+ly_programs|Programmes
+co_index_title|Registre des entreprises arctiques
+co_index_desc|Registre ouvert de {n} entreprises dont le siège est en Arctique et en subarctique, avec faits sourcés, pays et devise.
+co_count|{n} entreprises
+co_title|{name} : profil d’entreprise
+co_desc|{name} ({country}) dans le registre ouvert des entreprises arctiques : secteur, siège, faits sourcés et monnaie locale.
+co_sector|Secteur
+co_hq|Siège
+co_founded|Fondée
+co_industry|Activité
+co_exchange|Cotée sur
+co_operates|Exploitant dans l’atlas ATL
+co_website|Site web
+co_country|Pays
+co_currency|Devise
+co_facts|Faits sourcés
+co_source|Source
+co_retrieved|consulté le
+co_logo|Logo
+co_correct|Proposer une correction
+co_note|Données ouvertes du registre ATL arctic-brands. Les données issues de Wikidata sont sous CC0 ; les logos conservent leurs propres licences. Une inscription ne vaut pas recommandation.
+co_hub|Pôle pays
+co_back|Toutes les entreprises
+co_geo|Localisation
+co_contrib|Ajouter une entreprise : via le formulaire de contribution ou une pull request GitHub.
+se_shipping|Transport maritime
+se_energy|Énergie
+se_mining|Mines et métaux
+se_seafood|Produits de la mer et aquaculture
+se_transport|Transports
+se_construction|Construction et immobilier
+se_tech|Technologies et télécoms
+se_finance|Finance et assurance
+se_forestry|Forêt et papier
+se_food|Alimentation et boissons
+se_retail|Commerce et consommation
+se_tourism|Tourisme
+se_media|Médias et culture
+se_industry|Industrie manufacturière
+se_other|Autre
+adv_title|Campagnes de marque multiplateformes
+adv_b|Un brief, de nombreux supports : emplacements display sur la page d’accueil et les fiches dans 22 éditions linguistiques, pôles pays, mises en avant sponsorisées du registre et mentions dans la newsletter. Les campagnes sont diffusées par langue et par région ; le réseau Yandex diffuse aujourd’hui, d’autres réseaux s’ajoutent après validation des comptes.
+adv_list|Réseaux prévus : Google AdSense, Baidu Union, Yahoo! JAPAN, Microsoft Advertising, VK Ads, Naver, Seznam.
+adv_cta|Demander un kit média
+nav_home|Carte Arctic Trade Lanes
+site_name|Arctic Trade Lanes

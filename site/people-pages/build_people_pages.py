@@ -3,7 +3,7 @@
 
 Templates only: strings from src/home/home-extras.i18n.json, facts from src/home/home-extras.data.json.
 Policy: neutral profiles (name, public role, Arctic relevance, UM radar link, related atlas pages).
-NO ads, NO payment, NO token, NO sanctions wording or links on these pages.
+NO ads, NO payment, NO token on these pages; neutral wording only (see BANNED check).
 
 Usage (from app root): python3 site/people-pages/build_people_pages.py [--out pages] [--routes factpages/.routes.json]
 Writes pages/[<lc>/]people.html, pages/[<lc>/]people/<slug>.html and pages/sitemap-people.xml.
