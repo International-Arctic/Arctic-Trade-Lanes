@@ -1088,6 +1088,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Rankin Inlet Port / Itivia barge dock (Kangiqiniq, Kivalliq, Nunavut; UN/LOCODE CARAN): OSM way/1537457615 man_made=pier area=yes concrete Itivia barge dock / sealift landing, shoelace centroid 62.7990461/-92.0920014 (mapped 2026); OSM way/1537459872 landuse=harbour industrial=port Itivia harbour yard ~0.30 km NW; Agnico Eagle Itivia Project laydown + fuel farm (OSM tanks way/762095264, way/762095265 ~0.38 km W) serving Meliadine; rankininlet.ca barge dock and FOL at Itivia; Wikimapia 5549311 Itivia ~0.11 km; no Wikidata harbour item (hamlet Q1021766 not reused); soft 62.8094/-92.0853 was ~1.20 km NNE on the hamlet core; distinct from Johnston Cove small craft harbour (OSM way/514257325 ~1.80 km NE); facility_site pier outline, not a surveyed berth",
             },
+            "ARC-PORT-114": {
+                "position_quality": "facility_site",
+                "position_note": "Port of Yeongilman / Pohang Yeongil New Port (포항영일신항만, Heunghae-eup, Buk-gu, Pohang; UN/LOCODE KRKPO): OSM way/550199344 landuse=harbour name=포항영일신항만 (~136 ha), shoelace centroid 36.1013341/129.4354711; NSR specialised-hub concept study subject; soft 36.0194/129.4256 was ~9.15 km S inside POSCO Pohang Steelworks (Nam-gu); no Wikidata port item (Yeongilmanhang Station Q72246064 / Yeongilman Bay Q11260549 not reused); facility_site harbour-area polygon, not a surveyed berth",
+            },
             "ARC-PORT-109": {
                 "position_quality": "facility_site",
                 "position_note": "Port of Reykjanes / Keflavik Harbour (Keflavíkurhöfn, Reykjanesbær; UN/LOCODE ISKEF): OSM relation/19845360 landuse=industrial industrial=port name=Keflavíkurhöfn (outer ways 1451071759 + 1451071766, ~1.39 ha), shoelace centroid 63.9983860/-22.5443131; Reykjaneshöfn municipal port; Njarðvíkurhöfn relation/19845279 ~1.6 km SSE and ARC-PORT-111 Helguvík ~2.5 km N distinct; no Wikidata harbour item found; soft 63.9988/-22.5550 was ~0.52 km W on residential Sólvallagata; facility_site port-area polygon, not a surveyed berth",
