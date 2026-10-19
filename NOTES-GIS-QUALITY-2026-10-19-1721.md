@@ -38,6 +38,11 @@ Parent ARC-PORT-001 (MCSP yard centroid 68.98092/33.06345) ~0.42 km S, kept sepa
   325 old-gen copies (12:50 + 13:47 gens) in 65 dirs replaced; sync_atlas_aliases 10 dirs bad=0;
   live md5 3996 7628d548 / 4326 8991b4ae / manifest 79d4e949
 - Also commits nested data/ports.csv parity rows (PORT-035/048/147/157/166/169) that were live in every other copy but stale in git
+- **ARC-PORT-157** parity restore (`_restore_port157_1721.py`): all 13 Zo ports.csv copies + 6 git copies had drifted back to the soft
+  68.9800/33.0000 (conf 75) while the live atlas and GitHub Dataset carry the gis-port157-0943 Mishukovo densify
+  69.0451678/33.0406397 (conf 88); the 0ac26d3 data/ports.csv parity sync briefly carried the stale row — fixed here.
+  After restore the parent builder reproduces the live atlas except ARC-RAIL-008/009 + ARC-SHIP-073 wording
+  (Dataset CSVs still hold the pre-neutral text; nested repo-root CSVs hold the neutral text) — next cycle: sync those 3 rows.
 - No App.tsx smash / SPA redeploy / DNS / x402 / restart.
 
 ## Skipped
