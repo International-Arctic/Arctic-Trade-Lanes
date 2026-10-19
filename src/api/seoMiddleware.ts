@@ -79,7 +79,7 @@ const ROUTE_SEO: Record<string, RouteSeo> = {
     jsonLdType: "WebPage",
   },
   "/x402/pay": {
-    title: "Pay 5 USDC via x402 — Arctic route intelligence · ArcticTradeLanes.com",
+    title: "Pay 5.00 USDC via x402 — Arctic route intelligence · ArcticTradeLanes.com",
     description:
       "Settle ArcticTradeLanes.com route intelligence with x402: 5 USDC on Base per report, machine-payable by agents, with the free atlas lookup tier unchanged.",
     jsonLdType: "WebPage",
@@ -129,7 +129,9 @@ function readPack(lang: string): Record<string, unknown> | null {
 function resolveSeo(lang: string, basePath: string): RouteSeo {
   const base = ROUTE_SEO[basePath] ?? DEFAULT_SEO;
   const keys = LOCALISED_HEAD_ROUTES[basePath];
-  if (!keys || lang === "en") return base;
+  if (!keys) return base;
+  // English reads its own pack too: the money surface has one copy source, so
+  // the <title> can never drift from the h1 a buyer actually reads.
   const pack = readPack(lang);
   if (!pack) return base;
   const heading = typeof pack[keys.title] === "string" ? String(pack[keys.title]) : "";

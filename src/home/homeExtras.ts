@@ -35,9 +35,50 @@ function fmtDate(iso: string, lang: string): string {
   } catch { return iso; }
 }
 
+/**
+ * The money surface link.
+ *
+ * /x402/pay had no inbound link anywhere on the site, so the pay sheet was
+ * reachable only if you already knew the URL. The band below is generated from
+ * the same 22-locale pack the pay sheet renders from (public/x402/i18n/<lang>.json),
+ * so it is localized by construction — no new copy, no English on a Japanese page.
+ */
+const PAY_PACKS = new Map<string, Dict | null>();
+function payPack(lang: string): Dict | null {
+  if (PAY_PACKS.has(lang)) return PAY_PACKS.get(lang) ?? null;
+  let pack: Dict | null = null;
+  try {
+    const raw = readFileSync(new URL(`../../public/x402/i18n/${lang}.json`, import.meta.url), "utf8");
+    const parsed = JSON.parse(raw);
+    if (parsed && typeof parsed === "object") pack = parsed as Dict;
+  } catch { pack = null; }
+  PAY_PACKS.set(lang, pack);
+  return pack;
+}
+
+function payBand(lang: string): string {
+  const pack = payPack(lang) ?? payPack("en");
+  if (!pack) return "";
+  const label = String(pack.h1 || "Pay 5.00 USDC via x402");
+  const amount = String(pack.settle_amount_value || "5.00 USDC");
+  const net = String(pack.settle_network_value || "Base · chainId 8453");
+  return `<div class="x-pay"><div class="x-wrap">
+<a class="x-pay-cta" href="${pre(lang)}/x402/pay" data-atlx-pay><strong>${esc(label)}</strong></a>
+<span class="x-pay-meta"><span class="x-pay-amt"><bdi dir="ltr">${esc(amount)}</bdi></span><span class="x-pay-net">${esc(net)}</span></span>
+<a class="x-pay-alt" href="https://bankr.bot?ref=um-radar" rel="noopener" target="_blank">Bankr →</a>
+</div></div>`;
+}
+
 const CSS = `#atl-x{--x-bg:#0b1220;--x-card:#111a2b;--x-line:#1f2d44;--x-ink:#e5edf7;--x-mute:#9fb0c6;--x-acc:#22d3ee;--x-acc2:#f59e0b;background:var(--x-bg);color:var(--x-ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",sans-serif;padding:0 0 88px;position:relative;overflow-x:hidden;border-top:1px solid var(--x-line)}
 #atl-x *{box-sizing:border-box}#atl-x a{color:var(--x-acc);text-decoration:none}#atl-x a:hover{text-decoration:underline}
 #atl-x .x-wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+#atl-x .x-pay{background:linear-gradient(90deg,#0e2233,#0b1220 70%);border-bottom:1px solid var(--x-line)}
+#atl-x .x-pay .x-wrap{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:12px 16px}
+#atl-x .x-pay-cta{display:inline-flex;gap:8px;align-items:center;background:linear-gradient(90deg,#22d3ee,#0ea5b7);color:#04121b!important;text-decoration:none!important;border-radius:10px;padding:10px 16px;font-size:1rem;font-weight:700;box-shadow:0 6px 18px rgba(34,211,238,.18)}
+#atl-x .x-pay-meta{display:inline-flex;flex-wrap:wrap;gap:10px;align-items:center;color:var(--x-mute);font-size:.85rem}
+#atl-x .x-pay-amt{background:#0f2236;border:1px solid var(--x-line);border-radius:999px;padding:3px 10px;font-weight:600;color:var(--x-acc)}
+#atl-x .x-pay-net{opacity:.85}
+#atl-x .x-pay-alt{border:1px solid var(--x-line);border-radius:8px;padding:8px 14px;font-size:.88rem;font-weight:600}
 #atl-x .x-nav{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--x-line)}
 #atl-x .x-nav ul{list-style:none;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;max-width:1180px;scrollbar-width:none}
 #atl-x .x-nav li{flex:0 0 auto}#atl-x .x-nav a{display:inline-block;padding:6px 12px;border:1px solid var(--x-line);border-radius:999px;color:var(--x-ink);font-size:13px;white-space:nowrap}
@@ -209,6 +250,7 @@ ${past.length ? `<h3 class="x-sub">${esc(s.ev_past)}</h3><ul class="x-ev">${past
 <style id="atlx-css">${CSS}</style>
 <div id="atl-x" lang="${L}" dir="${rtl ? "rtl" : "ltr"}" data-atlx-locale="${L}">
 <nav class="x-nav" aria-label="${esc(s.nav_label)}"><ul>${nav}</ul></nav>
+${payBand(L)}
 ${star}
 <div class="x-wrap">${adSlot("atl-ad-home-inc-3")}</div>
 ${token}

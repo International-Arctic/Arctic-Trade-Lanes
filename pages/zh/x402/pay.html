@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--ATL-SEO-->
+<style>
+:root{color-scheme:dark;--bg:#071018;--bg2:#0f2740;--ink:#e8eef4;--mut:#9fb3c8;--line:rgba(120,170,220,.22);--acc:#64b5f6;--ok:#81c784;--warn:#ffb74d}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Noto Sans',sans-serif;background:linear-gradient(160deg,var(--bg) 0%,var(--bg2) 45%,var(--bg) 100%);color:var(--ink);min-height:100vh;line-height:1.6}
+a{color:var(--acc)}
+.wrap{max-width:820px;margin:0 auto;padding:28px 20px 64px}
+header.top{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.brand{font-weight:700;font-size:1.05rem;letter-spacing:.2px;color:var(--ink);text-decoration:none}
+nav{display:flex;gap:16px;font-size:.9rem;flex-wrap:wrap}
+h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.25;margin-bottom:12px;background:linear-gradient(90deg,#64b5f6,#81c784);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.lede{color:var(--mut);max-width:66ch;margin-bottom:26px}
+.card{background:rgba(12,28,44,.72);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:22px}
+.card h2{font-size:1.05rem;margin-bottom:14px;color:var(--ink)}
+dl.rows{display:grid;grid-template-columns:max-content 1fr;gap:10px 18px;font-size:.95rem}
+dl.rows dt{color:var(--mut)}dl.rows dd{font-weight:600;unicode-bidi:plaintext}
+.local{color:var(--mut);font-size:.9rem;margin-top:12px}
+.warn{margin-top:12px;padding:12px 14px;border-left:3px solid var(--warn);background:rgba(255,183,77,.08);border-radius:8px;font-size:.88rem;color:#ffe0b2}
+.payto{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;word-break:break-all;color:var(--ink)}
+.cta{display:inline-block;margin-top:16px;background:linear-gradient(90deg,#1e88e5,#43a047);color:#fff;text-decoration:none;font-weight:650;padding:12px 20px;border-radius:10px}
+.meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;font-size:.85rem;color:var(--mut)}
+.meta>span{display:inline-flex;gap:.4em;align-items:baseline}
+.meta bdi{unicode-bidi:isolate}
+ol.steps{list-style:none;counter-reset:s}
+ol.steps li{padding:16px 0;border-top:1px solid var(--line)}
+ol.steps li:first-child{border-top:0;padding-top:0}
+ol.steps h3{font-size:.98rem;margin-bottom:6px}
+ol.steps p{color:var(--mut);font-size:.92rem}
+pre{background:#040b12;border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:.82rem;margin-top:12px;direction:ltr;text-align:left}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.hint{color:var(--mut);font-size:.85rem;margin-top:8px}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:13px 22px;font-weight:650;color:#04121c;background:linear-gradient(90deg,#81c784,#64b5f6)}
+button[disabled]{opacity:.6;cursor:progress}
+#receipt{margin-top:18px}
+#receipt .rline{font-size:.92rem;padding:6px 0;border-bottom:1px dashed var(--line);direction:inherit}
+#receipt .rline:last-of-type{border-bottom:0}
+#r-err{color:#ff8a80;font-size:.9rem;margin-top:12px}
+.foot{margin-top:34px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:.82rem;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/zh">ArcticTradeLanes.com</a>
+    <nav>
+      <a href="/zh/x402/pay" aria-current="page">x402</a>
+      <a href="/zh/collaborate">合作</a>
+      <a href="/zh/pricing">定价</a>
+      <a href="/zh/arctic-economic-atlas">地图集 GeoJSON</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>通过 x402 支付 5.00 USDC</h1>
+    <p class="lede">五个步骤，一条结算通道。先看清你购买的内容，打开 Bankr，核对金额与网络，在 Base 上支付，然后解锁走廊航路情报并保留收据。</p>
+
+    <section class="card">
+      <h2>你支付的内容</h2>
+      <dl class="rows">
+        <dt>金额</dt><dd><bdi dir="ltr">5.00 USDC</bdi></dd>
+        <dt>网络</dt><dd><bdi dir="ltr">Base · chainId 8453</bdi></dd>
+        <dt>本币参考值</dt><dd>≈ 36.20 CNY（参考值）</dd>
+      </dl>
+      <p class="local">本币金额仅为汇率参考值。付款始终为 Base 上的 5.00 USDC。没有银行卡通道，没有银行转账，也没有本币支付通道。</p>
+      <p class="warn">仅为参考汇率。向你收取的是 Base 上的 5.00 USDC，绝不是本币金额。</p>
+      <div class="meta">
+        <span><bdi>payTo:</bdi><bdi class="payto" dir="ltr">0x211D91beD006f7bB3Eaf97496260a8F905298Cea</bdi></span>
+        <span><bdi>推荐码:</bdi><code dir="ltr">RN982CZZ-BNKR</code></span>
+        <span><bdi>发现:</bdi><a href="/.well-known/x402.json" dir="ltr">/.well-known/x402.json</a></span>
+      </div>
+      <a class="cta" href="https://bankr.bot?ref=um-radar" rel="noopener" target="_blank">打开 Bankr 并支付 5.00 USDC</a>
+    </section>
+
+    <section class="card">
+      <h2>分步说明</h2>
+      <p class="local">以下每一步都以 Base 上的 5.00 USDC 结算。本页面绝不会以你的本币收款。</p>
+      <ol class="steps"><li><h3>1 · 看清你购买的内容</h3><p>一次走廊航路情报运行：NSR 夏季窗口、Korea Panstar 航线的航路点，以及 CNY/KRW/RUB 汇率区块。地图集与 GeoJSON 图层保持免费。</p></li><li><h3>2 · 打开 Bankr</h3><p>@bankrbot 负责处理付款。点击下方按钮打开 Bankr，或从任何持有 Base 上 USDC 的钱包发送。</p></li><li><h3>3 · 核对金额与网络</h3><p>确认之前：金额必须显示为恰好 5.00 USDC，网络必须显示为 Base（chainId 8453）。不要确认以本币显示的金额。</p></li><li><h3>4 · 发送 5.00 USDC 并附带请求头</h3><p>在 Base 上向 payTo 地址发送 5.00 USDC，然后附带下方所示的请求头。正是该请求头为脚本和本页面解锁数据负载。</p></li><li><h3>5 · 解锁数据负载并保留收据</h3><p>点击解锁。航路情报数据负载随即释放，此处会显示收据，包含金额、网络、payTo 地址和交易哈希。</p></li></ol>
+      <h3>请求头</h3>
+      <pre dir="ltr"><code>x402-payment: x402:0x211D91beD006f7bB3Eaf97496260a8F905298Cea:5</code></pre>
+      <p class="hint">格式为 x402:&lt;payTo&gt;:&lt;amount&gt;。你点击解锁时本页面会替你发送。智能体可以直接提交到 /api/x402/fulfill。</p>
+      <h3 style="margin-top:18px">收据</h3>
+      <p class="hint">释放走廊数据负载并在下方显示收据。</p>
+      <button id="unlock" type="button">解锁数据负载</button>
+      <div id="r-err" hidden></div>
+      <section id="receipt" hidden aria-live="polite">
+        <div id="r-lines"></div>
+        <button id="copy" type="button" style="margin-top:14px;background:rgba(100,181,246,.16);color:var(--acc)">以 JSON 复制收据</button>
+      </section>
+    </section>
+
+    <p class="warn">$ATL 代币尚未铸造。没有可购买的合约地址，也没有代币销售。今天的付款是 Base 上的 5.00 USDC。</p>
+
+    <section class="card">
+      <h2>联系方式</h2>
+      <p class="local">collaborate@arctictradelanes.com · partners@arctictradelanes.com</p>
+      <p style="margin-top:10px"><a href="/zh">返回实时地图</a></p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>ArcticTradeLanes.com · x402 结账 · Base 上的 5.00 USDC</span>
+    <span>Base · USDC · x402</span>
+  </footer>
+</div>
+<script>window.__ATL_X402__ = {"locale": "zh", "dir": "ltr", "endpoint": "/api/x402/fulfill", "header": "x402:0x211D91beD006f7bB3Eaf97496260a8F905298Cea:5", "payTo": "0x211D91beD006f7bB3Eaf97496260a8F905298Cea", "bankr": "https://bankr.bot?ref=um-radar", "t": {"amount": "5.00 USDC", "network": "Base · chainId 8453", "receiptHeading": "收据", "receiptAmount": "已付金额：{amount}", "receiptNetwork": "网络：{network}", "receiptPayto": "收款地址：{payto}", "receiptTxhash": "交易哈希：{tx}", "receiptTxhashNone": "交易哈希：未提供", "receiptStatus": "状态：{status}", "receiptStatusAlpha": "alpha 合约 — 链上结算证明尚未接通", "receiptTime": "记录时间 {time}", "receiptCopy": "以 JSON 复制收据", "receiptCopied": "收据已复制", "unlockCta": "解锁数据负载", "busy": "正在解锁…", "errHeader": "付款请求头缺失或格式错误。它必须恰好为 x402:<payTo>:5，如第 4 步代码块所示。", "errNetwork": "请求未到达结算端点。请检查网络连接后再次解锁。"}};</script>
+<script src="/x402/x402-receipt.js?v=20261019a" defer></script>
+</body>
+</html>

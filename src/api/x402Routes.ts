@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { readFileSync } from "node:fs";
 
 export const X402_VERSION = "edge-v2026-09-01-atl-wellknown-x402";
 export const PAY_WALLET = "0x211D91beD006f7bB3Eaf97496260a8F905298Cea";
@@ -154,6 +155,7 @@ function loadReceiptPack(lang: string): Record<string, string> | null {
       /* try the next root */
     }
   }
+  if (!pack) console.warn(`[atl-x402] no receipt pack for ${lang}`);
   receiptPacks.set(lang, pack);
   return pack;
 }
@@ -225,6 +227,7 @@ export function receiptFor(locale: string, input: ReceiptInput) {
       statusText,
       slug: input.slug,
       issuedAt,
+      lines,
     },
     receiptText: lines.join("\n"),
     receiptLocale: locale,
@@ -379,15 +382,36 @@ const paidHandler = async (c: any) => {
   if (!isWellFormedX402Payment(paymentHeader)) return paymentRequired(slug);
 
   let bodySlug = slug;
+  let bodyLocale = "";
   if (c.req.method === "POST") {
     try {
       const body = await c.req.json();
       if (body && body.slug) bodySlug = String(body.slug);
+      if (body && body.locale) bodyLocale = String(body.locale);
     } catch {
       /* empty or non-JSON body is fine */
     }
   }
-  return c.json(fulfillPayload(bodySlug, paymentHeader as string));
+
+  /**
+   * Receipt language: explicit ?lang= wins, then the body locale the page
+   * sends, then the buyer's Accept-Language, then English. resolveReceiptLocale
+   * only returns a locale we actually ship a pack for.
+   */
+  const requested = c.req.query("lang") || bodyLocale || "";
+  const locale = /^[a-z]{2}$/i.test(requested)
+    ? resolveReceiptLocale(requested)
+    : resolveReceiptLocale(c.req.header("accept-language"));
+
+  const txHash = c.req.query("tx") || null;
+  const receiptBlock = receiptFor(locale, { slug: bodySlug, txHash });
+
+  return c.json({
+    ...fulfillPayload(bodySlug, paymentHeader as string),
+    ts: receiptBlock.receipt.issuedAt,
+    locale,
+    ...receiptBlock,
+  });
 };
 
 x402Router.get("/fulfill", paidHandler);
