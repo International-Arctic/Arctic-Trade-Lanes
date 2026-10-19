@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-19T13:47:29.115286+00:00",
+  "generated": "2026-10-19T14:30:44.609344+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -46,7 +46,7 @@
       "arctic_council_status": "Member (P8) suspended 2022",
       "business_registry_url": "https://egrul.nalog.ru",
       "trade_agreements": "EAEU CSTO bilateral",
-      "notes": "AZRF resident regime (2020 FZ-193) offers 0% profit-tax first 5yr + subsidies; NSR state monopoly rules 2025+",
+      "notes": "AZRF resident regime (2020 FZ-193) offers 0% profit-tax first 5yr + subsidies; NSR state monopoly rules 2025+; Western sanctions limit USD/EUR settlement",
       "confidence": "95",
       "sources": "arctic.ru government.ru consultant.ru"
     },
@@ -136,7 +136,133 @@
     }
   },
   "unresolved_lane_waypoints": [],
-  "lane_water_route": {},
+  "lane_water_route": {
+    "ARC-LANE-001": {
+      "legs_routed": 6,
+      "land_km_before": 977,
+      "land_km_after": 135
+    },
+    "ARC-LANE-002": {
+      "legs_routed": 4,
+      "land_km_before": 303,
+      "land_km_after": 29
+    },
+    "ARC-LANE-003": {
+      "legs_routed": 5,
+      "land_km_before": 2696,
+      "land_km_after": 88
+    },
+    "ARC-LANE-004": {
+      "legs_routed": 8,
+      "land_km_before": 2679,
+      "land_km_after": 256
+    },
+    "ARC-LANE-005": {
+      "legs_routed": 6,
+      "land_km_before": 814,
+      "land_km_after": 98
+    },
+    "ARC-LANE-006": {
+      "legs_routed": 4,
+      "land_km_before": 564,
+      "land_km_after": 145
+    },
+    "ARC-LANE-007": {
+      "legs_routed": 4,
+      "land_km_before": 1527,
+      "land_km_after": 121
+    },
+    "ARC-LANE-008": {
+      "legs_routed": 4,
+      "land_km_before": 245,
+      "land_km_after": 72
+    },
+    "ARC-LANE-009": {
+      "legs_routed": 5,
+      "land_km_before": 595,
+      "land_km_after": 112
+    },
+    "ARC-LANE-010": {
+      "legs_routed": 4,
+      "land_km_before": 829,
+      "land_km_after": 127
+    },
+    "ARC-LANE-011": {
+      "legs_routed": 6,
+      "land_km_before": 1827,
+      "land_km_after": 215
+    },
+    "ARC-LANE-012": {
+      "legs_routed": 3,
+      "land_km_before": 637,
+      "land_km_after": 91
+    },
+    "ARC-LANE-013": {
+      "legs_routed": 4,
+      "land_km_before": 1489,
+      "land_km_after": 316
+    },
+    "ARC-LANE-016": {
+      "legs_routed": 5,
+      "land_km_before": 704,
+      "land_km_after": 91
+    },
+    "ARC-LANE-017": {
+      "legs_routed": 4,
+      "land_km_before": 871,
+      "land_km_after": 96
+    },
+    "ARC-LANE-018": {
+      "legs_routed": 3,
+      "land_km_before": 388,
+      "land_km_after": 77
+    },
+    "ARC-LANE-019": {
+      "legs_routed": 3,
+      "land_km_before": 604,
+      "land_km_after": 47
+    },
+    "ARC-LANE-020": {
+      "legs_routed": 4,
+      "land_km_before": 1600,
+      "land_km_after": 314
+    },
+    "ARC-LANE-021": {
+      "legs_routed": 6,
+      "land_km_before": 1474,
+      "land_km_after": 223
+    },
+    "ARC-LANE-022": {
+      "legs_routed": 5,
+      "land_km_before": 1338,
+      "land_km_after": 142
+    },
+    "ARC-LANE-023": {
+      "legs_routed": 3,
+      "land_km_before": 260,
+      "land_km_after": 35
+    },
+    "ARC-LANE-024": {
+      "legs_routed": 5,
+      "land_km_before": 312,
+      "land_km_after": 133
+    },
+    "ARC-LANE-025": {
+      "legs_routed": 2,
+      "land_km_before": 148,
+      "land_km_after": 38
+    },
+    "ARC-LANE-026": {
+      "legs_routed": 4,
+      "land_km_before": 1215,
+      "land_km_after": 178
+    },
+    "ARC-LANE-027": {
+      "legs_routed": 5,
+      "land_km_before": 6505,
+      "land_km_after": 595
+    }
+  },
   "lane_teleport_drops": [],
   "extra_id_drops": [],
   "shipyard_coord_drops": [],
@@ -173,8 +299,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl_new_1621/atlas.3996.geojson",
-    "wgs84": "/tmp/atl_new_1621/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl_new_1621/atlas.4326.geojson"
+    "epsg3996": "/tmp/atl_new_1721/atlas.3996.geojson",
+    "wgs84": "/tmp/atl_new_1721/atlas.wgs84.geojson",
+    "epsg4326": "/tmp/atl_new_1721/atlas.4326.geojson"
   }
 }
