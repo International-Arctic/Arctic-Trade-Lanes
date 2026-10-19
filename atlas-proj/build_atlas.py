@@ -1084,6 +1084,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Grundarfjarðarhöfn / Grundarfjörður Harbour (Snæfellsnes, Iceland; UN/LOCODE ISGRU): OSM way/51858019 man_made=pier area=yes shoelace centroid 64.9231680/-23.2469906 = Norðurgarður main pier (maxspan ~319 m; grundport.is pier 365 m / 40 m, Berth 1 135 m @ 9.5 m + Berth 2 220 m); secondary pier way/51858020 ~0.92 km N unused; industrial hinterland way/203802229; town WD Q27014314 P625 64.92427/-23.26313 settlement only (~0.78 km WNW); soft 64.9183/-23.2503 matched harbour position DMS (~0.56 km); facility_site pier polygon, not a surveyed berth",
             },
+            "ARC-PORT-039": {
+                "position_quality": "facility_site",
+                "position_note": "Rankin Inlet Port / Itivia barge dock (Kangiqiniq, Kivalliq, Nunavut; UN/LOCODE CARAN): OSM way/1537457615 man_made=pier area=yes concrete Itivia barge dock / sealift landing, shoelace centroid 62.7990461/-92.0920014 (mapped 2026); OSM way/1537459872 landuse=harbour industrial=port Itivia harbour yard ~0.30 km NW; Agnico Eagle Itivia Project laydown + fuel farm (OSM tanks way/762095264, way/762095265 ~0.38 km W) serving Meliadine; rankininlet.ca barge dock and FOL at Itivia; Wikimapia 5549311 Itivia ~0.11 km; no Wikidata harbour item (hamlet Q1021766 not reused); soft 62.8094/-92.0853 was ~1.20 km NNE on the hamlet core; distinct from Johnston Cove small craft harbour (OSM way/514257325 ~1.80 km NE); facility_site pier outline, not a surveyed berth",
+            },
             "ARC-PORT-093": {
                 "position_quality": "facility_site",
                 "position_note": "Alta Urnesbukta Floating Quay / Molokaia (Alta Havn KF, Amtmannsnes, Altafjorden; UN/LOCODE NOALF): OSM way/795270408 man_made=pier floating=yes area=yes outer floating quay of Urnesbukta marina og fiskerihavn, shoelace centroid 69.9859524/23.3061572 (~142 m x 4 m outline mapped 2020); Alta Havn KF altahavn.no/kaier Kai 7 Molokaia 100 m x 6 m depth 5-15 m at 69.985979/23.306159 (~3 m); marinasolutions.no April 2026 new 100 m flytemolo; OSM node/1345229303 Urnesbukta Marina ~0.13 km W; Kystverket pile Innerberget ref 929503; no Wikidata harbour item (Alta municipality Q6535 not reused); soft 69.9686/23.2717 was ~2.33 km SW inland; distinct from Alta Havn Bukta main port (~1.25 km SE, no ATL port record); facility_site floating quay outline, not a surveyed berth",
@@ -1250,7 +1254,10 @@ def build_atlas(dataset_dir, out_dir):
             _p["display_offset"] = "water_fan"
     print(f"  ship water fan: {len(_ship_anchor)} schematic ships moved to open water (anchor kept)")
 
-    # Reference overlays: Arctic Circle ring + 75-80N target band annulus
+    # Reference overlays: Arctic Circle ring + 75-80N target band annulus.
+    # The annulus is layer="band", not "reference": the client styles layer==="band"
+    # with a translucent gold fill and hides it until the "band" chip is toggled on,
+    # while layer="reference" polygons fall through to an opaque slate fill.
     features.append(_feat(
         _ring(66.5, 3996),
         {"layer": "reference", "name": "Arctic Circle (66.5N)"},
@@ -1265,7 +1272,7 @@ def build_atlas(dataset_dir, out_dir):
         fid="REF-80N"))
     features.append(_feat(
         _annulus(75.0, 80.0, 3996),
-        {"layer": "reference", "name": "ATL target band 75-80N"},
+        {"layer": "band", "name": "ATL target band 75-80N"},
         fid="REF-TARGET-BAND"))
 
     # --- Emit EPSG:3996 atlas ------------------------------------------------
