@@ -30,3 +30,10 @@ _private*/
 *.ndjson
 *.log
 logs/
+
+# Added 2026-10-19: daily build_pages.py output (scripts/static-pages/rebuild_pages.sh, ~00:07 MSK).
+# Regenerated on Zo from data/arctic-funding-programs-2026.csv; kept on disk, not in git.
+/pages/funding.html
+/pages/advertise.html
+/pages/*/funding.html
+/pages/*/advertise.html
