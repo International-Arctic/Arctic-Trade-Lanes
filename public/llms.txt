@@ -1,0 +1,34 @@
+# ArcticTradeLanes.com
+
+> Arctic GIS OSINT atlas: ports, lanes, cities, shipyards, programmes, industry sites,
+> tankers, icebreakers and rescue assets for the Northern Sea Route and the Polar Silk
+> Road. EPSG:3996 polar projection, live GeoJSON, 1313 mapped records.
+
+## Pages
+- [Home](https://arctictradelanes.com/): atlas entry point and live GeoJSON downloads.
+- [Collaborate](https://arctictradelanes.com/collaborate): corridor partnerships (RU / CA-AK / KR-JP-CN).
+- [Pricing](https://arctictradelanes.com/pricing): x402 USDC settlement and enterprise corridor feed.
+- Localised copies of the above: /ru, /zh, /ja, /ko
+
+## Data
+- Atlas GeoJSON: https://arctictradelanes.com/atlas/atlas.geojson (also .4326, .3996, .wgs84)
+- Manifest: https://arctictradelanes.com/atlas/atlas.manifest.json (generated 2026-10-14T07:26:36.374680+00:00)
+- Ports CSV: https://arctictradelanes.com/data/ports.csv
+- Industrial facilities CSV: https://arctictradelanes.com/data/arctic_industrial_facilities.csv
+
+## APIs and agents
+- x402 discovery (v1): https://arctictradelanes.com/.well-known/x402.json
+- A2A agent card: https://arctictradelanes.com/.well-known/agent-card.json
+- Alpha status: https://arctictradelanes.com/api/alpha/status
+- Route optimize (POST, paid or 10 free runs/day/IP): https://arctictradelanes.com/api/alpha/route-optimize
+- x402 rails: https://arctictradelanes.com/api/x402/status
+
+## Payments
+- 5 USDC on Base (chainId 8453) per route-intelligence run.
+- Rails live: Base USDC, Tron USDT-TRC20, BNB USDT. Base $ATL is planned.
+- Bankr referral: https://bankr.bot?ref=um-radar (ref RN982CZZ-BNKR)
+- The $ATL token is not minted; there is no contract address.
+
+## Open source
+- https://github.com/International-Arctic/Arctic-Trade-Lanes
+- https://github.com/International-Arctic/ArcticTradeLanes-Dataset

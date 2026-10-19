@@ -1,0 +1,58 @@
+{
+  "name": "ArcticTradeLanes Atlas Agent",
+  "description": "Arctic GIS OSINT for the Northern Sea Route and the Polar Silk Road: ports, lanes, vessels, programmes, shipyards and industry sites on an EPSG:3996 polar map. Free atlas lookups and static pages today; paid NSR route-optimize over legacy x402 v1 (5 USDC on Base) with a free tier of 10 runs/day/IP.",
+  "url": "https://arctictradelanes.com/",
+  "provider": {
+    "organization": "ArcticTradeLanes.com",
+    "url": "https://arctictradelanes.com"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://arctictradelanes.com/llms.txt",
+  "iconUrl": "https://arctictradelanes.com/favicon.svg",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "extendedAgentCard": false
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "atlas_lookup",
+      "name": "Atlas lookup",
+      "description": "Query ports, lanes, programmes, shipyards and industry sites.",
+      "tags": [
+        "gis",
+        "arctic",
+        "osint"
+      ],
+      "examples": [
+        "List Northern Sea Route ports",
+        "Show icebreakers near Sabetta"
+      ]
+    },
+    {
+      "id": "lane_compare",
+      "name": "Lane compare",
+      "description": "Compare Arctic trade lanes by records, ice conditions and capacity.",
+      "tags": [
+        "gis",
+        "lanes"
+      ]
+    },
+    {
+      "id": "route_optimize",
+      "name": "Route optimize",
+      "description": "Return an NSR window, waypoints and FX for a corridor. Legacy x402 v1 at 5 USDC on Base, or a free tier of 10 runs/day/IP.",
+      "tags": [
+        "routing",
+        "x402"
+      ]
+    }
+  ]
+}

@@ -1,76 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arctic Trade Lanes — GIS OSINT Atlas</title>
-  <meta name="description" content="ArcticTradeLanes.com — Arctic GIS OSINT atlas of ports, lanes, cities, and programs. Live GeoJSON atlas." />
-  <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: linear-gradient(160deg, #071018 0%, #0f2740 45%, #071018 100%);
-      color: #e8eef4;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>ArcticTradeLanes.com — Arctic GIS OSINT · NSR · Polar Silk Road · 北极贸易航线</title>
+    <meta name="description" content="Open Arctic GIS OSINT: live EPSG:3996 polar stereographic map of the Northern Sea Route — sea ice, ports, lanes, tankers, icebreakers across the Arctic 8. Multi-currency data products, x402 payments." />
+    <meta name="keywords" content="Arctic GIS OSINT,Northern Sea Route,Polar Silk Road,Ice Silk Road,Arctic sea ice NSIDC,EPSG:3996,polar stereographic,Arctic economy,Arctic investment,RDIF,AZRF,Panstar Acro,Sea Legend Arctic,北极经济图谱,冰上丝绸之路,北方海航道,북극항로,北極海航路,2026-2036" />
+    
+    <link rel="canonical" href="https://arctictradelanes.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://arctictradelanes.com/" />
+    <link rel="alternate" hreflang="ru-RU" href="https://arctictradelanes.com/ru" />
+    <link rel="alternate" hreflang="zh-CN" href="https://arctictradelanes.com/zh" />
+    <link rel="alternate" hreflang="ja-JP" href="https://arctictradelanes.com/ja" />
+    <link rel="alternate" hreflang="ko-KR" href="https://arctictradelanes.com/ko" />
+    <link rel="alternate" hreflang="el-GR" href="https://arctictradelanes.com/el" />
+    <link rel="alternate" hreflang="de-DE" href="https://arctictradelanes.com/de" />
+    <link rel="alternate" hreflang="nl-NL" href="https://arctictradelanes.com/nl" />
+    <link rel="alternate" hreflang="fr-FR" href="https://arctictradelanes.com/fr" />
+    <link rel="alternate" hreflang="es-ES" href="https://arctictradelanes.com/es" />
+    <link rel="alternate" hreflang="it-IT" href="https://arctictradelanes.com/it" />
+    <link rel="alternate" hreflang="pt-PT" href="https://arctictradelanes.com/pt" />
+    <link rel="alternate" hreflang="tr-TR" href="https://arctictradelanes.com/tr" />
+    <link rel="alternate" hreflang="ar" href="https://arctictradelanes.com/ar" />
+    <link rel="alternate" hreflang="hi-IN" href="https://arctictradelanes.com/hi" />
+    <link rel="alternate" hreflang="vi-VN" href="https://arctictradelanes.com/vi" />
+    <link rel="alternate" hreflang="id-ID" href="https://arctictradelanes.com/id" />
+    <link rel="alternate" hreflang="da-DK" href="https://arctictradelanes.com/da" />
+    <link rel="alternate" hreflang="fi-FI" href="https://arctictradelanes.com/fi" />
+    <link rel="alternate" hreflang="sv-SE" href="https://arctictradelanes.com/sv" />
+    <link rel="alternate" hreflang="nb-NO" href="https://arctictradelanes.com/nb" />
+    <link rel="alternate" hreflang="is-IS" href="https://arctictradelanes.com/is" />
+    <link rel="alternate" hreflang="x-default" href="https://arctictradelanes.com/" />
+        <meta property="og:type" content="product" />
+    <meta property="og:image" content="https://arctictradelanes.com/img/og/international-arctic-forum-2025-murmansk-og-1200x630.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Wide view of the plenary hall at the 6th International Arctic Forum in Murmansk, March 2025, with delegates facing the main stage" />
+    <meta name="twitter:image" content="https://arctictradelanes.com/img/og/international-arctic-forum-2025-murmansk-og-1200x630.jpg" />
+    <meta name="twitter:image:alt" content="Wide view of the plenary hall at the 6th International Arctic Forum in Murmansk, March 2025, with delegates facing the main stage" />
+<meta property="og:site_name" content="ArcticTradeLanes.com" />
+    <meta property="og:title" content="ArcticTradeLanes.com — Arctic GIS OSINT · NSR · Polar Silk Road · 北极贸易航线" />
+    <meta property="og:description" content="Open Arctic GIS OSINT: live EPSG:3996 polar stereographic map of the Northern Sea Route — sea ice, ports, lanes, tankers, icebreakers across the Arctic 8. Multi-currency data products, x402 payments." />
+    <meta property="og:url" content="https://arctictradelanes.com/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:locale:alternate" content="el_GR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="nl_NL" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_PT" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="ar_AR" />
+    <meta property="og:locale:alternate" content="hi_IN" />
+    <meta property="og:locale:alternate" content="vi_VN" />
+    <meta property="og:locale:alternate" content="id_ID" />
+    <meta property="og:locale:alternate" content="da_DK" />
+    <meta property="og:locale:alternate" content="fi_FI" />
+    <meta property="og:locale:alternate" content="sv_SE" />
+    <meta property="og:locale:alternate" content="nb_NO" />
+    <meta property="og:locale:alternate" content="is_IS" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ArcticTradeLanes.com — Arctic GIS OSINT · Northern Sea Route · Polar Silk Road" />
+    <meta name="twitter:description" content="Live polar stereographic Arctic map: NSIDC sea ice, ports, lanes, tankers, icebreakers, shipyards across the Arctic 8 + China–Korea 2026 transit tests. Multi-currency data products, x402 payments." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://arctictradelanes.com/#org",
+          "name": "ArcticTradeLanes.com",
+          "url": "https://arctictradelanes.com/",
+          "logo": "https://arctictradelanes.com/favicon.svg",
+          "slogan": "2026–2036 Arctic Economic Sprint",
+          "founder": { "@type": "Person", "name": "Aleksei Dolgikh" },
+          "knowsLanguage": ["en","ru","zh","ja","ko","el","de","nl","fr","es","it","pt","tr","ar","hi","vi","id","da","fi","sv","nb","is"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://arctictradelanes.com/#site",
+          "url": "https://arctictradelanes.com/",
+          "name": "ArcticTradeLanes.com",
+          "publisher": { "@id": "https://arctictradelanes.com/#org" },
+          "inLanguage": ["en","ru","zh","ja","ko","el","de","nl","fr","es","it","pt","tr","ar","hi","vi","id","da","fi","sv","nb","is"]
+        },
+        {
+          "@type": "Product",
+          "name": "2026–2036 Arctic Economic Entity & Capital Atlas — 北极经济与资金图谱",
+          "description": "Arctic 8-nation economic intelligence dataset covering Russia, Norway, Canada, Greenland/Denmark, Iceland, Finland, Sweden and the United States: $1T+ RDIF Arctic investment fund, C$40B Canada Arctic plan, 35T+ RUB AZRF resident projects, 2026–2036 capital summary, key decision-maker directory and OSINT data-gap map.",
+          "url": "https://arctictradelanes.com/arctic-economic-atlas",
+          "brand": { "@type": "Brand", "name": "ArcticTradeLanes.com" },
+          "offers": {
+            "@type": "Offer",
+            "price": "49.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2036-12-31"
+          },
+          "inLanguage": ["zh-CN", "en"]
+        },
+        {
+          "@type": "Dataset",
+          "name": "Arctic Trade Lanes Atlas (EPSG:3996)",
+          "description": "GeoJSON atlas of 600+ Arctic features: ports, cities, lanes, tankers, icebreakers, shipyards, entrepreneur-program pins, airports in EPSG:3996 polar stereographic and WGS84.",
+          "url": "https://arctictradelanes.com/atlas",
+          "distribution": [
+            { "@type": "DataDownload", "encodingFormat": "application/geo+json", "contentUrl": "https://arctictradelanes.com/atlas.3996.geojson" },
+            { "@type": "DataDownload", "encodingFormat": "application/geo+json", "contentUrl": "https://arctictradelanes.com/atlas.4326.geojson" },
+            { "@type": "DataDownload", "encodingFormat": "application/geo+json", "contentUrl": "https://arctictradelanes.com/data/atlas.3996.geojson" },
+            { "@type": "DataDownload", "encodingFormat": "application/geo+json", "contentUrl": "https://arctictradelanes.com/data/atlas.4326.geojson" }
+          ],
+          "creator": { "@id": "https://arctictradelanes.com/#org" },
+          "temporalCoverage": "2026/2036",
+          "license": "https://arctictradelanes.com/pricing"
+        },
+        {
+          "@type": "NewsArticle",
+          "headline": "China launches weekly 'Ice Silk Road' Arctic container service; South Korea's Panstar Acro makes first trial voyage",
+          "datePublished": "2026-08-23",
+          "image": ["https://arctictradelanes.com/img/og/international-arctic-forum-2025-murmansk-og-1200x630.jpg", "https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2025-murmansk-plenary-hall-960.jpg"],
+          "keywords": "Northern Sea Route, Polar Silk Road, Ice Silk Road, Panstar Acro, Sea Legend, Busan, Ningbo",
+          "author": { "@id": "https://arctictradelanes.com/#org" }
+        },
+        {"@type":"ItemList","@id":"https://arctictradelanes.com/#arctic-agenda","name":"Arctic agenda 2015–2026","description":"Forums, councils and incubators that shape Northern Sea Route and polar commerce — open photos with clear licences.","numberOfItems":10,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2025-murmansk-plenary-hall-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2025-murmansk-plenary-hall-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2025-murmansk-plenary-hall-960.jpg","width":1440,"height":960,"name":"Wide view of the plenary hall at the 6th International Arctic Forum in Murmansk, March 2025, with delegates facing the m","caption":"International Arctic Forum, Murmansk, 27 March 2025: the plenary session that opened Russia's 500-year Northern Sea Route anniversary programme.","creditText":"Presidential Executive Office of Russia / kremlin.ru (CC BY 4.0)","creator":{"@type":"Person","name":"Presidential Executive Office of Russia / kremlin.ru"},"copyrightNotice":"Presidential Executive Office of Russia / kremlin.ru. CC BY 4.0.","license":"https://creativecommons.org/licenses/by/4.0/","acquireLicensePage":"http://en.kremlin.ru/events/president/news/76554/photos","contentLocation":{"@type":"Place","name":"Murmansk, Russia"}}},{"@type":"ListItem","position":2,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-960.jpg","width":1440,"height":960,"name":"Panorama of Kola Bay and the port of Murmansk, the ice-free western terminus of the Northern Sea Route","caption":"Murmansk on Kola Bay — ice-free year-round and the western anchor of the Northern Sea Route.","creditText":"FingerWiki (CC BY 4.0)","creator":{"@type":"Person","name":"FingerWiki"},"copyrightNotice":"FingerWiki. CC BY 4.0.","license":"https://creativecommons.org/licenses/by/4.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Panorama_of_Kola_Bay_from_Zhdushchaya_Monument_in_Murmansk,_2016.jpg","contentLocation":{"@type":"Place","name":"Murmansk, Russia"}}},{"@type":"ListItem","position":3,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-960.jpg","width":1440,"height":960,"name":"Plenary session stage of the 4th International Arctic Forum 'The Arctic: Territory of Dialogue' in Arkhangelsk, March 20","caption":"Arctic: Territory of Dialogue, Arkhangelsk 2017 — the forum series has run since 2010 (Moscow 2010, Arkhangelsk 2011/2017, Salekhard 2013, St Petersburg 2019, Murmansk 2025).","creditText":"Russian Presidential Press and Information Office (CC BY 4.0)","creator":{"@type":"Person","name":"Russian Presidential Press and Information Office"},"copyrightNotice":"Russian Presidential Press and Information Office. CC BY 4.0.","license":"https://creativecommons.org/licenses/by/4.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:The_Arctic_-_Territory_of_Dialogue_international_forum,_plenary_session.jpg","contentLocation":{"@type":"Place","name":"Arkhangelsk, Russia"}}},{"@type":"ListItem","position":4,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-960.jpg","width":1440,"height":960,"name":"Panel discussion on the Arctic Circle stage at Harpa concert hall during the 2019 Arctic Circle Assembly in Reykjavík","caption":"Arctic Circle Assembly, Harpa, Reykjavík — the largest annual international Arctic gathering (2,000+ participants, 70+ countries).","creditText":"Office of U.S. Senator Lisa Murkowski (Public domain)","creator":{"@type":"Person","name":"Office of U.S. Senator Lisa Murkowski"},"copyrightNotice":"Office of U.S. Senator Lisa Murkowski. Public domain.","license":"https://creativecommons.org/publicdomain/mark/1.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Arctic_Circle_Assembly_2019_02.jpg","contentLocation":{"@type":"Place","name":"Reykjavík, Iceland"}}},{"@type":"ListItem","position":5,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-960.jpg","width":1440,"height":960,"name":"Finnish, Norwegian and Swedish leaders on stage at the Arctic Frontiers conference in Tromsø, January 2015","caption":"Arctic Frontiers, Tromsø — the High North's annual science-policy-business conference, held every January/February.","creditText":"Pernille Ingebrigtsen / Arctic Frontiers (CC BY 3.0)","creator":{"@type":"Person","name":"Pernille Ingebrigtsen / Arctic Frontiers"},"copyrightNotice":"Pernille Ingebrigtsen / Arctic Frontiers. CC BY 3.0.","license":"https://creativecommons.org/licenses/by/3.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Alexander_Stubb,_Erna_Solberg_%26_Kristina_Persson_2015-01-20_001.jpg","contentLocation":{"@type":"Place","name":"Tromsø, Norway"}}},{"@type":"ListItem","position":6,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-960.jpg","width":1440,"height":960,"name":"Foreign ministers of the eight Arctic states and Indigenous Permanent Participants at the Arctic Council Ministerial Mee","caption":"Arctic Council Ministerial, Reykjavík 2021 — foreign ministers of all eight Arctic states and six Indigenous Permanent Participant organisations.","creditText":"U.S. Department of State / Ron Przysucha (Public domain)","creator":{"@type":"Person","name":"U.S. Department of State / Ron Przysucha"},"copyrightNotice":"U.S. Department of State / Ron Przysucha. Public domain.","license":"https://creativecommons.org/publicdomain/mark/1.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Secretary_Blinken_Participates_in_the_Arctic_Council_Ministerial_Family_Photo_(51192590102).jpg","contentLocation":{"@type":"Place","name":"Reykjavík, Iceland"}}},{"@type":"ListItem","position":7,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-960.jpg","width":1440,"height":960,"name":"Traditional Inuit quilliq lamp-lighting ceremony opening Arctic Council meetings in Iqaluit, Nunavut, Canada, April 2015","caption":"Iqaluit, Nunavut 2015 — Canada handed the Arctic Council chair to the US; the Arctic Economic Council held an early meeting here.","creditText":"U.S. Department of State (Public domain)","creator":{"@type":"Person","name":"U.S. Department of State"},"copyrightNotice":"U.S. Department of State. Public domain.","license":"https://creativecommons.org/publicdomain/mark/1.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Secretary_Kerry_Watches_a_Traditional_Quilliq_Lighting_Ceremony_Amid_Meetings_of_the_Arctic_Council_in_Iqaluit,_Canada.jpg","contentLocation":{"@type":"Place","name":"Iqaluit, Nunavut, Canada"}}},{"@type":"ListItem","position":8,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-960.jpg","width":1440,"height":960,"name":"Northern lights over the Barents Spektakel festival main stage in Kirkenes, Norway, February 2018","caption":"Barents Spektakel, Kirkenes — the Barents region's cross-border winter festival, held alongside the Kirkenes Conference.","creditText":"Jørund Føreland Pedersen (CC BY-SA 4.0)","creator":{"@type":"Person","name":"Jørund Føreland Pedersen"},"copyrightNotice":"Jørund Føreland Pedersen. CC BY-SA 4.0.","license":"https://creativecommons.org/licenses/by-sa/4.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Barents_Spetakkel_2018.jpg","contentLocation":{"@type":"Place","name":"Kirkenes, Norway"}}},{"@type":"ListItem","position":9,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-960.jpg","width":1440,"height":960,"name":"Arctic Business Incubator building in Luleå, northern Sweden — tech and space-startup incubator (ESA BIC Sweden)","caption":"Arctic Business Incubator, Luleå — two-year programme with Arctic Ventures seed (SEK 400k); next intake deadline 2 Nov 2026.","creditText":"Rotavdrag (CC BY-SA 4.0)","creator":{"@type":"Person","name":"Rotavdrag"},"copyrightNotice":"Rotavdrag. CC BY-SA 4.0.","license":"https://creativecommons.org/licenses/by-sa/4.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Arctic_Business_Incubator.jpg","contentLocation":{"@type":"Place","name":"Luleå, Sweden"}}},{"@type":"ListItem","position":10,"item":{"@type":"ImageObject","contentUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-1440.jpg","thumbnailUrl":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-480.jpg","url":"https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-960.jpg","width":1440,"height":960,"name":"Heads of delegation at the 10th Arctic Council Ministerial Meeting in Fairbanks, Alaska, May 2017","caption":"Fairbanks, Alaska 2017 — the Fairbanks Declaration closed the US Arctic Council chairmanship.","creditText":"U.S. Department of State (Public domain)","creator":{"@type":"Person","name":"U.S. Department of State"},"copyrightNotice":"U.S. Department of State. Public domain.","license":"https://creativecommons.org/publicdomain/mark/1.0/","acquireLicensePage":"https://commons.wikimedia.org/wiki/File:Secretary_Tillerson_Poses_for_a_Family_Photo_With_Principal_Participants_and_Heads_of_Delegation_at_the_10th_Arctic_Council_Ministerial_Meeting_in_Fairbanks_(34437504742).jpg","contentLocation":{"@type":"Place","name":"Fairbanks, Alaska, USA"}}}]},
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Panorama of Kola Bay and the port of Murmansk, the ice-free western terminus of the Northern Sea Route",
+                "caption": "Murmansk on Kola Bay — ice-free year-round and the western anchor of the Northern Sea Route.",
+                "creditText": "FingerWiki (CC BY 4.0)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "FingerWiki"
+                },
+                "copyrightNotice": "FingerWiki. CC BY 4.0.",
+                "license": "https://creativecommons.org/licenses/by/4.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Panorama_of_Kola_Bay_from_Zhdushchaya_Monument_in_Murmansk,_2016.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Murmansk, Russia"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Plenary session stage of the 4th International Arctic Forum 'The Arctic: Territory of Dialogue' in Arkhangelsk, March 20",
+                "caption": "Arctic: Territory of Dialogue, Arkhangelsk 2017 — the forum series has run since 2010 (Moscow 2010, Arkhangelsk 2011/2017, Salekhard 2013, St Petersburg 2019, Murmansk 2025).",
+                "creditText": "Russian Presidential Press and Information Office (CC BY 4.0)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "Russian Presidential Press and Information Office"
+                },
+                "copyrightNotice": "Russian Presidential Press and Information Office. CC BY 4.0.",
+                "license": "https://creativecommons.org/licenses/by/4.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:The_Arctic_-_Territory_of_Dialogue_international_forum,_plenary_session.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Arkhangelsk, Russia"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Panel discussion on the Arctic Circle stage at Harpa concert hall during the 2019 Arctic Circle Assembly in Reykjavík",
+                "caption": "Arctic Circle Assembly, Harpa, Reykjavík — the largest annual international Arctic gathering (2,000+ participants, 70+ countries).",
+                "creditText": "Office of U.S. Senator Lisa Murkowski (Public domain)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "Office of U.S. Senator Lisa Murkowski"
+                },
+                "copyrightNotice": "Office of U.S. Senator Lisa Murkowski. Public domain.",
+                "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Arctic_Circle_Assembly_2019_02.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Reykjavík, Iceland"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Finnish, Norwegian and Swedish leaders on stage at the Arctic Frontiers conference in Tromsø, January 2015",
+                "caption": "Arctic Frontiers, Tromsø — the High North's annual science-policy-business conference, held every January/February.",
+                "creditText": "Pernille Ingebrigtsen / Arctic Frontiers (CC BY 3.0)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "Pernille Ingebrigtsen / Arctic Frontiers"
+                },
+                "copyrightNotice": "Pernille Ingebrigtsen / Arctic Frontiers. CC BY 3.0.",
+                "license": "https://creativecommons.org/licenses/by/3.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Alexander_Stubb,_Erna_Solberg_%26_Kristina_Persson_2015-01-20_001.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Tromsø, Norway"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Foreign ministers of the eight Arctic states and Indigenous Permanent Participants at the Arctic Council Ministerial Mee",
+                "caption": "Arctic Council Ministerial, Reykjavík 2021 — foreign ministers of all eight Arctic states and six Indigenous Permanent Participant organisations.",
+                "creditText": "U.S. Department of State / Ron Przysucha (Public domain)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "U.S. Department of State / Ron Przysucha"
+                },
+                "copyrightNotice": "U.S. Department of State / Ron Przysucha. Public domain.",
+                "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Secretary_Blinken_Participates_in_the_Arctic_Council_Ministerial_Family_Photo_(51192590102).jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Reykjavík, Iceland"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Traditional Inuit quilliq lamp-lighting ceremony opening Arctic Council meetings in Iqaluit, Nunavut, Canada, April 2015",
+                "caption": "Iqaluit, Nunavut 2015 — Canada handed the Arctic Council chair to the US; the Arctic Economic Council held an early meeting here.",
+                "creditText": "U.S. Department of State (Public domain)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "U.S. Department of State"
+                },
+                "copyrightNotice": "U.S. Department of State. Public domain.",
+                "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Secretary_Kerry_Watches_a_Traditional_Quilliq_Lighting_Ceremony_Amid_Meetings_of_the_Arctic_Council_in_Iqaluit,_Canada.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Iqaluit, Nunavut, Canada"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Northern lights over the Barents Spektakel festival main stage in Kirkenes, Norway, February 2018",
+                "caption": "Barents Spektakel, Kirkenes — the Barents region's cross-border winter festival, held alongside the Kirkenes Conference.",
+                "creditText": "Jørund Føreland Pedersen (CC BY-SA 4.0)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "Jørund Føreland Pedersen"
+                },
+                "copyrightNotice": "Jørund Føreland Pedersen. CC BY-SA 4.0.",
+                "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Barents_Spetakkel_2018.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Kirkenes, Norway"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Arctic Business Incubator building in Luleå, northern Sweden — tech and space-startup incubator (ESA BIC Sweden)",
+                "caption": "Arctic Business Incubator, Luleå — two-year programme with Arctic Ventures seed (SEK 400k); next intake deadline 2 Nov 2026.",
+                "creditText": "Rotavdrag (CC BY-SA 4.0)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "Rotavdrag"
+                },
+                "copyrightNotice": "Rotavdrag. CC BY-SA 4.0.",
+                "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Arctic_Business_Incubator.jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Luleå, Sweden"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@type": "ImageObject",
+                "contentUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-1440.jpg",
+                "thumbnailUrl": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-480.jpg",
+                "url": "https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-960.jpg",
+                "width": 1440,
+                "height": 960,
+                "name": "Heads of delegation at the 10th Arctic Council Ministerial Meeting in Fairbanks, Alaska, May 2017",
+                "caption": "Fairbanks, Alaska 2017 — the Fairbanks Declaration closed the US Arctic Council chairmanship.",
+                "creditText": "U.S. Department of State (Public domain)",
+                "creator": {
+                  "@type": "Person",
+                  "name": "U.S. Department of State"
+                },
+                "copyrightNotice": "U.S. Department of State. Public domain.",
+                "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+                "acquireLicensePage": "https://commons.wikimedia.org/wiki/File:Secretary_Tillerson_Poses_for_a_Family_Photo_With_Principal_Participants_and_Heads_of_Delegation_at_the_10th_Arctic_Council_Ministerial_Meeting_in_Fairbanks_(34437504742).jpg",
+                "contentLocation": {
+                  "@type": "Place",
+                  "name": "Fairbanks, Alaska, USA"
+                }
+              }
+            }
+          ]
+        }
+      ]
     }
-    header {
-      padding: 1.25rem 1.5rem;
-      border-bottom: 1px solid rgba(100, 181, 246, 0.25);
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
-    }
-    header h1 {
-      font-size: 1.25rem; font-weight: 650;
-      background: linear-gradient(90deg, #64b5f6, #81c784);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    nav a {
-      color: #90caf9; text-decoration: none; margin-left: 1rem; font-size: 0.95rem;
-    }
-    nav a:hover { text-decoration: underline; }
-    main { flex: 1; max-width: 960px; width: 100%; margin: 0 auto; padding: 2.5rem 1.5rem; }
-    .card {
-      background: rgba(15, 39, 64, 0.65);
-      border: 1px solid rgba(100, 181, 246, 0.28);
-      border-radius: 16px;
-      padding: 1.75rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-    }
-    .card h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
-    .card p { color: #b0bec5; line-height: 1.55; margin-bottom: 1.25rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .btn {
-      display: inline-block; padding: 0.7rem 1.1rem; border-radius: 10px;
-      background: #1976d2; color: #fff; text-decoration: none; font-weight: 600;
-    }
-    .btn.secondary { background: transparent; border: 1px solid rgba(144,202,249,0.5); color: #90caf9; }
-    .meta { margin-top: 1.5rem; font-size: 0.85rem; color: #78909c; }
-    footer { padding: 1rem 1.5rem; font-size: 0.8rem; color: #78909c; border-top: 1px solid rgba(100,181,246,0.15); }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Arctic Trade Lanes</h1>
-    <nav>
-      <a href="/atlas/atlas.geojson">Atlas GeoJSON</a>
-      <a href="/atlas/atlas.manifest.json">Manifest</a>
-      <a href="https://github.com/International-Arctic/Arctic-Trade-Lanes">GitHub</a>
-    </nav>
-  </header>
-  <main>
-    <div class="card">
-      <h2>Arctic GIS OSINT Atlas</h2>
-      <p>Live atlas of Arctic ports, trade lanes, cities, facilities, and programs. Static GeoJSON endpoints remain the source of truth while the interactive map shell is restored.</p>
-      <div class="actions">
-        <a class="btn" href="/atlas/atlas.geojson">Open live atlas.geojson</a>
-        <a class="btn secondary" href="/atlas/atlas.manifest.json">Atlas manifest</a>
-        <a class="btn secondary" href="/data/ports.csv">Ports CSV</a>
-      </div>
-      <p class="meta">arctictradelanes.com · additive GIS quality loop · International-Arctic</p>
-    </div>
-  </main>
-  <footer>© Arctic Trade Lanes · Aleksei Dolgikh (@alexdolbun)</footer>
-</body>
+    </script>
+  <!-- ATL ad slots: mapping + loader (must precede context.js) -->
+  <script src="/ads-config.js?v=20261005b" ></script>
+  <script src="/atl-ads.js?v=20261005b" ></script>
+  <!-- Yandex Autoplacement 20141282 -->
+  <script src="https://yandex.ru/ads/system/context.js" async></script>
+  <script data-page-id="20141282" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+    <script src="/ol.js"></script>
+    <script type="module" crossorigin src="/assets/index-atlr3-oct6.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-CVazrmkQ.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-maps-Ndty0b40.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-atlr3-oct6.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    
+      <noscript id="atl-home-agenda-noscript">
+    <section aria-label="Arctic agenda 2015–2026"><h2>Arctic agenda 2015–2026</h2><p>Forums, councils and incubators that shape Northern Sea Route and polar commerce — open photos with clear licences.</p>
+    <figure><a href="https://arctictradelanes.com/china-polar-silk-road"><img src="https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2025-murmansk-plenary-hall-960.jpg" width="960" height="640" alt="Wide view of the plenary hall at the 6th International Arctic Forum in Murmansk, March 2025, with delegates facing the main stage" /></a><figcaption>International Arctic Forum, Murmansk, 27 March 2025: the plenary session that opened Russia's 500-year Northern Sea Route anniversary programme. — Presidential Executive Office of Russia / kremlin.ru (CC BY 4.0)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/"><img src="https://arctictradelanes.com/img/arctic-agenda/murmansk-kola-bay-port-panorama-960.jpg" width="960" height="640" alt="Panorama of Kola Bay and the port of Murmansk, the ice-free western terminus of the Northern Sea Route" /></a><figcaption>Murmansk on Kola Bay — ice-free year-round and the western anchor of the Northern Sea Route. — FingerWiki (CC BY 4.0)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/arctic-economic-atlas"><img src="https://arctictradelanes.com/img/arctic-agenda/international-arctic-forum-2017-arkhangelsk-plenary-960.jpg" width="960" height="640" alt="Plenary session stage of the 4th International Arctic Forum 'The Arctic: Territory of Dialogue' in Arkhangelsk, March 2017" /></a><figcaption>Arctic: Territory of Dialogue, Arkhangelsk 2017 — the forum series has run since 2010 (Moscow 2010, Arkhangelsk 2011/2017, Salekhard 2013, St Petersburg 2019, Murmansk 2025). — Russian Presidential Press and Information Office (CC BY 4.0)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/collaborate"><img src="https://arctictradelanes.com/img/arctic-agenda/arctic-circle-assembly-2019-reykjavik-harpa-panel-960.jpg" width="960" height="640" alt="Panel discussion on the Arctic Circle stage at Harpa concert hall during the 2019 Arctic Circle Assembly in Reykjavík" /></a><figcaption>Arctic Circle Assembly, Harpa, Reykjavík — the largest annual international Arctic gathering (2,000+ participants, 70+ countries). — Office of U.S. Senator Lisa Murkowski (Public domain)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/opportunity"><img src="https://arctictradelanes.com/img/arctic-agenda/arctic-frontiers-2015-tromso-nordic-leaders-panel-960.jpg" width="960" height="640" alt="Finnish, Norwegian and Swedish leaders on stage at the Arctic Frontiers conference in Tromsø, January 2015" /></a><figcaption>Arctic Frontiers, Tromsø — the High North's annual science-policy-business conference, held every January/February. — Pernille Ingebrigtsen / Arctic Frontiers (CC BY 3.0)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/arctic-economic-atlas"><img src="https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2021-reykjavik-family-photo-960.jpg" width="960" height="640" alt="Foreign ministers of the eight Arctic states and Indigenous Permanent Participants at the Arctic Council Ministerial Meeting in Reykjavík, May 2021" /></a><figcaption>Arctic Council Ministerial, Reykjavík 2021 — foreign ministers of all eight Arctic states and six Indigenous Permanent Participant organisations. — U.S. Department of State / Ron Przysucha (Public domain)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/funding"><img src="https://arctictradelanes.com/img/arctic-agenda/arctic-council-2015-iqaluit-nunavut-quilliq-ceremony-960.jpg" width="960" height="640" alt="Traditional Inuit quilliq lamp-lighting ceremony opening Arctic Council meetings in Iqaluit, Nunavut, Canada, April 2015" /></a><figcaption>Iqaluit, Nunavut 2015 — Canada handed the Arctic Council chair to the US; the Arctic Economic Council held an early meeting here. — U.S. Department of State (Public domain)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/"><img src="https://arctictradelanes.com/img/arctic-agenda/barents-spektakel-2018-kirkenes-aurora-main-stage-960.jpg" width="960" height="640" alt="Northern lights over the Barents Spektakel festival main stage in Kirkenes, Norway, February 2018" /></a><figcaption>Barents Spektakel, Kirkenes — the Barents region's cross-border winter festival, held alongside the Kirkenes Conference. — Jørund Føreland Pedersen (CC BY-SA 4.0)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/funding"><img src="https://arctictradelanes.com/img/arctic-agenda/arctic-business-incubator-lulea-sweden-960.jpg" width="960" height="640" alt="Arctic Business Incubator building in Luleå, northern Sweden — tech and space-startup incubator (ESA BIC Sweden)" /></a><figcaption>Arctic Business Incubator, Luleå — two-year programme with Arctic Ventures seed (SEK 400k); next intake deadline 2 Nov 2026. — Rotavdrag (CC BY-SA 4.0)</figcaption></figure>
+    <figure><a href="https://arctictradelanes.com/arctic-economic-atlas"><img src="https://arctictradelanes.com/img/arctic-agenda/arctic-council-ministerial-2017-fairbanks-alaska-960.jpg" width="960" height="640" alt="Heads of delegation at the 10th Arctic Council Ministerial Meeting in Fairbanks, Alaska, May 2017" /></a><figcaption>Fairbanks, Alaska 2017 — the Fairbanks Declaration closed the US Arctic Council chairmanship. — U.S. Department of State (Public domain)</figcaption></figure>
+    <p>Photo credits · licences</p></section></noscript>
+  </body>
 </html>

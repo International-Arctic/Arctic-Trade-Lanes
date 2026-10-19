@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <!--ATL-SEO-->
+  <style>
+    :root { color-scheme: dark; --ink:#e8eef4; --mut:#90a4ae; --line:rgba(100,181,246,.22); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+           background:linear-gradient(160deg,#071018 0%,#0f2740 45%,#071018 100%);
+           color:var(--ink); min-height:100vh; display:flex; flex-direction:column; line-height:1.55; }
+    a { color:#90caf9; }
+    header { padding:1.1rem 1.5rem; border-bottom:1px solid var(--line); display:flex;
+             align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    header .brand { font-size:1.15rem; font-weight:650;
+             background:linear-gradient(90deg,#64b5f6,#81c784); -webkit-background-clip:text;
+             background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+    nav a { margin-left:1rem; font-size:.92rem; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+    main { flex:1; width:100%; max-width:1040px; margin:0 auto; padding:2.25rem 1.5rem 3rem; }
+    h1 { font-size:2rem; line-height:1.2; margin-bottom:.85rem; }
+    h2 { font-size:1.25rem; margin:2.25rem 0 .85rem; }
+    h3 { font-size:1rem; margin-bottom:.35rem; }
+    p { color:#c3ced8; margin-bottom:1rem; max-width:70ch; }
+    .lede { font-size:1.06rem; }
+    .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); }
+    .card { background:rgba(15,39,64,.62); border:1px solid var(--line); border-radius:14px; padding:1.15rem 1.25rem; }
+    .card .tag { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:#81c784; }
+    .card ul { margin:.5rem 0 0 1.05rem; color:var(--mut); font-size:.92rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:.7rem; margin:1.35rem 0 .4rem; }
+    .btn { display:inline-block; padding:.62rem 1rem; border-radius:9px; background:#1976d2; color:#fff;
+           text-decoration:none; font-weight:600; font-size:.94rem; }
+    .btn.sec { background:transparent; border:1px solid rgba(144,202,249,.5); color:#90caf9; }
+    table { width:100%; border-collapse:collapse; margin:.5rem 0 1rem; font-size:.93rem; }
+    th, td { text-align:left; padding:.55rem .6rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--mut); font-weight:600; }
+    code { background:rgba(0,0,0,.4); padding:.12rem .35rem; border-radius:5px; font-size:.87em; }
+    .note { border-left:3px solid #81c784; padding:.5rem 0 .5rem .9rem; color:var(--mut); font-size:.92rem; }
+    footer { padding:1rem 1.5rem; font-size:.8rem; color:#78909c; border-top:1px solid rgba(100,181,246,.15);
+             display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">Arctic Trade Lanes</a>
+    <nav><a href="/collaborate">Collaborate</a><a href="/pricing">Pricing</a><a href="/atlas/atlas.geojson">Atlas GeoJSON</a><a href="https://github.com/International-Arctic/Arctic-Trade-Lanes">GitHub</a></nav>
+  </header>
+  <main>
+    <h1>Partner on Arctic trade corridors — open GIS OSINT, machine-payable APIs</h1>
+    <p class="lede">ArcticTradeLanes.com publishes a live Arctic atlas and machine-payable corridor intelligence for the Northern Sea Route and the Polar Silk Road. The layers are built from public records, published as GeoJSON on an EPSG:3996 polar projection, and reachable by both humans and agents.</p>
+    <h2>Priority corridors</h2><div class="grid"><div class="card"><span class="tag">RU</span><h3>Russia · Northern Sea Route</h3><p style="margin:.35rem 0 0;font-size:.92rem">Murmansk · Sabetta · Dudinka · Pevek · AZRF / KRDV</p></div><div class="card"><span class="tag">CA–AK</span><h3>Canada–Alaska · Northwest Passage</h3><p style="margin:.35rem 0 0;font-size:.92rem">Northwest Passage · Bering Strait · Arctic 8</p></div><div class="card"><span class="tag">KR–JP–CN</span><h3>Korea–Japan–China · Polar Silk Road</h3><p style="margin:.35rem 0 0;font-size:.92rem">Busan · Yokohama · Ningbo · Tianjin</p></div></div>
+    <h2>What partners get</h2>
+    <p>Shared corridor research on RU, CA–AK and KR–JP–CN lanes, co-authored dataset expansion, and white-label or enterprise access to the route API. We work from open sources only — no classified material, no scraped credentials.</p>
+    <h2>Live layers</h2>
+    <table><thead><tr><th>Layer</th><th>Records</th></tr></thead><tbody><tr><td>ports</td><td>155</td></tr><tr><td>cities</td><td>103</td></tr><tr><td>shipyards</td><td>69</td></tr><tr><td>programs</td><td>713</td></tr><tr><td>industry</td><td>109</td></tr><tr><td>rail</td><td>14</td></tr><tr><td>lanes</td><td>27</td></tr><tr><td>tankers</td><td>51</td></tr><tr><td>icebreakers</td><td>55</td></tr><tr><td>airports</td><td>10</td></tr><tr><td>rescue</td><td>7</td></tr></tbody></table>
+    <h2>Settlement today via x402 USDC</h2>
+  <p>One paid rail, shared with UnicornsMap.com $UM-Radar. A well-formed x402-payment request header unlocks the route-intelligence payload; on-chain settlement proof is not yet wired, so treat a paid response as an alpha contract, not a cryptographic receipt.</p>
+  <table><tbody>
+    <tr><td>Asset</td><td>5 USDC · Base · chainId 8453</td></tr>
+    <tr><td>Rails</td><td>Base USDC · Tron USDT-TRC20 · BNB USDT · Base $ATL <em>planned</em></td></tr>
+    <tr><td>payTo</td><td><code>0x211D91beD006f7bB3Eaf97496260a8F905298Cea</code></td></tr>
+    <tr><td>Bankr</td><td><a href="https://bankr.bot?ref=um-radar" rel="noopener">https://bankr.bot?ref=um-radar</a> · ref <code>RN982CZZ-BNKR</code></td></tr>
+    <tr><td>Discovery</td><td><a href="/.well-known/x402.json">/.well-known/x402.json</a></td></tr>
+  </tbody></table>
+  <p class="note">The $ATL token is NOT minted yet. There is no contract address to buy. Payment today is 5 USDC on Base.</p>
+    <div class="actions">
+      <a class="btn" href="/pricing">See pricing · x402 USDC</a>
+      <a class="btn sec" href="/.well-known/x402.json">x402 discovery</a>
+      <a class="btn sec" href="https://github.com/International-Arctic/Arctic-Trade-Lanes">GitHub</a>
+    </div>
+    <h2>Contact</h2>
+  <p>collaborate@arctictradelanes.com · partners@arctictradelanes.com</p>
+  <p>Open source: <a href="https://github.com/International-Arctic/Arctic-Trade-Lanes" rel="noopener">Arctic-Trade-Lanes</a> ·
+  <a href="https://github.com/International-Arctic/ArcticTradeLanes-Dataset" rel="noopener">ArcticTradeLanes-Dataset</a> ·
+  <a href="/">Live map</a></p>
+  </main>
+  <footer>
+    <span>ArcticTradeLanes.com · Collaborate · corridor horizon 2036+</span>
+    <span>Data generation 2026-10-14T07:26:36.374680+00:00 · EPSG:3996</span>
+  </footer>
+</body>
+</html>

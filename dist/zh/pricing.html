@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <!--ATL-SEO-->
+  <style>
+    :root { color-scheme: dark; --ink:#e8eef4; --mut:#90a4ae; --line:rgba(100,181,246,.22); }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;
+           background:linear-gradient(160deg,#071018 0%,#0f2740 45%,#071018 100%);
+           color:var(--ink); min-height:100vh; display:flex; flex-direction:column; line-height:1.55; }
+    a { color:#90caf9; }
+    header { padding:1.1rem 1.5rem; border-bottom:1px solid var(--line); display:flex;
+             align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    header .brand { font-size:1.15rem; font-weight:650;
+             background:linear-gradient(90deg,#64b5f6,#81c784); -webkit-background-clip:text;
+             background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+    nav a { margin-left:1rem; font-size:.92rem; text-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+    main { flex:1; width:100%; max-width:1040px; margin:0 auto; padding:2.25rem 1.5rem 3rem; }
+    h1 { font-size:2rem; line-height:1.2; margin-bottom:.85rem; }
+    h2 { font-size:1.25rem; margin:2.25rem 0 .85rem; }
+    h3 { font-size:1rem; margin-bottom:.35rem; }
+    p { color:#c3ced8; margin-bottom:1rem; max-width:70ch; }
+    .lede { font-size:1.06rem; }
+    .grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(258px,1fr)); }
+    .card { background:rgba(15,39,64,.62); border:1px solid var(--line); border-radius:14px; padding:1.15rem 1.25rem; }
+    .card .tag { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:#81c784; }
+    .card ul { margin:.5rem 0 0 1.05rem; color:var(--mut); font-size:.92rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:.7rem; margin:1.35rem 0 .4rem; }
+    .btn { display:inline-block; padding:.62rem 1rem; border-radius:9px; background:#1976d2; color:#fff;
+           text-decoration:none; font-weight:600; font-size:.94rem; }
+    .btn.sec { background:transparent; border:1px solid rgba(144,202,249,.5); color:#90caf9; }
+    table { width:100%; border-collapse:collapse; margin:.5rem 0 1rem; font-size:.93rem; }
+    th, td { text-align:left; padding:.55rem .6rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    th { color:var(--mut); font-weight:600; }
+    code { background:rgba(0,0,0,.4); padding:.12rem .35rem; border-radius:5px; font-size:.87em; }
+    .note { border-left:3px solid #81c784; padding:.5rem 0 .5rem .9rem; color:var(--mut); font-size:.92rem; }
+    footer { padding:1rem 1.5rem; font-size:.8rem; color:#78909c; border-top:1px solid rgba(100,181,246,.15);
+             display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">Arctic Trade Lanes</a>
+    <nav><a href="/zh/collaborate">合作</a><a href="/zh/pricing">价格</a><a href="/atlas/atlas.geojson">图集 GeoJSON</a><a href="https://github.com/International-Arctic/Arctic-Trade-Lanes">GitHub</a></nav>
+  </header>
+  <main>
+    <h1>价格 — x402 USDC 结算</h1>
+    <p class="lede">图集访问始终免费。走廊航线情报按次通过 x402 出售，持续覆盖可选择企业级数据流。</p>
+    <table><thead><tr><th>层级</th><th>价格</th><th>范围</th></tr></thead><tbody><tr><td><strong>图集访问</strong></td><td>0</td><td>GeoJSON 图层、清单、港口与设施 CSV、极地地图</td></tr><tr><td><strong>航线情报</strong></td><td>5 USDC</td><td>北方海航道窗口、航线航点、CNY/KRW/RUB 汇率，每 IP 每日 10 次免费</td></tr><tr><td><strong>企业走廊数据流</strong></td><td>49 USD / mo</td><td>季节窗口、自定义 CRS、白标走廊页面、优先支持</td></tr></tbody></table>
+    <h2>今日结算通过 x402 USDC</h2>
+  <p>与 UnicornsMap.com $UM-Radar 共用的单一付费通道。格式正确的 x402-payment 请求头即可解锁航线情报负载；链上结算凭证尚未接入，因此付费响应属于 alpha 合约，而非加密收据。</p>
+  <table><tbody>
+    <tr><td>资产</td><td>5 USDC · Base · chainId 8453</td></tr>
+    <tr><td>通道</td><td>Base USDC · Tron USDT-TRC20 · BNB USDT · Base $ATL <em>planned</em></td></tr>
+    <tr><td>payTo</td><td><code>0x211D91beD006f7bB3Eaf97496260a8F905298Cea</code></td></tr>
+    <tr><td>Bankr</td><td><a href="https://bankr.bot?ref=um-radar" rel="noopener">https://bankr.bot?ref=um-radar</a> · ref <code>RN982CZZ-BNKR</code></td></tr>
+    <tr><td>发现</td><td><a href="/.well-known/x402.json">/.well-known/x402.json</a></td></tr>
+  </tbody></table>
+  <p class="note">$ATL 代币尚未铸造，没有可购买的合约地址。今日付款为 Base 网络上的 5 USDC。</p>
+    <div class="actions">
+      <a class="btn" href="/collaborate">洽谈合作</a>
+      <a class="btn sec" href="/api/x402/status">/api/x402/status</a>
+      <a class="btn sec" href="/api/alpha/status">/api/alpha/status</a>
+    </div>
+    <h2>联系</h2>
+  <p>collaborate@arctictradelanes.com · partners@arctictradelanes.com</p>
+  <p>开源: <a href="https://github.com/International-Arctic/Arctic-Trade-Lanes" rel="noopener">Arctic-Trade-Lanes</a> ·
+  <a href="https://github.com/International-Arctic/ArcticTradeLanes-Dataset" rel="noopener">ArcticTradeLanes-Dataset</a> ·
+  <a href="/">实时地图</a></p>
+  </main>
+  <footer>
+    <span>ArcticTradeLanes.com · 价格 · Base 上的 x402 USDC</span>
+    <span>Data generation 2026-10-14T07:26:36.374680+00:00 · EPSG:3996</span>
+  </footer>
+</body>
+</html>
