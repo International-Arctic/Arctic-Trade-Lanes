@@ -1104,6 +1104,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Whittier DeLong Dock (UN/LOCODE USWIT; USACE Navigation Data Center NAV_UNIT_ID 0UWL Whittier DeLong Pier, Alaska Railroad Corp. and City of Whittier; depth 45 ft MLLW): official USACE Navigation Facilities dock point 60.778333/-148.66722 (services7.arcgis.com/n1YM8pTrFmm7L4hs Docks FeatureServer layer 0); soft 60.7785/-148.6680 was a 4-decimal east-waterfront estimate (~46 m WNW); registry dock point, not a surveyed berth line; facility_site",
             },
+            "ARC-PORT-082": {
+                "position_quality": "facility_site",
+                "position_note": "Whittier ARRC Tunnel Double-Stack Upgrade (UN/LOCODE USWIT; Alaska Railroad Corporation PIDP FY2026 tunnel clearance project): Whittier portal of the Anton Anderson Memorial Tunnel, OpenStreetMap rail tunnel way/51231246 (Whittier Branch, tunnel:wikidata Q2728238) east end node/653863539 60.7772824/-148.7330898; soft 60.7768/-148.7210 was a 4-decimal tunnel-approach estimate in the Whittier staging area (~660 m E); tunnel portal of the funded rail facility, not a quay; port-side rail barge slip = USACE NDC 0UWM ARRC Whittier Slip No 2; facility_site",
+            },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
                 "position_note": "Tromsø Havn Breivika cargo port (UN/LOCODE NOTRO; Tromsø Havn main cargo area, Kai 20-25/28/38 nord): Kystverket harbour point OSM node/5355453054 harbour=yes seamark:type=harbour seamark:name=Tromsø source=Kystverket at 69.6757237/18.989445, in the harbour water off the Breivika quay front (Kai 21-24, 410 m); soft 69.6546/18.9590 was on land at St. Hanshaugen, Nordbyen (~2.6 km SSW); inner harbour covered by ARC-PORT-014; facility_site",
