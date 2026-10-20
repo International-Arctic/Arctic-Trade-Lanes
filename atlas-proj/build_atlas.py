@@ -1112,6 +1112,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "settlement_site",
                 "position_note": "Qikiqtarjuaq Deep Sea Port (planned; NIRB approval Oct 2025, phase 1 target 2028): official worksite of the proposed commercial wharf in Broughton Channel from the Canadian Navigable Waters Act public notice (Transport Canada NPP Common Project Registry 13953, file 2025-616110) 67 31 41.59 N 64 1 52.5 W = 67.5282194/-64.0312500; soft 67.5581/-64.0247 was a 4-decimal hamlet-area estimate on land (~3.3 km NNE); planned project worksite, no built facility yet - settlement_site not a surveyed berth",
             },
+            "ARC-PORT-090": {
+                "position_quality": "settlement_site",
+                "position_note": "Port of Dysnes - The Arctic Hub (planned greenfield harbour, Hafnasamlag Nordurlands): planned quay face (seaward edge of the 40 m H-H harbour apron, quay up to 600 m, depth up to 12 m) from the approved Horgarsveit detailed plan for the Dysnes harbour/industrial area (17.03.2016, B-deild 6 May 2016), read off the ISN93 grid E 537243 N 591659 = 65.8199545/-18.1854773; soft 65.8292/-18.1879 was a 4-decimal estimate ~1 km N of the plan area; planned project, nothing built - settlement_site not a surveyed berth",
+            },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
                 "position_note": "Tromsø Havn Breivika cargo port (UN/LOCODE NOTRO; Tromsø Havn main cargo area, Kai 20-25/28/38 nord): Kystverket harbour point OSM node/5355453054 harbour=yes seamark:type=harbour seamark:name=Tromsø source=Kystverket at 69.6757237/18.989445, in the harbour water off the Breivika quay front (Kai 21-24, 410 m); soft 69.6546/18.9590 was on land at St. Hanshaugen, Nordbyen (~2.6 km SSW); inner harbour covered by ARC-PORT-014; facility_site",
