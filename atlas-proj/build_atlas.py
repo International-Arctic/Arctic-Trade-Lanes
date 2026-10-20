@@ -1120,6 +1120,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Franz Josef Land Ports (multi-site record; primary harbour = Nagurskoye, Alexandra Land): pier head of the OSM harbour on Severnaya Bay, Dezhnev Gulf (harbour=yes industrial=port way/1426874460, man_made=pier way/1272488920, ferry_terminal node/13116640439), shore of the official remote section of the seaport Arkhangelsk (RF Government order 22.01.2015 No 68-r; Mintrans order No 183 as amended by No 212 of 07.07.2015) = 80.7730915/47.6884475; soft 80.7975/47.5568 was the Nagurskoye village point ~3.6 km inland; pier head, not a surveyed berth - facility_site",
             },
+            "ARC-PORT-073": {
+                "position_quality": "settlement_site",
+                "position_note": "Arkhangelsk Deep-Water Port (planned deep-water district of the seaport Arkhangelsk): official site per RF Government order 22.09.2023 No 2555-r item I.1 = Dvinskoy Bay, area of the Kuysky lighthouse, north of Mudyug island, 5 km from Kuya; pin = OSM lighthouse Kuysky node/9871430206 = 65.1040756/40.0532456 as project-area anchor (~49 km NNW of soft 64.7083/40.5135 = Ekonomiya, Arkhangelsk); no terminal coordinates published yet - settlement_site",
+            },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
                 "position_note": "Tromsø Havn Breivika cargo port (UN/LOCODE NOTRO; Tromsø Havn main cargo area, Kai 20-25/28/38 nord): Kystverket harbour point OSM node/5355453054 harbour=yes seamark:type=harbour seamark:name=Tromsø source=Kystverket at 69.6757237/18.989445, in the harbour water off the Breivika quay front (Kai 21-24, 410 m); soft 69.6546/18.9590 was on land at St. Hanshaugen, Nordbyen (~2.6 km SSW); inner harbour covered by ARC-PORT-014; facility_site",
