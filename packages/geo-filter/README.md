@@ -79,3 +79,27 @@ const label = new Intl.DisplayNames([locale], { type: 'region' }).of(pin.propert
 - Extend the small city table with `{ extraCities: { 'Busan': 'KR' } }`.
 - Live result: 827/827 Point features resolved, 92 raw strings to 49 ISO codes.
 - Smoke: `bun scripts/check-um-geo-quality.mjs [--live]`. Notes: `docs/UM-COUNTRY-NORMALIZE-2026-10-05.md`.
+
+
+## 0.1.8 — spiderfy-on-click + "approximate location" flag (UnicornsMap shared points)
+
+For viewers that prefer **not** to move pins (the 0.1.6 `unstackSharedPoints` fan moves them up to
+about 4.5 km). Nothing here rewrites coordinates; output is shallow copies.
+
+```ts
+import { flagApproximateLocations, groupSharedPoints, spiderfyStackGeoJson } from '@international-arctic/geo-filter/spiderfy';
+const { pins, stacks } = flagApproximateLocations(geo.pins);          // + location_precision / approximate_location / shared_point_size
+// on click of a stacked marker at the current zoom:
+const fc = spiderfyStackGeoJson(pins, stacks[0], { zoom: map.getZoom() }); // leg_end points + leg_line LineStrings
+map.getSource('spider').setData(fc);                                   // clear it on zoom / click-away
+```
+
+- `groupSharedPoints(pins, { eps = 1e-5, minSize = 2 })`: exact shared points, members sorted by slug.
+- `flagApproximateLocations(pins, { minStack = 3 })`: members of stacks of 3+ get
+  `location_precision: 'shared_point'`, `approximate_location: true`; everything else `'point'`.
+  Two pins at one office are not flagged. Suggested UI text: "Approximate location (shared city point)".
+- `spiderfyOffsetsPx(n)` / `spiderfyLegs(anchor, n, { zoom })`: circle for n ≤ 9, Archimedean spiral
+  above, in screen pixels at the current zoom (512 px tiles), so legs keep ≥ 27 px spacing at any zoom
+  (defaults `legPx = 28`, spiral pitch 30 px). Max radius: 9 → 40 px, 34 → 99 px, 74 → 143 px, 129 → 188 px.
+- Works with MapLibre, Leaflet, OpenLayers or a plain canvas; no dependencies.
+- Smoke: `bun scripts/check-um-stack-spiderfy.mjs [--live | --file geo.json]`. Notes: `docs/UM-STACK-SPIDERFY-2026-10-20.md`.
