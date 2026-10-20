@@ -1096,6 +1096,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Lumina White Mountain (Qaqortorsuaq) anorthosite mine quay on Kangerlussuaq Fjord: length-weighted midpoint of OSM way/1362676696 man_made=quay (76 m) at 66.5576559/-52.0679314, beside OSM way/1362676698 industrial=port, way/1362676699 pier, way/1362676697 warehouse and node/12615366365 man_made=mine operator=Lumina; DCE/GINR TR353: processing plant close to the coast and the harbour, product shipped through Kangerlussuaq Fjord; soft 66.5369/-52.3091 was the Qaqortorsuaq summit (OSM node/12615395211 natural=peak, ~10.9 km WSW); facility_site",
             },
+            "ARC-PORT-101": {
+                "position_quality": "facility_site",
+                "position_note": "Clyde River Small Craft Harbour (UN/LOCODE CACLR; DFO Small Craft Harbours Harbour_number 5992, Core Fishing): official Fisheries and Oceans Canada open-data harbour point 70.466932/-68.597123 (Small Craft Harbours Locations and Information, egisp.dfo-mpo.gc.ca small_craft_harbours_en layer 0); soft 70.4753/-68.5890 was inland in Clyde River hamlet (~0.98 km NNE); registry harbour point, not a surveyed berth line; facility_site",
+            },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
                 "position_note": "Tromsø Havn Breivika cargo port (UN/LOCODE NOTRO; Tromsø Havn main cargo area, Kai 20-25/28/38 nord): Kystverket harbour point OSM node/5355453054 harbour=yes seamark:type=harbour seamark:name=Tromsø source=Kystverket at 69.6757237/18.989445, in the harbour water off the Breivika quay front (Kai 21-24, 410 m); soft 69.6546/18.9590 was on land at St. Hanshaugen, Nordbyen (~2.6 km SSW); inner harbour covered by ARC-PORT-014; facility_site",
