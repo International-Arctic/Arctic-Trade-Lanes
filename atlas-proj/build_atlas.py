@@ -1100,6 +1100,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Clyde River Small Craft Harbour (UN/LOCODE CACLR; DFO Small Craft Harbours Harbour_number 5992, Core Fishing): official Fisheries and Oceans Canada open-data harbour point 70.466932/-68.597123 (Small Craft Harbours Locations and Information, egisp.dfo-mpo.gc.ca small_craft_harbours_en layer 0); soft 70.4753/-68.5890 was inland in Clyde River hamlet (~0.98 km NNE); registry harbour point, not a surveyed berth line; facility_site",
             },
+            "ARC-PORT-068": {
+                "position_quality": "facility_site",
+                "position_note": "Whittier DeLong Dock (UN/LOCODE USWIT; USACE Navigation Data Center NAV_UNIT_ID 0UWL Whittier DeLong Pier, Alaska Railroad Corp. and City of Whittier; depth 45 ft MLLW): official USACE Navigation Facilities dock point 60.778333/-148.66722 (services7.arcgis.com/n1YM8pTrFmm7L4hs Docks FeatureServer layer 0); soft 60.7785/-148.6680 was a 4-decimal east-waterfront estimate (~46 m WNW); registry dock point, not a surveyed berth line; facility_site",
+            },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
                 "position_note": "Tromsø Havn Breivika cargo port (UN/LOCODE NOTRO; Tromsø Havn main cargo area, Kai 20-25/28/38 nord): Kystverket harbour point OSM node/5355453054 harbour=yes seamark:type=harbour seamark:name=Tromsø source=Kystverket at 69.6757237/18.989445, in the harbour water off the Breivika quay front (Kai 21-24, 410 m); soft 69.6546/18.9590 was on land at St. Hanshaugen, Nordbyen (~2.6 km SSW); inner harbour covered by ARC-PORT-014; facility_site",
