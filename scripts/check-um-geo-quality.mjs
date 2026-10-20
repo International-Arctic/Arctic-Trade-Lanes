@@ -82,6 +82,11 @@ const cases = [
   [C('Paris, France', 'France — Hugging Face HQ (individual location not publicly verified)', 'Paris'), 'FR', 'iso_or_name'],
   [C('Wyoming, USA (public HQ) · Dubai, UAE', 'UAE', 'Wyoming'), 'US', 'multi_city_first'],
   [C('Chicago, Illinois', 'Illinois', 'Chicago'), 'US', 'us_state_tail'],
+  // 0.1.9: the 4 tails unresolved on live geojson 2026-10-20
+  [C('Gstaad', 'Gstaad', 'Gstaad'), 'CH', 'city_gazetteer'],
+  [C('Lugano', 'Lugano', 'Lugano'), 'CH', 'city_gazetteer'],
+  [C('Jaipur', 'Jaipur', 'Jaipur'), 'IN', 'city_gazetteer'],
+  [C("Smith's Parish, Bermuda", 'Bermuda', "Smith's Parish"), 'BM', 'iso_or_name'],
   [C('Atlantis', 'Atlantis', 'Atlantis'), null, 'unresolved'],
 ];
 cases.forEach(([r, iso, q], i) => { if (r.iso2 !== iso || r.quality !== q) fail('country case', i, r, 'want', iso, q); });

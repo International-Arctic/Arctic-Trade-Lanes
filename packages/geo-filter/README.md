@@ -103,3 +103,14 @@ map.getSource('spider').setData(fc);                                   // clear 
   (defaults `legPx = 28`, spiral pitch 30 px). Max radius: 9 → 40 px, 34 → 99 px, 74 → 143 px, 129 → 188 px.
 - Works with MapLibre, Leaflet, OpenLayers or a plain canvas; no dependencies.
 - Smoke: `bun scripts/check-um-stack-spiderfy.mjs [--live | --file geo.json]`. Notes: `docs/UM-STACK-SPIDERFY-2026-10-20.md`.
+
+## 0.1.9 — country gazetteer: Gstaad, Lugano, Jaipur, Bermuda
+
+Additive only: four keys added to the `normalizeCountry` tables, no logic change.
+- `CITIES`: `gstaad` → CH, `lugano` → CH, `jaipur` → IN
+- `NAMES`: `bermuda` → BM (a British Overseas Territory with its own ISO 3166-1 code)
+
+These were the only 4 of 859 Points on live `/api/radar/geojson.json` (2026-10-20 ~18:25 MSK) that
+`resolveCountry` returned `unresolved`. All four were new event pins, and each pin's coordinates
+match the country assigned. With 0.1.9 the live audit resolves 859/859. Coordinates are untouched.
+Fixture cases were added to `scripts/check-um-geo-quality.mjs`. Details: `docs/UM-COUNTRY-NORMALIZE-2026-10-20.md`.
