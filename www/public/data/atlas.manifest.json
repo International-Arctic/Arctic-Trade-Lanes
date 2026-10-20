@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-20T07:55:12.835931+00:00",
+  "generated": "2026-10-20T08:30:55.841779+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -299,8 +299,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl_new_1044/atlas.3996.geojson",
-    "wgs84": "/tmp/atl_new_1044/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl_new_1044/atlas.4326.geojson"
+    "epsg3996": "/tmp/atl_new_1120/atlas.3996.geojson",
+    "wgs84": "/tmp/atl_new_1120/atlas.wgs84.geojson",
+    "epsg4326": "/tmp/atl_new_1120/atlas.4326.geojson"
   }
 }
