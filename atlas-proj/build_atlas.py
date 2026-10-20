@@ -1108,6 +1108,10 @@ def build_atlas(dataset_dir, out_dir):
                 "position_quality": "facility_site",
                 "position_note": "Whittier ARRC Tunnel Double-Stack Upgrade (UN/LOCODE USWIT; Alaska Railroad Corporation PIDP FY2026 tunnel clearance project): Whittier portal of the Anton Anderson Memorial Tunnel, OpenStreetMap rail tunnel way/51231246 (Whittier Branch, tunnel:wikidata Q2728238) east end node/653863539 60.7772824/-148.7330898; soft 60.7768/-148.7210 was a 4-decimal tunnel-approach estimate in the Whittier staging area (~660 m E); tunnel portal of the funded rail facility, not a quay; port-side rail barge slip = USACE NDC 0UWM ARRC Whittier Slip No 2; facility_site",
             },
+            "ARC-PORT-102": {
+                "position_quality": "settlement_site",
+                "position_note": "Qikiqtarjuaq Deep Sea Port (planned; NIRB approval Oct 2025, phase 1 target 2028): official worksite of the proposed commercial wharf in Broughton Channel from the Canadian Navigable Waters Act public notice (Transport Canada NPP Common Project Registry 13953, file 2025-616110) 67 31 41.59 N 64 1 52.5 W = 67.5282194/-64.0312500; soft 67.5581/-64.0247 was a 4-decimal hamlet-area estimate on land (~3.3 km NNE); planned project worksite, no built facility yet - settlement_site not a surveyed berth",
+            },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
                 "position_note": "Tromsø Havn Breivika cargo port (UN/LOCODE NOTRO; Tromsø Havn main cargo area, Kai 20-25/28/38 nord): Kystverket harbour point OSM node/5355453054 harbour=yes seamark:type=harbour seamark:name=Tromsø source=Kystverket at 69.6757237/18.989445, in the harbour water off the Breivika quay front (Kai 21-24, 410 m); soft 69.6546/18.9590 was on land at St. Hanshaugen, Nordbyen (~2.6 km SSW); inner harbour covered by ARC-PORT-014; facility_site",
