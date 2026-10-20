@@ -1,0 +1,37 @@
+# Served-vs-canonical ports.csv drift check (gis-loop-1020-1417, refs #62, #61).
+# Fails if dist/data/ports.csv or public/data/ports.csv is not byte-identical to canonical data/ports.csv
+# (the 2026-10-20 drift had 8 rows, including an ARC-PORT-166 Anadyr longitude sign error).
+# Reads repo files only: no secrets, no network, read-only token.
+name: served-ports-sync
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/ports.csv
+      - dist/data/ports.csv
+      - public/data/ports.csv
+      - scripts/check-served-ports-sync.mjs
+      - .github/workflows/served-ports-sync.yml
+  pull_request:
+    paths:
+      - data/ports.csv
+      - dist/data/ports.csv
+      - public/data/ports.csv
+      - scripts/check-served-ports-sync.mjs
+      - .github/workflows/served-ports-sync.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Served ports.csv == canonical data/ports.csv
+        run: node scripts/check-served-ports-sync.mjs
