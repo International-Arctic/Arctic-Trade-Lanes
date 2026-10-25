@@ -6,7 +6,6 @@
 import { readFileSync } from 'node:fs';
 
 const EXPECTED = new Set([
-  'ARC-PORT-034', // Obskaya LNG — semantic/rail vs marine LNG mismatch; leave for owner
   'ARC-PORT-069', // Chevak planned barge landing — no pier/harbour OSM
   'ARC-SHIP-069', // Sevgiprorybflot Murmansk HQ still on city centroid
 ]);

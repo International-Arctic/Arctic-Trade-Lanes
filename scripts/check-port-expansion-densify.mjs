@@ -23,12 +23,12 @@ const pairs = [
   ["ARC-PORT-091", "ARC-PORT-053"],
 ];
 const expect = {
-  "ARC-PORT-073": { lat: 64.7083, lon: 40.5135 },
-  "ARC-PORT-132": { lat: 68.9783, lon: 33.068 },
-  "ARC-PORT-104": { lat: 68.4205, lon: 17.4332 },
-  "ARC-PORT-113": { lat: 61.2447, lon: -149.8817 },
+  "ARC-PORT-073": { lat: 65.1040756, lon: 40.0532456 }, // Kuysky lighthouse, planned port area anchor
+  "ARC-PORT-132": { lat: 68.9846667, lon: 33.0631667 }, // MCSP berth 15
+  "ARC-PORT-104": { lat: 68.4300757, lon: 17.3881101 }, // LKAB quay 5 loader
+  "ARC-PORT-113": { lat: 61.2389299, lon: -149.8885158 }, // Port of Alaska Terminal 1 replacement
   "ARC-PORT-165": { lat: 70.374, lon: 31.1019 },
-  "ARC-PORT-140": { lat: 66.0755, lon: -23.108 },
+  "ARC-PORT-140": { lat: 66.0657813, lon: -23.1204589 }, // Sundabakki cruise quay
   "ARC-PORT-091": { lat: 60.7225, lon: -46.0335 },
   "ARC-FAC-365": { lat: 68.98, lon: 33.07 },
 };

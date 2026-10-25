@@ -3,10 +3,10 @@
 import fs from 'node:fs';
 
 const EXPECTED = {
-  'ARC-PORT-149': { lat: 78.0621120, lon: 14.2026026 }, // Barentsburg coal berth OSM way/741977198
+  'ARC-PORT-149': { lat: 78.0637890, lon: 14.2011382 }, // Barentsburg Ferry Pier OSM way/25712063
   'ARC-PORT-033': { lat: 66.5228621, lon: 66.6011381 }, // Salekhard ferry terminal OSM node/8611184008
   'ARC-PORT-137': { lat: 71.0093732, lon: 73.7891686 }, // Utrenniy Arctic LNG 2 pier OSM way/651001100
-  'ARC-PORT-155': { lat: 65.7555718, lon: -14.8223849 }, // Vopnafjörður Löndunarbryggja OSM way/220753596
+  'ARC-PORT-155': { lat: 65.7575271, lon: -14.8183391 }, // Vopnafjörður pier OSM way/220753605
 };
 
 const path = process.argv[2] || 'dataset/atlas.4326.geojson';
