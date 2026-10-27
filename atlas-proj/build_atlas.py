@@ -267,6 +267,28 @@ LANE_WP_KEEP_KM = 15.0
 LANE_WP_PORT_SNAP_KM = 12.0
 LANE_WP_WATER_MAX_KM = 350.0
 
+# --- 2026-10-27 gis-loop-1027-1421: per-lane fjord approach (water) -----------------------
+# ARC-LANE-011 Churchill-Narvik ends at ARC-PORT-019 Fagerneskaia (moved 2026-10-27 13:15 MSK).
+# Its CSV token "Narvik" resolves to the town centre (68.4385/17.4273), which is on land, so the
+# lane ran Vestfjorden -> straight over land to the town -> back south to the quay. Here that
+# token is replaced (display-only, lanes.csv untouched) with an on-water approach: the OSM
+# Ofotfjorden centre line (natural=bay way/555928225, ODbL; 4 of its vertices) from the fjord mouth
+# at Baroy to off Ankenes, then one harbour-basin vertex (68.426/17.405, ~320 m clear of the OSM coastline) and
+# the quay. Disable with ATL_LANE_APPROACH=0.
+LANE_APPROACH_OVERRIDES = {
+    "ARC-LANE-011": {
+        "token": "Narvik",
+        "label": "Ofotfjorden (OSM way/555928225) + Narvik harbour basin",
+        # Vertices 0/8/13/16 of the OSM centre line + basin. Every chord was checked against OSM
+        # natural=coastline (2026-10-27): 0 crossings, min clearance 320-2,543 m; the final
+        # basin->quay leg only meets the Fagerneskaia quay edge.
+        "pts": [  # (lat, lon) in sailing order
+            (68.3724962, 16.0997769), (68.4297500, 16.5248100), (68.4221700, 16.9608300),
+            (68.4370700, 17.2451000), (68.4260000, 17.4050000),
+        ],
+    },
+}
+
 
 def _dest_pt(lat, lon, km, brg):
     import math
@@ -808,6 +830,15 @@ def build_atlas(dataset_dir, out_dir):
                 if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM:
                     wp_pts[_i] = (_best[1], _best[2])
                     _wp_snaps.append(f"port {_wp_toks[_i]}->{_best[3]} {_la:.4f},{_lo:.4f}->{_best[2]:.6f},{_best[1]:.6f} ({_best[0]:.1f} km)")
+
+        # 2026-10-27 gis-loop-1027-1421: per-lane on-water fjord approach (see LANE_APPROACH_OVERRIDES)
+        _appr = LANE_APPROACH_OVERRIDES.get(lane.get("lane_id")) if os.environ.get("ATL_LANE_APPROACH", "1") != "0" else None
+        if _appr and wp_pts:
+            _atoks = [w for w in _split_waypoints(lane.get("waypoints", "")) if anchor(w)]
+            if len(_atoks) == len(wp_pts) and _appr["token"] in _atoks:
+                _ai = len(_atoks) - 1 - _atoks[::-1].index(_appr["token"])
+                wp_pts[_ai:_ai + 1] = [(_lo, _la) for _la, _lo in _appr["pts"]]
+                _wp_snaps.append(f"approach {_appr['token']}->{_appr['label']} ({len(_appr['pts'])} vertices)")
 
         def _near_ref(lon, lat, ref):
             if ref is None:
