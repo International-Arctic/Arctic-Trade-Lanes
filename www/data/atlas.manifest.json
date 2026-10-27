@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-27T09:55:47.816962+00:00",
+  "generated": "2026-10-27T10:21:35.092103+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -189,8 +189,8 @@
     },
     "ARC-LANE-011": {
       "legs_routed": 6,
-      "land_km_before": 1827,
-      "land_km_after": 215
+      "land_km_before": 1829,
+      "land_km_after": 217
     },
     "ARC-LANE-012": {
       "legs_routed": 3,
@@ -299,8 +299,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl_new_1249/atlas.3996.geojson",
-    "wgs84": "/tmp/atl_new_1249/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl_new_1249/atlas.4326.geojson"
+    "epsg3996": "/tmp/atl_new_1315/atlas.3996.geojson",
+    "wgs84": "/tmp/atl_new_1315/atlas.wgs84.geojson",
+    "epsg4326": "/tmp/atl_new_1315/atlas.4326.geojson"
   }
 }
