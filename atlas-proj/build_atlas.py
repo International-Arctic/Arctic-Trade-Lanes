@@ -265,6 +265,11 @@ LANE_WP_KEEP_KM = 15.0
 # the spur. Other ports are never substituted (that re-routes legs). River lanes untouched.
 # Display-only; CSV untouched. Disable with ATL_LANE_WP_PORT_SNAP=0.
 LANE_WP_PORT_SNAP_KM = 12.0
+# 2026-10-28 gis-loop-1028-1019: ARC-PORT-024 moved to the end of West Dock (NOAA 9497645,
+# 70.41139/-148.53166), ~19 km from the on-land 'Prudhoe Bay' town token of ARC-LANE-016/017, so
+# the 12 km radius no longer caught it and the lanes grew an inland spur. Per-lane radius override
+# (own start/end port only, same rule as above). Display-only; CSV untouched.
+LANE_WP_PORT_SNAP_KM_LANE = {"ARC-LANE-016": 25.0, "ARC-LANE-017": 25.0}
 LANE_WP_WATER_MAX_KM = 350.0
 
 # --- 2026-10-27 gis-loop-1027-1421: per-lane fjord approach (water) -----------------------
@@ -827,7 +832,7 @@ def build_atlas(dataset_dir, out_dir):
                     _dk = _haversine_km(_lo, _la, _plo, _pla)
                     if _best is None or _dk < _best[0]:
                         _best = (_dk, _plo, _pla, _pid, _pn)
-                if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM:
+                if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM_LANE.get(lane.get("lane_id"), LANE_WP_PORT_SNAP_KM):
                     wp_pts[_i] = (_best[1], _best[2])
                     _wp_snaps.append(f"port {_wp_toks[_i]}->{_best[3]} {_la:.4f},{_lo:.4f}->{_best[2]:.6f},{_best[1]:.6f} ({_best[0]:.1f} km)")
 
