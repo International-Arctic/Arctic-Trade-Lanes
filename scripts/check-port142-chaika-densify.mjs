@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** gis-densify-1621: ARC-PORT-142 Chaika Coal Terminal */
 import { readFileSync } from 'node:fs';
-const csv = readFileSync(new URL('./ports.csv', import.meta.url), 'utf8');
+const csv = readFileSync(new URL('../dataset/ports.csv', import.meta.url), 'utf8');
 const row = csv.split(/\r?\n/).find((l) => l.startsWith('ARC-PORT-142,'));
 if (!row) throw new Error('ARC-PORT-142 missing');
 const parts = [];

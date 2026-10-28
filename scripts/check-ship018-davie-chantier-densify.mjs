@@ -3,7 +3,7 @@
 import { readFileSync } from 'fs';
 import { parse } from 'csv-parse/sync';
 
-const csv = readFileSync(new URL('./shipbuilding_facilities.csv', import.meta.url), 'utf8');
+const csv = readFileSync(new URL('../dataset/shipbuilding_facilities.csv', import.meta.url), 'utf8');
 const rows = parse(csv, { columns: true, skip_empty_lines: true });
 const row = rows.find((r) => r.shipyard_id === 'ARC-SHIP-018');
 if (!row) {
