@@ -178,7 +178,7 @@ const CSS = `#atl-x{--x-bg:#0b1220;--x-card:#111a2b;--x-line:#1f2d44;--x-ink:#e5
 #atl-x .atlx-ad:not([data-atl-rendered]),#atl-x .atlx-net:empty{height:0;min-height:0;margin:0;padding:0;border:0;overflow:hidden}
 #atl-x .atlx-ad:not([data-atl-rendered]) .atl-ad-label{display:none}
 #atl-x .x-small{font-size:12px;color:var(--x-mute);margin:8px 0 0}
-@media (max-width:640px){#atl-x section{padding-top:34px}#atl-x .x-ev li{grid-template-columns:1fr;gap:4px}}#atl-x a:focus-visible,#atl-x button:focus-visible{outline:2px solid var(--x-acc);outline-offset:2px}#atl-x .x-cta a,#atl-x .x-nav a{min-height:44px;display:inline-flex;align-items:center}#atl-x .x-nav{scroll-margin-top:0}@media print{#atl-x .x-nav,#atl-x .x-pay,.x-adwrap{display:none!important}#atl-x{padding-bottom:0}}#atl-x .x-pc-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:4px}#atl-x .x-polar-pin{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#164e63,#0b1220 70%);border:2px solid var(--x-acc);color:#e0f7fb;font-weight:800;font-size:13px;letter-spacing:.02em}#atl-x .x-pc-head h3{margin:0}#atl-x .x-tier{margin:6px 0 0}#atl-x .x-pin-hnwi{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#3b2a07;color:#fcd34d;border:1px solid #6b4e0f}#atl-x .x-coords{margin:4px 0 0}#atl-x .x-coord{font-size:11px;color:var(--x-mute);letter-spacing:.04em}#atl-x .x-aff{font-size:13px;color:var(--x-ink);margin:4px 0 0}`;
+@media (max-width:640px){#atl-x section{padding-top:34px}#atl-x .x-ev li{grid-template-columns:1fr;gap:4px}}#atl-x a:focus-visible,#atl-x button:focus-visible{outline:2px solid var(--x-acc);outline-offset:2px}#atl-x .x-cta a,#atl-x .x-nav a{min-height:44px;display:inline-flex;align-items:center}#atl-x .x-nav{scroll-margin-top:0}@media print{#atl-x .x-nav,#atl-x .x-pay,.x-adwrap{display:none!important}#atl-x{padding-bottom:0}}#atl-x .x-pc-head{display:flex;gap:10px;align-items:flex-start;margin-bottom:4px}#atl-x .x-polar-pin{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 30%,#164e63,#0b1220 70%);border:2px solid var(--x-acc);color:#e0f7fb;font-weight:800;font-size:13px;letter-spacing:.02em}#atl-x .x-pc-head h3{margin:0}#atl-x .x-tier{margin:6px 0 0}#atl-x .x-pin-hnwi{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#3b2a07;color:#fcd34d;border:1px solid #6b4e0f}#atl-x .x-pin-inst{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#0f2236;color:#7dd3fc;border:1px solid #1f4d6b}#atl-x .x-coords a{font-size:11px;letter-spacing:.04em}#atl-x .x-polar-pin{cursor:pointer;transition:transform .15s ease}#atl-x .x-polar-pin:hover{transform:scale(1.12)}#atl-x .x-card{transition:border-color .15s ease}#atl-x .x-card:hover{border-color:#2a4a6b}#atl-x .x-rank-card h3{font-size:26px}#atl-x .x-pay-cta{min-height:44px}#atl-x .x-cta a{min-height:44px}#atl-x .x-coords{margin:4px 0 0}#atl-x .x-coord{font-size:11px;color:var(--x-mute);letter-spacing:.04em}#atl-x .x-aff{font-size:13px;color:var(--x-ink);margin:4px 0 0}`;
 
 function t(lang: string): Dict { return { ...I18N.en, ...(I18N[lang] || {}) }; }
 
@@ -212,7 +212,7 @@ export function homeExtrasHtml(lang: string, now = Date.now()): string {
   const rtl = L === "ar";
   const msgAttrs = `data-ok="${esc(s.msg_ok)}" data-err="${esc(s.msg_err)}" data-rate="${esc(s.msg_rate)}"`;
 
-  const nav = [["atlx-star", s.nav_star], ["atlx-routes", s.nav_routes], ["atlx-corridor", s.nav_corridor], ["atlx-audiences", s.nav_audiences], ["atlx-vessels", s.nav_vessels], ["atlx-atlas", s.nav_atlas], ["atlx-funding", s.nav_funding], ["atlx-token", s.nav_token], ["atlx-events", s.nav_events], ["atlx-people", s.nav_people], ["atlx-contribute", s.nav_contrib], ["atlx-support", s.nav_support]]
+  const nav = [["atlx-star", s.nav_star], ["atlx-routes", s.nav_routes], ["atlx-corridor", s.nav_corridor], ["atlx-audiences", s.nav_audiences], ["atlx-vessels", s.nav_vessels], ["atlx-atlas", s.nav_atlas], ["atlx-funding", s.nav_funding], ["atlx-token", s.nav_token], ["atlx-events", s.nav_events], ["atlx-people", s.nav_people], ["atlx-contribute", s.nav_contrib], ["atlx-support", s.nav_support], ["atlx-diligence", s.nav_diligence || "Diligence"], ["atlx-population", s.pop_h ? "Population" : s.nav_audiences]]
     .map(([id, label]) => `<li><a href="#${id}">${esc(label)}</a></li>`).join("");
 
   const facts = DATA.fact_indexes.map((k) => `<a href="${p}/${k}">${esc(s[`fx_${k}`] || k)}</a>`).join("");
@@ -320,6 +320,31 @@ ${rankTable(L)}
 </div></section>`;
 
 
+
+  const diligence = `<section id="atlx-diligence" aria-labelledby="atlx-diligence-h"><div class="x-wrap">
+<p class="x-kick">${esc(s.nav_diligence || "Diligence")}</p><h2 id="atlx-diligence-h">${esc(s.dil_h)}</h2><p class="x-lede">${esc(s.dil_lede)}</p>
+<div class="x-grid">
+<div class="x-card"><h3>${esc(s.dil_c1_h)}</h3><p>${esc(s.dil_c1_p)}</p></div>
+<div class="x-card"><h3>${esc(s.dil_c2_h)}</h3><p>${esc(s.dil_c2_p)}</p></div>
+<div class="x-card"><h3>${esc(s.dil_c3_h)}</h3><p>${esc(s.dil_c3_p)}</p></div>
+<div class="x-card"><h3>${esc(s.dil_c4_h)}</h3><p>${esc(s.dil_c4_p)}</p></div>
+</div>
+<div class="x-cta" style="margin-top:14px"><a href="${p}/arctic-economic-atlas">${esc(s.dil_cta1)} →</a><a href="${p}/pricing">${esc(s.dil_cta2)} →</a><a href="${p}/collaborate">${esc(s.dil_cta3)} →</a></div>
+<p class="x-small">${esc(s.dil_src)}</p>
+</div></section>`;
+
+  const population = `<section id="atlx-population" aria-labelledby="atlx-population-h"><div class="x-wrap">
+<p class="x-kick">${esc(s.nav_audiences)}</p><h2 id="atlx-population-h">${esc(s.pop_h)}</h2><p class="x-lede">${esc(s.pop_lede)}</p>
+<div class="x-grid">
+<div class="x-card"><h3>${esc(s.pop_c1_h)}</h3><p>${esc(s.pop_c1_p)}</p></div>
+<div class="x-card"><h3>${esc(s.pop_c2_h)}</h3><p>${esc(s.pop_c2_p)}</p></div>
+<div class="x-card"><h3>${esc(s.pop_c3_h)}</h3><p>${esc(s.pop_c3_p)}</p></div>
+<div class="x-card"><h3>${esc(s.pop_c4_h)}</h3><p>${esc(s.pop_c4_p)}</p></div>
+</div>
+<div class="x-cta" style="margin-top:14px"><a href="${p}/companies">${esc(s.pop_cta1)} →</a><a href="${p}/funding">${esc(s.pop_cta2)} →</a><a href="#atlx-yacht">${esc(s.pop_cta3)} →</a><a href="#atlx-people">${esc(s.pop_cta4)} →</a></div>
+<p class="x-small">${esc(s.pop_src)}</p>
+</div></section>`;
+
   const evRow = (e: EventRow) => {
     const d = `<time datetime="${e.start}">${esc(fmtDate(e.start, L))}${e.end ? ` – ${esc(fmtDate(e.end, L))}` : ""}</time>`;
     const href = e.href.startsWith("http") ? e.href : `${p}${e.href}`;
@@ -340,7 +365,7 @@ ${past.length ? `<h3 class="x-sub">${esc(s.ev_past)}</h3><ul class="x-ev">${past
   // Neutral people section: name, public role, Arctic relevance, radar + ATL profile links. No CTA/ads/token here.
   const people = `<section id="atlx-people" class="x-ppl" aria-labelledby="atlx-people-h"><div class="x-wrap">
 <h2 id="atlx-people-h">${esc(s.ppl_h)}</h2><p class="x-lede">${esc(s.ppl_lede)}</p><p class="x-small">Map pins now use polar-ring initials, with a named source on every tier tag. No portrait imagery, no net-worth figures, no invented wealth.</p>
-<div class="x-grid">${DATA.people.map((x) => { const badge = x.tier === "UHNWI" ? `<span class="x-pin-hnwi">${esc(s.ppl_pin_hnwi)}</span>` : x.tier === "HNWI" ? `<span class="x-pin-hnwi">${esc(s.ppl_pin_uh)}</span>` : ""; const coord = x.coords ? `<span class="x-coord">${x.coords[0].toFixed(4)}° / ${x.coords[1].toFixed(4)}°</span>` : ""; const aff = x.affiliation ? `<p class="x-aff">${esc(tri(x.affiliation, L))}</p>` : ""; const src = x.source_url ? `<a href="${esc(x.source_url)}" rel="noopener" target="_blank">${esc(s.ppl_src)}</a>` : ""; return `<div class="x-card"><div class="x-pc-head">${polarPin(tri(x.name, L))}<div><h3><a href="${p}/people/${x.slug}">${esc(tri(x.name, L))}</a></h3><p class="x-role">${esc(tri(x.role, L))}</p></div></div>${badge ? `<p class="x-tier">${badge}</p>` : ""}${coord ? `<p class="x-coords">${coord}</p>` : ""}${aff}<p>${esc(tri(x.rel, L))}</p><p class="x-small">${src ? `${src} · ` : ""}<a href="${umRadarUrl(x.slug, L)}" rel="noopener" target="_blank">${esc(s.ppl_radar)} ↗</a></p></div>`; }).join("")}</div>
+<div class="x-grid">${DATA.people.map((x) => { const badge = x.tier === "UHNWI" ? `<span class="x-pin-hnwi">${esc(s.pin_uh || s.ppl_pin_hnwi)}</span>` : x.tier === "HNWI" ? `<span class="x-pin-hnwi">${esc(s.pin_hnwi || s.ppl_pin_uh)}</span>` : x.tier === "institution" ? `<span class="x-pin-inst">${esc(s.pin_inst)}</span>` : ""; const coord = x.coords ? `<span class="x-coord">${x.coords[0].toFixed(4)}° / ${x.coords[1].toFixed(4)}°</span>` : ""; const aff = x.affiliation ? `<p class="x-aff">${esc(tri(x.affiliation, L))}</p>` : ""; const src = x.source_url ? `<a href="${esc(x.source_url)}" rel="noopener" target="_blank">${esc(s.ppl_src)}</a>` : ""; const mapHref = x.coords ? `href="/#atlx-people" data-atlx-pin="${esc(x.slug)}"` : ""; return `<div class="x-card"><div class="x-pc-head">${polarPin(tri(x.name, L))}<div><h3><a href="${p}/people/${x.slug}">${esc(tri(x.name, L))}</a></h3><p class="x-role">${esc(tri(x.role, L))}</p></div></div>${badge ? `<p class="x-tier">${badge}</p>` : ""}${coord ? `<p class="x-coords"><a ${mapHref} title="${esc(s.pin_open || "Open on the polar map")}">◎ ${coord}</a></p>` : ""}${aff}<p>${esc(tri(x.rel, L))}</p><p class="x-small">${src ? `${esc(s.pin_verify || "Verified source")}: ${src} · ` : ""}<a href="${umRadarUrl(x.slug, L)}" rel="noopener" target="_blank">${esc(s.ppl_radar)} ↗</a></p></div>`; }).join("")}</div>
 <p class="x-small"><a href="${p}/people">${esc(s.pp_back)} →</a></p>
 </div></section>`;
   const contribute = `<section id="atlx-contribute" aria-labelledby="atlx-contribute-h"><div class="x-wrap">
@@ -392,6 +417,8 @@ ${yacht}
 ${vessels}
 ${atlasSec}
 ${fundingSec}
+${diligence}
+${population}
 <div class="x-wrap">${adSlot("atl-ad-home-inc-3")}</div>
 ${token}
 ${events}
