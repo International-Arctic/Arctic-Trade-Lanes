@@ -37,6 +37,7 @@ const NAMES: Record<string, string> = {
   'colombia': 'CO', 'peru': 'PE', 'portugal': 'PT', 'monaco': 'MC', 'kazakhstan': 'KZ', 'italy': 'IT',
   'norway': 'NO', 'iceland': 'IS', 'greenland': 'GL', 'austria': 'AT', 'belgium': 'BE', 'qatar': 'QA',
   'mexico': 'MX', 'nigeria': 'NG', 'south africa': 'ZA', 'new zealand': 'NZ', 'luxembourg': 'LU',
+  'bermuda': 'BM', // 0.1.9: British Overseas Territory, own ISO 3166-1 code
 };
 
 // Unambiguous US state / DC postal codes, used ONLY as the tail of "City, ST" (never as a bare
@@ -56,6 +57,8 @@ const CITIES: Record<string, string> = {
   'london': 'GB', 'geneva': 'CH', 'zurich': 'CH', 'mumbai': 'IN', 'delhi': 'IN', 'new delhi': 'IN', 'tel aviv': 'IL',
   'kyiv': 'UA', 'taipei': 'TW', 'riga': 'LV', 'frankfurt': 'DE', 'tokyo': 'JP', 'berlin': 'DE', 'moscow': 'RU',
   'murmansk': 'RU', 'tromsø': 'NO', 'tromso': 'NO', 'reykjavik': 'IS', 'nuuk': 'GL', 'anchorage': 'US',
+  // 0.1.9: tails seen unresolved on live /api/radar/geojson.json 2026-10-20 (event pins)
+  'gstaad': 'CH', 'lugano': 'CH', 'jaipur': 'IN',
 };
 
 function clean(s: string): string {

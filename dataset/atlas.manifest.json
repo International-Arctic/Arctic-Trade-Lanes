@@ -1,6 +1,6 @@
 {
   "atlas": "ArcticTradeLanes GIS OSINT Atlas",
-  "generated": "2026-10-20T09:56:20.043586+00:00",
+  "generated": "2026-10-28T08:56:40.603550+00:00",
   "crs_primary": 3996,
   "crs_supported": [
     3996,
@@ -169,8 +169,8 @@
     },
     "ARC-LANE-007": {
       "legs_routed": 4,
-      "land_km_before": 1527,
-      "land_km_after": 121
+      "land_km_before": 1533,
+      "land_km_after": 117
     },
     "ARC-LANE-008": {
       "legs_routed": 4,
@@ -188,9 +188,9 @@
       "land_km_after": 127
     },
     "ARC-LANE-011": {
-      "legs_routed": 6,
-      "land_km_before": 1827,
-      "land_km_after": 215
+      "legs_routed": 10,
+      "land_km_before": 1822,
+      "land_km_after": 211
     },
     "ARC-LANE-012": {
       "legs_routed": 3,
@@ -204,12 +204,12 @@
     },
     "ARC-LANE-016": {
       "legs_routed": 5,
-      "land_km_before": 704,
-      "land_km_after": 91
+      "land_km_before": 670,
+      "land_km_after": 81
     },
     "ARC-LANE-017": {
       "legs_routed": 4,
-      "land_km_before": 871,
+      "land_km_before": 867,
       "land_km_after": 96
     },
     "ARC-LANE-018": {
@@ -229,13 +229,13 @@
     },
     "ARC-LANE-021": {
       "legs_routed": 6,
-      "land_km_before": 1474,
-      "land_km_after": 223
+      "land_km_before": 1479,
+      "land_km_after": 218
     },
     "ARC-LANE-022": {
       "legs_routed": 5,
-      "land_km_before": 1338,
-      "land_km_after": 142
+      "land_km_before": 1343,
+      "land_km_after": 141
     },
     "ARC-LANE-023": {
       "legs_routed": 3,
@@ -244,8 +244,8 @@
     },
     "ARC-LANE-024": {
       "legs_routed": 5,
-      "land_km_before": 312,
-      "land_km_after": 133
+      "land_km_before": 323,
+      "land_km_after": 132
     },
     "ARC-LANE-025": {
       "legs_routed": 2,
@@ -254,7 +254,7 @@
     },
     "ARC-LANE-026": {
       "legs_routed": 4,
-      "land_km_before": 1215,
+      "land_km_before": 1220,
       "land_km_after": 178
     },
     "ARC-LANE-027": {
@@ -299,8 +299,8 @@
     "band_area_distortion_max_pct": 1.89
   },
   "files": {
-    "epsg3996": "/tmp/atl_new_1247/atlas.3996.geojson",
-    "wgs84": "/tmp/atl_new_1247/atlas.wgs84.geojson",
-    "epsg4326": "/tmp/atl_new_1247/atlas.4326.geojson"
+    "epsg3996": "/tmp/atl_new_1151/atlas.3996.geojson",
+    "wgs84": "/tmp/atl_new_1151/atlas.wgs84.geojson",
+    "epsg4326": "/tmp/atl_new_1151/atlas.4326.geojson"
   }
 }

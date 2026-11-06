@@ -265,7 +265,34 @@ LANE_WP_KEEP_KM = 15.0
 # the spur. Other ports are never substituted (that re-routes legs). River lanes untouched.
 # Display-only; CSV untouched. Disable with ATL_LANE_WP_PORT_SNAP=0.
 LANE_WP_PORT_SNAP_KM = 12.0
+# 2026-10-28 gis-loop-1028-1019: ARC-PORT-024 moved to the end of West Dock (NOAA 9497645,
+# 70.41139/-148.53166), ~19 km from the on-land 'Prudhoe Bay' town token of ARC-LANE-016/017, so
+# the 12 km radius no longer caught it and the lanes grew an inland spur. Per-lane radius override
+# (own start/end port only, same rule as above). Display-only; CSV untouched.
+LANE_WP_PORT_SNAP_KM_LANE = {"ARC-LANE-016": 25.0, "ARC-LANE-017": 25.0}
 LANE_WP_WATER_MAX_KM = 350.0
+
+# --- 2026-10-27 gis-loop-1027-1421: per-lane fjord approach (water) -----------------------
+# ARC-LANE-011 Churchill-Narvik ends at ARC-PORT-019 Fagerneskaia (moved 2026-10-27 13:15 MSK).
+# Its CSV token "Narvik" resolves to the town centre (68.4385/17.4273), which is on land, so the
+# lane ran Vestfjorden -> straight over land to the town -> back south to the quay. Here that
+# token is replaced (display-only, lanes.csv untouched) with an on-water approach: the OSM
+# Ofotfjorden centre line (natural=bay way/555928225, ODbL; 4 of its vertices) from the fjord mouth
+# at Baroy to off Ankenes, then one harbour-basin vertex (68.426/17.405, ~320 m clear of the OSM coastline) and
+# the quay. Disable with ATL_LANE_APPROACH=0.
+LANE_APPROACH_OVERRIDES = {
+    "ARC-LANE-011": {
+        "token": "Narvik",
+        "label": "Ofotfjorden (OSM way/555928225) + Narvik harbour basin",
+        # Vertices 0/8/13/16 of the OSM centre line + basin. Every chord was checked against OSM
+        # natural=coastline (2026-10-27): 0 crossings, min clearance 320-2,543 m; the final
+        # basin->quay leg only meets the Fagerneskaia quay edge.
+        "pts": [  # (lat, lon) in sailing order
+            (68.3724962, 16.0997769), (68.4297500, 16.5248100), (68.4221700, 16.9608300),
+            (68.4370700, 17.2451000), (68.4260000, 17.4050000),
+        ],
+    },
+}
 
 
 def _dest_pt(lat, lon, km, brg):
@@ -805,9 +832,18 @@ def build_atlas(dataset_dir, out_dir):
                     _dk = _haversine_km(_lo, _la, _plo, _pla)
                     if _best is None or _dk < _best[0]:
                         _best = (_dk, _plo, _pla, _pid, _pn)
-                if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM:
+                if _best and 0.05 < _best[0] <= LANE_WP_PORT_SNAP_KM_LANE.get(lane.get("lane_id"), LANE_WP_PORT_SNAP_KM):
                     wp_pts[_i] = (_best[1], _best[2])
                     _wp_snaps.append(f"port {_wp_toks[_i]}->{_best[3]} {_la:.4f},{_lo:.4f}->{_best[2]:.6f},{_best[1]:.6f} ({_best[0]:.1f} km)")
+
+        # 2026-10-27 gis-loop-1027-1421: per-lane on-water fjord approach (see LANE_APPROACH_OVERRIDES)
+        _appr = LANE_APPROACH_OVERRIDES.get(lane.get("lane_id")) if os.environ.get("ATL_LANE_APPROACH", "1") != "0" else None
+        if _appr and wp_pts:
+            _atoks = [w for w in _split_waypoints(lane.get("waypoints", "")) if anchor(w)]
+            if len(_atoks) == len(wp_pts) and _appr["token"] in _atoks:
+                _ai = len(_atoks) - 1 - _atoks[::-1].index(_appr["token"])
+                wp_pts[_ai:_ai + 1] = [(_lo, _la) for _la, _lo in _appr["pts"]]
+                _wp_snaps.append(f"approach {_appr['token']}->{_appr['label']} ({len(_appr['pts'])} vertices)")
 
         def _near_ref(lon, lat, ref):
             if ref is None:
@@ -1103,6 +1139,26 @@ def build_atlas(dataset_dir, out_dir):
             "ARC-PORT-068": {
                 "position_quality": "facility_site",
                 "position_note": "Whittier DeLong Dock (UN/LOCODE USWIT; USACE Navigation Data Center NAV_UNIT_ID 0UWL Whittier DeLong Pier, Alaska Railroad Corp. and City of Whittier; depth 45 ft MLLW): official USACE Navigation Facilities dock point 60.778333/-148.66722 (services7.arcgis.com/n1YM8pTrFmm7L4hs Docks FeatureServer layer 0); soft 60.7785/-148.6680 was a 4-decimal east-waterfront estimate (~46 m WNW); registry dock point, not a surveyed berth line; facility_site",
+            },
+            "ARC-PORT-082": {
+                "position_quality": "facility_site",
+                "position_note": "Whittier ARRC Tunnel Double-Stack Upgrade (UN/LOCODE USWIT; Alaska Railroad Corporation PIDP FY2026 tunnel clearance project): Whittier portal of the Anton Anderson Memorial Tunnel, OpenStreetMap rail tunnel way/51231246 (Whittier Branch, tunnel:wikidata Q2728238) east end node/653863539 60.7772824/-148.7330898; soft 60.7768/-148.7210 was a 4-decimal tunnel-approach estimate in the Whittier staging area (~660 m E); tunnel portal of the funded rail facility, not a quay; port-side rail barge slip = USACE NDC 0UWM ARRC Whittier Slip No 2; facility_site",
+            },
+            "ARC-PORT-102": {
+                "position_quality": "settlement_site",
+                "position_note": "Qikiqtarjuaq Deep Sea Port (planned; NIRB approval Oct 2025, phase 1 target 2028): official worksite of the proposed commercial wharf in Broughton Channel from the Canadian Navigable Waters Act public notice (Transport Canada NPP Common Project Registry 13953, file 2025-616110) 67 31 41.59 N 64 1 52.5 W = 67.5282194/-64.0312500; soft 67.5581/-64.0247 was a 4-decimal hamlet-area estimate on land (~3.3 km NNE); planned project worksite, no built facility yet - settlement_site not a surveyed berth",
+            },
+            "ARC-PORT-090": {
+                "position_quality": "settlement_site",
+                "position_note": "Port of Dysnes - The Arctic Hub (planned greenfield harbour, Hafnasamlag Nordurlands): planned quay face (seaward edge of the 40 m H-H harbour apron, quay up to 600 m, depth up to 12 m) from the approved Horgarsveit detailed plan for the Dysnes harbour/industrial area (17.03.2016, B-deild 6 May 2016), read off the ISN93 grid E 537243 N 591659 = 65.8199545/-18.1854773; soft 65.8292/-18.1879 was a 4-decimal estimate ~1 km N of the plan area; planned project, nothing built - settlement_site not a surveyed berth",
+            },
+            "ARC-PORT-049": {
+                "position_quality": "facility_site",
+                "position_note": "Franz Josef Land Ports (multi-site record; primary harbour = Nagurskoye, Alexandra Land): pier head of the OSM harbour on Severnaya Bay, Dezhnev Gulf (harbour=yes industrial=port way/1426874460, man_made=pier way/1272488920, ferry_terminal node/13116640439), shore of the official remote section of the seaport Arkhangelsk (RF Government order 22.01.2015 No 68-r; Mintrans order No 183 as amended by No 212 of 07.07.2015) = 80.7730915/47.6884475; soft 80.7975/47.5568 was the Nagurskoye village point ~3.6 km inland; pier head, not a surveyed berth - facility_site",
+            },
+            "ARC-PORT-073": {
+                "position_quality": "settlement_site",
+                "position_note": "Arkhangelsk Deep-Water Port (planned deep-water district of the seaport Arkhangelsk): official site per RF Government order 22.09.2023 No 2555-r item I.1 = Dvinskoy Bay, area of the Kuysky lighthouse, north of Mudyug island, 5 km from Kuya; pin = OSM lighthouse Kuysky node/9871430206 = 65.1040756/40.0532456 as project-area anchor (~49 km NNW of soft 64.7083/40.5135 = Ekonomiya, Arkhangelsk); no terminal coordinates published yet - settlement_site",
             },
             "ARC-PORT-139": {
                 "position_quality": "facility_site",
