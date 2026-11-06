@@ -14,7 +14,8 @@ type Dict = Record<string, string>;
 type Tri = { en: string; ru?: string; zh?: string };
 interface EventRow { start: string; end?: string; kind: "deadline" | "conference"; name: string; place: string; venue?: string; href: string }
 interface Person { slug: string; panel: boolean; name: Tri; role: Tri; rel: Tri; related: [string, string | null][]; coords?: [number, number]; affiliation?: Tri; public_source?: string; source_url?: string; tier?: "HNWI" | "UHNWI" | "institution" }
-interface Data { um_banner: { href: string; copy: string }; fact_indexes: string[]; events: EventRow[]; people: Person[] }
+interface Route { title: string; desc: string; href: string }
+interface Data { um_banner: { href: string; copy: string }; fact_indexes: string[]; events: EventRow[]; people: Person[]; routes?: Route[] }
 
 const I18N: Record<string, Dict> = JSON.parse(readFileSync(new URL("./home-extras.i18n.json", import.meta.url), "utf8"));
 const DATA: Data = JSON.parse(readFileSync(new URL("./home-extras.data.json", import.meta.url), "utf8"));
@@ -67,6 +68,20 @@ function atlasCounts(): Record<string, number> {
     _atlasCountsCache = { ports: lc.ports, lanes: lc.lanes, programs: lc.programs, shipyards: lc.shipyards, industry: lc.industry, cities: lc.cities, icebreakers: lc.icebreakers, tankers: lc.tankers };
   } catch { _atlasCountsCache = { ports: 155, lanes: 27, programs: 713, shipyards: 69, industry: 109, cities: 103, icebreakers: 55, tankers: 51 }; }
   return _atlasCountsCache;
+}
+function rankRows(lang: string): [string, string][] {
+  const d = t(lang);
+  return [
+    [d.rank_ports, "ports"], [d.rank_lanes, "lanes"], [d.rank_progs, "programs"],
+    [d.rank_ships, "shipyards"], [d.rank_ind, "industry"], [d.rank_cities, "cities"],
+    [d.rank_ice, "icebreakers"], [d.rank_tank, "tankers"], [d.rank_air, "airports"],
+    [d.rank_rail, "rail"], [d.rank_rescue, "rescue"],
+  ];
+}
+function rankTable(lang: string): string {
+  const c = atlasCounts();
+  return `<div class="x-grid x-rank">` + rankRows(lang).map(([label, key]) =>
+    `<div class="x-card x-rank-card"><h3>${typeof c[key as keyof typeof c] === "number" ? c[key as keyof typeof c] : "—"}</h3><p>${esc(label)}</p></div>`).join("") + `</div>`;
 }
 function fmtDate(iso: string, lang: string): string {
   try {
@@ -197,7 +212,7 @@ export function homeExtrasHtml(lang: string, now = Date.now()): string {
   const rtl = L === "ar";
   const msgAttrs = `data-ok="${esc(s.msg_ok)}" data-err="${esc(s.msg_err)}" data-rate="${esc(s.msg_rate)}"`;
 
-  const nav = [["atlx-star", s.nav_star], ["atlx-corridor", s.nav_corridor], ["atlx-audiences", s.nav_audiences], ["atlx-vessels", s.nav_vessels], ["atlx-atlas", s.nav_atlas], ["atlx-funding", s.nav_funding], ["atlx-token", s.nav_token], ["atlx-events", s.nav_events], ["atlx-people", s.nav_people], ["atlx-contribute", s.nav_contrib], ["atlx-support", s.nav_support]]
+  const nav = [["atlx-star", s.nav_star], ["atlx-routes", s.nav_routes], ["atlx-corridor", s.nav_corridor], ["atlx-audiences", s.nav_audiences], ["atlx-vessels", s.nav_vessels], ["atlx-atlas", s.nav_atlas], ["atlx-funding", s.nav_funding], ["atlx-token", s.nav_token], ["atlx-events", s.nav_events], ["atlx-people", s.nav_people], ["atlx-contribute", s.nav_contrib], ["atlx-support", s.nav_support]]
     .map(([id, label]) => `<li><a href="#${id}">${esc(label)}</a></li>`).join("");
 
   const facts = DATA.fact_indexes.map((k) => `<a href="${p}/${k}">${esc(s[`fx_${k}`] || k)}</a>`).join("");
@@ -248,6 +263,31 @@ export function homeExtrasHtml(lang: string, now = Date.now()): string {
 <div class="x-card"><h3>${esc(s.aud_g_h)}</h3><p>${esc(s.aud_g_p)}</p><p class="x-small"><a href="${p}/funding">${esc(s.aud_cta_funding)} →</a></p></div>
 <div class="x-card"><h3>${esc(s.aud_hnwi_h)}</h3><p>${esc(s.aud_hnwi_p)}</p><p class="x-small"><a href="${p}/people">${esc(s.aud_cta_people)} →</a> · <a href="${p}/collaborate">${esc(s.aud_cta_collab)} →</a></p></div>
 </div></div></section>`;
+
+  const routes = `<section id="atlx-routes" aria-labelledby="atlx-routes-h"><div class="x-wrap">
+<p class="x-kick">${esc(s.nav_routes)}</p><h2 id="atlx-routes-h">${esc(s.routes_h)}</h2><p class="x-lede">${esc(s.routes_lede)}</p>
+<div class="x-grid">${[1,2,3,4,5,6].map((i) => `<div class="x-card"><h3>${esc(s[`route${i}_h`])}</h3><p>${esc(s[`route${i}_p`])}</p></div>`).join("")}</div>
+<div class="x-cta" style="margin-top:12px"><a href="${p}/arctic-economic-atlas">${esc(s.routes_cta)} →</a><a href="${p}/companies">${esc(s.routes_cta)} →</a><a href="${p}/programs">${esc(s.routes_cta)} →</a></div>
+<p class="x-small">${esc(s.routes_total)}</p>
+</div></section>`;
+
+  const rank = `<section id="atlx-rank" aria-labelledby="atlx-rank-h"><div class="x-wrap">
+<p class="x-kick">${esc(s.nav_atlas)}</p><h2 id="atlx-rank-h">${esc(s.rank_h)}</h2><p class="x-lede">${esc(s.rank_lede)}</p>
+${rankTable(L)}
+<div class="x-cta" style="margin-top:12px"><a href="/atlas/atlas.geojson">${esc(s.rank_cta)} →</a><a href="/atlas/atlas.manifest.json">${esc(s.rank_cta2)} →</a></div>
+<p class="x-small">${esc(s.rank_note)}</p>
+</div></section>`;
+
+  const yacht = `<section id="atlx-yacht" aria-labelledby="atlx-yacht-h"><div class="x-wrap">
+<p class="x-kick">Polar yacht dossier</p><h2 id="atlx-yacht-h">${esc(s.yacht_h)}</h2><p class="x-lede">${esc(s.yacht_lede)}</p>
+<div class="x-grid">
+<div class="x-card"><h3>${esc(s.yacht_y1_h)}</h3><p>${esc(s.yacht_y1_p)}</p></div>
+<div class="x-card"><h3>${esc(s.yacht_y2_h)}</h3><p>${esc(s.yacht_y2_p)}</p></div>
+<div class="x-card"><h3>${esc(s.yacht_y3_h)}</h3><p>${esc(s.yacht_y3_p)}</p></div>
+</div>
+<p class="x-small">${esc(s.yacht_src)}</p>
+<div class="x-disc" role="note">${esc(s.yacht_disclaimer)}</div>
+</div></section>`;
 
   const vessels = `<section id="atlx-vessels" aria-labelledby="atlx-vessels-h"><div class="x-wrap">
 <p class="x-kick">${esc(s.nav_vessels)}</p><h2 id="atlx-vessels-h">${esc(s.ves_h)}</h2><p class="x-lede">${esc(s.ves_lede)}</p>
@@ -344,8 +384,11 @@ ${past.length ? `<h3 class="x-sub">${esc(s.ev_past)}</h3><ul class="x-ev">${past
 <nav class="x-nav" aria-label="${esc(s.nav_label)}"><ul>${nav}</ul></nav>
 ${payBand(L)}
 ${star}
+${routes}
 ${corridor}
 ${audiences}
+${rank}
+${yacht}
 ${vessels}
 ${atlasSec}
 ${fundingSec}
