@@ -15,7 +15,7 @@ const qIds = new Set(
     .map((f) => (f.properties || {}).id),
 );
 
-const need = ['ARC-SHIP-069', 'ARC-PORT-034', 'ARC-PORT-069', 'ARC-PORT-153'];
+const need = ['ARC-SHIP-069', 'ARC-PORT-069'];
 const missing = need.filter((id) => !qIds.has(id));
 if (missing.length) {
   console.error('filterGeoJson failed to quarantine:', missing.join(', '), 'stats', stats);

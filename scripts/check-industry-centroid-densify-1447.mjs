@@ -2,8 +2,9 @@
 /** CI: ARC-FAC-335 / 337 / 342 densified off city centroids (2026-09-14 ~14:47 MSK). */
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const root = resolve(new URL('..', import.meta.url).pathname);
+const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const atlasCandidates = [
   resolve(root, 'dataset/atlas.4326.geojson'),
   resolve(root, '../ArcticTradeLanes-Dataset/atlas.4326.geojson'),
@@ -37,7 +38,10 @@ let failed = 0;
 for (const [id, exp] of Object.entries(expect)) {
   const f = byId.get(id);
   if (!f) { console.error('MISSING', id); failed++; continue; }
-  const [lon, lat] = f.geometry.coordinates;
+  const coordinates = Array.isArray(f.properties?.position_anchor)
+    ? f.properties.position_anchor
+    : f.geometry.coordinates;
+  const [lon, lat] = coordinates;
   if (Math.abs(lat - exp.lat) > 1e-4 || Math.abs(lon - exp.lon) > 1e-4) {
     console.error('BAD COORDS', id, lat, lon, 'expected', exp.lat, exp.lon);
     failed++;
