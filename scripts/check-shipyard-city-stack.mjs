@@ -19,7 +19,9 @@ const atlasPath = process.argv[2] || 'dataset/atlas.4326.geojson';
 const g = JSON.parse(readFileSync(atlasPath, 'utf8'));
 
 function coordKey(f, digits = 6) {
-  const c = f?.geometry?.coordinates;
+  const c = Array.isArray(f?.properties?.position_anchor)
+    ? f.properties.position_anchor
+    : f?.geometry?.coordinates;
   if (!Array.isArray(c) || c.length < 2) return null;
   const lon = Number(c[0]);
   const lat = Number(c[1]);

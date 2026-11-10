@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 const root = dirname(fileURLToPath(import.meta.url));
-const csv = readFileSync(join(root, 'shipbuilding_facilities.csv'), 'utf8');
+const csv = readFileSync(join(root, '..', 'dataset', 'shipbuilding_facilities.csv'), 'utf8');
 const row = csv.split(/\r?\n/).find((l) => l.startsWith('ARC-SHIP-071,'));
 if (!row) throw new Error('ARC-SHIP-071 missing');
 if (!row.includes('68.680715')) throw new Error('expected densified lat 68.680715*');

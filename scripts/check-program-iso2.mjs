@@ -7,7 +7,7 @@ import { readFileSync } from 'node:fs';
 
 const path = process.argv[2] || 'atlas.4326.geojson';
 const gj = JSON.parse(readFileSync(path, 'utf8'));
-const layers = new Set(['programs', 'industry', 'ports', 'cities', 'tankers', 'icebreakers', 'shipyards', 'airports', 'rescue', 'rail']);
+const layers = new Set(['programs', 'industry']);
 const miss = [];
 const counts = {};
 for (const f of gj.features || []) {

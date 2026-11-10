@@ -23,7 +23,10 @@ function pt(id) {
     errors.push(`missing point ${id}`);
     return null;
   }
-  const [lon, lat] = f.geometry.coordinates;
+  const coordinates = Array.isArray(f.properties?.position_anchor)
+    ? f.properties.position_anchor
+    : f.geometry.coordinates;
+  const [lon, lat] = coordinates;
   return { lon, lat, p: f.properties || {} };
 }
 const round4 = (n) => Math.round(n * 1e4) / 1e4;
